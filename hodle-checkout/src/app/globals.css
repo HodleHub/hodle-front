@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-\[800px\] {
+  perspective: 800px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Base body styles */
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container elements with white background need z-index to be above the dots */
+.bg-white {
+  position: relative;
+  z-index: 1;
+}
