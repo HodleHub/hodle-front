@@ -1,5 +1,5 @@
 import { ArrowLeft, Copy, Zap, Share, RotateCcw } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "../ui/Button";
 import QRCode from 'qrcode';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';

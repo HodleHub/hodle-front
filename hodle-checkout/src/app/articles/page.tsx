@@ -1,4 +1,4 @@
-import { getAllArticles } from '@/utils/mdx';
+import { getAllArticles } from '../../utils/mdx';
 import Image from 'next/image';
 import Link from 'next/link';
 

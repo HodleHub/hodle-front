@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, User, ChevronsDown } from 'lucide-react'
 import { useState } from 'react'
-import { Button } from '@/components/ui/Button'
+import { Button } from './ui/Button'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

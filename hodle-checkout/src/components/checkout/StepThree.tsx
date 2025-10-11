@@ -1,5 +1,5 @@
 import { ArrowLeft, CheckCircle, Copy, QrCode } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "../ui/Button";
 import Link from "next/link";
 
 interface StepThreeProps {

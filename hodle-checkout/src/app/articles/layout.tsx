@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Footer } from '@/components/ui/Footer'
+import { Footer } from '../../components/ui/Footer'
 
 export const metadata: Metadata = {
   title: 'Artigos | Hodle - Bitcoin Lightning',

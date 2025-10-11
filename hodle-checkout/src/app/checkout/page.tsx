@@ -3,16 +3,16 @@
 import { useState, useCallback, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 
-import { Footer } from "@/components/ui/Footer"
-import { StepIndicator } from "@/components/checkout/StepIndicator"
-import { StepOne } from "@/components/checkout/StepOne"
-import { StepTwo } from "@/components/checkout/StepTwo"
-import { StepThree } from "@/components/checkout/StepThree"
+import { Footer } from "../../components/ui/Footer"
+import { StepIndicator } from "../../components/checkout/StepIndicator"
+import { StepOne } from "../../components/checkout/StepOne"
+import { StepTwo } from "../../components/checkout/StepTwo"
+import { StepThree } from "../../components/checkout/StepThree"
 import Image from "next/image"
 
 import { toast } from "sonner"
-import Header from "@/components/Header"
-import { baseUrl } from "@/utils/baseUrl"
+import Header from "../../components/Header"
+import { baseUrl } from "../../utils/baseUrl"
 
 export default function CheckoutPage() {
   const searchParams = useSearchParams()
