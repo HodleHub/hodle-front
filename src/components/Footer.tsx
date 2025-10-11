@@ -2,11 +2,11 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="py-16 border-t border-gray-700">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="py-12 px-4 bg-gray-800 text-white text-center">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center justify-center gap-3 mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -26,10 +26,9 @@ export default function Footer() {
               <span className="text-xl font-bold">Hodle</span>
             </div>
             <p className="text-gray-300 mb-4">
-              Empresa especializada em desenvolvimento de soluções de software 
-              personalizadas para transformar e impulsionar o crescimento do seu negócio.
+              Global Stablecoin Management Platform - Securely hold, manage, and grow your digital assets.
             </p>
-            <div className="flex gap-4">
+            <div className="flex justify-center gap-4">
               <a href="#" className="text-gray-400 hover:text-orange-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,64 +78,49 @@ export default function Footer() {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </a>
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Soluções</h3>
+            <h3 className="text-lg font-semibold mb-4">Platform</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Desenvolvimento Web
+                  Wallet Management
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Aplicativos Mobile
+                  Trading & Swaps
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Sistemas Empresariais
+                  Yield Farming
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Inteligência Artificial
+                  Portfolio Analytics
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Consultoria Tecnológica
+                  API Access
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Empresa</h3>
+            <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Sobre nós
+                  About Us
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Carreiras
+                  Careers
                 </a>
               </li>
               <li>
@@ -146,32 +130,32 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Parceiros
+                  Partners
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Imprensa
+                  Press
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Suporte</h3>
+            <h3 className="text-lg font-semibold mb-4">Support</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Central de Ajuda
+                  Help Center
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Contato
+                  Contact
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Documentação
+                  Documentation
                 </a>
               </li>
               <li>
@@ -181,21 +165,22 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-orange-500">
-                  Comunidade
+                  Community
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="mt-16 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p> 2025 Hodle. Todos os direitos reservados.</p>
+        <div className="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+          <p>&copy; 2025 Hodle. All rights reserved.</p>
+          <p className="mt-2 md:mt-0 text-sm text-gray-400">Global Stablecoin Management Platform</p>
           <div className="mt-4 md:mt-0">
             <a href="#" className="hover:text-orange-500">
-              Termos de Serviço
+              Terms of Service
             </a>
             <span className="mx-2">|</span>
             <a href="#" className="hover:text-orange-500">
-              Política de Privacidade
+              Privacy Policy
             </a>
           </div>
         </div>

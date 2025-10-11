@@ -19,9 +19,9 @@ export default function Features() {
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
       ),
-      title: "Desenvolvimento Seguro",
+      title: "Enterprise-Grade Security",
       description:
-        "Aplicações desenvolvidas com foco em segurança, garantindo proteção de dados e conformidade com as melhores práticas do mercado.",
+        "SOC 2 compliant with multi-chain support for USDC, USDT, and more stablecoins.",
     },
     {
       icon: (
@@ -40,9 +40,9 @@ export default function Features() {
           <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </svg>
       ),
-      title: "Soluções Personalizadas",
+      title: "Seamless On/Off Ramps",
       description:
-        "Desenvolvimento sob medida para o seu negócio, atendendo às necessidades específicas e garantindo maior eficiência operacional.",
+        "Easily convert between fiat and stablecoins with low fees and instant processing.",
     },
     {
       icon: (
@@ -61,9 +61,9 @@ export default function Features() {
           <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
         </svg>
       ),
-      title: "Integração de Sistemas",
+      title: "Global Accessibility",
       description:
-        "Integramos suas aplicações existentes com novas soluções, criando ecossistemas digitais coesos e eficientes para seu negócio.",
+        "Operate in 50+ countries with transparent FX rates and unified dashboard.",
     },
     {
       icon: (
@@ -83,9 +83,9 @@ export default function Features() {
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
       ),
-      title: "Abrangência Global",
+      title: "Instant Settlements",
       description:
-        "Desenvolvimento de aplicações que funcionam em qualquer lugar, permitindo que seu negócio alcance mercados internacionais sem barreiras.",
+        "Achieve lightning-fast transactions across borders without hidden costs.",
     },
     {
       icon: (
@@ -106,9 +106,9 @@ export default function Features() {
           <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
-      title: "Consultoria Especializada",
+      title: "Multi-Chain Support",
       description:
-        "Equipe de especialistas prontos para orientar seu negócio nas melhores decisões tecnológicas, otimizando investimentos e resultados.",
+        "Access stablecoins across Ethereum, Polygon, Arbitrum, and other major networks.",
     },
     {
       icon: (
@@ -126,33 +126,33 @@ export default function Features() {
           <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
         </svg>
       ),
-      title: "Suporte Contínuo",
+      title: "24/7 Support",
       description:
-        "Oferecemos manutenção e suporte técnico de alta qualidade, garantindo que suas soluções estejam sempre atualizadas e funcionando perfeitamente.",
+        "Round-the-clock customer support and technical assistance for all your needs.",
     },
   ];
 
   return (
-    <section className="py-24 bg-gray-800" id="features">
-      <div className="container mx-auto px-4">
+    <section className="py-20 px-4" id="features">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Por que escolher Hodle?
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Why Choose Hodle?
           </h2>
-          <p className="text-gray-300 mt-4">
-            Descubra como nossas soluções de software podem transformar seu negócio, 
-            aumentando a eficiência e impulsionando o crescimento.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover how our stablecoin platform can transform your digital asset management, 
+            increasing efficiency and driving growth.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-gray-900 p-6 rounded-lg border border-gray-700"
+              className="flex flex-col items-center p-6 bg-white/80 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="text-orange-500 mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-300">{feature.description}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-2 text-center">{feature.title}</h3>
+              <p className="text-gray-600 text-center">{feature.description}</p>
             </div>
           ))}
         </div>

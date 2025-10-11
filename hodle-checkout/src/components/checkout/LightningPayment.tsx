@@ -54,7 +54,7 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Pagamento Lightning - CryptoUse',
+          title: 'Pagamento Lightning - Hodle',
           text: `Pagamento de R$${paymentData.fiat_value.toFixed(2)} via Lightning Network`,
           url: window.location.href,
         });

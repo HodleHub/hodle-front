@@ -105,7 +105,7 @@ export default function BitcoinLightningPayment() {
       answer: "Cole o código PIX que você recebeu e nós convertemos instantaneamente para Lightning Network, permitindo pagamentos globais."
     },
     {
-      question: "É seguro usar a Crypto Use?",
+      question: "É seguro usar a Hodle?",
       answer: "Sim, utilizamos medidas de segurança avançadas para proteger suas transações e dados pessoais."
     },
     {
@@ -124,7 +124,7 @@ export default function BitcoinLightningPayment() {
     {
       title: "O que é a rede Lightning e como funciona",
       description: "Entenda como a rede Lightning revoluciona transações Bitcoin",
-      imageUrl: "/cryptologo.png",
+      imageUrl: "/hodlelogo.png",
       slug: "rede-lightning"
     },
     {
