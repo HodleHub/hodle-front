@@ -8,8 +8,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="border-b border-gray-700 py-4">
-      <div className="container mx-auto px-4">
+    <header className="border-b border-orange-200 py-4 bg-white/80 backdrop-blur-sm">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
             <svg
@@ -28,7 +28,7 @@ export default function Header() {
               <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
               <line x1="12" y1="17" x2="12.01" y2="17" />
             </svg>
-            <span className="text-xl font-bold">Hodle</span>
+            <span className="text-xl font-bold text-gray-800">Hodle</span>
           </div>
 
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -42,6 +42,7 @@ export default function Header() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="text-gray-800"
             >
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="6" x2="21" y2="6" />
@@ -52,7 +53,7 @@ export default function Header() {
           <nav
             className={`${
               isOpen ? "block" : "hidden"
-            } md:block absolute md:static top-16 left-0 right-0 bg-gray-900 md:bg-transparent p-4 md:p-0 z-50`}
+            } md:block absolute md:static top-16 left-0 right-0 bg-white md:bg-transparent p-4 md:p-0 z-50 shadow-lg md:shadow-none`}
           >
             <button
               className="md:hidden absolute top-4 right-4"
@@ -68,6 +69,7 @@ export default function Header() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-gray-800"
               >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -75,31 +77,31 @@ export default function Header() {
             </button>
             <ul className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
               <li>
-                <Link href="#features" className="hover:text-orange-500">
-                  Recursos
+                <Link href="#features" className="text-gray-700 hover:text-orange-600 font-medium">
+                  Features
                 </Link>
               </li>
               <li>
-                <Link href="#how-it-works" className="hover:text-orange-500">
-                  Como Funciona
+                <Link href="#how-it-works" className="text-gray-700 hover:text-orange-600 font-medium">
+                  How It Works
                 </Link>
               </li>
               <li>
-                <Link href="#pricing" className="hover:text-orange-500">
-                  Preços
+                <Link href="#pricing" className="text-gray-700 hover:text-orange-600 font-medium">
+                  Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="hover:text-orange-500">
-                  Sobre
+                <Link href="#about" className="text-gray-700 hover:text-orange-600 font-medium">
+                  About
                 </Link>
               </li>
               <li>
                 <Link
                   href="#contact"
-                  className="bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded-md"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold transition-colors"
                 >
-                  Comece agora
+                  Get Started
                 </Link>
               </li>
             </ul>

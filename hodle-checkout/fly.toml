@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for cryptouse-use-lp on 2025-02-26T18:49:46-03:00
+# fly.toml app configuration file generated for hodle-checkout on 2025-02-26T18:49:46-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'cryptouse-use-lp'
+app = 'hodle-checkout'
 primary_region = 'gru'
 
 [build]

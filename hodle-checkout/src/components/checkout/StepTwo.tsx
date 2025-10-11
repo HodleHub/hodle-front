@@ -44,8 +44,8 @@ export function StepTwo({
       <div className="bg-white p-6 rounded-xl shadow-sm border-2 border-orange-300">
         <div className="flex justify-center mb-4">
           <Image
-            src="/cryptologo.png"
-            alt="Crypto Use"
+            src="/hodlelogo.png"
+            alt="Hodle"
             width={100}
             height={80}
           />

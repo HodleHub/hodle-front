@@ -66,7 +66,7 @@ export default function Component() {
           >
             <Image
               src="/use-without-bg.png"
-              alt="CryptoUse"
+              alt="Hodle"
               fill
               className="object-contain p-3"
               priority

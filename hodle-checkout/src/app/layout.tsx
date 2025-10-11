@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Crypto use - Crypto pix',
+  title: 'Hodle',
   description: 'Faça o pagamento de PIX copia e cola utilizando Bitcoin lightning',
 }
 
