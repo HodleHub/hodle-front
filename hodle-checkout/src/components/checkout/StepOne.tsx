@@ -1,15 +1,15 @@
 import { ArrowLeft, ArrowRight, Camera } from "lucide-react";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Input } from "../ui/Input";
+import { Button } from "../ui/Button";
 import Link from "next/link";
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { baseUrl } from '@/utils/baseUrl';
+import { baseUrl } from '../../utils/baseUrl';
 import { LightningPayment } from './LightningPayment';
-import { LightningPaymentResult, LightningInvoiceData } from '@/types/lightning';
+import { LightningPaymentResult, LightningInvoiceData } from '../../types/lightning';
 
 const schema = yup.object().shape({
   paymentCode: yup.string().required('O código de pagamento é obrigatório'),

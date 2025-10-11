@@ -2,15 +2,15 @@
 
 import { useState, useCallback } from "react"
 import { Bitcoin, Camera, Plus, Minus, QrCode, Copy, ScanQrCode, Zap } from "lucide-react"
-import { Input } from "@/components/ui/Input"
-import { Button } from "@/components/ui/Button"
-import { Card } from "@/components/ui/Card"
+import { Input } from "../components/ui/Input"
+import { Button } from "../components/ui/Button"
+import { Card } from "../components/ui/Card"
 import Image from 'next/image'
 import Link from 'next/link'
-import { Footer } from "@/components/ui/Footer"
-import Header from "@/components/Header"
+import { Footer } from "../components/ui/Footer"
+import Header from "../components/Header"
 import { toast } from "sonner"
-import { baseUrl } from "@/utils/baseUrl"
+import { baseUrl } from "../utils/baseUrl"
 
 interface DecodedPixQRCode {
   value?: number;

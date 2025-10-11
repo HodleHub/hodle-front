@@ -1,7 +1,7 @@
 'use client'
 
-import { LightningPayment } from '@/components/checkout/LightningPayment';
-import { LightningInvoiceData } from '@/types/lightning';
+import { LightningPayment } from '../../components/checkout/LightningPayment';
+import { LightningInvoiceData } from '../../types/lightning';
 
 export default function TestLightningPage() {
   const mockPaymentData: LightningInvoiceData = {

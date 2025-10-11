@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
-import { Card } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-import { Copy, QrCode, CheckCircle } from 'lucide-react'
+import { Card } from '../../../../components/ui/Card'
 import Image from 'next/image'
-import Header from '@/components/Header'
-import { Footer } from '@/components/ui/Footer'
+import Header from '../../../../components/Header'
+import { Footer } from '../../../../components/ui/Footer'
 import { toast } from 'sonner'
 
 interface LightningInvoice {
@@ -99,10 +97,12 @@ export default function LightningPage() {
         </div>
         
         <div className="max-w-xl mx-auto">
-          <Card className="p-6 border-2 border-orange-300">
+          <div className="p-6 border-2 border-orange-300 rounded-xl border bg-card text-card-foreground shadow">
             <div className="mb-6 text-center">
               <div className="inline-flex items-center justify-center p-1 bg-orange-50 rounded-full mb-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
+                <svg className="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
               </div>
               <h3 className="text-lg font-semibold">Invoice Criada</h3>
               <p className="text-gray-500 text-sm">Escaneie o código QR para pagar</p>
@@ -111,7 +111,9 @@ export default function LightningPage() {
             <div className="flex flex-col items-center mb-6">
               <div className="bg-white p-4 rounded-xl border border-gray-200 mb-4">
                 <div className="bg-dot-grid border border-gray-200 rounded-lg p-4 flex items-center justify-center" style={{ width: "200px", height: "200px" }}>
-                  <QrCode size={160} className="text-gray-800" />
+                  <svg width={160} height={160} className="text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 3h7v7H3V3zm1 1v5h5V4H4zm9-1h7v7h-7V3zm1 1v5h5V4h-5zM3 14h7v7H3v-7zm1 1v5h5v-5H4zm9-1h7v7h-7v-7zm1 1v5h5v-5h-5z"/>
+                  </svg>
                 </div>
               </div>
               
@@ -122,13 +124,15 @@ export default function LightningPage() {
                     {invoice.lightningInvoice}
                   </div>
                 </div>
-                <Button 
-                  variant="ghost" 
+                <button 
                   onClick={() => copyToClipboard(invoice.lightningInvoice)}
-                  className="shrink-0"
+                  className="shrink-0 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
                 >
-                  <Copy className="h-4 w-4" />
-                </Button>
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"/>
+                    <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+                  </svg>
+                </button>
               </div>
               
               <div className="bg-orange-50 border border-orange-100 rounded-lg p-4 w-full">
@@ -148,14 +152,14 @@ export default function LightningPage() {
             </div>
             
             <div className="flex justify-center">
-              <Button 
+              <button 
                 onClick={() => window.location.href = '/'}
-                className="bg-orange-500 hover:bg-orange-600 text-white"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-medium transition-colors"
               >
                 Voltar ao início
-              </Button>
+              </button>
             </div>
-          </Card>
+          </div>
         </div>
       </main>
       

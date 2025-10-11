@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
-        <Toaster
+        {/* <Toaster
           position="top-right"
           closeButton
           richColors
@@ -37,7 +37,7 @@ export default function RootLayout({
               closeButton: 'ml-[324px] mt-4',
             },
           }}
-        />
+        /> */}
       </body>
     </html>
   )
