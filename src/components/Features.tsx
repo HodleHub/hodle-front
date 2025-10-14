@@ -4,157 +4,137 @@ export default function Features() {
   const features = [
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
         </svg>
       ),
-      title: "Enterprise-Grade Security",
-      description:
-        "SOC 2 compliant with multi-chain support for USDC, USDT, and more stablecoins.",
+      title: "On-ramp, off-ramp e swap",
+      description: "Converta Fiat para Stablecoin, Stablecoin para Fiat e Stablecoin para Stablecoin"
     },
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="12" y1="1" x2="12" y2="23" />
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Seamless On/Off Ramps",
-      description:
-        "Easily convert between fiat and stablecoins with low fees and instant processing.",
+      title: "Payouts com stablecoin",
+      description: "Converta instantaneamente o saldo em fiat para pagar em stablecoins em todo o mundo"
     },
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
-          <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
         </svg>
       ),
-      title: "Global Accessibility",
-      description:
-        "Operate in 50+ countries with transparent FX rates and unified dashboard.",
+      title: "Liquidez profunda",
+      description: "Não se preocupe com transações grandes causando flutuações de preço significativas"
     },
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="2" y1="12" x2="22" y2="12" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: "Instant Settlements",
-      description:
-        "Achieve lightning-fast transactions across borders without hidden costs.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-        </svg>
-      ),
-      title: "Multi-Chain Support",
-      description:
-        "Access stablecoins across Ethereum, Polygon, Arbitrum, and other major networks.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-        </svg>
-      ),
-      title: "24/7 Support",
-      description:
-        "Round-the-clock customer support and technical assistance for all your needs.",
-    },
+      title: "Fluxos de pagamento simplificados",
+      description: "Integre stablecoins em um fluxo de fundos existente para acelerar os pagamentos em moeda fiduciária"
+    }
   ];
 
   return (
-    <section className="py-20 px-4" id="features">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Why Choose Hodle?
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover how our stablecoin platform can transform your digital asset management, 
-            increasing efficiency and driving growth.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-6 bg-white/80 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="text-orange-500 mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2 text-center">{feature.title}</h3>
-              <p className="text-gray-600 text-center">{feature.description}</p>
+    <section className="py-32 px-4 bg-gradient-to-b from-white to-orange-50" id="features">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+              </svg>
+              Orchestration
             </div>
-          ))}
+            
+            <h2 className="text-5xl font-black text-gray-900 mb-6">
+              Transfira dinheiro entre fronteiras na velocidade da internet
+            </h2>
+            
+            <p className="text-xl text-gray-600 mb-12">
+              Integre stablecoins nos fluxos de pagamento, permitindo liquidações instantâneas, baixos custos e acesso em tempo real à liquidez global.
+            </p>
+
+            <div className="space-y-8">
+              {features.map((feature, index) => (
+                <div key={index} className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center text-orange-500">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl blur-3xl opacity-20"></div>
+            <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-gray-200">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
+                  <span className="text-sm font-semibold text-gray-700">Payment</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <span>Sent</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="text-4xl font-bold text-gray-900 mb-8">USDC 145,56</div>
+
+              <div className="relative mb-8">
+                <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200"></div>
+                <div className="relative flex justify-between items-center">
+                  <div className="bg-white p-4 rounded-xl border-2 border-blue-500 shadow-lg">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                        USDC
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-gray-900">John Wallet</div>
+                        <div className="text-xs text-gray-500 font-mono">0xF1b7...0c521B</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-100 p-2 rounded-full">
+                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-xl border-2 border-green-500 shadow-lg">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                        BRL
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-gray-900">Evelyn</div>
+                        <div className="text-xs text-gray-500">Pix • 496.234.201-02</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-gray-200">
+                <div className="text-sm text-gray-500 italic">
+                  "Hodle revolutionized our cross-border payments. Transparent and reliable!"
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
