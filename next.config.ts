@@ -1,6 +1,10 @@
 import type { NextConfig } from 'next'
 import createMDX from '@next/mdx'
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
@@ -13,4 +17,4 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({})
 
-export default withMDX(nextConfig)
+export default withBundleAnalyzer(withMDX(nextConfig))
