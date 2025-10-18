@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import ExchangeAnimation from "./ExchangeAnimation";
 
 // --- Discord Submission Logic ---
 type DiscordLogOptions = {
@@ -34,7 +36,7 @@ const sendToDiscord = async ({
     embeds: [
       {
         title: channel,
-        color: error ? 16711680 : 5814783, // Red for error, Blue for success
+        color: error ? 16711680 : 5814783,
         fields: [
           { name: 'Nome', value: name, inline: true },
           { name: 'Email', value: email, inline: true },
@@ -83,7 +85,6 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   useEffect(() => {
     if (!isOpen) {
-      // Reset form on close
       setName('');
       setEmail('');
       setDescription('');
@@ -154,7 +155,7 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
   );
 }
 
-export default function Hero() {
+export default function IntroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -163,57 +164,27 @@ export default function Hero() {
       <section className="bg-gradient-to-br from-white via-orange-50 to-orange-200 py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="text-sm text-orange-600 mb-4 font-mono">{"//hodle_api"}</div>
-                <h2 className="text-5xl font-black mb-8 text-gray-900">Faça pagamentos locais utilizando stablecoins</h2>
-                <p className="text-xl text-gray-700 mb-8 font-light">
-                  Simplifique usa experiência com pagamentos com a nossa api. Payouts para pix utilizando USDT ou a lightning network
-                </p>
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-orange-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">API simplificada</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-orange-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Pagamentos via chave ou qrcode pix</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-orange-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Confirmação Instantânea</span>
-                  </div>
-                </div>
-                <button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-bold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-orange-500/30">
+            {/* Text Section */}
+            <div className="text-center mb-16">
+              <h1 className="text-6xl font-black mb-8 text-gray-900">
+                Plataforma para pagamentos utilizando stablecoins
+              </h1>
+              <p className="text-2xl text-gray-700 mb-8 font-light max-w-4xl mx-auto">
+                Integrando soluções de crypto para pagamentos sem barreiras.
+              </p>
+              <div className="flex justify-center space-x-4">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-bold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-orange-500/30"
+                >
                   Fale conosco
                 </button>
               </div>
-            
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-orange-200 shadow-xl">
-                <div className="bg-white rounded-2xl p-6 mb-6 border border-gray-200 shadow-sm">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <pre className="text-sm text-gray-800 overflow-hidden font-mono">
-{`curl -X POST "https://api.hodle.com.br/api/v1/withdraw" \\
-  -H "Content-Type: application/json" \\
-  -H "Authorization: Bearer token" \\
-  -d '{
-    "pixKey": "4e1f6919-e583-4783-9484-0990b045d8b3"
-    "amount": 1000.00,
-    "network": "lightning"
-  }'`}
-                  </pre>
-                </div>           
-              </div>
+            </div>
+
+            {/* Animation Section */}
+            <div className="relative">
+              <ExchangeAnimation />
             </div>
           </div>
         </div>
