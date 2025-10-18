@@ -12,13 +12,13 @@ export default function Footer() {
           </div>
           
           <div className="flex items-center gap-6 text-sm text-gray-600">
-            <a href="#" className="hover:text-orange-500 transition-colors">
+            {/* <a href="#" className="hover:text-orange-500 transition-colors">
               Terms of Service
             </a>
             <span className="text-gray-300">|</span>
             <a href="#" className="hover:text-orange-500 transition-colors">
               Privacy Policy
-            </a>
+            </a> */}
           </div>
 
           <div className="flex items-center gap-4">

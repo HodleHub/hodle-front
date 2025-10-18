@@ -3,6 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,24 +20,17 @@ export default function Header() {
     <header className="border-b border-orange-200 py-4 bg-white/80 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-orange-500"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
-            </svg>
-            <span className="text-xl font-bold text-gray-800">Hodle</span>
+          <div className="flex items-center">
+            <Image
+              width={40}
+              height={40}
+              src="/h-logo.png"
+              alt="Hodle logo"
+              className="w-10 h-10 mr-[-6px]"
+            />
+            <span className={`${poppins.className} text-2xl font-bold tracking-tight text-gray-900`}>
+              ODLE
+            </span>
           </div>
 
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -51,9 +53,8 @@ export default function Header() {
           </button>
 
           <nav
-            className={`${
-              isOpen ? "block" : "hidden"
-            } md:block absolute md:static top-16 left-0 right-0 bg-white md:bg-transparent p-4 md:p-0 z-50 shadow-lg md:shadow-none`}
+            className={`${isOpen ? "block" : "hidden"
+              } md:block absolute md:static top-16 left-0 right-0 bg-white md:bg-transparent p-4 md:p-0 z-50 shadow-lg md:shadow-none`}
           >
             <button
               className="md:hidden absolute top-4 right-4"
@@ -83,25 +84,17 @@ export default function Header() {
               </li>
               <li>
                 <Link href="#how-it-works" className="text-gray-700 hover:text-orange-600 font-medium">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="#pricing" className="text-gray-700 hover:text-orange-600 font-medium">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="text-gray-700 hover:text-orange-600 font-medium">
-                  About
+                  Como funciona?
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#contact"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold transition-colors"
+                  href="https://hodle.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-bold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-orange-500/30"
                 >
-                  Get Started
+                  Comece agora
                 </Link>
               </li>
             </ul>
