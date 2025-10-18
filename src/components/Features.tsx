@@ -75,7 +75,7 @@ export default function Features() {
             <span className="text-sm font-semibold text-gray-700">Payment</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-green-600 font-semibold">
-            <span>Sent</span>
+            <span>Enviado</span>
             <svg
               className="w-4 h-4"
               fill="none"
@@ -94,7 +94,7 @@ export default function Features() {
 
         {/* Amount */}
         <div className="text-5xl font-black text-gray-900 mb-10 tracking-tight">
-          USDC 145,56
+          USDT 145,56
         </div>
 
         {/* Transaction Path */}
