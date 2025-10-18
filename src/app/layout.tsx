@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
@@ -14,9 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+export const viewport: Viewport = {
+  themeColor: '#000000',
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://hodle.com.br'),
-  themeColor: '#000000',
   title: "Hodle - Pagamentos com Stablecoins e Bitcoin Lightning",
   description:
     "Envie e receba pagamentos instantâneos com stablecoins USDT ou Bitcoin Lightning. Gere QR Codes e chaves PIX para suas transações, sem limites e com segurança blockchain.",
