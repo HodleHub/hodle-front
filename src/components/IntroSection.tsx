@@ -135,9 +135,9 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <form onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Fale Conosco</h2>
             <div className="space-y-4">
-              <input type="text" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" />
-              <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500" />
-              <textarea placeholder="Como podemos te ajudar?" value={description} onChange={(e) => setDescription(e.target.value)} required rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500"></textarea>
+              <input type="text" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} required className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-orange-500 focus:border-orange-500" />
+              <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-orange-500 focus:border-orange-500" />
+              <textarea placeholder="Como podemos te ajudar?" value={description} onChange={(e) => setDescription(e.target.value)} required rows={4} className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-orange-500 focus:border-orange-500"></textarea>
             </div>
             <div className="mt-6">
               <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-bold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-orange-500/30 disabled:opacity-50">
