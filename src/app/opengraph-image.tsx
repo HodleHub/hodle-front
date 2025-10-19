@@ -150,3 +150,4 @@ export default async function Image({ params }: { params: { slug: string } }) {
     console.error('Failed to generate image', e);
     return new Response('Failed to generate image', { status: 500 });
   }
+}
