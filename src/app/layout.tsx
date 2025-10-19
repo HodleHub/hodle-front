@@ -20,49 +20,74 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hodle.com.br'),
-  title: "Hodle - Pagamentos com Stablecoins e Bitcoin Lightning",
-  description:
-    "Envie e receba pagamentos instantâneos com stablecoins USDT ou Bitcoin Lightning. Gere QR Codes e chaves PIX para suas transações, sem limites e com segurança blockchain.",
+  title: 'Hodle - Pagamentos com Stablecoins e Bitcoin Lightning',
+  description: 'Envie e receba pagamentos instantâneos com stablecoins USDT ou Bitcoin Lightning. Gere QR Codes e chaves PIX para suas transações, sem limites e com segurança blockchain.',
   keywords: [
-    "stablecoin",
-    "pagamentos cripto",
-    "USDT",
-    "Bitcoin Lightning",
-    "Crypto PIX",
-    "PIX cripto",
-    "pagamento com criptomoeda",
-    "transferência blockchain",
-    "carteira digital",
-    "pagamento instantâneo",
-    "cripto Brasil",
+    'stablecoin',
+    'pagamentos cripto',
+    'USDT',
+    'Bitcoin Lightning',
+    'Crypto PIX',
+    'PIX cripto',
+    'pagamento com criptomoeda',
+    'transferência blockchain',
+    'carteira digital',
+    'pagamento instantâneo',
+    'cripto Brasil',
   ],
   openGraph: {
-    title: "Hodle - Pagamentos com Stablecoins e Bitcoin Lightning",
-    description:
-      "Faça pagamentos e receba via QR Code ou chave PIX usando USDT ou Bitcoin Lightning. Rápido, seguro e sem fronteiras.",
-    url: "https://hodle.com.br",
-    siteName: "Hodle",
-    locale: "pt_BR",
-    type: "website",
+    title: 'Hodle - Pagamentos com Stablecoins e Bitcoin Lightning',
+    description: 'Envie e receba pagamentos instantâneos com stablecoins USDT ou Bitcoin Lightning. Rápido, seguro e sem fronteiras.',
+    url: 'https://hodle.com.br',
+    siteName: 'Hodle',
+    images: [
+      {
+        url: '/api/og?title=Hodle',
+        width: 1200,
+        height: 630,
+        alt: 'Hodle - Pagamentos com Stablecoins e Bitcoin Lightning',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    site: "@ThiagoMot_",
-    title: "Hodle - Pagamentos com Stablecoins e Bitcoin Lightning",
-    description:
-      "Pague e receba com stablecoins USDT e Bitcoin Lightning via PIX e QR Code. Simples, rápido e seguro.",
+    card: 'summary_large_image',
+    site: '@ThiagoMot_',
+    title: 'Hodle - Pagamentos com Stablecoins e Bitcoin Lightning',
+    description: 'Pague e receba com stablecoins USDT e Bitcoin Lightning via PIX e QR Code. Simples, rápido e seguro.',
+    images: ['/api/og?title=Hodle'],
   },
   alternates: {
-    canonical: "https://hodle.com.br",
+    canonical: 'https://hodle.com.br',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
-    icon: '/h-logo.png',
+    icon: [
+      { url: '/h-logo.png' },
+      new URL('/h-logo.png', 'https://hodle.com.br'),
+    ],
     shortcut: '/h-logo.png',
-    apple: '/h-logo.png',
+    apple: [
+      { url: '/h-logo.png' },
+      { url: '/h-logo.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  other: {
+    'msapplication-TileColor': '#000000',
+    'theme-color': '#000000',
+    'format-detection': 'telephone=no',
+    'mobile-web-app-capable': 'yes',
   },
 };
 
