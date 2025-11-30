@@ -36,16 +36,8 @@ module.exports = {
     'react/no-unknown-property': 'off',
     'no-useless-escape': 'off',
     'no-undef': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        printWidth: 80,
-        tabWidth: 2,
-        singleQuote: true,
-        trailingComma: 'all',
-        arrowParens: 'always',
-        semi: false,
-      },
-    ],
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'prettier/prettier': 'off',
   },
 }

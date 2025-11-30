@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Archivo_Black } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
@@ -21,13 +21,28 @@ const archivoBlack = Archivo_Black({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hodle.com.br'),
   title: 'Hodle - Compre Bitcoin de forma rápida e segura',
-  description: 'Hodle é o futuro dos pagamentos utilizando a tecnologia bitcoin, peer-to-peer por natureza e sem intermediários. Compra e venda sem fricção',
-  keywords: ['Bitcoin', 'Lightning Network', 'PIX', 'cryptocurrency', 'carteira Bitcoin', 'compra Bitcoin', 'Bitcoin Brasil', 'DePix', 'Decentralized Pix', 'Eulen', 'P2P'],
+  description:
+    'Hodle é o futuro dos pagamentos utilizando a tecnologia bitcoin, peer-to-peer por natureza e sem intermediários. Compra e venda sem fricção',
+  keywords: [
+    'Bitcoin',
+    'Lightning Network',
+    'PIX',
+    'cryptocurrency',
+    'carteira Bitcoin',
+    'compra Bitcoin',
+    'Bitcoin Brasil',
+    'DePix',
+    'Decentralized Pix',
+    'Eulen',
+    'P2P',
+  ],
   authors: [{ name: 'Hodle' }],
   openGraph: {
     title: 'Hodle - Compre Bitcoin de forma rápida e segura',
-    description: 'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
+    description:
+      'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
     url: 'https://hodle.com.br',
     siteName: 'Hodle',
     images: [
@@ -44,7 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hodle - Compre Bitcoin de forma rápida e segura',
-    description: 'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
+    description:
+      'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
     images: ['/og-img.png'],
   },
   robots: {
@@ -58,11 +74,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -72,7 +89,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable}`}
+      >
         <Header />
         {children}
         <Footer />

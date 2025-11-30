@@ -1,23 +1,24 @@
-"use client"
+'use client'
 
-import { useState, useCallback, useEffect } from "react"
-import { Plus, Minus, ScanQrCode, ArrowRight } from "lucide-react"
-import { Poppins } from "next/font/google"
+import { useState, useCallback, useEffect } from 'react'
+import { Plus, Minus, ScanQrCode, ArrowRight } from 'lucide-react'
+import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
 })
-import { Button } from "../components/ui/Button"
-import { Card } from "../components/ui/Card"
-import { AnimatedCodeIcon } from "../components/ui/AnimatedCodeIcon"
-import { AnimatedArrowLeftRightIcon } from "../components/ui/AnimatedArrowLeftRightIcon"
-import { AnimatedServerIcon } from "../components/ui/AnimatedServerIcon"
-import { AnimatedShieldIcon } from "../components/ui/AnimatedShieldIcon"
-import Image from "next/image"
-import Link from "next/link"
-import { toast } from "sonner"
-import { baseUrl } from "../utils/baseUrl"
+import { Button } from '../components/ui/Button'
+import { Card } from '../components/ui/Card'
+import { AnimatedCodeIcon } from '../components/ui/AnimatedCodeIcon'
+import { AnimatedArrowLeftRightIcon } from '../components/ui/AnimatedArrowLeftRightIcon'
+import { AnimatedServerIcon } from '../components/ui/AnimatedServerIcon'
+import { AnimatedShieldIcon } from '../components/ui/AnimatedShieldIcon'
+import AnimatedSection from '../components/AnimatedSection'
+import Image from 'next/image'
+import Link from 'next/link'
+import { toast } from 'sonner'
+import { baseUrl } from '../utils/baseUrl'
 
 interface DecodedPixQRCode {
   value?: number
@@ -41,8 +42,8 @@ interface Article {
 }
 
 export default function BitcoinLightningPayment() {
-  const [pixCopiaCola, setPixCopiaCola] = useState("")
-  const [paymentAmount, setPaymentAmount] = useState("")
+  const [pixCopiaCola, setPixCopiaCola] = useState('')
+  const [paymentAmount, setPaymentAmount] = useState('')
   const [decodedData, setDecodedData] = useState<DecodedPixQRCode | null>(null)
   const [isDecoding, setIsDecoding] = useState(false)
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -55,15 +56,15 @@ export default function BitcoinLightningPayment() {
   const decodePixQRCode = useCallback(async (qrCodeValue: string) => {
     if (!qrCodeValue.trim()) {
       setDecodedData(null)
-      setPaymentAmount("")
+      setPaymentAmount('')
       return
     }
 
     setIsDecoding(true)
     try {
       const response = await fetch(`${baseUrl}/api/qrcode/decode`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ qrCode: qrCodeValue }),
       })
 
@@ -74,18 +75,18 @@ export default function BitcoinLightningPayment() {
         if (data.decodedPixQRCode.value && data.decodedPixQRCode.value > 0) {
           const formattedValue = data.decodedPixQRCode.value
             .toFixed(2)
-            .replace(".", ",")
+            .replace('.', ',')
           setPaymentAmount(`R$ ${formattedValue}`)
         }
       } else {
         setDecodedData(null)
-        if (!qrCodeValue.trim()) setPaymentAmount("")
-        toast.error("Erro ao decodificar QR Code PIX")
+        if (!qrCodeValue.trim()) setPaymentAmount('')
+        toast.error('Erro ao decodificar QR Code PIX')
       }
     } catch (error) {
-      console.error("Erro ao decodificar QR Code:", error)
+      console.error('Erro ao decodificar QR Code:', error)
       setDecodedData(null)
-      toast.error("Erro ao processar QR Code PIX")
+      toast.error('Erro ao processar QR Code PIX')
     } finally {
       setIsDecoding(false)
     }
@@ -101,7 +102,7 @@ export default function BitcoinLightningPayment() {
   }
 
   const handleScanQRCode = () => {
-    toast.info("Funcionalidade de scanner em desenvolvimento")
+    toast.info('Funcionalidade de scanner em desenvolvimento')
   }
 
   useEffect(() => {
@@ -121,57 +122,66 @@ export default function BitcoinLightningPayment() {
 
   const faqItems = [
     {
-      question: "O que é a Hodle?",
+      question: 'O que é a Hodle?',
       answer:
-        "A Hodle é uma plataforma brasileira que permite comprar Bitcoin de forma simples, rápida e com low-KYC. ou seja, sem necessidade de enviar documentos. Toda a verificação é feita automaticamente utilizando os dados do próprio PIX, garantindo segurança e privacidade.",
+        'A Hodle é uma plataforma brasileira que permite comprar Bitcoin de forma simples, rápida e com low-KYC. ou seja, sem necessidade de enviar documentos. Toda a verificação é feita automaticamente utilizando os dados do próprio PIX, garantindo segurança e privacidade.',
     },
     {
-      question: "O que é DePix?",
+      question: 'O que é DePix?',
       answer:
-        "DePix é uma stablecoin lastreada 1:1 no real, emitida na Liquid Network. O token tem o objetivo de ser a porta entrada entre o mundo fiat e a blockchain, um token transiente com o objetivo de ser trocado por BTC",
+        'DePix é uma stablecoin lastreada 1:1 no real, emitida na Liquid Network. O token tem o objetivo de ser a porta entrada entre o mundo fiat e a blockchain, um token transiente com o objetivo de ser trocado por BTC',
     },
     {
-      question: "É seguro usar a Hodle?",
+      question: 'É seguro usar a Hodle?',
       answer:
-        "Sim, não guardamos quaisquer dados pessoais, todos os dados são cifrados, ou seja, nem a hodle tem acesso a quem fez as operações"
+        'Sim, não guardamos quaisquer dados pessoais, todos os dados são cifrados, ou seja, nem a hodle tem acesso a quem fez as operações',
     },
     {
-      question: "Quanto tempo demora para receber o Bitcoin?",
+      question: 'Quanto tempo demora para receber o Bitcoin?',
       answer:
-        "Após o pagamento, é praticamente instantâneo, caso seja selecionado, DePix, LBTC ou lightning, recebimentos on-chain demora o tempo que o bloco demora para ser minerado, cerca de 10 minutos."  
+        'Após o pagamento, é praticamente instantâneo, caso seja selecionado, DePix, LBTC ou lightning, recebimentos on-chain demora o tempo que o bloco demora para ser minerado, cerca de 10 minutos.',
     },
   ]
 
-
   return (
-    <div className="min-h-screen relative flex flex-col text-gray-900" style={{ background: 'linear-gradient(to bottom, #ffffff 0%, #fff7ed 100%)' }}>
+    <div
+      className="min-h-screen relative flex flex-col text-gray-900"
+      style={{
+        background: 'linear-gradient(to bottom, #ffffff 0%, #fff7ed 100%)',
+      }}
+    >
       <main className="flex-1 flex flex-col items-center px-4 max-w-7xl mx-auto">
-
         <div className="w-full flex flex-col md:flex-row items-center justify-between mt-6 mb-32 px-4">
-
           <div className="max-w-xl flex flex-col text-left w-full pl-0">
-          <Link href="/" className="flex ml-[-16] items-center mb-2 pl-0 cursor-pointer">
-            <Image
-              width={160}
-              height={160}
-              src="/h-logo.svg"
-              alt="Hodle logo"
-              className="h-24 md:h-28 w-auto mr-[-6px]"
-            />
-            <span className={`${poppins.className} text-6xl md:text-7xl font-bold tracking-tight text-gray-900 -ml-2`}>
-              ODLE
-            </span>
-          </Link>
+            <Link
+              href="/"
+              className="flex ml-[-16] items-center mb-2 pl-0 cursor-pointer"
+            >
+              <Image
+                width={160}
+                height={160}
+                src="/h-logo.svg"
+                alt="Hodle logo"
+                className="h-24 md:h-28 w-auto mr-[-6px]"
+              />
+              <span
+                className={`${poppins.className} text-6xl md:text-7xl font-bold tracking-tight text-gray-900 -ml-2`}
+              >
+                ODLE
+              </span>
+            </Link>
 
-          <h1 className="text-5xl md:text-6xl font-normal leading-tight text-gray-700 pl-0">
-            Compre Bitcoin de forma rápida e segura
-          </h1>
+            <h1 className="text-5xl md:text-6xl font-normal leading-tight text-gray-700 pl-0">
+              Compre Bitcoin de forma rápida e segura
+            </h1>
 
             <p className="mt-6 text-lg text-gray-600">
-              A maneira mais fácil de comprar <span className="text-orange-600">BITCOIN</span> diretamente via Pix, em qualquer rede, ligtning, liquid ou onchain
+              A maneira mais fácil de comprar{' '}
+              <span className="text-orange-600">BITCOIN</span> diretamente via
+              Pix, em qualquer rede, ligtning, liquid ou onchain
             </p>
 
-              {/* <div className="mt-10">
+            {/* <div className="mt-10">
                 <Link href="https://hodle.com.br" target="_blank">
                   <Button
                     className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 text-lg"
@@ -185,7 +195,7 @@ export default function BitcoinLightningPayment() {
 
           <div className="mt-16 md:mt-0 md:ml-8">
             <Image
-              src="/people-buy_without_bg.png" 
+              src="/people-buy_without_bg.png"
               alt="Lightning"
               width={520}
               height={520}
@@ -193,41 +203,52 @@ export default function BitcoinLightningPayment() {
             />
           </div>
         </div>
-        <section className="w-full max-w-6xl mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+        <AnimatedSection delay={0.1}>
+          <section className="w-full max-w-6xl mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
             <div className="flex flex-col items-center text-center">
               <AnimatedShieldIcon className="h-8 w-8 text-orange-600 mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Seguro</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-bold">
-                Compre direto para a sua carteira, não guardamos informações sensíveis. Sem bloqueios imprevisíveis
+                Compre direto para a sua carteira, não guardamos informações
+                sensíveis. Sem bloqueios imprevisíveis
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
               <AnimatedServerIcon className="h-8 w-8 text-orange-600 mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Infraestrutura</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Infraestrutura
+              </h3>
               <p className="text-gray-600 text-sm leading-relaxed font-bold">
-                Liquidez lightning para você utilizar nas suas próprias carteiras
+                Liquidez lightning para você utilizar nas suas próprias
+                carteiras
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
               <AnimatedCodeIcon className="h-8 w-8 text-orange-600 mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">API</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-bold">
-                Utilize nossas apis para fazer swaps ou compras de forma recorrente
+                Utilize nossas apis para fazer swaps ou compras de forma
+                recorrente
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
               <AnimatedArrowLeftRightIcon className="h-8 w-8 text-orange-600 mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">SWAPS</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-bold">
-                Transite entre onchain, lightning e liquid de forma extremamente simples
+                Transite entre onchain, lightning e liquid de forma extremamente
+                simples
               </p>
             </div>
           </div>
         </section>
-        <section className="w-full max-w-2xl mb-24">
+        </AnimatedSection>
+        <AnimatedSection delay={0.2}>
+          <section className="w-full max-w-2xl mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Perguntas Frequentes</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Perguntas Frequentes
+            </h2>
             <p className="text-gray-600">
               Esclarecemos suas principais dúvidas sobre nossa plataforma
             </p>
@@ -241,33 +262,43 @@ export default function BitcoinLightningPayment() {
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
+                  className="w-full px-6 py-4 text-left flex justify-between items-center min-h-[64px]"
                 >
-                  <span className="font-medium text-gray-900">{item.question}</span>
+                  <span className="font-medium text-gray-900 pr-4">
+                    {item.question}
+                  </span>
                   {openAccordion === index ? (
-                    <Minus className="h-5 w-5 text-orange-500" />
+                    <Minus className="h-5 w-5 text-orange-500 flex-shrink-0" />
                   ) : (
-                    <Plus className="h-5 w-5 text-orange-500" />
+                    <Plus className="h-5 w-5 text-orange-500 flex-shrink-0" />
                   )}
                 </button>
 
-                {openAccordion === index && (
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openAccordion === index
+                      ? 'max-h-96 opacity-100'
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
                   <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
                     <p className="text-gray-700">{item.answer}</p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
         </section>
+        </AnimatedSection>
 
         {/* =============================
             ARTIGOS
         ============================== */}
-        <section className="w-full max-w-5xl mb-20">
+        <AnimatedSection delay={0.1}>
+          <section className="w-full max-w-5xl mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Últimos{" "}
+              Últimos{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">
                 Artigos
               </span>
@@ -305,6 +336,7 @@ export default function BitcoinLightningPayment() {
             ))}
           </div>
         </section>
+        </AnimatedSection>
       </main>
     </div>
   )

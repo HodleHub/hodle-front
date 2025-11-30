@@ -1,44 +1,44 @@
-import { ArrowLeft, ArrowRight, QrCode, Copy, Zap } from "lucide-react";
-import { Button } from "../ui/Button";
-import QRCode from 'qrcode';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { ArrowLeft, ArrowRight, QrCode, Copy, Zap } from 'lucide-react'
+import { Button } from '../ui/Button'
+import QRCode from 'qrcode'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface StepTwoProps {
-  pixCopiaCola: string;
-  lightningInvoice: string;
-  paymentAmount: string;
-  goToNextStep: () => void;
-  goToPrevStep: () => void;
-  copyToClipboard: (text: string) => void;
+  pixCopiaCola: string
+  lightningInvoice: string
+  paymentAmount: string
+  goToNextStep: () => void
+  goToPrevStep: () => void
+  copyToClipboard: (text: string) => void
 }
 
-export function StepTwo({ 
+export function StepTwo({
   pixCopiaCola,
   lightningInvoice,
   paymentAmount,
-  goToNextStep, 
+  goToNextStep,
   goToPrevStep,
-  copyToClipboard
+  copyToClipboard,
 }: StepTwoProps) {
-  const [qrCodeImageUrl, setQrCodeImageUrl] = useState<string | null>(null);
+  const [qrCodeImageUrl, setQrCodeImageUrl] = useState<string | null>(null)
 
   useEffect(() => {
     if (lightningInvoice) {
       QRCode.toDataURL(lightningInvoice.toUpperCase())
         .then(setQrCodeImageUrl)
         .catch((error) => {
-          console.error('QR Code generation error:', error);
-        });
+          console.error('QR Code generation error:', error)
+        })
     }
-  }, [lightningInvoice]);
+  }, [lightningInvoice])
 
-  const totalValueInReais = parseFloat(paymentAmount) || 0;
-  const originalValueInReais = (totalValueInReais - 1.0) / 1.01; // Subtracting flat fee and percentage
-  const feeInReais = totalValueInReais - originalValueInReais;
-  const satoshis = Math.floor(totalValueInReais * 1500); // Mock conversion
-  const btcQuote = 565893.55; // Example BTC quote
+  const totalValueInReais = parseFloat(paymentAmount) || 0
+  const originalValueInReais = (totalValueInReais - 1.0) / 1.01 // Subtracting flat fee and percentage
+  const feeInReais = totalValueInReais - originalValueInReais
+  const satoshis = Math.floor(totalValueInReais * 1500) // Mock conversion
+  const btcQuote = 565893.55 // Example BTC quote
 
   return (
     <div className="w-full">
@@ -54,7 +54,7 @@ export function StepTwo({
             />
           </Link>
         </div>
-        
+
         <div className="text-center space-y-4">
           <p className="text-sm text-gray-500">
             {new Date().toLocaleString('pt-BR', {
@@ -141,17 +141,17 @@ export function StepTwo({
             </div>
           )}
         </div>
-        
+
         <div className="flex justify-between mt-6">
-          <Button 
-            variant="outline" 
-            onClick={goToPrevStep} 
+          <Button
+            variant="outline"
+            onClick={goToPrevStep}
             className="border-yellow-300 text-yellow-700 hover:bg-yellow-50"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Voltar
           </Button>
-          <Button 
+          <Button
             onClick={goToNextStep}
             className="bg-yellow-500 hover:bg-yellow-600 text-white"
           >
@@ -161,5 +161,5 @@ export function StepTwo({
         </div>
       </div>
     </div>
-  );
-} 
+  )
+}

@@ -1,12 +1,12 @@
-import { getAllArticles } from '../../utils/mdx';
-import Image from 'next/image';
-import Link from 'next/link';
+import { getAllArticles } from '../../utils/mdx'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export const dynamic = 'force-static';
-export const revalidate = 3600; // Revalidate every hour
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Revalidate every hour
 
 export default function ArticlesPage() {
-  const articles = getAllArticles();
+  const articles = getAllArticles()
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -15,13 +15,14 @@ export default function ArticlesPage() {
           <span className="text-orange-500">Artigos</span> Hodle
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Aprenda sobre Bitcoin, Lightning Network e como aproveitar ao máximo a tecnologia blockchain.
+          Aprenda sobre Bitcoin, Lightning Network e como aproveitar ao máximo a
+          tecnologia blockchain.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((article) => (
-          <Link 
+          <Link
             key={article.slug}
             href={`/articles/${article.slug}`}
             target="_blank"
@@ -49,19 +50,24 @@ export default function ArticlesPage() {
                   {new Date(article.date).toLocaleDateString('pt-BR', {
                     year: 'numeric',
                     month: 'long',
-                    day: 'numeric'
+                    day: 'numeric',
                   })}
                 </div>
                 <div className="text-orange-500 font-medium flex items-center">
                   Ler artigo
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform"
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                    fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
                   </svg>
                 </div>
               </div>
@@ -70,5 +76,5 @@ export default function ArticlesPage() {
         ))}
       </div>
     </div>
-  );
-} 
+  )
+}
