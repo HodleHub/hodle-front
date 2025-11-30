@@ -1,29 +1,28 @@
-"use client"
+'use client'
 
-import { useState, useCallback, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
+import { useState, useCallback, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 
-import { StepIndicator } from "../../components/checkout/StepIndicator"
-import { StepOne } from "../../components/checkout/StepOne"
-import { StepTwo } from "../../components/checkout/StepTwo"
-import { StepThree } from "../../components/checkout/StepThree"
-import Image from "next/image"
+import { StepIndicator } from '../../components/checkout/StepIndicator'
+import { StepOne } from '../../components/checkout/StepOne'
+import { StepTwo } from '../../components/checkout/StepTwo'
+import { StepThree } from '../../components/checkout/StepThree'
+import Image from 'next/image'
 
-import { toast } from "sonner"
-import { baseUrl } from "../../utils/baseUrl"
+import { toast } from 'sonner'
+import { baseUrl } from '../../utils/baseUrl'
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams()
   const [currentStep, setCurrentStep] = useState<number>(1)
-  const [pixCopiaCola, setPixCopiaCola] = useState<string>("")
-  const [lightningInvoice, setLightningInvoice] = useState<string>("")
-  const [paymentAmount, setPaymentAmount] = useState<string>("0.00")
+  const [pixCopiaCola, setPixCopiaCola] = useState<string>('')
+  const [lightningInvoice, setLightningInvoice] = useState<string>('')
+  const [paymentAmount, setPaymentAmount] = useState<string>('0.00')
 
-  // Initialize from URL parameters
   useEffect(() => {
     const pixFromUrl = searchParams.get('pix')
     const amountFromUrl = searchParams.get('amount')
-    
+
     if (pixFromUrl) {
       setPixCopiaCola(decodeURIComponent(pixFromUrl))
     }
@@ -35,12 +34,11 @@ export default function CheckoutPage() {
   const goToNextStep = useCallback(() => {
     if (currentStep < 3) {
       if (currentStep === 1 && pixCopiaCola) {
-        
-        const mockLightningInvoice = "lnbc1500n1pd7jf8cpp5l8ljq6..."; // Mock invoice
-        setLightningInvoice(mockLightningInvoice);
-        setCurrentStep(currentStep + 1);
+        const mockLightningInvoice = 'lnbc1500n1pd7jf8cpp5l8ljq6...' // Mock invoice
+        setLightningInvoice(mockLightningInvoice)
+        setCurrentStep(currentStep + 1)
       } else if (currentStep === 2) {
-        setCurrentStep(currentStep + 1);
+        setCurrentStep(currentStep + 1)
       }
     }
   }, [currentStep, pixCopiaCola])
@@ -52,12 +50,13 @@ export default function CheckoutPage() {
   }, [currentStep])
 
   const copyToClipboard = useCallback((text: string) => {
-    navigator.clipboard.writeText(text)
+    navigator.clipboard
+      .writeText(text)
       .then(() => {
-        toast.success("Copiado para a área de transferência")
+        toast.success('Copiado para a área de transferência')
       })
       .catch(() => {
-        toast.error("Erro ao copiar")
+        toast.error('Erro ao copiar')
       })
   }, [])
 
@@ -65,10 +64,12 @@ export default function CheckoutPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-grow py-12 px-4 md:py-16 max-w-4xl mx-auto w-full">
         <div className="mb-12 text-center">
-          <h1 className="text-3xl font-bold mb-8 text-gray-800">Pagar PIX com Lightning</h1>
+          <h1 className="text-3xl font-bold mb-8 text-gray-800">
+            Pagar PIX com Lightning
+          </h1>
           <StepIndicator currentStep={currentStep} />
         </div>
-        
+
         <div className="max-w-xl mx-auto mb-16">
           {currentStep === 1 && (
             <StepOne
@@ -79,7 +80,7 @@ export default function CheckoutPage() {
               goToNextStep={goToNextStep}
             />
           )}
-          
+
           {currentStep === 2 && (
             <StepTwo
               pixCopiaCola={pixCopiaCola}
@@ -90,7 +91,7 @@ export default function CheckoutPage() {
               copyToClipboard={copyToClipboard}
             />
           )}
-          
+
           {currentStep === 3 && (
             <StepThree
               amount={paymentAmount}
@@ -103,4 +104,23 @@ export default function CheckoutPage() {
       </main>
     </div>
   )
-} 
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col bg-white">
+        <main className="flex-grow py-12 px-4 md:py-16 max-w-4xl mx-auto w-full">
+          <div className="mb-12 text-center">
+            <h1 className="text-3xl font-bold mb-8 text-gray-800">
+              Pagar PIX com Lightning
+            </h1>
+            <div className="text-gray-600">Carregando...</div>
+          </div>
+        </main>
+      </div>
+    }>
+      <CheckoutContent />
+    </Suspense>
+  )
+}

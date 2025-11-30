@@ -1,54 +1,58 @@
-import { ArrowLeft, Copy, Zap, Share, RotateCcw } from "lucide-react";
-import { Button } from "../ui/Button";
-import QRCode from 'qrcode';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { ArrowLeft, Copy, Zap, Share, RotateCcw } from 'lucide-react'
+import { Button } from '../ui/Button'
+import QRCode from 'qrcode'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface LightningPaymentData {
-  id: string;
-  description: string;
-  created_at: number;
-  status: string;
-  amount: number;
-  currency: string;
-  source_fiat_value: number;
-  fiat_value: number;
+  id: string
+  description: string
+  created_at: number
+  status: string
+  amount: number
+  currency: string
+  source_fiat_value: number
+  fiat_value: number
   lightning_invoice: {
-    expires_at: number;
-    payreq: string;
-  };
+    expires_at: number
+    payreq: string
+  }
 }
 
 interface LightningPaymentProps {
-  paymentData: LightningPaymentData;
-  originalValue: number;
-  goBack: () => void;
+  paymentData: LightningPaymentData
+  originalValue: number
+  goBack: () => void
 }
 
-export const LightningPayment = ({ paymentData, originalValue, goBack }: LightningPaymentProps) => {
-  const [qrCodeImageUrl, setQrCodeImageUrl] = useState<string | null>(null);
-  const [copySuccess, setCopySuccess] = useState(false);
+export const LightningPayment = ({
+  paymentData,
+  originalValue,
+  goBack,
+}: LightningPaymentProps) => {
+  const [qrCodeImageUrl, setQrCodeImageUrl] = useState<string | null>(null)
+  const [copySuccess, setCopySuccess] = useState(false)
 
   useEffect(() => {
     if (paymentData.lightning_invoice?.payreq) {
       QRCode.toDataURL(paymentData.lightning_invoice.payreq)
         .then(setQrCodeImageUrl)
         .catch((error) => {
-          console.error('QR Code generation error:', error);
-        });
+          console.error('QR Code generation error:', error)
+        })
     }
-  }, [paymentData.lightning_invoice?.payreq]);
+  }, [paymentData.lightning_invoice?.payreq])
 
   const copyToClipboard = async (text: string) => {
     try {
-      await navigator.clipboard.writeText(text);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
+      await navigator.clipboard.writeText(text)
+      setCopySuccess(true)
+      setTimeout(() => setCopySuccess(false), 2000)
     } catch (error) {
-      console.error('Failed to copy:', error);
+      console.error('Failed to copy:', error)
     }
-  };
+  }
 
   const sharePayment = async () => {
     if (navigator.share) {
@@ -57,39 +61,39 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
           title: 'Pagamento Lightning - Hodle',
           text: `Pagamento de R$${paymentData.fiat_value.toFixed(2)} via Lightning Network`,
           url: window.location.href,
-        });
+        })
       } catch (error) {
-        console.error('Error sharing:', error);
+        console.error('Error sharing:', error)
       }
     } else {
-      copyToClipboard(window.location.href);
+      copyToClipboard(window.location.href)
     }
-  };
+  }
 
   const openInLightningWallet = () => {
-    const lightningInvoice = paymentData.lightning_invoice.payreq;
-    const lightningUrl = `lightning:${lightningInvoice}`;
-    
-    try {
-      window.location.href = lightningUrl;
-    } catch (error) {
-      console.error('Error opening Lightning wallet:', error);
-      copyToClipboard(lightningInvoice);
-    }
-  };
+    const lightningInvoice = paymentData.lightning_invoice.payreq
+    const lightningUrl = `lightning:${lightningInvoice}`
 
-  const totalValue = paymentData.fiat_value;
-  const flatFee = 1.0;
-  const percentageFee = originalValue * 0.02;
-  const feeAmount = flatFee + percentageFee;
-  const satoshis = paymentData.amount;
+    try {
+      window.location.href = lightningUrl
+    } catch (error) {
+      console.error('Error opening Lightning wallet:', error)
+      copyToClipboard(lightningInvoice)
+    }
+  }
+
+  const totalValue = paymentData.fiat_value
+  const flatFee = 1.0
+  const percentageFee = originalValue * 0.02
+  const feeAmount = flatFee + percentageFee
+  const satoshis = paymentData.amount
 
   const formatDate = (timestamp: number) => {
     return new Date(timestamp * 1000).toLocaleString('pt-BR', {
       dateStyle: 'full',
       timeStyle: 'short',
-    });
-  };
+    })
+  }
 
   return (
     <div className="w-full">
@@ -105,7 +109,7 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
             />
           </Link>
         </div>
-        
+
         <div className="text-center mb-6">
           <p className="text-sm text-gray-500">
             {formatDate(paymentData.created_at)}
@@ -115,7 +119,9 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
         <div className="space-y-3 mb-6">
           <div className="flex items-center justify-between">
             <span className="font-bold">Valor Original</span>
-            <span className="text-xl font-bold">R${originalValue.toFixed(2)}</span>
+            <span className="text-xl font-bold">
+              R${originalValue.toFixed(2)}
+            </span>
           </div>
 
           <div className="flex items-center justify-between">
@@ -150,20 +156,20 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
                 priority
               />
             </div>
-            
+
             <p className="text-sm text-gray-500 text-center">
               Escaneie o QR Code com sua carteira Lightning
             </p>
-            
-            <Button
-              className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg flex items-center gap-2"
-            >
+
+            <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg flex items-center gap-2">
               <Zap className="h-4 w-4" />
               Lightning Network
             </Button>
 
             <div className="w-full">
-              <p className="text-sm text-gray-500 mb-2 text-center">Lightning Invoice:</p>
+              <p className="text-sm text-gray-500 mb-2 text-center">
+                Lightning Invoice:
+              </p>
               <div className="bg-yellow-50 p-3 rounded-md text-sm border border-yellow-200 relative">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs break-all mr-2">
@@ -172,7 +178,9 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
                   <Button
                     variant="ghost"
                     className="p-2 h-auto flex-shrink-0"
-                    onClick={() => copyToClipboard(paymentData.lightning_invoice.payreq)}
+                    onClick={() =>
+                      copyToClipboard(paymentData.lightning_invoice.payreq)
+                    }
                     title="Copiar invoice"
                   >
                     <Copy className="h-4 w-4" />
@@ -201,7 +209,7 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
             <RotateCcw className="h-4 w-4 mr-2" />
             Refazer pagamento
           </Button>
-          
+
           <Button
             type="button"
             variant="outline"
@@ -214,5 +222,5 @@ export const LightningPayment = ({ paymentData, originalValue, goBack }: Lightni
         </div>
       </div>
     </div>
-  );
-}; 
+  )
+}

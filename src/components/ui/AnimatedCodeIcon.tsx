@@ -1,4 +1,8 @@
-export const AnimatedCodeIcon = ({ className = "h-8 w-8 text-orange-600" }: { className?: string }) => {
+export const AnimatedCodeIcon = ({
+  className = 'h-8 w-8 text-orange-600',
+}: {
+  className?: string
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
