@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, Archivo_Black } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import { Footer } from '../components/ui/Footer'
-
+import { UtmTracker } from '../components/UtmTracker'
+import { Analytics } from "@vercel/analytics/next"
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -20,8 +21,10 @@ const archivoBlack = Archivo_Black({
   weight: '400',
 })
 
+const siteUrl = 'https://hodle.com.br'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hodle.com.br'),
+  metadataBase: new URL(siteUrl),
   title: 'Hodle - Compre Bitcoin de forma rápida e segura',
   description:
     'Hodle é o futuro dos pagamentos utilizando a tecnologia bitcoin, peer-to-peer por natureza e sem intermediários. Compra e venda sem fricção',
@@ -43,11 +46,11 @@ export const metadata: Metadata = {
     title: 'Hodle - Compre Bitcoin de forma rápida e segura',
     description:
       'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
-    url: 'https://hodle.com.br',
+    url: siteUrl,
     siteName: 'Hodle',
     images: [
       {
-        url: '/og-img.png',
+        url: `${siteUrl}/og-img.png`,
         width: 1200,
         height: 630,
         alt: 'Hodle - Compre Bitcoin de forma rápida e segura',
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
     title: 'Hodle - Compre Bitcoin de forma rápida e segura',
     description:
       'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
-    images: ['/og-img.png'],
+    images: [`${siteUrl}/og-img.png`],
   },
   robots: {
     index: true,
@@ -93,8 +96,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable}`}
       >
         <Header />
+        <UtmTracker />
         {children}
         <Footer />
+        <Analytics />
         {/* <Toaster
           position="top-right"
           closeButton

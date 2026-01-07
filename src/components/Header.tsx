@@ -2,9 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, User, ChevronsDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
-import { Button } from './ui/Button'
 import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({
@@ -55,6 +54,14 @@ export default function Header() {
             >
               Blog
             </Link>
+            <a
+              href="https://app.hodle.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-6 py-2.5 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 transform hover:scale-105"
+            >
+              Comprar
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -95,6 +102,14 @@ export default function Header() {
             >
               Blog
             </Link>
+            <a
+              href="https://app.hodle.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-4 mx-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+            >
+              Comprar
+            </a>
           </div>
         </div>
       )}
