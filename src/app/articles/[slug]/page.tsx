@@ -35,8 +35,22 @@ export async function generateMetadata({
   const articleUrl = `${baseUrl}/articles/${params.slug}`
 
   return {
+    metadataBase: new URL(baseUrl),
     title: `${article.title} | Hodle`,
     description: article.description,
+    keywords: [
+      'Bitcoin',
+      'Hodle',
+      'DEPIX',
+      'Lightning Network',
+      'Liquid Network',
+      'comprar Bitcoin',
+      'Bitcoin Brasil',
+      'low-KYC',
+      'PIX Bitcoin',
+      'carteira Bitcoin',
+    ],
+    authors: [{ name: 'Hodle' }],
     openGraph: {
       title: article.title,
       description: article.description,
@@ -52,12 +66,18 @@ export async function generateMetadata({
       ],
       locale: 'pt_BR',
       type: 'article',
+      publishedTime: article.date,
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
       images: [imageUrl],
+      creator: '@hodle',
+      site: '@hodle',
+    },
+    alternates: {
+      canonical: articleUrl,
     },
   }
 }

@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Archivo_Black } from 'next/font/google'
+import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import { Footer } from '../components/ui/Footer'
+import { Analytics } from '@vercel/analytics/next'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,43 +15,46 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-const archivoBlack = Archivo_Black({
-  variable: '--font-archivo-black',
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
   subsets: ['latin'],
-  weight: '400',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
+const siteUrl = 'https://hodle.com.br'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hodle.com.br'),
-  title: 'Hodle - Compre Bitcoin de forma rápida e segura',
+  metadataBase: new URL(siteUrl),
+  title: 'Hodle - Infraestrutura cripto para empresas',
   description:
-    'Hodle é o futuro dos pagamentos utilizando a tecnologia bitcoin, peer-to-peer por natureza e sem intermediários. Compra e venda sem fricção',
+    'Compra e venda de ativos digitais, pagamentos com stablecoins, APIs para SaaS e agentes de IA, wallets auto-custodiais e contas PJ. Tudo em uma única plataforma.',
   keywords: [
     'Bitcoin',
     'Lightning Network',
     'PIX',
-    'cryptocurrency',
-    'carteira Bitcoin',
-    'compra Bitcoin',
-    'Bitcoin Brasil',
+    'stablecoins',
+    'API cripto',
+    'crossborder payments',
+    'wallet auto-custodial',
+    'conta PJ cripto',
+    'infraestrutura cripto',
     'DePix',
-    'Decentralized Pix',
-    'Eulen',
-    'P2P',
+    'USDT',
+    'agentes IA',
   ],
   authors: [{ name: 'Hodle' }],
   openGraph: {
-    title: 'Hodle - Compre Bitcoin de forma rápida e segura',
+    title: 'Hodle - Infraestrutura cripto para empresas',
     description:
-      'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
-    url: 'https://hodle.com.br',
+      'Compra e venda de ativos digitais, pagamentos com stablecoins e APIs para SaaS e agentes de IA. Tudo em uma única plataforma.',
+    url: siteUrl,
     siteName: 'Hodle',
     images: [
       {
-        url: '/og-img.png',
+        url: `${siteUrl}/og-img.png`,
         width: 1200,
         height: 630,
-        alt: 'Hodle - Compre Bitcoin de forma rápida e segura',
+        alt: 'Hodle - Infraestrutura cripto para empresas',
       },
     ],
     locale: 'pt_BR',
@@ -58,10 +62,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hodle - Compre Bitcoin de forma rápida e segura',
+    title: 'Hodle - Infraestrutura cripto para empresas',
     description:
-      'A maneira mais fácil de comprar Bitcoin diretamente via Pix, em qualquer rede, lightning, liquid ou onchain.',
-    images: ['/og-img.png'],
+      'Compra e venda de ativos digitais, pagamentos com stablecoins e APIs para SaaS e agentes de IA.',
+    images: [`${siteUrl}/og-img.png`],
   },
   robots: {
     index: true,
@@ -90,22 +94,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} font-[family-name:var(--font-geist-sans)]`}
       >
         <Header />
         {children}
         <Footer />
-        {/* <Toaster
-          position="top-right"
-          closeButton
-          richColors
-          toastOptions={{
-            unstyled: false,
-            classNames: {
-              closeButton: 'ml-[324px] mt-4',
-            },
-          }}
-        /> */}
+        <Analytics />
       </body>
     </html>
   )

@@ -2,99 +2,91 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, User, ChevronsDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
-import { Button } from './ui/Button'
-import { Poppins } from 'next/font/google'
+import { ButtonShadow } from './ui/ButtonShadow'
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-})
+const navLinks = [
+  { label: 'Produtos', href: '#compra-venda' },
+  { label: 'API', href: '#api' },
+  { label: 'Plataforma', href: '#plataforma' },
+  { label: 'Preços', href: '/articles/precos' },
+  { label: 'Blog', href: '/articles' },
+]
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-yellow-100 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-white/90 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50">
+      <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center cursor-pointer">
+          <Link href="/" className="flex items-center gap-0">
             <Image
-              width={40}
-              height={40}
+              width={36}
+              height={36}
               src="/h-logo.svg"
               alt="Hodle logo"
-              className="w-10 h-10 mr-[-6px]"
+              className="w-9 h-9 mr-[-5px]"
             />
-            <span
-              className={`${poppins.className} text-2xl font-bold tracking-tight text-gray-900`}
-            >
+            <span className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold tracking-tight text-foreground">
               ODLE
             </span>
           </Link>
 
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/"
-              className="text-orange-600 hover:text-orange-700 px-3 py-2 text-xl font-bold font-[var(--font-archivo-black)]"
-            >
-              Início
-            </Link>
-            <Link
-              href="/articles/precos"
-              className="text-orange-600 hover:text-orange-700 px-3 py-2 text-xl font-bold font-[var(--font-archivo-black)]"
-            >
-              Preços e Taxas
-            </Link>
-            <Link
-              href="/articles"
-              className="text-orange-600 hover:text-orange-700 px-3 py-2 text-xl font-bold font-[var(--font-archivo-black)]"
-            >
-              Blog
-            </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-gray-500 hover:text-foreground text-sm font-medium transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Mobile menu button */}
+          <div className="hidden md:block">
+            <Link href="https://app.hodle.com.br" target="_blank">
+              <ButtonShadow size="sm">Abrir App</ButtonShadow>
+            </Link>
+          </div>
+
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-yellow-500 hover:bg-yellow-50 focus:outline-none"
+              className="p-2 rounded-lg text-gray-600 hover:text-foreground hover:bg-gray-50 transition-colors"
             >
               {isMenuOpen ? (
-                <X className="block h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="block h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-yellow-100">
-            <Link
-              href="/"
-              className="block px-3 py-2 rounded-md text-xl font-bold text-orange-600 hover:text-orange-700 hover:bg-orange-50 font-[var(--font-archivo-black)]"
-            >
-              Início
-            </Link>
-            <Link
-              href="/articles/precos"
-              className="block px-3 py-2 rounded-md text-xl font-bold text-orange-600 hover:text-orange-700 hover:bg-orange-50 font-[var(--font-archivo-black)]"
-            >
-              Preços e Taxas
-            </Link>
-            <Link
-              href="/articles"
-              className="block px-3 py-2 rounded-md text-xl font-bold text-orange-600 hover:text-orange-700 hover:bg-orange-50 font-[var(--font-archivo-black)]"
-            >
-              Blog
-            </Link>
+        <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="px-6 pt-3 pb-4 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-500 hover:text-foreground hover:bg-gray-50 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-3">
+              <Link href="https://app.hodle.com.br" target="_blank">
+                <ButtonShadow size="sm" className="w-full">
+                  Abrir App
+                </ButtonShadow>
+              </Link>
+            </div>
           </div>
         </div>
       )}

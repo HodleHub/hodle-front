@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@cloudflare/next-on-pages':
         specifier: ^1.13.16
-        version: 1.13.16(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(wrangler@4.51.0)
+        version: 1.13.16(next@15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(wrangler@4.51.0)
       '@hookform/resolvers':
         specifier: ^4.1.0
         version: 4.1.3(react-hook-form@7.54.2(react@19.0.0))
@@ -59,6 +59,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.24.0
         version: 8.27.0(eslint@8.57.1)(typescript@5.8.2)
+      '@vercel/analytics':
+        specifier: ^1.6.1
+        version: 1.6.1(next@15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -87,11 +90,11 @@ importers:
         specifier: ^0.475.0
         version: 0.475.0(react@19.0.0)
       next:
-        specifier: 15.1.7
-        version: 15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: 15.1.11
+        version: 15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next-mdx-remote:
-        specifier: ^5.0.0
-        version: 5.0.0(@types/react@19.0.12)(acorn@8.14.1)(react@19.0.0)
+        specifier: ^6.0.0
+        version: 6.0.0(@types/react@19.0.12)(acorn@8.14.1)(react@19.0.0)
       qrcode:
         specifier: ^1.5.4
         version: 1.5.4
@@ -630,56 +633,56 @@ packages:
   '@napi-rs/wasm-runtime@0.2.7':
     resolution: {integrity: sha512-5yximcFK5FNompXfJFoWanu5l8v1hNGqNHh9du1xETp9HWk/B/PzvchX55WYOPaIeNglG8++68AAiauBAtbnzw==}
 
-  '@next/env@15.1.7':
-    resolution: {integrity: sha512-d9jnRrkuOH7Mhi+LHav2XW91HOgTAWHxjMPkXMGBc9B2b7614P7kjt8tAplRvJpbSt4nbO1lugcT/kAaWzjlLQ==}
+  '@next/env@15.1.11':
+    resolution: {integrity: sha512-yp++FVldfLglEG5LoS2rXhGypPyoSOyY0kxZQJ2vnlYJeP8o318t5DrDu5Tqzr03qAhDWllAID/kOCsXNLcwKw==}
 
   '@next/eslint-plugin-next@15.1.7':
     resolution: {integrity: sha512-kRP7RjSxfTO13NE317ek3mSGzoZlI33nc/i5hs1KaWpK+egs85xg0DJ4p32QEiHnR0mVjuUfhRIun7awqfL7pQ==}
 
-  '@next/swc-darwin-arm64@15.1.7':
-    resolution: {integrity: sha512-hPFwzPJDpA8FGj7IKV3Yf1web3oz2YsR8du4amKw8d+jAOHfYHYFpMkoF6vgSY4W6vB29RtZEklK9ayinGiCmQ==}
+  '@next/swc-darwin-arm64@15.1.9':
+    resolution: {integrity: sha512-sQF6MfW4nk0PwMYYq8xNgqyxZJGIJV16QqNDgaZ5ze9YoVzm4/YNx17X0exZudayjL9PF0/5RGffDtzXapch0Q==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@15.1.7':
-    resolution: {integrity: sha512-2qoas+fO3OQKkU0PBUfwTiw/EYpN+kdAx62cePRyY1LqKtP09Vp5UcUntfZYajop5fDFTjSxCHfZVRxzi+9FYQ==}
+  '@next/swc-darwin-x64@15.1.9':
+    resolution: {integrity: sha512-fp0c1rB6jZvdSDhprOur36xzQvqelAkNRXM/An92sKjjtaJxjlqJR8jiQLQImPsClIu8amQn+ZzFwl1lsEf62w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.1.7':
-    resolution: {integrity: sha512-sKLLwDX709mPdzxMnRIXLIT9zaX2w0GUlkLYQnKGoXeWUhcvpCrK+yevcwCJPdTdxZEUA0mOXGLdPsGkudGdnA==}
+  '@next/swc-linux-arm64-gnu@15.1.9':
+    resolution: {integrity: sha512-77rYykF6UtaXvxh9YyRIKoaYPI6/YX6cy8j1DL5/1XkjbfOwFDfTEhH7YGPqG/ePl+emBcbDYC2elgEqY2e+ag==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@15.1.7':
-    resolution: {integrity: sha512-zblK1OQbQWdC8fxdX4fpsHDw+VSpBPGEUX4PhSE9hkaWPrWoeIJn+baX53vbsbDRaDKd7bBNcXRovY1hEhFd7w==}
+  '@next/swc-linux-arm64-musl@15.1.9':
+    resolution: {integrity: sha512-uZ1HazKcyWC7RA6j+S/8aYgvxmDqwnG+gE5S9MhY7BTMj7ahXKunpKuX8/BA2M7OvINLv7LTzoobQbw928p3WA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@15.1.7':
-    resolution: {integrity: sha512-GOzXutxuLvLHFDAPsMP2zDBMl1vfUHHpdNpFGhxu90jEzH6nNIgmtw/s1MDwpTOiM+MT5V8+I1hmVFeAUhkbgQ==}
+  '@next/swc-linux-x64-gnu@15.1.9':
+    resolution: {integrity: sha512-gQIX1d3ct2RBlgbbWOrp+SHExmtmFm/HSW1Do5sSGMDyzbkYhS2sdq5LRDJWWsQu+/MqpgJHqJT6ORolKp/U1g==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@15.1.7':
-    resolution: {integrity: sha512-WrZ7jBhR7ATW1z5iEQ0ZJfE2twCNSXbpCSaAunF3BKcVeHFADSI/AW1y5Xt3DzTqPF1FzQlwQTewqetAABhZRQ==}
+  '@next/swc-linux-x64-musl@15.1.9':
+    resolution: {integrity: sha512-fJOwxAbCeq6Vo7pXZGDP6iA4+yIBGshp7ie2Evvge7S7lywyg7b/SGqcvWq/jYcmd0EbXdb7hBfdqSQwTtGTPg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@15.1.7':
-    resolution: {integrity: sha512-LDnj1f3OVbou1BqvvXVqouJZKcwq++mV2F+oFHptToZtScIEnhNRJAhJzqAtTE2dB31qDYL45xJwrc+bLeKM2Q==}
+  '@next/swc-win32-arm64-msvc@15.1.9':
+    resolution: {integrity: sha512-crfbUkAd9PVg9nGfyjSzQbz82dPvc4pb1TeP0ZaAdGzTH6OfTU9kxidpFIogw0DYIEadI7hRSvuihy2NezkaNQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@15.1.7':
-    resolution: {integrity: sha512-dC01f1quuf97viOfW05/K8XYv2iuBgAxJZl7mbCKEjMgdQl5JjAKJ0D2qMKZCgPWDeFbFT0Q0nYWwytEW0DWTQ==}
+  '@next/swc-win32-x64-msvc@15.1.9':
+    resolution: {integrity: sha512-SBB0oA4E2a0axUrUwLqXlLkSn+bRx9OWU6LheqmRrO53QEAJP7JquKh3kF0jRzmlYOWFZtQwyIWJMEJMtvvDcQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1299,6 +1302,32 @@ packages:
     resolution: {integrity: sha512-hewo/UMGP1a7O6FG/ThcPzSJdm/WwrYDNkdGgWl6M18H6K6MSitklomWpT9MUtT5KGj++QJb06va/14QBC4pvw==}
     cpu: [x64]
     os: [win32]
+
+  '@vercel/analytics@1.6.1':
+    resolution: {integrity: sha512-oH9He/bEM+6oKlv3chWuOOcp8Y6fo6/PSro8hEkgCW3pu9/OiCXiUpRUogDh3Fs3LH2sosDrx8CxeOLBEE+afg==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2717,14 +2746,14 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  next-mdx-remote@5.0.0:
-    resolution: {integrity: sha512-RNNbqRpK9/dcIFZs/esQhuLA8jANqlH694yqoDBK8hkVdJUndzzGmnPHa2nyi90N4Z9VmzuSWNRpr5ItT3M7xQ==}
+  next-mdx-remote@6.0.0:
+    resolution: {integrity: sha512-cJEpEZlgD6xGjB4jL8BnI8FaYdN9BzZM4NwadPe1YQr7pqoWjg9EBCMv3nXBkuHqMRfv2y33SzUsuyNh9LFAQQ==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16'
 
-  next@15.1.7:
-    resolution: {integrity: sha512-GNeINPGS9c6OZKCvKypbL8GTsT5GhWPp4DM0fzkXJuXMilOO2EeFxuAY6JZbtk6XIl6Ws10ag3xRINDjSO5+wg==}
+  next@15.1.11:
+    resolution: {integrity: sha512-UiVJaOGhKST58AadwbFUZThlNBmYhKqaCs8bVtm4plTxsgKq0mJ0zTsp7t7j/rzsbAEj9WcAMdZCztjByi4EoQ==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -3428,9 +3457,6 @@ packages:
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
-  unist-util-is@5.2.1:
-    resolution: {integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==}
-
   unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
 
@@ -3440,20 +3466,20 @@ packages:
   unist-util-position@5.0.0:
     resolution: {integrity: sha512-fucsC7HjXvkB5R3kTCO7kUjRdrS0BJt3M/FPxmHMBOm8JQi2BsHAHFsy27E0EolP8rp0NzXsJ+jNPyDWvOJZPA==}
 
-  unist-util-remove@3.1.1:
-    resolution: {integrity: sha512-kfCqZK5YVY5yEa89tvpl7KnBBHu2c6CzMkqHUrlOqaRgGOMp0sMvwWOVrbAtj03KhovQB7i96Gda72v/EFE0vw==}
+  unist-util-remove@4.0.0:
+    resolution: {integrity: sha512-b4gokeGId57UVRX/eVKej5gXqGlc9+trkORhFJpu9raqZkZhU0zm8Doi05+HaiBsMEIJowL+2WtQ5ItjsngPXg==}
 
   unist-util-stringify-position@4.0.0:
     resolution: {integrity: sha512-0ASV06AAoKCDkS2+xw5RXJywruurpbC4JZSm7nr7MOt1ojAzvyyaO+UxZf18j8FCF6kmzCZKcAgN/yu2gm2XgQ==}
-
-  unist-util-visit-parents@5.1.3:
-    resolution: {integrity: sha512-x6+y8g7wWMyQhL1iZfhIPhDAs7Xwbn9nRosDXl7qoPTSCy0yNxnKc+hWokFifWQIDGi154rdUqKvbCa4+1kLhg==}
 
   unist-util-visit-parents@6.0.1:
     resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==}
 
   unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
+
+  unist-util-visit@5.1.0:
+    resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
@@ -3622,7 +3648,7 @@ snapshots:
     dependencies:
       mime: 3.0.0
 
-  '@cloudflare/next-on-pages@1.13.16(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(wrangler@4.51.0)':
+  '@cloudflare/next-on-pages@1.13.16(next@15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(wrangler@4.51.0)':
     dependencies:
       acorn: 8.14.1
       ast-types: 0.14.2
@@ -3633,7 +3659,7 @@ snapshots:
       esbuild: 0.15.18
       js-yaml: 4.1.0
       miniflare: 3.20250718.2
-      next: 15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next: 15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       package-manager-manager: 0.2.0
       pcre-to-regexp: 1.1.0
       semver: 7.7.1
@@ -3982,7 +4008,7 @@ snapshots:
       unified: 11.0.5
       unist-util-position-from-estree: 2.0.0
       unist-util-stringify-position: 4.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
     transitivePeerDependencies:
       - acorn
@@ -4001,34 +4027,34 @@ snapshots:
       '@tybys/wasm-util': 0.9.0
     optional: true
 
-  '@next/env@15.1.7': {}
+  '@next/env@15.1.11': {}
 
   '@next/eslint-plugin-next@15.1.7':
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/swc-darwin-arm64@15.1.7':
+  '@next/swc-darwin-arm64@15.1.9':
     optional: true
 
-  '@next/swc-darwin-x64@15.1.7':
+  '@next/swc-darwin-x64@15.1.9':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.1.7':
+  '@next/swc-linux-arm64-gnu@15.1.9':
     optional: true
 
-  '@next/swc-linux-arm64-musl@15.1.7':
+  '@next/swc-linux-arm64-musl@15.1.9':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.1.7':
+  '@next/swc-linux-x64-gnu@15.1.9':
     optional: true
 
-  '@next/swc-linux-x64-musl@15.1.7':
+  '@next/swc-linux-x64-musl@15.1.9':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.1.7':
+  '@next/swc-win32-arm64-msvc@15.1.9':
     optional: true
 
-  '@next/swc-win32-x64-msvc@15.1.7':
+  '@next/swc-win32-x64-msvc@15.1.9':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -4669,6 +4695,11 @@ snapshots:
 
   '@unrs/rspack-resolver-binding-win32-x64-msvc@1.2.2':
     optional: true
+
+  '@vercel/analytics@1.6.1(next@15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)':
+    optionalDependencies:
+      next: 15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
 
   acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:
@@ -6182,7 +6213,7 @@ snapshots:
       micromark-util-sanitize-uri: 2.0.1
       trim-lines: 3.0.1
       unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
 
   mdast-util-to-markdown@2.1.2:
@@ -6541,13 +6572,14 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-mdx-remote@5.0.0(@types/react@19.0.12)(acorn@8.14.1)(react@19.0.0):
+  next-mdx-remote@6.0.0(@types/react@19.0.12)(acorn@8.14.1)(react@19.0.0):
     dependencies:
       '@babel/code-frame': 7.26.2
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
       '@mdx-js/react': 3.1.0(@types/react@19.0.12)(react@19.0.0)
       react: 19.0.0
-      unist-util-remove: 3.1.1
+      unist-util-remove: 4.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
       vfile-matter: 5.0.1
     transitivePeerDependencies:
@@ -6555,9 +6587,9 @@ snapshots:
       - acorn
       - supports-color
 
-  next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  next@15.1.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
-      '@next/env': 15.1.7
+      '@next/env': 15.1.11
       '@swc/counter': 0.1.3
       '@swc/helpers': 0.5.15
       busboy: 1.6.0
@@ -6567,14 +6599,14 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       styled-jsx: 5.1.6(react@19.0.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.1.7
-      '@next/swc-darwin-x64': 15.1.7
-      '@next/swc-linux-arm64-gnu': 15.1.7
-      '@next/swc-linux-arm64-musl': 15.1.7
-      '@next/swc-linux-x64-gnu': 15.1.7
-      '@next/swc-linux-x64-musl': 15.1.7
-      '@next/swc-win32-arm64-msvc': 15.1.7
-      '@next/swc-win32-x64-msvc': 15.1.7
+      '@next/swc-darwin-arm64': 15.1.9
+      '@next/swc-darwin-x64': 15.1.9
+      '@next/swc-linux-arm64-gnu': 15.1.9
+      '@next/swc-linux-arm64-musl': 15.1.9
+      '@next/swc-linux-x64-gnu': 15.1.9
+      '@next/swc-linux-x64-musl': 15.1.9
+      '@next/swc-win32-arm64-msvc': 15.1.9
+      '@next/swc-win32-x64-msvc': 15.1.9
       sharp: 0.33.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -7402,10 +7434,6 @@ snapshots:
       trough: 2.2.0
       vfile: 6.0.3
 
-  unist-util-is@5.2.1:
-    dependencies:
-      '@types/unist': 2.0.11
-
   unist-util-is@6.0.0:
     dependencies:
       '@types/unist': 3.0.3
@@ -7418,20 +7446,15 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  unist-util-remove@3.1.1:
+  unist-util-remove@4.0.0:
     dependencies:
-      '@types/unist': 2.0.11
-      unist-util-is: 5.2.1
-      unist-util-visit-parents: 5.1.3
+      '@types/unist': 3.0.3
+      unist-util-is: 6.0.0
+      unist-util-visit-parents: 6.0.1
 
   unist-util-stringify-position@4.0.0:
     dependencies:
       '@types/unist': 3.0.3
-
-  unist-util-visit-parents@5.1.3:
-    dependencies:
-      '@types/unist': 2.0.11
-      unist-util-is: 5.2.1
 
   unist-util-visit-parents@6.0.1:
     dependencies:
@@ -7439,6 +7462,12 @@ snapshots:
       unist-util-is: 6.0.0
 
   unist-util-visit@5.0.0:
+    dependencies:
+      '@types/unist': 3.0.3
+      unist-util-is: 6.0.0
+      unist-util-visit-parents: 6.0.1
+
+  unist-util-visit@5.1.0:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
