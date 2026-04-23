@@ -41,13 +41,12 @@ export default function HomePage() {
             <h1
               className={`${heading} text-[clamp(2.8rem,6vw,5rem)] font-light text-foreground leading-[1.1] mb-8 tracking-tight`}
             >
-              Infraestrutura cripto para pagamentos globais
+              Cripto que funciona como Pix
             </h1>
 
             <p className="text-lg text-gray-400 max-w-[600px] mx-auto mb-12 leading-relaxed">
-              Uma infraestrutura moderna para finanças globais, orquestrando
-              stablecoins, pagamentos locais, contas virtuais e compliance
-              integrado.
+              Uma wallet para o seu dinheiro do dia a dia. Receba, guarde e
+              pague — em real ou em stablecoin, quando e como quiser.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -57,7 +56,7 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
-              <Link href="https://t.me/hodle_suporte" target="_blank">
+              <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
                 <ButtonShadow
                   faceClassName="border-gray-300 bg-white text-gray-500 hover:text-foreground"
                   shadowClassName="bg-gray-300"
@@ -822,7 +821,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="https://t.me/hodle_suporte" target="_blank">
+              <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
                 <ButtonShadow size="sm">
                   Abrir conta PJ
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
@@ -968,9 +967,6 @@ export default function HomePage() {
                     <div className="absolute -bottom-5 -left-5 w-14 h-14 border-b-[5px] border-l-[5px] border-foreground rounded-bl-2xl" />
                     <div className="absolute -bottom-5 -right-5 w-14 h-14 border-b-[5px] border-r-[5px] border-foreground rounded-br-2xl" />
 
-                    {/* Yellow accent highlights */}
-                    <div className="absolute -top-5 right-[14px] w-[5px] h-6 bg-amber-400 rounded-full" />
-                    <div className="absolute -bottom-5 left-[14px] w-[5px] h-6 bg-amber-400 rounded-full" />
                   </div>
                 </div>
               </div>
@@ -1008,7 +1004,7 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </ButtonShadow>
             </Link>
-            <Link href="https://t.me/hodle_suporte" target="_blank">
+            <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
               <ButtonShadow
                 faceClassName="border-gray-600 bg-transparent text-gray-300"
                 shadowClassName="bg-gray-600"

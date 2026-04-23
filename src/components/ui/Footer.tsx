@@ -59,7 +59,7 @@ export function Footer() {
                 { label: 'Blog', href: '/articles' },
                 { label: 'Preços', href: '/articles/precos' },
                 { label: 'FAQ', href: '#' },
-                { label: 'Suporte', href: 'https://t.me/hodle_suporte' },
+                { label: 'Suporte', href: 'https://api.whatsapp.com/send?phone=5511960000445' },
               ],
             },
             {
