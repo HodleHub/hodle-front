@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: 'Hodle',
     images: [
       {
-        url: `${siteUrl}/og-img.png`,
+        url: `${siteUrl}/og-img.png?v=2`,
         width: 1200,
         height: 630,
         alt: 'Hodle - Infraestrutura cripto para empresas',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: 'Hodle - Infraestrutura cripto para empresas',
     description:
       'Compra e venda de ativos digitais, pagamentos com stablecoins e APIs para SaaS e agentes de IA.',
-    images: [`${siteUrl}/og-img.png`],
+    images: [`${siteUrl}/og-img.png?v=2`],
   },
   robots: {
     index: true,
