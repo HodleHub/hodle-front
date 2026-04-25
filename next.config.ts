@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/og-img.png',
+        source: '/og-image-v2.png',
         destination: '/api/og',
       },
     ]
