@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
         source: '/og-image-v2.png',
         destination: '/api/og',
       },
+      {
+        source: '/pitch',
+        destination: '/pitch.html',
+      },
     ]
   },
 }
