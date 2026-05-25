@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
         source: '/pitch',
         destination: '/pitch.html',
       },
+      {
+        source: '/lnurlpay/:path*',
+        destination: 'https://lnurl.hodle.com.br/lnurlpay/:path*',
+      },
+      {
+        source: '/verify/:path*',
+        destination: 'https://lnurl.hodle.com.br/verify/:path*',
+      },
     ]
   },
 }

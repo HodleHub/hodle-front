@@ -98,7 +98,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-1.5">
               <span className="text-xs text-gray-400">Powered by</span>
-              <Zap size={12} className="text-yellow-500" />
+              <Zap size={12} className="text-foreground" />
               <span className="text-xs font-medium text-gray-500">
                 Lightning Network
               </span>
