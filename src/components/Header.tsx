@@ -2,16 +2,17 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 import { ButtonShadow } from './ui/ButtonShadow'
+
+const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 
 const navLinks = [
   { label: 'Produtos', href: '#compra-venda' },
   { label: 'API', href: '#api' },
   { label: 'Plataforma', href: '#plataforma' },
-  { label: 'Preços', href: '/articles/precos' },
-  { label: 'Blog', href: '/articles' },
+  { label: 'Parceiros', href: '#parceiros' },
 ]
 
 export default function Header() {
@@ -34,7 +35,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -46,7 +47,16 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Fale conosco
+            </Link>
             <Link href="https://app.hodle.com.br" target="_blank">
               <ButtonShadow size="sm">Abrir App</ButtonShadow>
             </Link>
@@ -80,6 +90,16 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-500 hover:text-foreground hover:bg-gray-50 transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Fale conosco
+            </Link>
             <div className="pt-3">
               <Link href="https://app.hodle.com.br" target="_blank">
                 <ButtonShadow size="sm" className="w-full">

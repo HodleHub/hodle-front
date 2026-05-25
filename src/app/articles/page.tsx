@@ -11,10 +11,20 @@ export default function ArticlesPage() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          <span className="text-orange-500">Artigos</span> Hodle
+        <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
+          <span className="h-1 w-1 rounded-full bg-foreground" />
+          Blog
+        </span>
+        <h1 className="text-[clamp(2.4rem,5vw,3.8rem)] font-light text-foreground tracking-[-0.03em] mb-6">
+          <span
+            className="italic"
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
+            Artigos
+          </span>{' '}
+          Hodle
         </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
           Aprenda sobre Bitcoin, Lightning Network e como aproveitar ao máximo a
           tecnologia blockchain.
         </p>
@@ -28,7 +38,7 @@ export default function ArticlesPage() {
             target="_blank"
             className="block group"
           >
-            <div className="h-full flex flex-col overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white border border-gray-100 group-hover:border-orange-300 group-hover:ring-2 group-hover:ring-orange-200 transform group-hover:-translate-y-1 duration-200">
+            <div className="h-full flex flex-col overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white border border-gray-200 group-hover:border-gray-400 transform group-hover:-translate-y-1">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
                   src={article.imageUrl}
@@ -40,7 +50,7 @@ export default function ArticlesPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="flex-1 p-6 flex flex-col">
-                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-foreground mb-2 transition-colors duration-200">
                   {article.title}
                 </h3>
                 <p className="text-gray-600 text-sm flex-1 mb-4">
@@ -53,7 +63,7 @@ export default function ArticlesPage() {
                     day: 'numeric',
                   })}
                 </div>
-                <div className="text-orange-500 font-medium flex items-center">
+                <div className="text-foreground text-sm font-semibold flex items-center">
                   Ler artigo
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

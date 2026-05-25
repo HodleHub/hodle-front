@@ -7,9 +7,8 @@ import { ButtonShadow } from '../components/ui/ButtonShadow'
 import {
   Check,
   ArrowRight,
-  Zap,
+  ArrowUpRight,
   Lock,
-  Shield,
   Wallet,
   ChevronRight,
   Home,
@@ -19,11 +18,9 @@ import {
   Code2,
   QrCode,
   BarChart3,
-  Key,
   Landmark,
-  Globe,
+  MessageCircle,
 } from 'lucide-react'
-import CodeBlock from '../components/CodeBlock'
 
 console.log('[Hodle] Page module loaded')
 
@@ -35,36 +32,78 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* ═══════════════ HERO ═══════════════ */}
-      <section className="hero-grid relative">
-        <div className="max-w-[1200px] mx-auto px-6 pt-28 pb-36 lg:pt-36 lg:pb-44">
-          <div className="text-center max-w-[800px] mx-auto">
+      <section className="relative overflow-hidden">
+        <div className="hero-grid absolute inset-0 pointer-events-none" />
+        <div className="hero-spotlight absolute inset-0 pointer-events-none" />
+
+        <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-28 lg:pt-32 lg:pb-36">
+          <div className="text-center max-w-[880px] mx-auto">
             <h1
-              className={`${heading} text-[clamp(2.8rem,6vw,5rem)] font-light text-foreground leading-[1.1] mb-8 tracking-tight`}
+              className={`${heading} text-[clamp(2.8rem,7vw,5.6rem)] font-light text-foreground leading-[1.02] mb-7 tracking-[-0.035em] text-balance`}
             >
-              Cripto que funciona como Pix
+              Hodle.{' '}
+              <span className="italic font-light text-foreground/85" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+                E gaste também.
+              </span>
             </h1>
 
-            <p className="text-lg text-gray-400 max-w-[600px] mx-auto mb-12 leading-relaxed">
-              Uma wallet para o seu dinheiro do dia a dia. Receba, guarde e
-              pague — em real ou em stablecoin, quando e como quiser.
+            <p className="text-lg lg:text-xl text-gray-500 max-w-[640px] mx-auto mb-11 leading-relaxed text-pretty">
+              Receba em PIX, guarde em dólar, pague qualquer QR code com
+              stablecoin. Sua cripto no dia a dia, sem sair da wallet.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow>
-                  Começar agora
+                <ButtonShadow
+                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
+                  shadowClassName="bg-gray-300"
+                >
+                  Criar minha wallet
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
-              <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
+              <Link
+                href="https://api.whatsapp.com/send?phone=5511960000445"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <ButtonShadow
-                  faceClassName="border-gray-300 bg-white text-gray-500 hover:text-foreground"
-                  shadowClassName="bg-gray-300"
+                  faceClassName="border-gray-300 bg-white text-gray-600 hover:text-foreground"
+                  shadowClassName="bg-gray-200"
                 >
-                  Agendar demo
+                  Fale conosco
+                  <ArrowUpRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ STATS STRIP ═══════════════ */}
+      <section className="border-t border-gray-200 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+            {[
+              { value: '< 1s', label: 'Liquidação Lightning' },
+              { value: '24/7', label: 'PIX disponível' },
+              { value: '100%', label: 'Auto-custódia' },
+              { value: '5+', label: 'Redes suportadas' },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="text-center md:border-r md:last:border-r-0 border-gray-200"
+              >
+                <div
+                  className={`${heading} text-3xl md:text-4xl font-light text-foreground tracking-tight mb-1.5`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-400">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -105,6 +144,51 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
           ))}
+        </div>
+      </section>
+
+      {/* ═══════════════ PARTNERS ═══════════════ */}
+      <section
+        id="parceiros"
+        className="border-t border-gray-200 bg-gray-50/50"
+      >
+        <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-[560px]">
+              <span className="text-xs font-semibold uppercase text-gray-500 mb-4 block">
+                Parceiros
+              </span>
+              <h2
+                className={`${heading} text-3xl lg:text-4xl font-light text-foreground leading-tight text-balance mb-4`}
+              >
+                Infraestrutura conectada com quem move dinheiro na América
+                Latina
+              </h2>
+              <p className="text-gray-500 leading-relaxed text-pretty">
+                A Hodle trabalha com parceiros estratégicos para entregar PIX,
+                stablecoins e liquidação local com uma experiência simples para
+                empresas.
+              </p>
+            </div>
+
+            <a
+              href="https://avenia.io"
+              target="_blank"
+              rel="noreferrer"
+              className="block rounded-2xl border border-gray-200 bg-white px-8 py-7 shadow-sm transition-colors hover:border-gray-300"
+            >
+              <span className="text-xs font-medium text-gray-400 mb-5 block">
+                Parceiro regulado
+              </span>
+              <Image
+                src="/avenia.png"
+                alt="Avenia"
+                width={349}
+                height={81}
+                className="h-auto w-48 sm:w-56"
+              />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -209,8 +293,8 @@ export default function HomePage() {
                             date: '14/02/2026, 14:07',
                             from: 'PIX',
                             fromIcon: '/pix.svg',
-                            to: 'Liquid',
-                            toIcon: '/liquid.svg',
+                            to: 'Polygon',
+                            toIcon: '/polygon.svg',
                             val: '+ R$ 50.00',
                             status: 'COMPLETED',
                             pos: true,
@@ -275,8 +359,8 @@ export default function HomePage() {
                             date: '05/02/2026, 12:38',
                             from: 'PIX',
                             fromIcon: '/pix.svg',
-                            to: 'Liquid',
-                            toIcon: '/liquid.svg',
+                            to: 'Polygon',
+                            toIcon: '/polygon.svg',
                             val: '+ R$ 100.00',
                             status: 'COMPLETED',
                             pos: true,
@@ -345,7 +429,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-base mb-5 block">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
                 Compra e Venda
               </span>
               <h2
@@ -415,11 +499,11 @@ export default function HomePage() {
                         status: 'Pendente',
                       },
                       {
-                        pair: 'DePix/BRL',
+                        pair: 'USDC/BRL',
                         type: 'Compra',
-                        icon: '/depix.png',
-                        val: 'R$ 100,00',
-                        btc: '100 DePix',
+                        icon: '/usdc.svg',
+                        val: 'R$ 500,00',
+                        btc: '100 USDC',
                         status: 'Concluído',
                       },
                       {
@@ -465,11 +549,11 @@ export default function HomePage() {
                           status: 'Pendente',
                         },
                         {
-                          pair: 'DePix/BRL',
+                          pair: 'USDC/BRL',
                           type: 'Compra',
-                          icon: '/depix.png',
-                          val: 'R$ 100,00',
-                          btc: '100 DePix',
+                          icon: '/usdc.svg',
+                          val: 'R$ 500,00',
+                          btc: '100 USDC',
                           status: 'Concluído',
                         },
                         {
@@ -539,7 +623,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-base mb-5 block">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
                 API Crossborder
               </span>
               <h2
@@ -580,7 +664,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row-reverse items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="right" className="flex-1">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-base mb-5 block">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
                 Wallets
               </span>
               <h2
@@ -622,7 +706,7 @@ export default function HomePage() {
                       <Wallet className="w-4 h-4 text-foreground" />
                     </div>
                     <span className="text-xs font-semibold text-foreground">
-                      liquid
+                      Carteira
                     </span>
                     <span className="bg-base text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
                       Padrão
@@ -638,16 +722,18 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Liquid Network */}
+                {/* Polygon */}
                 <div className="px-5 py-4 border-b border-gray-100">
                   <p className="text-[10px] font-bold text-foreground tracking-wider mb-2">
-                    LIQUID NETWORK
+                    POLYGON
                   </p>
                   <div className="mb-3">
-                    <p className="text-[10px] text-gray-400 mb-1">Endereço</p>
+                    <p className="text-[10px] text-gray-400 mb-1">
+                      Smart Account
+                    </p>
                     <div className="inline-flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-1.5 border border-gray-100">
                       <span className="text-[11px] font-mono text-gray-500">
-                        lq1qqvds...yq9668
+                        0x1F2CCa...A5F07d
                       </span>
                       <svg
                         className="w-3 h-3 text-gray-400"
@@ -673,19 +759,14 @@ export default function HomePage() {
                   <div className="space-y-2 mb-3">
                     {[
                       {
-                        icon: '/liquid.svg',
-                        name: 'L-BTC',
-                        balance: '0.00780167',
-                      },
-                      {
-                        icon: '/depix.png',
-                        name: 'DePix',
-                        balance: '163.78',
-                      },
-                      {
                         icon: '/usdt.svg',
-                        name: 'USDt',
-                        balance: '14.26166761',
+                        name: 'USDT',
+                        balance: '1.250,45',
+                      },
+                      {
+                        icon: '/usdc.svg',
+                        name: 'USDC',
+                        balance: '835,12',
                       },
                     ].map((asset) => (
                       <div
@@ -723,71 +804,6 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
-
-                {/* Polygon */}
-                <div className="px-5 py-4">
-                  <p className="text-[10px] font-bold text-foreground tracking-wider mb-2">
-                    POLYGON
-                  </p>
-                  <div className="mb-3">
-                    <p className="text-[10px] text-gray-400 mb-1">
-                      Smart Account
-                    </p>
-                    <div className="inline-flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-1.5 border border-gray-100">
-                      <span className="text-[11px] font-mono text-gray-500">
-                        0x1F2CCa...A5F07d
-                      </span>
-                      <svg
-                        className="w-3 h-3 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <rect
-                          x="9"
-                          y="9"
-                          width="13"
-                          height="13"
-                          rx="2"
-                          ry="2"
-                        />
-                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <p className="text-[10px] text-gray-400 mb-2">Saldos</p>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <Image
-                      src="/usdt-polygon.png"
-                      alt="USDT"
-                      width={20}
-                      height={20}
-                      className="w-5 h-5 rounded-full"
-                    />
-                    <span className="text-xs font-medium text-foreground">
-                      0.995230{' '}
-                      <span className="text-gray-400">USDT</span>
-                    </span>
-                  </div>
-
-                  <div className="flex gap-2">
-                    {[
-                      { label: 'Receber', icon: '↙' },
-                      { label: 'Enviar', icon: '↗' },
-                      { label: 'Sincronizar', icon: '↻' },
-                    ].map((action) => (
-                      <div
-                        key={action.label}
-                        className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-[10px] font-medium text-gray-600"
-                      >
-                        <span>{action.icon}</span>
-                        {action.label}
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -799,7 +815,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-base mb-5 block">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
                 Conta PJ
               </span>
               <h2
@@ -905,7 +921,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row-reverse items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="right" className="flex-1">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-base mb-5 block">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
                 Pagamentos
               </span>
               <h2
@@ -917,7 +933,7 @@ export default function HomePage() {
                 {[
                   'Pague qualquer QR code PIX usando stablecoins',
                   'Conversão automática stablecoin para BRL',
-                  'Suporte a USDT, USDC e DePix',
+                  'Suporte a USDT e USDC',
                   'Liquidação instantânea',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -982,37 +998,39 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ═══════════════ CTA ═══════════════ */}
-      <section className="border-t border-gray-200 bg-foreground py-24 lg:py-32">
-        <div className="max-w-[700px] mx-auto px-6 text-center">
-          <h2
-            className={`${heading} text-[clamp(2rem,4vw,3rem)] font-light text-white leading-[1.15] mb-6`}
-          >
-            Pronto para começar?
-          </h2>
-          <p className="text-gray-400 mb-10 leading-relaxed">
-            Crie sua conta em minutos e comece a operar com a infraestrutura
-            cripto mais completa do Brasil.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="https://app.hodle.com.br" target="_blank">
-              <ButtonShadow
-                faceClassName="border-white bg-white text-foreground"
-                shadowClassName="bg-base"
+      {/* ═══════════════ FALE CONOSCO ═══════════════ */}
+      <section id="fale-conosco" className="border-t border-gray-200">
+        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+          <AnimatedSection delay={0.1}>
+            <div className="text-center max-w-[680px] mx-auto">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
+                <span className="h-1 w-1 rounded-full bg-foreground" />
+                Fale Conosco
+              </span>
+              <h2
+                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
               >
-                Criar conta grátis
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </ButtonShadow>
-            </Link>
-            <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
-              <ButtonShadow
-                faceClassName="border-gray-600 bg-transparent text-gray-300"
-                shadowClassName="bg-gray-600"
+                Tire suas dúvidas pelo WhatsApp
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-10 text-pretty">
+                Fale direto com nosso time. Respondemos rápido para ajudar você
+                a começar a usar a Hodle ou abrir uma conta PJ.
+              </p>
+              <Link
+                href="https://api.whatsapp.com/send?phone=5511960000445"
+                target="_blank"
+                rel="noreferrer"
               >
-                Falar com vendas
-              </ButtonShadow>
-            </Link>
-          </div>
+                <ButtonShadow
+                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
+                  shadowClassName="bg-gray-300"
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Conversar no WhatsApp
+                </ButtonShadow>
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

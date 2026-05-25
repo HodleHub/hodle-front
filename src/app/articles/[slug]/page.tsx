@@ -100,7 +100,7 @@ export default async function ArticlePage({
         <header className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <Link
             href="/articles"
-            className="inline-flex items-center text-orange-500 hover:text-orange-600 mb-8"
+            className="inline-flex items-center text-gray-500 hover:text-foreground transition-colors mb-8 text-sm font-medium"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ export default async function ArticlePage({
         </header>
 
         {/* Content */}
-        <article className="prose prose-orange lg:prose-lg max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <article className="prose lg:prose-lg max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {article.content}
         </article>
       </div>

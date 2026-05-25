@@ -1,15 +1,16 @@
-import { NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 
-const LNURL_BACKEND = 'https://api.hodle.com.br'
+const LNURL_BACKEND = 'https://lnurl.hodle.com.br'
 
 export const GET = async (
-  _request: Request,
+  request: NextRequest,
   { params }: { params: Promise<{ username: string }> },
 ): Promise<NextResponse> => {
   const { username } = await params
+  const search = request.nextUrl.search
 
   const response = await fetch(
-    `${LNURL_BACKEND}/.well-known/lnurlp/${username}`,
+    `${LNURL_BACKEND}/lnurlp/${username}/invoice${search}`,
   )
   const data = await response.json()
 

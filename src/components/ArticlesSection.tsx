@@ -11,14 +11,21 @@ export default async function ArticlesSection() {
     <AnimatedSection delay={0.1}>
       <section className="w-full max-w-5xl mb-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-4">
+            <span className="h-1 w-1 rounded-full bg-foreground" />
+            Blog
+          </span>
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-light text-foreground tracking-[-0.03em] mb-4">
             Últimos{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">
-              Artigos
+            <span
+              className="italic font-light"
+              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+            >
+              artigos
             </span>
           </h2>
-          <p className="text-gray-600">
-            Fique por dentro do universo Bitcoin e todas as novidades da Hodle
+          <p className="text-gray-500">
+            Fique por dentro do universo cripto e das novidades da Hodle
           </p>
         </div>
 
