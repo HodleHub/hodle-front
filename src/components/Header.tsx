@@ -29,7 +29,7 @@ export default function Header() {
               height={36}
               src="/h-logo.svg"
               alt="Hodle logo"
-              className="w-9 h-9 -mr-3"
+              className="w-9 h-9 -mr-2"
             />
             <span className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold tracking-[-0.04em] text-foreground">
               odle

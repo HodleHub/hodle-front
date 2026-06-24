@@ -27,6 +27,14 @@ console.log('[Hodle] Page module loaded')
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+const RAILS = [
+  { icon: '/arbitrum.svg', name: 'Arbitrum' },
+  { icon: '/polygon.svg', name: 'Polygon' },
+  { icon: '/base.png', name: 'Base' },
+  { icon: '/ln.svg', name: 'Lightning' },
+  { icon: '/spark.svg', name: 'Spark' },
+] as const
+
 export default function HomePage() {
   console.log('[Hodle] Rendering home page', new Date().toISOString())
 
@@ -109,12 +117,11 @@ export default function HomePage() {
       {/* ═══════════════ STATS STRIP ═══════════════ */}
       <section className="border-t border-gray-200 bg-white">
         <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          <div className="grid grid-cols-3 gap-8 md:gap-4">
             {[
-              { value: '< 1s', label: 'Liquidação Lightning' },
               { value: '24/7', label: 'PIX disponível' },
               { value: '100%', label: 'Auto-custódia' },
-              { value: '8+', label: 'Redes & rails' },
+              { value: '5+', label: 'Redes & rails' },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -142,46 +149,26 @@ export default function HomePage() {
           </p>
           <div className="marquee-track marquee-mask overflow-hidden">
             <div className="animate-marquee flex w-max items-center gap-12 pr-12">
-              {[
-                { icon: '/pix.svg', name: 'Pix' },
-                { icon: '/ln.svg', name: 'Lightning' },
-                { icon: '/btc.svg', name: 'Bitcoin' },
-                { icon: '/liquid.svg', name: 'Liquid' },
-                { icon: '/polygon.svg', name: 'Polygon' },
-                { icon: '/usdt.svg', name: 'USDT' },
-                { icon: '/usdc.svg', name: 'USDC' },
-                { icon: '/depix.png', name: 'DePix' },
-              ]
-                .concat([
-                  { icon: '/pix.svg', name: 'Pix' },
-                  { icon: '/ln.svg', name: 'Lightning' },
-                  { icon: '/btc.svg', name: 'Bitcoin' },
-                  { icon: '/liquid.svg', name: 'Liquid' },
-                  { icon: '/polygon.svg', name: 'Polygon' },
-                  { icon: '/usdt.svg', name: 'USDT' },
-                  { icon: '/usdc.svg', name: 'USDC' },
-                  { icon: '/depix.png', name: 'DePix' },
-                ])
-                .map((rail, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2.5 shrink-0"
-                    aria-hidden={i >= 8}
+              {[...RAILS, ...RAILS, ...RAILS, ...RAILS].map((rail, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2.5 shrink-0"
+                  aria-hidden={i >= RAILS.length}
+                >
+                  <Image
+                    src={rail.icon}
+                    alt={rail.name}
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 rounded-full"
+                  />
+                  <span
+                    className={`${heading} text-base font-medium text-gray-500`}
                   >
-                    <Image
-                      src={rail.icon}
-                      alt={rail.name}
-                      width={28}
-                      height={28}
-                      className="w-7 h-7 rounded-full"
-                    />
-                    <span
-                      className={`${heading} text-base font-medium text-gray-500`}
-                    >
-                      {rail.name}
-                    </span>
-                  </div>
-                ))}
+                    {rail.name}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -289,7 +276,7 @@ export default function HomePage() {
                         alt="Hodle"
                         width={24}
                         height={24}
-                        className="-mr-2"
+                        className="-mr-1.5"
                       />
                       <span
                         className={`${heading} text-sm font-bold tracking-[-0.04em] text-foreground`}
