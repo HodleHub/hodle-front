@@ -1,6 +1,7 @@
 import AnimatedSection from '../components/AnimatedSection'
 import FAQSection from '../components/FAQSection'
 import ArticlesSection from '../components/ArticlesSection'
+import CodeBlock from '../components/CodeBlock'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ButtonShadow } from '../components/ui/ButtonShadow'
@@ -26,6 +27,48 @@ console.log('[Hodle] Page module loaded')
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+const RAILS = [
+  { icon: '/arbitrum.svg', name: 'Arbitrum' },
+  { icon: '/polygon.svg', name: 'Polygon' },
+  { icon: '/base.png', name: 'Base' },
+  { icon: '/ln.svg', name: 'Lightning' },
+  { icon: '/spark.svg', name: 'Spark' },
+] as const
+
+const ASSET_GROUPS = [
+  {
+    title: 'Pagamentos',
+    desc: 'Entrada e saída em reais via Pix, disponível 24/7.',
+    items: [{ icon: '/pix.svg', name: 'Pix' }],
+  },
+  {
+    title: 'Stablecoins',
+    desc: 'Dólar digital que circula pela plataforma e paga QR codes.',
+    items: [
+      { icon: '/usdt.svg', name: 'USDT' },
+      { icon: '/usdc.svg', name: 'USDC' },
+    ],
+  },
+  {
+    title: 'Bitcoin & Lightning',
+    desc: 'BTC on-chain e liquidação instantânea pela rede Lightning.',
+    items: [
+      { icon: '/btc.svg', name: 'Bitcoin' },
+      { icon: '/ln.svg', name: 'Lightning' },
+    ],
+  },
+  {
+    title: 'Redes',
+    desc: 'Redes onde você recebe, guarda e envia seus ativos.',
+    items: [
+      { icon: '/arbitrum.svg', name: 'Arbitrum' },
+      { icon: '/polygon.svg', name: 'Polygon' },
+      { icon: '/base.png', name: 'Base' },
+      { icon: '/spark.svg', name: 'Spark' },
+    ],
+  },
+] as const
+
 export default function HomePage() {
   console.log('[Hodle] Rendering home page', new Date().toISOString())
 
@@ -37,44 +80,69 @@ export default function HomePage() {
         <div className="hero-spotlight absolute inset-0 pointer-events-none" />
 
         <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-28 lg:pt-32 lg:pb-36">
-          <div className="text-center max-w-[880px] mx-auto">
+          <div className="text-center max-w-[900px] mx-auto">
             <h1
               className={`${heading} text-[clamp(2.8rem,7vw,5.6rem)] font-light text-foreground leading-[1.02] mb-7 tracking-[-0.035em] text-balance`}
             >
-              Hodle.{' '}
-              <span className="italic font-light text-foreground/85" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
-                E gaste também.
+              Receba em Pix, guarde em dólar,{' '}
+              <span
+                className="italic font-light text-foreground/85"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+              >
+                pague em stablecoin.
               </span>
             </h1>
 
-            <p className="text-lg lg:text-xl text-gray-500 max-w-[640px] mx-auto mb-11 leading-relaxed text-pretty">
-              Receba em PIX, guarde em dólar, pague qualquer QR code com
-              stablecoin. Sua cripto no dia a dia, sem sair da wallet.
+            <p className="text-lg lg:text-xl text-gray-500 max-w-[660px] mx-auto mb-9 leading-relaxed text-pretty">
+              A infraestrutura que conecta Pix, dólar e stablecoins — via API ou
+              plataforma. Feita para empresas que movem dinheiro na América
+              Latina.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow
-                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
-                  shadowClassName="bg-gray-300"
-                >
-                  Criar minha wallet
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </ButtonShadow>
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link
                 href="https://api.whatsapp.com/send?phone=5511960000445"
                 target="_blank"
                 rel="noreferrer"
               >
                 <ButtonShadow
+                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
+                  shadowClassName="bg-gray-300"
+                >
+                  Falar com vendas
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </ButtonShadow>
+              </Link>
+              <Link href="https://app.hodle.com.br" target="_blank">
+                <ButtonShadow
                   faceClassName="border-gray-300 bg-white text-gray-600 hover:text-foreground"
                   shadowClassName="bg-gray-200"
                 >
-                  Fale conosco
+                  Criar minha wallet
                   <ArrowUpRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2.5">
+              <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gray-400 mr-1">
+                Feita para
+              </span>
+              {[
+                'Fintechs',
+                'Marketplaces',
+                'PSPs',
+                'Plataformas SaaS',
+                'Exchanges',
+                'Agentes de IA',
+              ].map((segment) => (
+                <span
+                  key={segment}
+                  className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600"
+                >
+                  {segment}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -83,12 +151,11 @@ export default function HomePage() {
       {/* ═══════════════ STATS STRIP ═══════════════ */}
       <section className="border-t border-gray-200 bg-white">
         <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          <div className="grid grid-cols-3 gap-8 md:gap-4">
             {[
-              { value: '< 1s', label: 'Liquidação Lightning' },
               { value: '24/7', label: 'PIX disponível' },
               { value: '100%', label: 'Auto-custódia' },
-              { value: '5+', label: 'Redes suportadas' },
+              { value: '5+', label: 'Redes & rails' },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -104,6 +171,39 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ NETWORKS & RAILS MARQUEE ═══════════════ */}
+      <section className="border-t border-gray-200 bg-gray-50/50">
+        <div className="max-w-[1200px] mx-auto px-6 py-12 lg:py-14">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 mb-8">
+            Redes e rails suportados
+          </p>
+          <div className="marquee-track marquee-mask overflow-hidden">
+            <div className="animate-marquee flex w-max items-center gap-12 pr-12">
+              {[...RAILS, ...RAILS, ...RAILS, ...RAILS].map((rail, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2.5 shrink-0"
+                  aria-hidden={i >= RAILS.length}
+                >
+                  <Image
+                    src={rail.icon}
+                    alt={rail.name}
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 rounded-full"
+                  />
+                  <span
+                    className={`${heading} text-base font-medium text-gray-500`}
+                  >
+                    {rail.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -204,19 +304,13 @@ export default function HomePage() {
                 {/* Sidebar */}
                 <div className="hidden lg:flex flex-col w-52 border-r border-gray-200 py-4 shrink-0">
                   <div className="px-4 mb-5">
-                    <div className="flex items-center mr-4">
-                      <Image
-                        src="/h-logo.svg"
-                        alt="Hodle"
-                        width={24}
-                        height={24}
-                      />
-                      <span
-                        className={`${heading} text-sm font-bold text-foreground`}
-                      >
-                        ODLE
-                      </span>
-                    </div>
+                    <Image
+                      src="/new_logo_hodle.png"
+                      alt="Hodle"
+                      width={868}
+                      height={257}
+                      className="h-5 w-auto"
+                    />
                   </div>
                   <nav className="flex-1 space-y-px px-2">
                     {[
@@ -619,18 +713,23 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════ API CROSSBORDER ═══════════════ */}
-      {/* <section id="api" className="border-t border-gray-200 bg-gray-50/50">
+      <section id="api" className="border-t border-gray-200 bg-gray-50/50">
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                API Crossborder
+                API
               </span>
               <h2
                 className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
               >
-                APIs para SaaS e agentes de IA
+                Uma API. Pix, dólar e stablecoins.
               </h2>
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                Integre pagamentos com Pix e stablecoin no seu produto em
+                minutos. REST, SDK e webhooks — pensados para times de produto e
+                agentes de IA.
+              </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'API REST completa e documentada',
@@ -644,20 +743,20 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="#">
+              <Link href="https://docs.hodle.com.br" target="_blank">
                 <ButtonShadow size="sm">
-                  Documentação
+                  Ver documentação
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
               </Link>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2} direction="right" className="flex-1">
+            <AnimatedSection delay={0.2} direction="right" className="flex-1 w-full">
               <CodeBlock />
             </AnimatedSection>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* ═══════════════ WALLETS ═══════════════ */}
       <section id="wallets" className="border-t border-gray-200">
@@ -988,6 +1087,66 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ SUPORTADO (Lightspark FX-style specs) ═══════════════ */}
+      <section id="suportado" className="border-t border-gray-200 bg-gray-50/50">
+        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+          <AnimatedSection delay={0.1}>
+            <div className="max-w-[600px] mb-14">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
+                <span className="h-1 w-1 rounded-full bg-foreground" />
+                Suportado
+              </span>
+              <h2
+                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-5`}
+              >
+                Tudo que flui pela Hodle
+              </h2>
+              <p className="text-gray-500 leading-relaxed text-pretty">
+                Moedas, stablecoins e redes que você pode receber, guardar e
+                enviar — em uma única plataforma.
+              </p>
+            </div>
+
+            <div className="border-t border-gray-200">
+              {ASSET_GROUPS.map((group) => (
+                <div
+                  key={group.title}
+                  className="grid md:grid-cols-3 gap-6 md:gap-8 py-10 border-b border-gray-200"
+                >
+                  <div className="md:col-span-1">
+                    <h3
+                      className={`${heading} text-lg font-medium text-foreground mb-2`}
+                    >
+                      {group.title}
+                    </h3>
+                    <p className="text-sm text-gray-400 leading-relaxed max-w-[280px]">
+                      {group.desc}
+                    </p>
+                  </div>
+
+                  <div className="md:col-span-2 grid grid-cols-2 gap-x-8 gap-y-5">
+                    {group.items.map((item) => (
+                      <div key={item.name} className="flex items-center gap-3">
+                        <Image
+                          src={item.icon}
+                          alt={item.name}
+                          width={32}
+                          height={32}
+                          className="w-8 h-8 rounded-full shrink-0"
+                        />
+                        <span className="text-sm font-medium text-foreground">
+                          {item.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

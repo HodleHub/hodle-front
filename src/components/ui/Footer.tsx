@@ -47,10 +47,12 @@ export function Footer() {
             {
               title: 'Desenvolvedores',
               links: [
-                { label: 'API Reference', href: '#api' },
-                { label: 'Documentação', href: '#api' },
-                { label: 'SDKs', href: '#api' },
-                { label: 'Webhooks', href: '#api' },
+                { label: 'Documentação', href: 'https://docs.hodle.com.br' },
+                { label: 'API Reference', href: 'https://docs.hodle.com.br' },
+                {
+                  label: 'Falar com vendas',
+                  href: 'https://api.whatsapp.com/send?phone=5511960000445',
+                },
               ],
             },
             {
