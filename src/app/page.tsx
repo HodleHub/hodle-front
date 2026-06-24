@@ -304,20 +304,13 @@ export default function HomePage() {
                 {/* Sidebar */}
                 <div className="hidden lg:flex flex-col w-52 border-r border-gray-200 py-4 shrink-0">
                   <div className="px-4 mb-5">
-                    <div className="flex items-center">
-                      <Image
-                        src="/h-logo.svg"
-                        alt="Hodle"
-                        width={16}
-                        height={16}
-                        className="mr-1"
-                      />
-                      <span
-                        className={`${heading} text-sm font-bold tracking-[-0.04em] text-foreground leading-none`}
-                      >
-                        odle
-                      </span>
-                    </div>
+                    <Image
+                      src="/new_logo_hodle.png"
+                      alt="Hodle"
+                      width={868}
+                      height={257}
+                      className="h-5 w-auto"
+                    />
                   </div>
                   <nav className="flex-1 space-y-px px-2">
                     {[

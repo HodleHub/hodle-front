@@ -25,15 +25,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center" aria-label="Hodle">
             <Image
-              width={26}
-              height={26}
-              src="/h-logo.svg"
-              alt="Hodle logo"
-              className="w-[26px] h-[26px] mr-1.5"
+              width={868}
+              height={257}
+              src="/new_logo_hodle.png"
+              alt="Hodle"
+              priority
+              className="h-7 w-auto"
             />
-            <span className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold tracking-[-0.04em] text-foreground leading-none">
-              odle
-            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-5 lg:gap-8">
