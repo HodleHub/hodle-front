@@ -10,6 +10,7 @@ const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 
 const navLinks = [
   { label: 'Plataforma', href: '#plataforma' },
+  { label: 'API', href: '#api' },
   { label: 'Pagamentos', href: '#pagamentos' },
   { label: 'Conta PJ', href: '#conta-pj' },
   { label: 'Parceiros', href: '#parceiros' },

@@ -1,6 +1,7 @@
 import AnimatedSection from '../components/AnimatedSection'
 import FAQSection from '../components/FAQSection'
 import ArticlesSection from '../components/ArticlesSection'
+import CodeBlock from '../components/CodeBlock'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ButtonShadow } from '../components/ui/ButtonShadow'
@@ -38,11 +39,6 @@ export default function HomePage() {
 
         <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-28 lg:pt-32 lg:pb-36">
           <div className="text-center max-w-[900px] mx-auto">
-            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 mb-8 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-              Infraestrutura de pagamentos · Pix ↔ stablecoin
-            </span>
-
             <h1
               className={`${heading} text-[clamp(2.8rem,7vw,5.6rem)] font-light text-foreground leading-[1.02] mb-7 tracking-[-0.035em] text-balance`}
             >
@@ -703,18 +699,23 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════ API CROSSBORDER ═══════════════ */}
-      {/* <section id="api" className="border-t border-gray-200 bg-gray-50/50">
+      <section id="api" className="border-t border-gray-200 bg-gray-50/50">
         <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                API Crossborder
+                API
               </span>
               <h2
                 className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
               >
-                APIs para SaaS e agentes de IA
+                Uma API. Pix, dólar e stablecoins.
               </h2>
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                Integre pagamentos com Pix e stablecoin no seu produto em
+                minutos. REST, SDK e webhooks — pensados para times de produto e
+                agentes de IA.
+              </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'API REST completa e documentada',
@@ -728,20 +729,20 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="#">
+              <Link href="https://docs.hodle.com.br" target="_blank">
                 <ButtonShadow size="sm">
-                  Documentação
+                  Ver documentação
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
               </Link>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2} direction="right" className="flex-1">
+            <AnimatedSection delay={0.2} direction="right" className="flex-1 w-full">
               <CodeBlock />
             </AnimatedSection>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* ═══════════════ WALLETS ═══════════════ */}
       <section id="wallets" className="border-t border-gray-200">
