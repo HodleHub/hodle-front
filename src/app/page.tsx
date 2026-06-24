@@ -35,6 +35,40 @@ const RAILS = [
   { icon: '/spark.svg', name: 'Spark' },
 ] as const
 
+const ASSET_GROUPS = [
+  {
+    title: 'Pagamentos',
+    desc: 'Entrada e saída em reais via Pix, disponível 24/7.',
+    items: [{ icon: '/pix.svg', name: 'Pix' }],
+  },
+  {
+    title: 'Stablecoins',
+    desc: 'Dólar digital que circula pela plataforma e paga QR codes.',
+    items: [
+      { icon: '/usdt.svg', name: 'USDT' },
+      { icon: '/usdc.svg', name: 'USDC' },
+    ],
+  },
+  {
+    title: 'Bitcoin & Lightning',
+    desc: 'BTC on-chain e liquidação instantânea pela rede Lightning.',
+    items: [
+      { icon: '/btc.svg', name: 'Bitcoin' },
+      { icon: '/ln.svg', name: 'Lightning' },
+    ],
+  },
+  {
+    title: 'Redes',
+    desc: 'Redes onde você recebe, guarda e envia seus ativos.',
+    items: [
+      { icon: '/arbitrum.svg', name: 'Arbitrum' },
+      { icon: '/polygon.svg', name: 'Polygon' },
+      { icon: '/base.png', name: 'Base' },
+      { icon: '/spark.svg', name: 'Spark' },
+    ],
+  },
+] as const
+
 export default function HomePage() {
   console.log('[Hodle] Rendering home page', new Date().toISOString())
 
@@ -1060,6 +1094,66 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ SUPORTADO (Lightspark FX-style specs) ═══════════════ */}
+      <section id="suportado" className="border-t border-gray-200 bg-gray-50/50">
+        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+          <AnimatedSection delay={0.1}>
+            <div className="max-w-[600px] mb-14">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
+                <span className="h-1 w-1 rounded-full bg-foreground" />
+                Suportado
+              </span>
+              <h2
+                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-5`}
+              >
+                Tudo que flui pela Hodle
+              </h2>
+              <p className="text-gray-500 leading-relaxed text-pretty">
+                Moedas, stablecoins e redes que você pode receber, guardar e
+                enviar — em uma única plataforma.
+              </p>
+            </div>
+
+            <div className="border-t border-gray-200">
+              {ASSET_GROUPS.map((group) => (
+                <div
+                  key={group.title}
+                  className="grid md:grid-cols-3 gap-6 md:gap-8 py-10 border-b border-gray-200"
+                >
+                  <div className="md:col-span-1">
+                    <h3
+                      className={`${heading} text-lg font-medium text-foreground mb-2`}
+                    >
+                      {group.title}
+                    </h3>
+                    <p className="text-sm text-gray-400 leading-relaxed max-w-[280px]">
+                      {group.desc}
+                    </p>
+                  </div>
+
+                  <div className="md:col-span-2 grid grid-cols-2 gap-x-8 gap-y-5">
+                    {group.items.map((item) => (
+                      <div key={item.name} className="flex items-center gap-3">
+                        <Image
+                          src={item.icon}
+                          alt={item.name}
+                          width={32}
+                          height={32}
+                          className="w-8 h-8 rounded-full shrink-0"
+                        />
+                        <span className="text-sm font-medium text-foreground">
+                          {item.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
