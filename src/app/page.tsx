@@ -308,12 +308,12 @@ export default function HomePage() {
                       <Image
                         src="/h-logo.svg"
                         alt="Hodle"
-                        width={24}
-                        height={24}
-                        className="-mr-1.5"
+                        width={16}
+                        height={16}
+                        className="mr-1"
                       />
                       <span
-                        className={`${heading} text-sm font-bold tracking-[-0.04em] text-foreground`}
+                        className={`${heading} text-sm font-bold tracking-[-0.04em] text-foreground leading-none`}
                       >
                         odle
                       </span>

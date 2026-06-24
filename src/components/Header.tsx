@@ -25,13 +25,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center" aria-label="Hodle">
             <Image
-              width={36}
-              height={36}
+              width={26}
+              height={26}
               src="/h-logo.svg"
               alt="Hodle logo"
-              className="w-9 h-9 -mr-2"
+              className="w-[26px] h-[26px] mr-1.5"
             />
-            <span className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold tracking-[-0.04em] text-foreground">
+            <span className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold tracking-[-0.04em] text-foreground leading-none">
               odle
             </span>
           </Link>
