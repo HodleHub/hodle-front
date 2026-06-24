@@ -289,7 +289,7 @@ export default function HomePage() {
                         alt="Hodle"
                         width={24}
                         height={24}
-                        className="-mr-1"
+                        className="-mr-2"
                       />
                       <span
                         className={`${heading} text-sm font-bold tracking-[-0.04em] text-foreground`}
