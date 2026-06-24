@@ -37,44 +37,74 @@ export default function HomePage() {
         <div className="hero-spotlight absolute inset-0 pointer-events-none" />
 
         <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-28 lg:pt-32 lg:pb-36">
-          <div className="text-center max-w-[880px] mx-auto">
+          <div className="text-center max-w-[900px] mx-auto">
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 mb-8 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
+              Infraestrutura de pagamentos · Pix ↔ stablecoin
+            </span>
+
             <h1
               className={`${heading} text-[clamp(2.8rem,7vw,5.6rem)] font-light text-foreground leading-[1.02] mb-7 tracking-[-0.035em] text-balance`}
             >
-              Hodle.{' '}
-              <span className="italic font-light text-foreground/85" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
-                E gaste também.
+              Receba em Pix, guarde em dólar,{' '}
+              <span
+                className="italic font-light text-foreground/85"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+              >
+                pague em stablecoin.
               </span>
             </h1>
 
-            <p className="text-lg lg:text-xl text-gray-500 max-w-[640px] mx-auto mb-11 leading-relaxed text-pretty">
-              Receba em PIX, guarde em dólar, pague qualquer QR code com
-              stablecoin. Sua cripto no dia a dia, sem sair da wallet.
+            <p className="text-lg lg:text-xl text-gray-500 max-w-[660px] mx-auto mb-9 leading-relaxed text-pretty">
+              A infraestrutura que conecta Pix, dólar e stablecoins — via API ou
+              plataforma. Feita para empresas que movem dinheiro na América
+              Latina.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow
-                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
-                  shadowClassName="bg-gray-300"
-                >
-                  Criar minha wallet
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </ButtonShadow>
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link
                 href="https://api.whatsapp.com/send?phone=5511960000445"
                 target="_blank"
                 rel="noreferrer"
               >
                 <ButtonShadow
+                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
+                  shadowClassName="bg-gray-300"
+                >
+                  Falar com vendas
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </ButtonShadow>
+              </Link>
+              <Link href="https://app.hodle.com.br" target="_blank">
+                <ButtonShadow
                   faceClassName="border-gray-300 bg-white text-gray-600 hover:text-foreground"
                   shadowClassName="bg-gray-200"
                 >
-                  Fale conosco
+                  Criar minha wallet
                   <ArrowUpRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2.5">
+              <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gray-400 mr-1">
+                Feita para
+              </span>
+              {[
+                'Fintechs',
+                'Marketplaces',
+                'PSPs',
+                'Plataformas SaaS',
+                'Exchanges',
+                'Agentes de IA',
+              ].map((segment) => (
+                <span
+                  key={segment}
+                  className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600"
+                >
+                  {segment}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -88,7 +118,7 @@ export default function HomePage() {
               { value: '< 1s', label: 'Liquidação Lightning' },
               { value: '24/7', label: 'PIX disponível' },
               { value: '100%', label: 'Auto-custódia' },
-              { value: '5+', label: 'Redes suportadas' },
+              { value: '8+', label: 'Redes & rails' },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -104,6 +134,59 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ NETWORKS & RAILS MARQUEE ═══════════════ */}
+      <section className="border-t border-gray-200 bg-gray-50/50">
+        <div className="max-w-[1200px] mx-auto px-6 py-12 lg:py-14">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 mb-8">
+            Redes e rails suportados
+          </p>
+          <div className="marquee-track marquee-mask overflow-hidden">
+            <div className="animate-marquee flex w-max items-center gap-12 pr-12">
+              {[
+                { icon: '/pix.svg', name: 'Pix' },
+                { icon: '/ln.svg', name: 'Lightning' },
+                { icon: '/btc.svg', name: 'Bitcoin' },
+                { icon: '/liquid.svg', name: 'Liquid' },
+                { icon: '/polygon.svg', name: 'Polygon' },
+                { icon: '/usdt.svg', name: 'USDT' },
+                { icon: '/usdc.svg', name: 'USDC' },
+                { icon: '/depix.png', name: 'DePix' },
+              ]
+                .concat([
+                  { icon: '/pix.svg', name: 'Pix' },
+                  { icon: '/ln.svg', name: 'Lightning' },
+                  { icon: '/btc.svg', name: 'Bitcoin' },
+                  { icon: '/liquid.svg', name: 'Liquid' },
+                  { icon: '/polygon.svg', name: 'Polygon' },
+                  { icon: '/usdt.svg', name: 'USDT' },
+                  { icon: '/usdc.svg', name: 'USDC' },
+                  { icon: '/depix.png', name: 'DePix' },
+                ])
+                .map((rail, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2.5 shrink-0"
+                    aria-hidden={i >= 8}
+                  >
+                    <Image
+                      src={rail.icon}
+                      alt={rail.name}
+                      width={28}
+                      height={28}
+                      className="w-7 h-7 rounded-full"
+                    />
+                    <span
+                      className={`${heading} text-base font-medium text-gray-500`}
+                    >
+                      {rail.name}
+                    </span>
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </section>
@@ -204,17 +287,18 @@ export default function HomePage() {
                 {/* Sidebar */}
                 <div className="hidden lg:flex flex-col w-52 border-r border-gray-200 py-4 shrink-0">
                   <div className="px-4 mb-5">
-                    <div className="flex items-center mr-4">
+                    <div className="flex items-center">
                       <Image
                         src="/h-logo.svg"
                         alt="Hodle"
                         width={24}
                         height={24}
+                        className="-mr-1"
                       />
                       <span
-                        className={`${heading} text-sm font-bold text-foreground`}
+                        className={`${heading} text-sm font-bold tracking-[-0.04em] text-foreground`}
                       >
-                        ODLE
+                        odle
                       </span>
                     </div>
                   </div>
