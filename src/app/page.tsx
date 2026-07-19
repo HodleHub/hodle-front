@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import AnimatedSection from '../components/AnimatedSection'
 import FAQSection from '../components/FAQSection'
 import ArticlesSection from '../components/ArticlesSection'
@@ -22,6 +23,17 @@ import {
   Landmark,
   MessageCircle,
 } from 'lucide-react'
+
+const siteUrl = 'https://hodle.com.br'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    url: siteUrl,
+  },
+}
 
 console.log('[Hodle] Page module loaded')
 

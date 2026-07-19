@@ -60,15 +60,16 @@ export function Footer() {
               links: [
                 { label: 'Blog', href: '/articles' },
                 { label: 'Preços', href: '/articles/precos' },
-                { label: 'FAQ', href: '#' },
+                { label: 'FAQ', href: '/faq' },
                 { label: 'Suporte', href: 'https://api.whatsapp.com/send?phone=5511960000445' },
               ],
             },
             {
               title: 'Legal',
               links: [
-                { label: 'Termos de Serviço', href: '/' },
-                { label: 'Privacidade', href: '/' },
+                { label: 'Termos de Serviço', href: '/termos' },
+                { label: 'Privacidade', href: '/privacidade' },
+                { label: 'Cookies', href: '/cookies' },
               ],
             },
           ].map((col) => (
