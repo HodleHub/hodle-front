@@ -35,31 +35,6 @@ const faqItems = [
       'Sim. Na Hodle, as chaves privadas ficam 100% sob o controle do usuário. Não temos acesso às suas chaves nem aos seus fundos. Você tem total autonomia sobre seus ativos digitais.',
   },
   {
-    question: 'Como funciona a conta PJ?',
-    answer:
-      'A conta PJ é aberta em nome da sua empresa junto a bancos parceiros regulados pelo Banco Central. Permite receber e enviar PIX, TED e boletos, com compliance e KYC automatizados para agilizar o processo.',
-  },
-  {
-    question: 'Como funciona o pagamento de QR codes com stablecoins?',
-    answer:
-      'Você pode pagar qualquer QR code PIX utilizando stablecoins como USDT ou USDC. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
-  },
-  {
-    question: 'Quanto tempo demora a liquidação?',
-    answer:
-      'Pagamentos via Lightning Network e Liquid são praticamente instantâneos (menos de 1 minuto). Transações on-chain dependem do tempo de mineração do bloco, cerca de 10 minutos para Bitcoin.',
-  },
-  {
-    question: 'Quais ativos digitais são suportados?',
-    answer:
-      'Suportamos Bitcoin (BTC), USDT, USDC, além das redes Arbitrum, Polygon, Base, Spark e Lightning Network. Estamos constantemente expandindo nossa oferta de ativos e redes.',
-  },
-  {
-    question: 'Preciso passar por verificação (KYC)?',
-    answer:
-      'Sim. Para utilizar a plataforma, é necessário completar o processo de KYC (Know Your Customer) conforme exigido pela legislação brasileira de prevenção à lavagem de dinheiro. O processo é 100% digital e automatizado.',
-  },
-  {
     question: 'Como funciona a API?',
     answer:
       'Nossa API REST é completa e documentada, permitindo integração com seu sistema em minutos. Oferecemos SDKs, webhooks e callbacks em tempo real. Consulte nossa documentação em docs.hodle.com.br para mais detalhes.',
@@ -70,44 +45,9 @@ const faqItems = [
       'A Hodle opera em conformidade com a legislação brasileira, incluindo o Marco Legal das Criptomoedas (Lei nº 14.478/2022) e as diretrizes do Banco Central. Trabalhamos com parceiros regulados para serviços bancários.',
   },
   {
-    question: 'Como entrar em contato com o suporte?',
-    answer:
-      'Você pode falar conosco pelo WhatsApp (11) 96000-0445 ou pelo e-mail contato@hodle.com.br. Nosso time de suporte está disponível para ajudar com dúvidas, problemas técnicos ou questões comerciais.',
-  },
-  {
     question: 'Quais são as taxas cobradas?',
     answer:
       'As taxas variam conforme o serviço utilizado. Consulte nossa página de preços (/articles/precos) para informações detalhadas sobre taxas de compra, venda, saque e transferência.',
-  },
-  {
-    question: 'Como funciona o crossborder com stablecoins?',
-    answer:
-      'Você pode enviar stablecoins (USDT, USDC) para qualquer lugar do mundo com liquidação em minutos. O destinatário pode sacar em moeda local através de parceiros locais. Ideal para remessas internacionais, pagamento a fornecedores e folha de pagamento global.',
-  },
-  {
-    question: 'Preciso de conhecimento técnico para usar a API?',
-    answer:
-      'Nossa API REST é documentada e oferece SDKs para facilitar a integração. Desenvolvedores com experiência em REST APIs conseguem integrar em poucas horas. Disponibilizamos exemplos em JavaScript, Python e curl na documentação em docs.hodle.com.br.',
-  },
-  {
-    question: 'A Hodle oferece suporte a agentes de IA?',
-    answer:
-      'Sim! Nossa plataforma foi projetada para funcionar com agentes de IA autônomos. Oferecemos endpoints de API simples, webhooks em tempo real e SDK leve para que agentes possam criar wallets, enviar pagamentos e consultar saldos de forma programática.',
-  },
-  {
-    question: 'Como funciona a segurança da plataforma?',
-    answer:
-      'Adotamos as melhores práticas de segurança do mercado financeiro: criptografia TLS 1.3 em trânsito e AES-256 em repouso, autenticação multifator, controles de acesso com privilégio mínimo, monitoramento contínuo e auditorias periódicas. Como as wallets são auto-custodiais, suas chaves privadas nunca saem do seu dispositivo.',
-  },
-  {
-    question: 'Posso usar a Hodle como pessoa física?',
-    answer:
-      'No momento, a Hodle é focada em soluções empresariais (PJ). Oferecemos contas empresariais, APIs para fintechs e infraestrutura para plataformas SaaS. Se você é uma empresa buscando soluções cripto, entre em contato pelo WhatsApp para avaliarmos seu caso.',
-  },
-  {
-    question: 'Há limite de transações?',
-    answer:
-      'Os limites de transação variam conforme o nível de verificação da sua conta (KYC) e o perfil de risco. Consulte sua conta na plataforma para verificar os limites atuais. Limites mais altos podem ser solicitados mediante análise de compliance.',
   },
 ]
 
