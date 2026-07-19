@@ -41,7 +41,6 @@ export async function generateMetadata({
     keywords: [
       'Bitcoin',
       'Hodle',
-      'DEPIX',
       'Lightning Network',
       'Liquid Network',
       'comprar Bitcoin',
