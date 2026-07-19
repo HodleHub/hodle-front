@@ -42,7 +42,7 @@ const faqItems = [
   {
     question: 'Como funciona o pagamento de QR codes com stablecoins?',
     answer:
-      'Você pode pagar qualquer QR code PIX utilizando stablecoins como USDT, USDC ou DePix. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
+      'Você pode pagar qualquer QR code PIX utilizando stablecoins como USDT ou USDC. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
   },
   {
     question: 'Quanto tempo demora a liquidação?',
@@ -52,7 +52,7 @@ const faqItems = [
   {
     question: 'Quais ativos digitais são suportados?',
     answer:
-      'Suportamos Bitcoin (BTC), USDT, USDC, DePix, além das redes Arbitrum, Polygon, Base, Spark e Lightning Network. Estamos constantemente expandindo nossa oferta de ativos e redes.',
+      'Suportamos Bitcoin (BTC), USDT, USDC, além das redes Arbitrum, Polygon, Base, Spark e Lightning Network. Estamos constantemente expandindo nossa oferta de ativos e redes.',
   },
   {
     question: 'Preciso passar por verificação (KYC)?',
@@ -103,11 +103,6 @@ const faqItems = [
     question: 'Posso usar a Hodle como pessoa física?',
     answer:
       'No momento, a Hodle é focada em soluções empresariais (PJ). Oferecemos contas empresariais, APIs para fintechs e infraestrutura para plataformas SaaS. Se você é uma empresa buscando soluções cripto, entre em contato pelo WhatsApp para avaliarmos seu caso.',
-  },
-  {
-    question: 'O DePix é lastreado em real?',
-    answer:
-      'Sim. O DePix é uma stablecoin com paridade 1:1 com o Real Brasileiro (BRL), totalmente lastreada em reservas. Cada DePix em circulação corresponde a R$ 1,00 em reservas mantidas em instituições financeiras reguladas. Isso garante estabilidade e previsibilidade para suas operações.',
   },
   {
     question: 'Há limite de transações?',

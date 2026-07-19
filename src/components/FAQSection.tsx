@@ -35,7 +35,7 @@ const faqItems: FAQItem[] = [
   {
     question: 'Como funciona o pagamento de QR codes com stablecoins?',
     answer:
-      'Você pode pagar qualquer QR code PIX utilizando stablecoins como USDT, USDC ou DePix. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
+      'Você pode pagar qualquer QR code PIX utilizando stablecoins como USDT ou USDC. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
   },
   {
     question: 'Quanto tempo demora a liquidação?',

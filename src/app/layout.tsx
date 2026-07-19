@@ -42,7 +42,6 @@ export const metadata: Metadata = {
     'wallet auto-custodial',
     'conta PJ cripto',
     'infraestrutura cripto',
-    'DePix',
     'USDT',
     'USDC',
     'agentes IA',

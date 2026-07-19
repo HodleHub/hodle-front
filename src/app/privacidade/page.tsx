@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -6,319 +7,364 @@ export const metadata: Metadata = {
   title: 'Política de Privacidade',
   description:
     'Política de privacidade da Hodle. Saiba como tratamos seus dados pessoais em conformidade com a LGPD (Lei Geral de Proteção de Dados).',
+  alternates: {
+    canonical: 'https://hodle.com.br/privacidade',
+  },
   openGraph: {
     title: 'Política de Privacidade | Hodle',
     description:
       'Saiba como a Hodle trata seus dados pessoais em conformidade com a LGPD.',
+    url: 'https://hodle.com.br/privacidade',
   },
 }
 
 const sections = [
   {
-    title: '1. Introdução',
+    title: 'Cláusula 1 - Natureza da Plataforma',
     content: (
       <>
-        <p>
-          A Hodle Tecnologia Ltda. (&ldquo;Hodle&rdquo;, &ldquo;nós&rdquo; ou
-          &ldquo;nosso&rdquo;) está comprometida com a proteção da sua
-          privacidade. Esta Política de Privacidade descreve como coletamos,
-          usamos, compartilhamos e protegemos as informações pessoais dos
-          usuários de nossa plataforma de infraestrutura cripto, em
-          conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD -
-          Lei nº 13.709/2018).
+        <p className="uppercase font-medium text-gray-600">
+          A Hodle é uma plataforma tecnológica que facilita a interação do
+          usuário com redes blockchain, incluindo Bitcoin, Lightning Network e
+          Liquid Network. Ao utilizar a Hodle, você reconhece que somos
+          fornecedores de tecnologia que viabilizam sua interação com a
+          blockchain. Devido à natureza descentralizada das carteiras digitais,
+          a Hodle não possui capacidade técnica de impedir o acesso do usuário à
+          sua própria carteira e aos ativos nela contidos.
         </p>
-        <p>
-          Ao utilizar a plataforma Hodle, você concorda com as práticas
-          descritas nesta política. Se você não concordar com algum termo,
-          pedimos que não utilize nossos serviços.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: '2. Dados que Coletamos',
-    content: (
-      <>
-        <p>Podemos coletar as seguintes categorias de dados pessoais:</p>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
-          Dados de Identificação
-        </h4>
-        <ul className="list-disc pl-6 space-y-1 text-gray-600">
-          <li>Nome completo</li>
-          <li>CPF/CNPJ</li>
-          <li>Endereço residencial ou comercial</li>
-          <li>Data de nascimento</li>
-          <li>Documentos de identidade (RG, CNH, passaporte)</li>
-        </ul>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
-          Dados de Contato
-        </h4>
-        <ul className="list-disc pl-6 space-y-1 text-gray-600">
-          <li>Endereço de e-mail</li>
-          <li>Número de telefone</li>
-        </ul>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
-          Dados de Navegação e Uso
-        </h4>
-        <ul className="list-disc pl-6 space-y-1 text-gray-600">
-          <li>Endereço IP</li>
-          <li>Tipo de navegador e dispositivo</li>
-          <li>Páginas visitadas e interações na plataforma</li>
-          <li>Cookies e tecnologias similares</li>
-        </ul>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
-          Dados Financeiros e Transacionais
-        </h4>
-        <ul className="list-disc pl-6 space-y-1 text-gray-600">
-          <li>Dados bancários para operações PIX e TED</li>
-          <li>Histórico de transações com ativos digitais</li>
-          <li>Endereços de carteiras blockchain</li>
-          <li>Informações de KYC/AML conforme exigido por regulação</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    title: '3. Como Usamos Seus Dados',
-    content: (
-      <ul className="list-disc pl-6 space-y-2 text-gray-600">
-        <li>
-          <strong>Prestação de serviços:</strong> processar transações,
-          gerenciar sua conta e fornecer suporte.
-        </li>
-        <li>
-          <strong>Compliance e regulação:</strong> realizar verificações KYC
-          (Know Your Customer) e AML (Anti-Money Laundering) exigidas por lei.
-        </li>
-        <li>
-          <strong>Segurança:</strong> prevenir fraudes, acessos não
-          autorizados e atividades ilícitas.
-        </li>
-        <li>
-          <strong>Melhoria dos serviços:</strong> analisar uso da plataforma
-          para aprimorar funcionalidades e experiência do usuário.
-        </li>
-        <li>
-          <strong>Comunicação:</strong> enviar notificações sobre sua conta,
-          atualizações de serviços e comunicados legais.
-        </li>
-        <li>
-          <strong>Marketing (com consentimento):</strong> enviar ofertas e
-          novidades, quando autorizado por você.
-        </li>
-      </ul>
-    ),
-  },
-  {
-    title: '4. Base Legal para o Tratamento',
-    content: (
-      <p className="text-gray-600">
-        Tratamos seus dados pessoais com base nas seguintes hipóteses legais
-        previstas na LGPD: cumprimento de obrigação legal ou regulatória
-        (art. 7º, II), execução de contrato (art. 7º, V), exercício regular
-        de direitos (art. 7º, VI), proteção ao crédito (art. 7º, X) e
-        legítimo interesse (art. 7º, IX). Quando necessário, solicitaremos
-        seu consentimento específico (art. 7º, I).
-      </p>
-    ),
-  },
-  {
-    title: '5. Compartilhamento de Dados',
-    content: (
-      <>
-        <p className="text-gray-600 mb-4">
-          Podemos compartilhar seus dados com:
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-gray-600">
-          <li>
-            <strong>Parceiros regulados:</strong> instituições financeiras
-            parceiras para operações bancárias e PIX.
-          </li>
-          <li>
-            <strong>Provedores de serviços:</strong> serviços de hospedagem,
-            análise de dados, processamento de pagamentos e verificação de
-            identidade.
-          </li>
-          <li>
-            <strong>Autoridades regulatórias:</strong> quando exigido por lei,
-            ordem judicial ou requisição de órgãos reguladores (BACEN, CVM,
-            COAF).
-          </li>
-          <li>
-            <strong>Consultores profissionais:</strong> advogados,
-            contadores e auditores no exercício de suas funções.
-          </li>
-        </ul>
-        <p className="text-gray-600 mt-4">
-          Não vendemos seus dados pessoais a terceiros.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: '6. Cookies e Tecnologias de Rastreamento',
-    content: (
-      <>
-        <p className="text-gray-600 mb-4">
-          Utilizamos cookies e tecnologias similares para melhorar sua
-          experiência, analisar o uso da plataforma e oferecer conteúdo
-          relevante. Você pode gerenciar as preferências de cookies nas
-          configurações do seu navegador.
-        </p>
-        <p className="text-gray-600">
-          Cookies essenciais são necessários para o funcionamento da
-          plataforma. Cookies analíticos nos ajudam a entender como você
-          interage com o site. Para cookies de marketing, solicitamos seu
-          consentimento prévio.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: '7. Segurança dos Dados',
-    content: (
-      <>
-        <p className="text-gray-600 mb-4">
-          Adotamos medidas técnicas e organizacionais para proteger seus dados
-          pessoais contra acesso não autorizado, destruição, perda ou
-          alteração, incluindo:
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-gray-600">
-          <li>Criptografia em trânsito (TLS 1.3) e em repouso (AES-256)</li>
-          <li>Controles de acesso rigorosos com princípio de privilégio mínimo</li>
-          <li>Monitoramento contínuo de segurança e detecção de intrusões</li>
-          <li>
-            Auditorias periódicas de segurança e testes de penetração
-          </li>
-          <li>
-            Conformidade com padrões de segurança do setor financeiro
-          </li>
-        </ul>
-        <p className="text-gray-600 mt-4">
-          Importante: por se tratar de uma plataforma com wallets
-          auto-custodiais, as chaves privadas são armazenadas localmente no
-          dispositivo do usuário e não são acessíveis à Hodle.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: '8. Retenção e Eliminação de Dados',
-    content: (
-      <p className="text-gray-600">
-        Mantemos seus dados pessoais pelo período necessário para cumprir as
-        finalidades descritas nesta política, ou pelo prazo exigido por lei
-        (em especial, as obrigações de guarda de registros do setor
-        financeiro por 5 anos após o término da relação contratual).
-        Após esse período, os dados são eliminados de forma segura ou
-        anonimizados.
-      </p>
-    ),
-  },
-  {
-    title: '9. Seus Direitos (LGPD)',
-    content: (
-      <>
-        <p className="text-gray-600 mb-4">
-          Como titular de dados pessoais, você tem os seguintes direitos,
-          garantidos pela LGPD:
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-gray-600">
-          <li>Confirmação da existência de tratamento</li>
-          <li>Acesso aos seus dados</li>
-          <li>Correção de dados incompletos, inexatos ou desatualizados</li>
-          <li>Anonimização, bloqueio ou eliminação de dados desnecessários</li>
-          <li>Portabilidade dos dados a outro fornecedor de serviço</li>
-          <li>
-            Eliminação dos dados tratados com consentimento
-          </li>
-          <li>Informação sobre compartilhamento com terceiros</li>
-          <li>
-            Revogação do consentimento a qualquer momento
-          </li>
-          <li>Oposição ao tratamento</li>
-        </ul>
-        <p className="text-gray-600 mt-4">
-          Para exercer seus direitos, entre em contato pelo e-mail{' '}
-          <a
-            href="mailto:contato@hodle.com.br"
+        <p className="uppercase font-medium text-gray-600 mt-3">
+          Esta Política deve ser lida em conjunto com os{' '}
+          <Link
+            href="/termos"
             className="text-foreground underline underline-offset-2 hover:text-gray-600"
           >
-            contato@hodle.com.br
-          </a>
-          .
+            Termos de Uso
+          </Link>{' '}
+          da Hodle. Ao aceitar esta Política, você consente com o processamento
+          de dados necessário para a operação tecnológica da plataforma e
+          reconhece a aceitação automática das políticas de privacidade de
+          nossos parceiros de infraestrutura.
         </p>
       </>
     ),
   },
   {
-    title: '10. Encaminhamento de Dados Internacionalmente',
+    title: 'Cláusula 2 - Legislação Aplicável',
     content: (
       <p className="text-gray-600">
-        Podemos transferir seus dados para países com nível de proteção
-        adequado reconhecido pela ANPD, ou com garantias contratuais
-        apropriadas (cláusulas-padrão, normas corporativas globais), sempre
-        em conformidade com a LGPD.
+        O tratamento de seus dados pessoais será regido prioritariamente pela
+        Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) da República
+        Federativa do Brasil. Comprometemo-nos a respeitar os princípios de
+        proteção de dados aplicáveis, garantindo transparência, segurança e
+        finalidade no tratamento das informações coletadas.
       </p>
     ),
   },
   {
-    title: '11. Encarregado de Proteção de Dados (DPO)',
+    title: 'Cláusula 3 - Dados Coletados',
+    content: (
+      <>
+        <p className="text-gray-600">
+          Para o funcionamento da plataforma, coletamos as seguintes categorias
+          de dados:
+        </p>
+        <h4 className="font-semibold text-foreground mt-6 mb-2">
+          3.1. Dados coletados diretamente pela Hodle
+        </h4>
+        <ul className="list-disc pl-6 space-y-1 text-gray-600">
+          <li>
+            <strong>Dados Cadastrais:</strong> e-mail, telefone e senha
+            (armazenada de forma criptografada).
+          </li>
+          <li>
+            <strong>Identificadores On-chain:</strong> endereços de carteira
+            pública nas redes Bitcoin, Lightning Network e Liquid Network.
+          </li>
+          <li>
+            <strong>Dados de Segurança:</strong> PIN de acesso (utilizado para
+            criptografia local de chaves privadas).
+          </li>
+        </ul>
+        <p className="text-gray-600 mt-3">
+          <strong>Finalidade:</strong> identificação básica do usuário,
+          comunicação de suporte, segurança da conta, criptografia de chaves
+          privadas e viabilização técnica da plataforma para leitura de saldos e
+          histórico nas redes blockchain.
+        </p>
+        <h4 className="font-semibold text-foreground mt-6 mb-2">
+          3.2. Dados coletados por/para Parceiros de Infraestrutura
+        </h4>
+        <ul className="list-disc pl-6 space-y-1 text-gray-600">
+          <li>
+            <strong>Dados de KYC/Compliance:</strong> nome completo, documentos
+            de identificação (RG/CPF/CNH), comprovante de residência e biometria
+            facial (selfie).
+          </li>
+        </ul>
+        <p className="text-gray-600 mt-3">
+          <strong>Finalidade:</strong> cumprimento de obrigações legais de
+          &ldquo;Conheça seu Cliente&rdquo; (KYC), prevenção à lavagem de
+          dinheiro (AML) e combate ao financiamento do terrorismo, conforme
+          exigido por parceiros de infraestrutura responsáveis pelas rampas de
+          entrada e saída de moeda fiduciária (Pix).
+        </p>
+        <h4 className="font-semibold text-foreground mt-6 mb-2">
+          3.3. Dados Técnicos e de Navegação
+        </h4>
+        <ul className="list-disc pl-6 space-y-1 text-gray-600">
+          <li>
+            <strong>Dados de Log:</strong> endereço IP (processado
+            temporariamente para segurança), tipo de dispositivo, versão do
+            navegador e sistema operacional.
+          </li>
+        </ul>
+        <p className="text-gray-600 mt-3">
+          <strong>Finalidade:</strong> otimização de performance, depuração de
+          erros e segurança da plataforma.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: 'Cláusula 4 - Uso dos Dados',
+    content: (
+      <>
+        <p className="text-gray-600 mb-4">Usamos os dados coletados para:</p>
+        <ul className="list-disc pl-6 space-y-2 text-gray-600">
+          <li>
+            <strong>Fornecimento dos serviços:</strong> manter, customizar e
+            melhorar a plataforma e seus serviços, incluindo a integração com
+            redes Bitcoin, Lightning Network e Liquid Network.
+          </li>
+          <li>
+            <strong>Segurança e proteção:</strong> investigar e impedir
+            atividades fraudulentas, ilícitas ou não autorizadas.
+          </li>
+          <li>
+            <strong>Conformidade legal:</strong> cumprir obrigações legais,
+            solicitações governamentais e normas de Prevenção à Lavagem de
+            Dinheiro (AML).
+          </li>
+          <li>
+            <strong>Comunicações:</strong> enviar notificações legais,
+            atualizações de termos, alertas de segurança e suporte técnico por
+            meios eletrônicos.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: 'Cláusula 5 - Compartilhamento com Parceiros',
     content: (
       <p className="text-gray-600">
-        Nosso Encarregado de Proteção de Dados (DPO) pode ser contatado para
-        esclarecer dúvidas sobre esta política ou sobre o tratamento dos seus
-        dados pessoais pelo e-mail{' '}
+        O Usuário declara ciência e aceitação de que o compartilhamento de dados
+        pessoais e transacionais entre a Hodle e seus parceiros é estritamente
+        necessário para a viabilização dos produtos escolhidos (como rampas de
+        entrada e saída de moeda fiduciária via Pix). Ao utilizar esses
+        serviços, você fornece dados que serão tratados pelos parceiros como
+        controladores independentes.
+      </p>
+    ),
+  },
+  {
+    title: 'Cláusula 6 - Dados em Blockchain',
+    content: (
+      <p className="text-gray-600">
+        O Usuário declara estar ciente de que as transações realizadas através
+        da Hodle são registradas em blockchains públicas (Bitcoin, Lightning
+        Network e Liquid Network). Por design tecnológico, os dados gravados na
+        blockchain (incluindo endereços de carteira e valores de transferência)
+        são imutáveis, transparentes e públicos por natureza. O exercício de
+        direitos de privacidade, como exclusão ou retificação, não é
+        tecnicamente possível em registros on-chain.
+      </p>
+    ),
+  },
+  {
+    title: 'Cláusula 7 - Hipóteses de Compartilhamento',
+    content: (
+      <>
+        <p className="text-gray-600 mb-4">
+          Podemos compartilhar dados nas seguintes circunstâncias:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 text-gray-600">
+          <li>
+            Compartilhamos endereços de carteira com provedores de
+            infraestrutura e análise de blockchain para detectar e mitigar
+            crimes financeiros, em caso de fundado receio de crime envolvendo
+            alguma carteira ou usuário específicos.
+          </li>
+          <li>
+            O compartilhamento de dados pessoais e transacionais é estritamente
+            necessário para viabilizar a conversão de moeda fiduciária via Pix e
+            demais operações oferecidas pela plataforma.
+          </li>
+          <li>
+            A fim de prevenir danos à Empresa ou aos usuários, ou em caso de
+            solicitação fundamentada por parte de algum dos nossos parceiros
+            regulados.
+          </li>
+          <li>
+            Em caso de fusão, aquisição ou venda de ativos, os dados podem ser
+            transferidos sob os mesmos padrões de privacidade aqui
+            estabelecidos.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: 'Cláusula 8 - Segurança dos Dados',
+    content: (
+      <>
+        <p className="text-gray-600 mb-4">
+          A Hodle utiliza protocolos de segurança rigorosos para garantir a
+          integridade e o sigilo dos dados durante a comunicação com parceiros
+          externos. Nossa arquitetura de segurança inclui:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 text-gray-600">
+          <li>
+            Para a maioria dos serviços, a comunicação ocorre exclusivamente
+            entre o backend da Hodle e os parceiros, de forma que o navegador ou
+            aplicativo do usuário não interage diretamente com esses serviços.
+            Toda a transmissão é protegida por criptografia de transporte (TLS).
+          </li>
+          <li>
+            As chaves privadas do usuário são criptografadas localmente
+            utilizando o PIN do usuário e nunca são transmitidas em texto
+            aberto. A Hodle não possui acesso às chaves privadas
+            descriptografadas do usuário.
+          </li>
+          <li>
+            Senhas são armazenadas utilizando funções de hash criptográficas
+            irreversíveis (Argon2id), garantindo que mesmo em caso de vazamento
+            de dados, as senhas originais não possam ser recuperadas.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: 'Cláusula 9 - Direitos do Usuário',
+    content: (
+      <p className="text-gray-600">
+        Garantimos aos usuários o direito de solicitar acesso aos dados pessoais
+        que a Empresa possa deter. Conforme a legislação aplicável, o usuário
+        possui direito de confirmação, correção e, quando legalmente permitido,
+        anonimização ou exclusão de dados desnecessários. As solicitações devem
+        ser feitas para{' '}
         <a
-          href="mailto:dpo@hodle.com.br"
+          href="mailto:contato@hodle.com.br"
           className="text-foreground underline underline-offset-2 hover:text-gray-600"
         >
-          dpo@hodle.com.br
+          contato@hodle.com.br
         </a>
         .
       </p>
     ),
   },
   {
-    title: '12. Alterações a Esta Política',
+    title: 'Cláusula 10 - Direitos sob a LGPD (Lei nº 13.709/2018)',
+    content: (
+      <>
+        <p className="text-gray-600">
+          Nós realizamos o tratamento de seus dados pessoais com base nas
+          seguintes hipóteses legais: (i) mediante o seu consentimento (ex: para
+          comunicações de marketing); (ii) para a execução de contrato ou
+          procedimentos preliminares (ex: para viabilizar o uso da plataforma);
+          (iii) para o cumprimento de obrigação legal (ex: normas de KYC e
+          Prevenção à Lavagem de Dinheiro de nossos parceiros); e (iv) para
+          atender aos nossos interesses legítimos ou de terceiros, desde que
+          seus direitos e liberdades fundamentais sejam respeitados.
+        </p>
+        <p className="text-gray-600 mt-4">
+          Nos termos da LGPD, você possui os seguintes direitos:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-2">
+          <li>
+            <strong>Confirmação e Acesso:</strong> direito de confirmar a
+            existência de tratamento e acessar seus dados.
+          </li>
+          <li>
+            <strong>Correção:</strong> direito de solicitar a correção de dados
+            incompletos, inexatos ou desatualizados.
+          </li>
+          <li>
+            <strong>Anonimização ou Eliminação:</strong> direito de solicitar a
+            anonimização, bloqueio ou eliminação de dados desnecessários ou
+            tratados em desconformidade com a lei.
+          </li>
+          <li>
+            <strong>Portabilidade:</strong> direito de solicitar a portabilidade
+            dos dados a outro fornecedor de serviço, observada a regulamentação
+            da ANPD.
+          </li>
+          <li>
+            <strong>Revogação do Consentimento:</strong> direito de revogar o
+            seu consentimento a qualquer momento e ser informado sobre as
+            consequências da negativa.
+          </li>
+        </ul>
+        <p className="text-gray-600 mt-4">
+          <strong>Nota sobre Blockchain:</strong> o Usuário reconhece que,
+          devido à natureza imutável da tecnologia blockchain, dados registrados
+          on-chain (como histórico de transações e endereços de carteira) não
+          podem ser excluídos, retificados ou alterados pela Empresa, o que
+          limita o exercício de certos direitos de exclusão sobre registros
+          públicos e distribuídos.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: 'Cláusula 11 - Comunicações Eletrônicas',
     content: (
       <p className="text-gray-600">
-        Esta política pode ser atualizada periodicamente para refletir mudanças
-        em nossas práticas ou na legislação aplicável. Notificaremos você sobre
-        alterações significativas por e-mail ou por aviso em nossa plataforma.
-        Recomendamos a revisão periódica desta página.
+        O usuário concorda expressamente em receber todas as comunicações,
+        contratos e notificações legais por meios eletrônicos, incluindo
+        atualizações de termos, alertas de segurança e informes de suporte.
       </p>
     ),
   },
   {
-    title: '13. Contato',
+    title: 'Cláusula 12 - Transferência de Dados',
     content: (
-      <div className="space-y-2 text-gray-600">
-        <p>
-          Em caso de dúvidas sobre esta Política de Privacidade, entre em
-          contato conosco:
-        </p>
-        <p>
-          <strong>E-mail:</strong>{' '}
-          <a
-            href="mailto:contato@hodle.com.br"
-            className="text-foreground underline underline-offset-2 hover:text-gray-600"
-          >
-            contato@hodle.com.br
-          </a>
-        </p>
-        <p>
-          <strong>WhatsApp:</strong>{' '}
-          <a
-            href="https://api.whatsapp.com/send?phone=5511960000445"
-            target="_blank"
-            rel="noreferrer"
-            className="text-foreground underline underline-offset-2 hover:text-gray-600"
-          >
-            (11) 96000-0445
-          </a>
-        </p>
-      </div>
+      <p className="text-gray-600">
+        Em caso de fusão, aquisição ou venda de ativos da Hodle, os dados podem
+        ser transferidos para a nova entidade sob os mesmos padrões de
+        privacidade aqui estabelecidos. Esta Política pode ser atualizada
+        periodicamente; o uso continuado da plataforma após atualizações
+        constitui aceitação dos novos termos.
+      </p>
+    ),
+  },
+  {
+    title: 'Cláusula 13 - Alterações desta Política',
+    content: (
+      <p className="text-gray-600">
+        Se realizarmos alterações materiais a esta Política, iremos notificá-lo
+        através da plataforma. No entanto, o seu uso continuado dos serviços
+        reflete a sua revisão periódica desta Política e de outros termos da
+        Empresa, e indica o seu consentimento com os mesmos.
+      </p>
+    ),
+  },
+  {
+    title: 'Cláusula 14 - Contato',
+    content: (
+      <p className="text-gray-600">
+        Se você tiver qualquer dúvida sobre esta Política ou sobre como
+        coletamos, usamos ou compartilhamos suas informações, entre em contato
+        conosco através do e-mail{' '}
+        <a
+          href="mailto:contato@hodle.com.br"
+          className="text-foreground underline underline-offset-2 hover:text-gray-600"
+        >
+          contato@hodle.com.br
+        </a>
+        .
+      </p>
     ),
   },
 ]
@@ -341,6 +387,15 @@ export default function PrivacyPage() {
             Última atualização: julho de 2026
           </p>
         </div>
+
+        <p className="text-[15px] text-gray-600 leading-relaxed mb-12">
+          A presente Política de Privacidade (&ldquo;Política&rdquo;) descreve os
+          termos e condições sob os quais a Hodle (&ldquo;Nós&rdquo;,
+          &ldquo;Empresa&rdquo;), pessoa jurídica inscrita no CNPJ sob o nº
+          63.673.264/0001-26, com sede na República Federativa do Brasil, trata
+          informações e dados em relação à plataforma Hodle, acessível através do
+          domínio hodle.com.br.
+        </p>
 
         <div className="prose prose-gray max-w-none space-y-8 text-gray-600 leading-relaxed">
           {sections.map((section) => (

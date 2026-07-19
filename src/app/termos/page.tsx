@@ -139,7 +139,7 @@ const sections = [
           </li>
           <li>
             <strong>Pagamentos com Stablecoins:</strong> pagamento de QR codes
-            PIX utilizando stablecoins como USDT, USDC e DePix.
+            PIX utilizando stablecoins como USDT e USDC.
           </li>
           <li>
             <strong>Conta PJ:</strong> conta empresarial em parceria com
