@@ -51,6 +51,7 @@ export const realOnchain: TopicPage = {
       ],
       icons: [],
       comparison: null,
+      code: null,
     },
     {
       id: 'como-funciona',
@@ -65,6 +66,7 @@ export const realOnchain: TopicPage = {
       ],
       icons: [],
       comparison: null,
+      code: null,
     },
     {
       id: 'onde-circula',
@@ -85,6 +87,7 @@ export const realOnchain: TopicPage = {
         { src: '/usdc.svg', label: 'USDC' },
       ],
       comparison: null,
+      code: null,
     },
     {
       id: 'brla-brz-brl1',
@@ -122,6 +125,7 @@ export const realOnchain: TopicPage = {
           ],
         ],
       },
+      code: null,
     },
     {
       id: 'vs-drex',
@@ -135,6 +139,7 @@ export const realOnchain: TopicPage = {
       ],
       icons: [],
       comparison: null,
+      code: null,
     },
     {
       id: 'rendimento',
@@ -149,6 +154,7 @@ export const realOnchain: TopicPage = {
       ],
       icons: [],
       comparison: null,
+      code: null,
     },
     {
       id: 'api',
@@ -163,6 +169,23 @@ export const realOnchain: TopicPage = {
       ],
       icons: [],
       comparison: null,
+      code: {
+        label: 'Transferir real onchain',
+        language: 'cURL',
+        snippet: `curl -X POST https://api.hodle.com.br/api/wallet/transfer \\
+  -H "Authorization: Bearer $HODLE_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "asset": "BRLA",
+    "amount": "50",
+    "recipientAddress": "0x520ec4aD3BdC629D13a49dB558D7F6813f3696aD",
+    "reference": "pedido-9f3c1a",
+    "walletPin": "1234",
+    "protectedSymmetricKey": "AoofiKHyVRLvdrknnXzo..."
+  }'
+
+# 200 -> { "success": true, "data": { "txHash": "0xd3c1...", "asset": "BRLA", "amount": "50" } }`,
+      },
     },
   ],
   faq: [

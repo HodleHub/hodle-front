@@ -75,7 +75,7 @@ relato do worker.
 | Asserção | Resultado |
 |---|---|
 | `pnpm build` | verde; `/[slug]` sai `●` SSG com filho `/real-onchain` |
-| `npx tsc --noEmit` | limpo (obrigatório: `next.config.ts` ignora erro de tipo no build) |
+| `npx tsc --noEmit` | zero erro nos arquivos da página; restam 2 erros **pré-existentes** em `.next/types/app/articles/[slug]` (a página de artigo usa `params` síncrono, forma legada do Next 15), mascarados por `typescript.ignoreBuildErrors` |
 | copy vs. contrato | **byte-idêntica** (diff programático do bloco do contrato contra `realOnchain.ts`) |
 | `<h1>` | exatamente 1 — "Receba em Pix, guarde em real onchain" |
 | `<h2>` | 10 — as 7 seções do contrato + FAQ + relacionados + CTA final |
@@ -107,7 +107,9 @@ brancos ou cortados. Só full-page + asserção de DOM valem como evidência aqu
 | Melhoria | Impacto | Facilidade | Destino |
 |---|---|---|---|
 | `layout.tsx` injeta `WebPage` + `BreadcrumbList` globais em TODA página, então `/real-onchain` declara dois `WebPage` e dois `BreadcrumbList` conflitantes (o global aponta para a home) | alto | média | card `hodle-front` — mover o schema global para a home |
-| O `<CodeBlock />` da seção de API é o snippet genérico do `@hodle/sdk`, sem BRLA — enfraquece justamente o ângulo que nenhum incumbente tem (era o P2 do autoreview) | médio | média | card `hodle-front` — CodeBlock com props, snippet de transfer com `asset: 'BRLA'` |
+| ~~`<CodeBlock />` genérico do `@hodle/sdk` na seção de API~~ | — | — | **corrigido neste PR** (ver abaixo) |
+| `articles/[slug]/page.tsx` usa `params` síncrono (Next 15 quer `Promise`) — 2 erros de tipo escondidos por `ignoreBuildErrors` | médio | trivial | card `hodle-front` |
+| `next.config.ts` com `ignoreBuildErrors` + `ignoreDuringBuilds` deixa o CI passar com type/lint quebrados | médio | média | card `hodle-front` |
 | OG image igual para todas as páginas (`/og-image-v2.png` → rewrite para `/api/og`) | médio | média | card `hodle-front` — `/api/og?title=` com o h1 do tópico |
 | Página `/como-comprar-brla-com-pix` (cauda longa comercial que sobrou da Phase 2) | médio | média | card `hodle-front` |
 | Página `/api-stablecoin-brl` | médio | média | card `hodle-front` |
@@ -116,3 +118,33 @@ Depois do merge: `vercel --prod --yes` a partir de `main` (ver `deploy.md`), e e
 validar no ar (`curl -s https://hodle.com.br/sitemap.xml | grep real-onchain` e
 `curl -sI https://hodle.com.br/real-onchain`). Submeter a URL no Search Console é ação
 humana — indexação não acontece porque o PR mergeou.
+
+## Fix do P2 do autoreview (rodada 2)
+
+O autoreview (`glm-5.2`) apontou um único finding: `SectionCode` renderizava o
+`<CodeBlock />` da home — snippet genérico do `@hodle/sdk` com `client.payments.create`,
+que não tem nada de BRLA. Numa página cuja tese é "o caminho Pix → real onchain por API",
+o bloco de código genérico derrubava justamente o diferencial. Procede.
+
+Corrigido de verdade, não silenciado:
+
+- `TopicCode = { label, language, snippet }` no tipo, `code: TopicCode | null` em
+  `TopicSection` (as outras 6 seções levam `code: null`).
+- Novo `src/components/topic/topicCodeBlock.tsx` — bloco escuro com `overflow-x-auto`,
+  fonte mono do site. O `CodeBlock` da home fica intocado (é hardcoded span-por-span e
+  serve a home; parametrizá-lo seria risco sem ganho).
+- Snippet real, conferido contra `apps/server/src/swagger.yml` e
+  `apps/server/src/app.ts:236` do monorepo Hodler: `POST /api/wallet/transfer`,
+  `Authorization: Bearer` (o `apiKeyAuth` aceita `Authorization` ou `X-API-Key`), corpo
+  com `asset: "BRLA"`, `amount`, `recipientAddress`, `reference` (chave de idempotência),
+  `walletPin`, `protectedSymmetricKey`, e a resposta 200 com `txHash`.
+- Limpeza de lint no caminho: parâmetro `topic` não usado em `SectionProse` e import
+  `Image` não usado em `topicHero`. `eslint` nos arquivos do tópico: 0 erro, 0 warning.
+
+Evidência: `docs/seo/evidence/real-onchain/api-section-brla-snippet.png`.
+
+Nota de captura (repetida porque custou tempo duas vezes): além do descompasso de DPR,
+o `pnpm start` serve HTML com cache — depois de rebuildar, navegue com cache-bust
+(`?v=2`) ou o browser mostra a versão anterior e você "valida" o build velho. E como as
+seções revelam por `whileInView`, um full-page recém-carregado sai com lacunas brancas:
+role a página inteira em passos antes de capturar.

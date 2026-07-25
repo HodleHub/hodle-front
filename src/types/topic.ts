@@ -8,6 +8,8 @@ export type TopicSectionKind = 'PROSE' | 'STEPS' | 'ASSETS' | 'COMPARISON' | 'CO
 
 export type TopicComparison = { headers: string[]; rows: string[][] }
 
+export type TopicCode = { label: string; language: string; snippet: string }
+
 export type TopicSection = {
   id: string
   kind: TopicSectionKind
@@ -16,6 +18,7 @@ export type TopicSection = {
   bullets: string[]
   icons: TopicIcon[]
   comparison: TopicComparison | null
+  code: TopicCode | null
 }
 
 export type TopicPage = {

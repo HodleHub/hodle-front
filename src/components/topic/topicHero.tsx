@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { ButtonShadow } from '../ui/ButtonShadow'
 import TopicIconRow from './topicIconRow'

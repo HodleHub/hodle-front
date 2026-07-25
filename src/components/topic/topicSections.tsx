@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import AnimatedSection from '../AnimatedSection'
-import CodeBlock from '../CodeBlock'
+import TopicCodeBlock from './topicCodeBlock'
 import { TopicPage } from '../../types/topic'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
-function SectionProse({ section, topic }: { section: TopicPage['sections'][number]; topic: TopicPage }) {
+function SectionProse({ section }: { section: TopicPage['sections'][number] }) {
   return (
     <>
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
@@ -141,15 +141,15 @@ function SectionCode({ section }: { section: TopicPage['sections'][number] }) {
           ))}
         </ul>
       )}
-      <CodeBlock />
+      {section.code && <TopicCodeBlock code={section.code} />}
     </>
   )
 }
 
-function renderSection(section: TopicPage['sections'][number], topic: TopicPage) {
+function renderSection(section: TopicPage['sections'][number]) {
   switch (section.kind) {
     case 'PROSE':
-      return <SectionProse section={section} topic={topic} />
+      return <SectionProse section={section} />
     case 'STEPS':
       return <SectionSteps section={section} />
     case 'ASSETS':
@@ -168,7 +168,7 @@ export default function TopicSections({ topic }: { topic: TopicPage }) {
         {topic.sections.map((section, i) => (
           <AnimatedSection key={section.id} delay={i * 0.05} direction="up">
             <section id={section.id}>
-              {renderSection(section, topic)}
+              {renderSection(section)}
             </section>
           </AnimatedSection>
         ))}
