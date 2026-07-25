@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next'
 import { getAllArticles } from '../utils/mdx'
+import { getAllTopics } from '../utils/getAllTopics'
 
 const siteUrl = 'https://hodle.com.br'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles()
+  const topics = getAllTopics()
 
   const articleEntries: MetadataRoute.Sitemap = articles.map(
     (article: { slug: string; date: string }) => ({
@@ -14,6 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }),
   )
+
+  const topicEntries: MetadataRoute.Sitemap = topics.map((topic) => ({
+    url: `${siteUrl}/${topic.slug}`,
+    lastModified: new Date(topic.updatedAt),
+    changeFrequency: topic.changeFrequency,
+    priority: topic.priority,
+  }))
 
   return [
     {
@@ -53,5 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     ...articleEntries,
+    ...topicEntries,
   ]
 }
