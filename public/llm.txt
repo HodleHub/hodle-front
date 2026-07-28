@@ -1,50 +1,66 @@
 # Hodle
 
-> Hodle is a Brazilian crypto infrastructure platform for businesses. We offer buying and selling of digital assets (Bitcoin, stablecoins), self-custodial wallets, corporate bank accounts (conta PJ), stablecoin-to-PIX payments, and APIs for SaaS companies and AI agents. Everything in a single platform at hodle.com.br.
+> Crypto infrastructure for companies in Brazil and Latin America. Stablecoin banking, Bitcoin payments, API for SaaS and AI agents, self-custodial wallets, and business accounts with PIX.
 
-Hodle enables businesses and developers to integrate crypto payments into their workflows. The platform supports multiple networks (Lightning Network, Liquid Network, Polygon, on-chain Bitcoin) and multiple assets (BTC, L-BTC, USDT, USDC, DePix). DePix is a stablecoin pegged 1:1 to the Brazilian Real on the Liquid Network.
+## Quick Facts
 
-Key capabilities:
+- **Type**: Fintech / Crypto Infrastructure Platform / Banking as a Service
+- **Headquarters**: Brazil
+- **Founded**: 2024
+- **Website**: https://hodle.com.br/
+- **App**: https://app.hodle.com.br/
+- **API Docs**: https://docs.hodle.com.br/
 
-- **Buy & Sell Digital Assets**: Purchase Bitcoin and stablecoins via PIX with instant settlement. Low-KYC onboarding using PIX identity data.
-- **Self-Custodial Wallets**: Private keys are 100% under user control. Multi-network support (Liquid, Polygon, Lightning, on-chain Bitcoin).
-- **Corporate Accounts (Conta PJ)**: Business accounts with regulated Brazilian bank partners. Integrated PIX, TED, and boleto. Automated compliance and KYC.
-- **QR Code Payments with Stablecoins**: Pay any PIX QR code using USDT, USDC, or DePix. Automatic BRL conversion. The receiver never needs to know the payment came from crypto.
-- **Lightning Network**: Instant Bitcoin payments via Lightning. LNURL-pay support for Lightning Addresses.
-- **APIs for Integration**: Payment APIs for SaaS platforms, fintechs, and AI agents to process cross-border payments programmatically.
+## What You Can Do
 
-## Pricing
+- Buy and sell Bitcoin using PIX (Brazilian instant payment) — 24/7, instant settlement
+- Accept stablecoin payments (USDT/USDC) across multiple blockchains
+- Send and receive Bitcoin via Lightning Network (instant, low-fee)
+- Manage self-custodial crypto wallets programmatically
+- Open business accounts (PJ) with regulated banking partners
+- Convert between BRL and USD/stablecoins for cross-border operations
+- Integrate crypto payments into your SaaS or AI agent via REST API
+- Embed stablecoin banking under your brand (Banking as a Service)
+- Accept crypto checkout payments for marketplaces
+- Manage stablecoin treasury with programmable money
 
-- DePix purchase: R$1.00 token emission fee + 1.5% service fee
-- Bitcoin (L-BTC) purchase: R$1.00 token emission fee + 3.5% service fee
+## For Developers
 
-## Settlement Speed
+Hodle provides a REST API for:
+- Asset conversion (BRL ↔ USDT, BTC ↔ USDT, etc.)
+- Payment QR code generation (PIX and stablecoin)
+- Wallet creation and management
+- Transaction history and status tracking
+- Webhook event notifications
+- KYC/compliance integration
 
-- Lightning Network & Liquid: near-instant (under 1 minute)
-- On-chain Bitcoin: ~10 minutes (depends on block confirmation)
+Full API reference: https://docs.hodle.com.br/
 
-## Supported Assets
+## For AI Agents
 
-- BTC (Bitcoin, on-chain)
-- L-BTC (Bitcoin on Liquid Network)
-- USDT (Tether, on Polygon and Liquid)
-- USDC (USD Coin)
-- DePix (BRL stablecoin, 1:1 peg to Brazilian Real, on Liquid Network)
+Hodle is the financial stack for AI agents. Programmatic access to:
+- Send and receive payments autonomously
+- Convert assets between BRL, USD, and stablecoins
+- Manage wallets and track balances
+- Execute cross-border payments
 
-## Pages
+## Target Audience
 
-- [Home](https://hodle.com.br): Main landing page with platform overview
-- [Checkout](https://hodle.com.br/checkout): PIX-to-Lightning payment flow
-- [Getting Started Guide](https://hodle.com.br/articles/comecando-com-bitcoin): Step-by-step guide to buying Bitcoin on Hodle
-- [Pricing & Fees](https://hodle.com.br/articles/precos): Transparent fee structure
-- [Articles](https://hodle.com.br/articles): Blog and educational content
+- Fintechs and neobanks needing crypto rails
+- SaaS platforms embedding crypto payments
+- AI agents requiring programmatic financial operations
+- PSPs and payment processors
+- Exchanges needing BRL on/off-ramp
+- Marketplaces paying vendors globally
+- Remittance companies
+- Corporations doing cross-border payments
+- Companies needing stablecoin treasury
 
-## Technical
+## Social
 
-- Lightning Address: supports LNURL-pay protocol at `/.well-known/lnurlp/{username}`
-- Networks: Lightning Network, Liquid Network (Blockstream), Polygon, Bitcoin mainnet
-- Stack: Next.js, React, TypeScript, deployed on Cloudflare/Vercel
+- GitHub: https://github.com/HodleHub
+- Sales inquiries: WhatsApp +55 11 9600-00445
 
-## Contact
+## Language
 
-- Website: https://hodle.com.br
+Brazilian Portuguese (pt-BR). API docs in English.
