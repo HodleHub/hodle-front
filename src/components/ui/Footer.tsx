@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Github, Zap } from 'lucide-react'
-
-const heading = 'font-[family-name:var(--font-space-grotesk)]'
+import { Github } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -10,16 +8,16 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center mb-4">
+            <Link href="/" className="mb-4 inline-flex items-center" aria-label="Hodle">
               <Image
-                src="/hodlelogo.png"
-                alt="Hodle Logo"
-                width={56}
-                height={56}
-                className="mr-2"
+                src="/new_logo_hodle.png"
+                alt="Hodle"
+                width={868}
+                height={257}
+                className="h-6 w-auto"
               />
             </Link>
-            <p className="text-xs text-gray-400 mb-4 leading-relaxed">
+            <p className="text-xs text-gray-500 mb-4 leading-relaxed">
               Infraestrutura cripto para empresas.
             </p>
             <div className="flex space-x-3">
@@ -27,7 +25,7 @@ export function Footer() {
                 href="https://github.com/HodleHub"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-foreground transition-colors"
+                className="text-gray-400 hover:text-foreground transition-colors"
               >
                 <Github size={16} />
               </a>
@@ -83,7 +81,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-xs text-gray-400 hover:text-foreground transition-colors"
+                      className="text-xs text-gray-500 hover:text-foreground transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -95,19 +93,10 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-200 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-gray-400">
-              &copy; {new Date().getFullYear()} Hodle. Todos os direitos
-              reservados.
-            </p>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xs text-gray-400">Powered by</span>
-              <Zap size={12} className="text-foreground" />
-              <span className="text-xs font-medium text-gray-500">
-                Lightning Network
-              </span>
-            </div>
-          </div>
+          <p className="text-xs text-gray-500">
+            &copy; {new Date().getFullYear()} Hodle. Todos os direitos
+            reservados.
+          </p>
         </div>
       </div>
     </footer>

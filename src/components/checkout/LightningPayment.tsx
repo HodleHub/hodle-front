@@ -101,11 +101,11 @@ export const LightningPayment = ({
         <div className="flex justify-center mb-4">
           <Link href="/">
             <Image
-              src="/hodlelogo.png"
-              alt="HODLE"
-              width={100}
-              height={80}
-              className="mx-auto cursor-pointer"
+              src="/new_logo_hodle.png"
+              alt="Hodle"
+              width={868}
+              height={257}
+              className="h-8 w-auto mx-auto cursor-pointer"
             />
           </Link>
         </div>

@@ -11,9 +11,9 @@ const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 const navLinks = [
   { label: 'Plataforma', href: '#plataforma' },
   { label: 'API', href: '#api' },
+  { label: 'Wallets', href: '#wallets' },
   { label: 'Pagamentos', href: '#pagamentos' },
   { label: 'Conta PJ', href: '#conta-pj' },
-  { label: 'Parceiros', href: '#parceiros' },
 ]
 
 export default function Header() {
@@ -57,7 +57,7 @@ export default function Header() {
               Falar com vendas
             </Link>
             <Link href="https://app.hodle.com.br" target="_blank">
-              <ButtonShadow size="sm">Abrir App</ButtonShadow>
+              <ButtonShadow as="span" size="sm">Abrir App</ButtonShadow>
             </Link>
           </div>
 
@@ -100,8 +100,17 @@ export default function Header() {
               Falar com vendas
             </Link>
             <div className="pt-3">
-              <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow size="sm" className="w-full">
+              <Link
+                href="https://app.hodle.com.br"
+                target="_blank"
+                className="block"
+              >
+                <ButtonShadow
+                  as="span"
+                  size="sm"
+                  className="w-full"
+                  faceClassName="w-full"
+                >
                   Abrir App
                 </ButtonShadow>
               </Link>
