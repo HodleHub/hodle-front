@@ -30,12 +30,12 @@ const faqItems: FAQItem[] = [
   {
     question: 'Como funciona a conta PJ?',
     answer:
-      'A conta PJ é aberta em nome da sua empresa junto a bancos parceiros regulados pelo Banco Central. Permite receber e enviar PIX, TED e boletos, com compliance e KYC automatizados para agilizar o processo.',
+      'A conta PJ é aberta em nome da sua empresa junto a bancos parceiros regulados pelo Banco Central. Permite receber e enviar Pix, TED e boletos, com compliance e KYC automatizados para agilizar o processo.',
   },
   {
     question: 'Como funciona o pagamento de QR codes com stablecoins?',
     answer:
-      'Você pode pagar qualquer QR code PIX utilizando stablecoins como USDT ou USDC. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
+      'Você pode pagar qualquer QR code Pix utilizando stablecoins como USDT ou USDC. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
   },
   {
     question: 'Quanto tempo demora a liquidação?',

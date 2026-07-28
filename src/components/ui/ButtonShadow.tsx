@@ -38,17 +38,31 @@ export interface ButtonShadowProps
     VariantProps<typeof buttonShadowVariants> {
   shadowClassName?: string
   faceClassName?: string
+  /**
+   * Render as a plain `span` instead of a `button`. Use this whenever the
+   * component sits inside a `Link` — a `button` nested in an `a` is invalid
+   * HTML and creates two tab stops for a single action.
+   */
+  as?: 'button' | 'span'
 }
 
 const ButtonShadow = React.forwardRef<HTMLButtonElement, ButtonShadowProps>(
   (
-    { className, size, shadowClassName, faceClassName, children, ...props },
+    {
+      className,
+      size,
+      shadowClassName,
+      faceClassName,
+      as: Tag = 'button',
+      children,
+      ...props
+    },
     ref,
   ) => {
     return (
-      <button
+      <Tag
         className={cn(buttonShadowVariants({ size, className }))}
-        ref={ref}
+        ref={ref as never}
         {...props}
       >
         <span
@@ -60,7 +74,7 @@ const ButtonShadow = React.forwardRef<HTMLButtonElement, ButtonShadowProps>(
         <span className={cn(faceVariants({ size }), faceClassName)}>
           {children}
         </span>
-      </button>
+      </Tag>
     )
   },
 )

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import AnimatedSection from '../components/AnimatedSection'
 import FAQSection from '../components/FAQSection'
-import ArticlesSection from '../components/ArticlesSection'
 import CodeBlock from '../components/CodeBlock'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -34,8 +33,6 @@ export const metadata: Metadata = {
     url: siteUrl,
   },
 }
-
-console.log('[Hodle] Page module loaded')
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -82,8 +79,6 @@ const ASSET_GROUPS = [
 ] as const
 
 export default function HomePage() {
-  console.log('[Hodle] Rendering home page', new Date().toISOString())
-
   return (
     <div className="min-h-screen bg-white">
       {/* ═══════════════ HERO ═══════════════ */}
@@ -111,23 +106,32 @@ export default function HomePage() {
               Latina.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center mb-10">
               <Link
                 href="https://api.whatsapp.com/send?phone=5511960000445"
                 target="_blank"
                 rel="noreferrer"
+                className="w-full sm:w-auto"
               >
                 <ButtonShadow
-                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
+                  as="span"
+                  className="w-full sm:w-auto"
+                  faceClassName="w-full border-foreground bg-foreground text-white hover:bg-foreground"
                   shadowClassName="bg-gray-300"
                 >
                   Falar com vendas
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
-              <Link href="https://app.hodle.com.br" target="_blank">
+              <Link
+                href="https://app.hodle.com.br"
+                target="_blank"
+                className="w-full sm:w-auto"
+              >
                 <ButtonShadow
-                  faceClassName="border-gray-300 bg-white text-gray-600 hover:text-foreground"
+                  as="span"
+                  className="w-full sm:w-auto"
+                  faceClassName="w-full border-gray-300 bg-white text-gray-600 hover:text-foreground"
                   shadowClassName="bg-gray-200"
                 >
                   Criar minha wallet
@@ -165,7 +169,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
           <div className="grid grid-cols-3 gap-8 md:gap-4">
             {[
-              { value: '24/7', label: 'PIX disponível' },
+              { value: '24/7', label: 'Pix disponível' },
               { value: '100%', label: 'Auto-custódia' },
               { value: '5+', label: 'Redes & rails' },
             ].map((stat, i) => (
@@ -227,7 +231,7 @@ export default function HomePage() {
             {
               icon: ArrowLeftRight,
               title: 'Compra e venda de ativos',
-              desc: 'Compre bitcoin e stablecoins em diversas redes com liquidação instantânea via PIX.',
+              desc: 'Compre bitcoin e stablecoins em diversas redes com liquidação instantânea via Pix.',
             },
             {
               icon: Landmark,
@@ -250,7 +254,7 @@ export default function HomePage() {
                 >
                   {feat.title}
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed max-w-[280px] mx-auto">
+                <p className="text-sm text-gray-500 leading-relaxed max-w-[280px] mx-auto">
                   {feat.desc}
                 </p>
               </div>
@@ -259,56 +263,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════ PARTNERS ═══════════════ */}
-      <section
-        id="parceiros"
-        className="border-t border-gray-200 bg-gray-50/50"
-      >
-        <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
-          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-[560px]">
-              <span className="text-xs font-semibold uppercase text-gray-500 mb-4 block">
-                Parceiros
-              </span>
-              <h2
-                className={`${heading} text-3xl lg:text-4xl font-light text-foreground leading-tight text-balance mb-4`}
-              >
-                Infraestrutura conectada com quem move dinheiro na América
-                Latina
-              </h2>
-              <p className="text-gray-500 leading-relaxed text-pretty">
-                A Hodle trabalha com parceiros estratégicos para entregar PIX,
-                stablecoins e liquidação local com uma experiência simples para
-                empresas.
-              </p>
-            </div>
-
-            <a
-              href="https://avenia.io"
-              target="_blank"
-              rel="noreferrer"
-              className="block rounded-2xl border border-gray-200 bg-white px-8 py-7 shadow-sm transition-colors hover:border-gray-300"
-            >
-              <span className="text-xs font-medium text-gray-400 mb-5 block">
-                Parceiro regulado
-              </span>
-              <Image
-                src="/avenia.png"
-                alt="Avenia"
-                width={349}
-                height={81}
-                className="h-auto w-48 sm:w-56"
-              />
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ═══════════════ PLATFORM SHOWCASE ═══════════════ */}
       <AnimatedSection delay={0.1}>
         <section
           id="plataforma"
-          className="border-t border-gray-200 py-20 lg:py-28"
+          className="border-t border-gray-200 bg-gray-50/50 py-20 lg:py-24"
         >
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="bg-white rounded-2xl shadow-[0_4px_40px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden">
@@ -397,7 +356,7 @@ export default function HomePage() {
                           {
                             id: 'VHJ...TA5',
                             date: '14/02/2026, 14:07',
-                            from: 'PIX',
+                            from: 'Pix',
                             fromIcon: '/pix.svg',
                             to: 'Polygon',
                             toIcon: '/polygon.svg',
@@ -421,7 +380,7 @@ export default function HomePage() {
                             date: '07/02/2026, 17:46',
                             from: 'Lightning',
                             fromIcon: '/ln.svg',
-                            to: 'PIX',
+                            to: 'Pix',
                             toIcon: '/pix.svg',
                             val: '- R$ 0.10',
                             status: 'COMPLETED',
@@ -430,7 +389,7 @@ export default function HomePage() {
                           {
                             id: 'VHJ...TNi',
                             date: '07/02/2026, 17:09',
-                            from: 'PIX',
+                            from: 'Pix',
                             fromIcon: '/pix.svg',
                             to: 'Polygon',
                             toIcon: '/polygon.svg',
@@ -443,7 +402,7 @@ export default function HomePage() {
                             date: '07/02/2026, 17:08',
                             from: 'Lightning',
                             fromIcon: '/ln.svg',
-                            to: 'PIX',
+                            to: 'Pix',
                             toIcon: '/pix.svg',
                             val: '- R$ 1.00',
                             status: 'PENDING',
@@ -452,7 +411,7 @@ export default function HomePage() {
                           {
                             id: 'VHJ...TZi',
                             date: '06/02/2026, 18:22',
-                            from: 'PIX',
+                            from: 'Pix',
                             fromIcon: '/pix.svg',
                             to: 'Polygon',
                             toIcon: '/polygon.svg',
@@ -463,7 +422,7 @@ export default function HomePage() {
                           {
                             id: 'VHJ...GQx',
                             date: '05/02/2026, 12:38',
-                            from: 'PIX',
+                            from: 'Pix',
                             fromIcon: '/pix.svg',
                             to: 'Polygon',
                             toIcon: '/polygon.svg',
@@ -532,7 +491,7 @@ export default function HomePage() {
 
       {/* ═══════════════ COMPRA E VENDA ═══════════════ */}
       <section id="compra-venda" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
@@ -546,17 +505,17 @@ export default function HomePage() {
               <ul className="space-y-4 mb-10">
                 {[
                   'Compre bitcoin e stablecoins em diversas redes',
-                  'Liquidação via PIX instantâneo',
+                  'Liquidação via Pix instantâneo',
                   'Integração simples via API ou plataforma',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-base shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
                     <span className="text-gray-500">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow size="sm">
+                <ButtonShadow as="span" size="sm">
                   Saiba mais
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
@@ -726,7 +685,7 @@ export default function HomePage() {
 
       {/* ═══════════════ API CROSSBORDER ═══════════════ */}
       <section id="api" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
@@ -750,13 +709,13 @@ export default function HomePage() {
                   'Webhooks e callbacks em tempo real',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-base shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
                     <span className="text-gray-500">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="https://docs.hodle.com.br" target="_blank">
-                <ButtonShadow size="sm">
+                <ButtonShadow as="span" size="sm">
                   Ver documentação
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
@@ -772,7 +731,7 @@ export default function HomePage() {
 
       {/* ═══════════════ WALLETS ═══════════════ */}
       <section id="wallets" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row-reverse items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="right" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
@@ -783,7 +742,7 @@ export default function HomePage() {
               >
                 Wallets 100% auto-custodiais
               </h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-gray-500 mb-8 leading-relaxed">
                 Suas chaves, suas moedas. Controle total dos seus ativos sem
                 depender de terceiros.
               </p>
@@ -795,13 +754,13 @@ export default function HomePage() {
                   'Backup e recuperação simplificados',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-base shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
                     <span className="text-gray-500">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow size="sm">
+                <ButtonShadow as="span" size="sm">
                   Criar wallet
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
@@ -923,7 +882,7 @@ export default function HomePage() {
 
       {/* ═══════════════ CONTA PJ ═══════════════ */}
       <section id="conta-pj" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="left" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
@@ -938,18 +897,18 @@ export default function HomePage() {
                 {[
                   'Conta empresarial no nome da sua empresa',
                   'Bancos parceiros regulados pelo Banco Central',
-                  'PIX com com integração direta',
+                  'Pix com integração direta',
                   'Compliance e KYC automatizados',
                   'Produtos financeiros para sua empresa (pix automático, splits de pagamentos)',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-base shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
                     <span className="text-gray-500">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
-                <ButtonShadow size="sm">
+                <ButtonShadow as="span" size="sm">
                   Abrir conta PJ
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
@@ -1012,7 +971,7 @@ export default function HomePage() {
 
                 <div className="flex gap-2">
                   <div className="flex-1 bg-foreground text-white text-center py-2 rounded-lg text-[10px] font-semibold">
-                    PIX
+                    Pix
                   </div>
                   <div className="flex-1 bg-gray-100 text-gray-500 text-center py-2 rounded-lg text-[10px] font-semibold border border-gray-200">
                     TED
@@ -1029,7 +988,7 @@ export default function HomePage() {
 
       {/* ═══════════════ QR CODE STABLECOINS ═══════════════ */}
       <section id="pagamentos" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row-reverse items-start gap-16 lg:gap-24">
             <AnimatedSection delay={0.1} direction="right" className="flex-1">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
@@ -1042,19 +1001,19 @@ export default function HomePage() {
               </h2>
               <ul className="space-y-4 mb-10">
                 {[
-                  'Pague qualquer QR code PIX usando stablecoins',
+                  'Pague qualquer QR code Pix usando stablecoins',
                   'Conversão automática stablecoin para BRL',
                   'Suporte a USDT e USDC',
                   'Liquidação instantânea',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-base shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
                     <span className="text-gray-500">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow size="sm">
+                <ButtonShadow as="span" size="sm">
                   Começar a pagar
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
@@ -1078,7 +1037,7 @@ export default function HomePage() {
                     {/* QR Code with 3D depth */}
                     <Image
                       src="/qr-code.svg"
-                      alt="QR Code PIX"
+                      alt="QR Code Pix"
                       width={280}
                       height={280}
                       className="w-52 h-52 lg:w-64 lg:h-64"
@@ -1104,7 +1063,7 @@ export default function HomePage() {
 
       {/* ═══════════════ SUPORTADO (Lightspark FX-style specs) ═══════════════ */}
       <section id="suportado" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <AnimatedSection delay={0.1}>
             <div className="max-w-[600px] mb-14">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
@@ -1126,7 +1085,7 @@ export default function HomePage() {
               {ASSET_GROUPS.map((group) => (
                 <div
                   key={group.title}
-                  className="grid md:grid-cols-3 gap-6 md:gap-8 py-10 border-b border-gray-200"
+                  className="grid md:grid-cols-3 gap-5 md:gap-8 py-8 border-b border-gray-200"
                 >
                   <div className="md:col-span-1">
                     <h3
@@ -1134,12 +1093,12 @@ export default function HomePage() {
                     >
                       {group.title}
                     </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed max-w-[280px]">
+                    <p className="text-sm text-gray-500 leading-relaxed max-w-[280px]">
                       {group.desc}
                     </p>
                   </div>
 
-                  <div className="md:col-span-2 grid grid-cols-2 gap-x-8 gap-y-5">
+                  <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 md:items-start">
                     {group.items.map((item) => (
                       <div key={item.name} className="flex items-center gap-3">
                         <Image
@@ -1163,15 +1122,15 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════ FAQ ═══════════════ */}
-      <div className="border-t border-gray-200 bg-gray-50/50 py-24 lg:py-32">
+      <div className="border-t border-gray-200 py-20 lg:py-24">
         <div className="max-w-[1200px] mx-auto px-6 flex justify-center">
           <FAQSection />
         </div>
       </div>
 
       {/* ═══════════════ FALE CONOSCO ═══════════════ */}
-      <section id="fale-conosco" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-24 lg:py-32">
+      <section id="fale-conosco" className="border-t border-gray-200 bg-gray-50/50">
+        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <AnimatedSection delay={0.1}>
             <div className="text-center max-w-[680px] mx-auto">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
@@ -1193,6 +1152,7 @@ export default function HomePage() {
                 rel="noreferrer"
               >
                 <ButtonShadow
+                  as="span"
                   faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
                   shadowClassName="bg-gray-300"
                 >
@@ -1204,13 +1164,6 @@ export default function HomePage() {
           </AnimatedSection>
         </div>
       </section>
-
-      {/* ═══════════════ ARTICLES ═══════════════ */}
-      <div className="border-t border-gray-200 py-24 lg:py-32">
-        <div className="max-w-[1200px] mx-auto px-6 flex justify-center">
-          <ArticlesSection />
-        </div>
-      </div>
     </div>
   )
 }

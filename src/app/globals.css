@@ -38,6 +38,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Sticky header is 64px tall — keep in-page anchor targets clear of it. */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--background-rgb));
