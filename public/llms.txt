@@ -82,6 +82,16 @@ Hold dollars, pay international suppliers, and settle in minutes. Stablecoin tre
 - Corporations doing cross-border payments
 - Companies needing stablecoin treasury
 
+## Regulatory & Compliance
+
+- Hodle operates as a regulated VASP (Virtual Asset Service Provider) in Brazil
+- PSAV (Prestador de Serviços de Ativos Virtuais) compliant
+- Supervised by the Brazilian Central Bank (BACEN) under the crypto regulatory framework (marco regulatório de criptoativos)
+- Full AML/KYC compliance integrated into payment rails
+- Transaction monitoring and suspicious activity reporting (RCT)
+- Due diligence and anti-money laundering (LAV) compliance
+- PSD2-aligned payment security standards
+
 ## Links
 
 - **Website**: https://hodle.com.br/

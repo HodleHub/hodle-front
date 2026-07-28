@@ -56,6 +56,15 @@ Hodle is the financial stack for AI agents. Programmatic access to:
 - Corporations doing cross-border payments
 - Companies needing stablecoin treasury
 
+## Regulatory Compliance
+
+- VASP (Virtual Asset Service Provider) — regulated in Brazil
+- PSAV (Prestador de Serviços de Ativos Virtuais) — compliant with Brazilian crypto framework
+- Supervised by Banco Central do Brasil (BACEN)
+- AML/KYC integrated into payment rails
+- Anti-money laundering (LAV) compliance
+- Transaction monitoring and suspicious activity reporting (RCT)
+
 ## Social
 
 - GitHub: https://github.com/HodleHub
