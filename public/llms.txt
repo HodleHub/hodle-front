@@ -1,0 +1,95 @@
+# Hodle
+
+> Crypto infrastructure for companies in Brazil and Latin America. Stablecoin banking, Bitcoin payments, API for SaaS and AI agents, self-custodial wallets, and business accounts with PIX.
+
+## What Hodle Does
+
+Hodle is a Brazilian fintech platform providing crypto infrastructure for businesses:
+
+- **Buy & Sell Bitcoin via PIX**: Purchase and sell Bitcoin with instant settlement via PIX, 24/7.
+- **Stablecoin Payments API**: Accept and send payments in USDT/USDC across multiple networks (Arbitrum, Polygon, Base, Lightning, Spark).
+- **API for SaaS & AI Agents**: REST API to integrate crypto payments, asset conversion, and wallet management into your product or AI agent.
+- **Self-Custodial Wallets**: Wallets where private keys are fully controlled by the user — no third-party custody.
+- **Business Accounts (PJ)**: Nominal business accounts with regulated banking partners supervised by the Brazilian Central Bank.
+- **Lightning Network**: Instant Bitcoin payments and settlements via Lightning.
+- **Cross-border Payments (BRL to USD)**: Convert between BRL, USD, and stablecoins for international operations.
+- **Banking as a Service**: Embed stablecoin banking, wallets, and payments under your brand via API.
+- **Stablecoin On/Off-Ramp**: BRL to USDT/USDC conversion, entry and exit via PIX.
+- **Crypto Checkout**: Accept stablecoin payments for your marketplace or platform.
+- **Stablecoin Treasury**: Manage dollar-denominated treasury with programmable money.
+- **Programmable Money API**: Automate financial flows with stablecoin-based programmable payments.
+
+## Key Use Cases
+
+### For SaaS Platforms
+Embed crypto payments in your marketplace or platform. Accept PIX, send USDT/USDC. Full API integration. White-label crypto infrastructure.
+
+### For AI Agents
+Programmatic access to crypto rails. AI agents can autonomously send/receive payments, convert assets, and manage wallets via Hodle API. The complete financial stack for AI agents.
+
+### For Fintechs & PSPs
+White-label crypto infrastructure. Offer Bitcoin, stablecoin, and Lightning services to your users. Banking as a Service without new licenses.
+
+### For Exchanges
+Liquidity and settlement rails. Connect to Hodle for BRL on/off-ramp and multi-network stablecoin flows.
+
+### For Marketplaces
+Pay vendors worldwide in seconds and settle in the currency they prefer. Crypto merchant payments with instant settlement.
+
+### For Remittance Companies
+Cross-border payments in real-time with dollar accounts on both sides. Faster and cheaper than traditional rails.
+
+### For Corporations & Import-Export
+Hold dollars, pay international suppliers, and settle in minutes. Stablecoin treasury management.
+
+## API Capabilities
+
+- **Asset Conversion**: BRL to USDT, USDT to BRL, BTC to USDT, and more.
+- **Payment Processing**: Generate QR codes for PIX payments, accept stablecoin payments.
+- **Wallet Management**: Create wallets, check balances, send/receive assets across networks.
+- **Transaction History**: Query all transactions with filters and status tracking.
+- **Webhook Notifications**: Real-time notifications for payment events, confirmations, and settlements.
+- **KYC Integration**: Customer onboarding with identity verification.
+- **Compliance**: AML/KYC built into the payment rails, not bolted on after.
+
+## Supported Assets
+
+| Asset | Networks |
+|-------|----------|
+| Bitcoin (BTC) | On-chain, Lightning Network |
+| USDT | Arbitrum, Polygon, Base, Spark |
+| USDC | Arbitrum, Polygon, Base, Spark |
+| BRL (via PIX) | Brazilian payment system |
+| DEPIX | Brazilian digital real |
+
+## Supported Networks
+
+- Lightning Network (Bitcoin)
+- Arbitrum
+- Polygon
+- Base
+- Spark
+
+## Target Audience
+
+- Fintechs and neobanks needing crypto rails
+- SaaS platforms embedding crypto payments
+- AI agents requiring programmatic financial operations
+- PSPs and payment processors
+- Exchanges needing BRL on/off-ramp
+- Marketplaces paying vendors globally
+- Remittance companies
+- Corporations doing cross-border payments
+- Companies needing stablecoin treasury
+
+## Links
+
+- **Website**: https://hodle.com.br/
+- **Application**: https://app.hodle.com.br/
+- **API Documentation**: https://docs.hodle.com.br/
+- **GitHub**: https://github.com/HodleHub
+- **Contact (Sales)**: https://api.whatsapp.com/send?phone=5511960000445
+
+## Language
+
+Primary language: Brazilian Portuguese (pt-BR). API documentation available in English.
