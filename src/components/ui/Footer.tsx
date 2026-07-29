@@ -48,6 +48,7 @@ export function Footer() {
               title: 'Desenvolvedores',
               links: [
                 { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
+                { label: 'Para agentes de IA', href: '/para-agentes-de-ia' },
                 { label: 'Documentação', href: 'https://docs.hodle.com.br' },
                 { label: 'API Reference', href: 'https://docs.hodle.com.br' },
                 {
