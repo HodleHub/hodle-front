@@ -383,3 +383,95 @@ Indexação não acontece porque a PR mergeou.
   redirect 301 numa leva futura.
 - `og-image-v2.png` (354 KB) não foi otimizado nesta leva.
 - Sem `dateModified` na home; entra quando houver processo de atualização de conteúdo.
+
+---
+
+## 10. Mineração de termos dos concorrentes (2026-07-29)
+
+Método da skill `ai-seo`, §Competitor Term Mapping: extrair a superfície **real** de cada
+concorrente (`<title>`, meta description, keywords, H1, sitemap), depois testar em busca quais
+termos de fato os fazem aparecer. Termo que eles miram e termo que funciona são coisas
+diferentes.
+
+### O que cada um mira
+
+| | `<title>` | keywords meta |
+|---|---|---|
+| BlindPay | `Stablecoin API for global payments` | **31** |
+| Lumx | `Stablecoin Payments API` | **0** |
+| Trace | `Payments & stablecoin infrastructure for Brazil and LatAm` | **0** |
+| Avenia | `Avenia - Borderless Liquidity` | 0 |
+| Bipa | `Compre Bitcoin com Pix - Cashback BTC` | 20 |
+| KamiPay | `Transformamos pagos locales en globales` (ES) | 0 |
+| Parfin | `Home \| Parfin.io` | 0 |
+
+Dois achados que confirmam decisões anteriores:
+
+1. **Os dois que melhor ranqueiam na categoria (Lumx, Trace) usam ZERO keywords meta.** Avenia
+   e Parfin também. A redução de 148 para 12 (decisão do WS-A) está acima da mediana do setor,
+   não abaixo.
+2. **Avenia e Parfin têm `<title>` de marca, não de categoria.** Era o erro que a Hodle tinha
+   antes da PR #26; hoje o nosso `<title>` é melhor que o dos dois.
+
+### Inventário de páginas
+
+| | URLs | Padrão |
+|---|---|---|
+| Bipa | **134** | produto + 3 ferramentas grátis + ebook/relatório + blog pesado |
+| BlindPay | **65** | **12 páginas programáticas de par** + pricing + changelog + tool |
+| Lumx | ~60 | **glossário** + **10 cases nomeados** + bilíngue por prefixo `/pt/` |
+| Trace | 8 | product / use-cases / developers |
+| Hodle (antes desta leva) | 12 | 3 tópicos + legais |
+
+### Padrões com evidência de busca
+
+- **Par programático (BlindPay).** 12 URLs de um template:
+  `/usdc-to-{usd,brl,eur,mxn,cop,ars}` e `/usdt-to-{...}`.
+- **Página por audiência (Lumx).** Busca `stablecoin payments API LATAM pay-ins payouts` trouxe
+  Lumx em **1º (home) e 3º (`/solutions/payment-service-providers/`)** — duas posições numa
+  query. **Ressalva importante:** essa URL devolve **404** hoje (Framer). O 3º lugar é entrada
+  velha no índice apontando para página derrubada. O padrão é plausível, mas a evidência que eu
+  tinha era uma página morta — registrado para não superestimar.
+- **Duas páginas no mesmo termo (Bipa).** Busca `dólar digital USDT conta digital brasil`
+  trouxe `bipa.app/usdt` **e** `produtos.bipa.app/usdt`.
+- **Glossário (Lumx).** `lumx.io/pt/stablecoin-glossary` ranqueia **1º** em
+  `glossário stablecoin termos on-ramp off-ramp liquidação brasil`. Formato: **uma** página com
+  âncoras A-Z e ~150 termos, definição de 1-2 frases. Também definem
+  **Resolução BCB 519/520/521** — ou seja, ocupam termo regulatório **definindo** a norma, não
+  reivindicando status. É a forma correta de recuperar a cobertura que a nossa decisão 2
+  abandonou.
+- **Ferramentas grátis.** Bipa `/ferramentas/{calculadora-dca,conversor-satoshi,bitcoin-vs-sp500}`;
+  BlindPay `/check-documents-brazilian`. Ferramenta ganha link, e link é o gargalo que o teste
+  de descobribilidade expôs.
+- **Cluster de agente de IA — os dois líderes já estão dentro.** Bipa tem subdomínio dedicado
+  `agents.bipa.app` ("MCP de Pagamentos para Agentes de IA | Pix pelo Claude, ChatGPT") mais
+  `/blog/{o-que-e-mcp-model-context-protocol,como-automatizar-pix-com-inteligencia-artificial,agente-de-ia-pode-pagar-suas-contas}`.
+  BlindPay tem `/ai`, `/blog/mcp`, `/blog/agent-skills`. O termo dominante do mercado é
+  **"pagamentos agênticos"**.
+- **Bilíngue por prefixo.** Lumx `/pt/`, Avenia `/pt-BR`. Os dois nascem bilíngues — reforça
+  que a decisão 4 (inglês adiado) é dívida, não escolha permanente.
+
+### Antipadrão observado
+
+O blog da **Avenia** tem cinco posts de conteúdo de template alheio: *eco-friendly fitness
+sustainable workouts*, *AI in inventory forecasting*, *the hidden costs of overstocking*, num
+site de liquidez cross-border. Dilui relevância tópica em vez de construir. É a razão da
+fronteira "só termos que o produto toca" no contrato do glossário.
+
+E os **10 cases nomeados da Lumx** (`/cases-2/{nomad,conta-simples,ouribank,logcomex,…}`) são o
+padrão mais forte para autoridade que apareceu, mas dependem de autorização de cliente —
+decisão comercial, não de SEO.
+
+### Aplicação à Hodle — só o que os endpoints sustentam
+
+A matriz da BlindPay tem 6 fiats porque eles operam 6 corredores. A Hodle tem **7 rotas reais**
+documentadas, e cada página seria verdade:
+
+| Leva | Páginas | Estado |
+|---|---|---|
+| **A** | `/precos` (migração + 301), `/glossario`, `/para-agentes-de-ia` | contratos escritos, enfileirado |
+| **B** | `/usdt-para-pix` · `/usdc-para-pix` · `/lightning-para-pix` · `/bitcoin-para-pix` · `/pix-para-usdt` · `/pix-para-usdc` · `/pix-para-lightning` | mapeado |
+| **C** | `/para-saas-e-marketplaces` · `/para-fintechs-e-psps` · `/para-importadores-e-exportadores` · `/changelog` | mapeado |
+
+As quatro audiências da leva C já têm copy-base: são as seções `Key Use Cases` que o WS-A
+escreveu em `public/llms.txt`.
