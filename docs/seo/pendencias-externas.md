@@ -13,54 +13,41 @@ Data: 2026-07-28.
 
 ### 1.1 Cloudflare: desbloquear os AI crawlers em `docs.` e `app.`
 
-**Status: bloqueado. É o item de maior impacto do programa inteiro.**
+**Status: RESOLVIDO em 2026-07-29.** Feito pelo dashboard, com o dono autenticado e o
+GStack Browser dirigindo. Zone `hodle.com.br` (`004d8cfdcd6ec0eddc68967da48675ae`, plano Free).
 
-Um agente dedicado entrou pelo gstack, abriu o Chromium controlado, importou 18 cookies de
-sessão do seu Chrome (`cf_clearance`, `vses2`, `curr-account` e outros) e chegou a fazer uma
-chamada autenticada com sucesso (`GET /api/v4/user/iam/dash-authz-eval-roles` → 200). A
-chamada seguinte, `GET /api/v4/organizations`, voltou **403** e disparou um desafio
-Turnstile; o frontend caiu de volta na tela de login. **Nenhuma configuração foi alterada.**
+Quatro mudancas, todas reversiveis:
 
-A ironia é o diagnóstico: o bot-management do Cloudflare barrou o agente que ia relaxar o
-bloqueio de bots. Cookie exportado não basta — precisa da sua sessão viva, possivelmente com
-2FA. Habilitar `--remote-debugging-port` no seu Chrome principal exigiria fechar o navegador
-com todas as abas abertas, o que está fora do que foi autorizado.
+| Setting | Antes | Depois | Onde reverter |
+|---|---|---|---|
+| Managed robots.txt | ON (`is_robots_txt_managed=true`) | OFF (`cf_robots_variant=off`) | AI Crawl Control > Signals |
+| Block AI bots scope | `block` / "Block on all pages" | `disabled` / "Do not block (allow crawlers)" | Security > Settings > filtro "AI bots" > lapis |
+| Mixed purpose crawlers | bloqueados em 15/set | continuam permitidos (`ai_bots_migration_opt_out=true`) | mesmo modal |
+| AI Labyrinth | ON | OFF (levou `crawler_protection` de `enabled` para `disabled`) | Security > Settings > filtro "Labyrinth" |
 
-Evidência do problema, inalterada:
+**A causa real era `ai_bots_protection: "block"`, nao Bot Fight Mode.** O diagnostico
+anterior (deste doc e do agente que tentou antes) apontava Bot Fight Mode; a leitura da API
+mostrou `fight_mode: false` desde sempre. Registrado para nao repetir a hipotese errada.
+
+Nao tocado: DNS, SSL/TLS, caching, Access, Page Rules, as 4 WAF custom rules existentes
+(GraphQL origins, GraphQL CSRF, obsidian, e2e bypass), `security_level=medium`,
+`browser_check=on`, e as zones `cryptouse.com.br` e `touri.ai`.
+
+Verificacao na rede, 13 user agents x 6 URLs, **todos 200**:
 
 ```
-$ curl -s https://docs.hodle.com.br/robots.txt | grep -A1 ClaudeBot
-User-agent: ClaudeBot
-Disallow: /
-
-$ curl -s -A "GPTBot/1.0"        -o /dev/null -w '%{http_code}\n' https://docs.hodle.com.br/docs/wallet-payout    → 403
-$ curl -s -A "ClaudeBot/1.0"     -o /dev/null -w '%{http_code}\n' https://docs.hodle.com.br/docs/authentication   → 403
-$ curl -s -A "PerplexityBot/1.0" -o /dev/null -w '%{http_code}\n' https://docs.hodle.com.br/                      → 403
+GPTBot/1.0  ChatGPT-User/1.0  ClaudeBot/1.0  anthropic-ai  Claude-User/1.0
+PerplexityBot/1.0  CCBot/2.0  Google-Extended/1.0  meta-externalagent/1.0
+Applebot-Extended/1.0  Bytespider  Amazonbot/0.1  Mozilla/5.0
+x  docs/ | docs/wallet-payout | docs/authentication | hodle/ | llms.txt | app/
 ```
 
-Não é só declaração no `robots.txt` — é **403 ativo**. As duas coisas precisam cair.
+Antes: `403` para GPTBot, ClaudeBot, PerplexityBot e CCBot em todo o `docs.`.
 
-No zone `hodle.com.br` do `dash.cloudflare.com`:
-
-1. **AI Crawl Control** (pode aparecer como "AI Audit") → **Managed robots.txt** → **OFF**.
-   É o que injeta o bloco `# BEGIN Cloudflare Managed content` com `Disallow: /` para
-   ClaudeBot, GPTBot, CCBot, Google-Extended, Applebot-Extended, Bytespider,
-   meta-externalagent e Amazonbot, além de `Content-Signal: ai-train=no`.
-2. **AI Crawl Control** → aba Bots/Crawlers → **Allow** para GPTBot, ChatGPT-User,
-   ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, Applebot-Extended, CCBot,
-   meta-externalagent. Se houver um toggle mestre "Block all AI bots", desligue esse.
-3. **Security → Settings → Bots** → **Bot Fight Mode** / **Super Bot Fight Mode**. É quase
-   certamente a origem dos 403. Desligue o block para bots verificados, ou crie uma **WAF
-   custom rule** de skip por User-Agent em `docs.hodle.com.br` e `hodle.com.br`.
-4. **Security → WAF → Custom rules / Managed rules** → procure regra referenciando
-   `cf.bot_management.score` ou User-Agent de IA e ajuste do mesmo jeito.
-
-**Custo de não fazer:** os 13 documentos de API — o ativo mais citável que a Hodle tem para
-a query "api" — permanecem invisíveis para todo motor de resposta. Nenhuma outra ação deste
-programa compensa isso.
-
-Depois de mexer, me avise: rodo as curls de verificação na hora (propagação costuma ser
-menos de um minuto).
+**Pendencia nova que isso criou:** `docs.hodle.com.br/robots.txt` agora devolve **HTTP 404**
+(a pagina 404 do Next). O robots.txt do Cloudflare era o unico que existia; o app de docs nao
+tem rota propria. Sem robots.txt o crawler trata como "allow all", entao nao piorou o acesso
+— mas o certo e publicar um de verdade, com o sitemap. Ver 2.1.
 
 ### 1.2 Deploy em produção
 
