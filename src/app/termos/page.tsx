@@ -158,7 +158,41 @@ const sections = [
     ),
   },
   {
-    title: '6. Riscos e Isenções de Responsabilidade',
+    title: '6. Natureza do Serviço',
+    content: (
+      <>
+        <p className="text-gray-600">
+          A Hodle opera como plataforma, API e camada de infraestrutura fintech,
+          oferecendo um painel e integrações que viabilizam a compra e venda de
+          ativos digitais, wallets auto-custodiais, pagamentos com stablecoins e
+          a abertura de contas PJ por meio de parceiros.
+        </p>
+        <p className="text-gray-600 mt-4">
+          A Hodle <strong>não é um banco</strong>, não é instituição financeira,
+          não emite moeda eletrônica, não emite stablecoins, não custodia fundos
+          ou ativos de clientes e não presta, por conta própria, serviços
+          licenciados de transmissão de valores, câmbio ou intermediação
+          financeira.
+        </p>
+        <p className="text-gray-600 mt-4">
+          O fluxo de fundos regulados, a liquidação em reais e os serviços
+          financeiros licenciados são conduzidos por instituições parceiras
+          autorizadas e/ou reguladas pelo Banco Central do Brasil. Nas contas
+          PJ, a titularidade da conta e a relação bancária são estabelecidas
+          diretamente entre o Cliente e a instituição parceira, que responde
+          pelos serviços financeiros prestados.
+        </p>
+        <p className="text-gray-600 mt-4">
+          Nas wallets auto-custodiais, as chaves privadas permanecem sob
+          controle exclusivo do Usuário. A Hodle não detém, não acessa e não
+          recupera essas chaves, e portanto não tem a capacidade técnica de
+          movimentar, bloquear ou restituir os ativos nelas mantidos.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: '7. Riscos e Isenções de Responsabilidade',
     content: (
       <>
         <p className="text-gray-600 mb-4">
@@ -197,7 +231,7 @@ const sections = [
     ),
   },
   {
-    title: '7. Taxas e Valores',
+    title: '8. Taxas e Valores',
     content: (
       <p className="text-gray-600">
         As taxas aplicáveis aos serviços são informadas na plataforma e podem
@@ -208,7 +242,7 @@ const sections = [
     ),
   },
   {
-    title: '8. Compliance e Regulação',
+    title: '9. Compliance e Regulação',
     content: (
       <>
         <p className="text-gray-600 mb-4">
@@ -238,7 +272,7 @@ const sections = [
     ),
   },
   {
-    title: '9. Propriedade Intelectual',
+    title: '10. Propriedade Intelectual',
     content: (
       <p className="text-gray-600">
         Todo o conteúdo, design, logotipos, marcas e software da plataforma
@@ -249,7 +283,7 @@ const sections = [
     ),
   },
   {
-    title: '10. Limitação de Responsabilidade',
+    title: '11. Limitação de Responsabilidade',
     content: (
       <p className="text-gray-600">
         Em nenhuma circunstância a Hodle será responsável por danos
@@ -264,7 +298,7 @@ const sections = [
     ),
   },
   {
-    title: '11. Suspensão e Cancelamento',
+    title: '12. Suspensão e Cancelamento',
     content: (
       <>
         <p className="text-gray-600 mb-4">
@@ -291,7 +325,7 @@ const sections = [
     ),
   },
   {
-    title: '12. Disposições Gerais',
+    title: '13. Disposições Gerais',
     content: (
       <ul className="list-disc pl-6 space-y-2 text-gray-600">
         <li>
@@ -319,7 +353,7 @@ const sections = [
     ),
   },
   {
-    title: '13. Contato',
+    title: '14. Contato',
     content: (
       <div className="space-y-2 text-gray-600">
         <p>
