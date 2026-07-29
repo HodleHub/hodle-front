@@ -6,10 +6,14 @@ export const metadata: Metadata = {
   title: 'Termos de Serviço',
   description:
     'Termos e condições de uso da plataforma Hodle. Leia atentamente antes de utilizar nossos serviços de infraestrutura cripto.',
+  alternates: {
+    canonical: 'https://hodle.com.br/termos',
+  },
   openGraph: {
     title: 'Termos de Serviço | Hodle',
     description:
       'Termos e condições de uso da plataforma de infraestrutura cripto da Hodle.',
+    images: ['/og-image-v2.png'],
   },
 }
 

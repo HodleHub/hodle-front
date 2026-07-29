@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description:
       'Saiba como a Hodle trata seus dados pessoais em conformidade com a LGPD.',
     url: 'https://hodle.com.br/privacidade',
+    images: ['/og-image-v2.png'],
   },
 }
 
