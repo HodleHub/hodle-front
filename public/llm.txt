@@ -1,66 +1,30 @@
 # Hodle
 
-> Crypto infrastructure for companies in Brazil and Latin America. Stablecoin banking, Bitcoin payments, API for SaaS and AI agents, self-custodial wallets, and business accounts with PIX.
+> Last updated: 2026-07-28.
+
+> Crypto payment infrastructure for companies operating with Brazil: pay Pix from a USDT or USDC balance, issue Lightning invoices that settle in Pix, run self-custodial multi-network wallets, and convert between BRL, USD, and stablecoins.
 
 ## Quick Facts
 
-- **Type**: Fintech / Crypto Infrastructure Platform / Banking as a Service
-- **Headquarters**: Brazil
-- **Founded**: 2024
-- **Website**: https://hodle.com.br/
-- **App**: https://app.hodle.com.br/
-- **API Docs**: https://docs.hodle.com.br/
-
-## What You Can Do
-
-- Buy and sell Bitcoin using PIX (Brazilian instant payment) — 24/7, instant settlement
-- Accept stablecoin payments (USDT/USDC) across multiple blockchains
-- Send and receive Bitcoin via Lightning Network (instant, low-fee)
-- Manage self-custodial crypto wallets programmatically
-- Open business accounts (PJ) with regulated banking partners
-- Convert between BRL and USD/stablecoins for cross-border operations
-- Integrate crypto payments into your SaaS or AI agent via REST API
-- Embed stablecoin banking under your brand (Banking as a Service)
-- Accept crypto checkout payments for marketplaces
-- Manage stablecoin treasury with programmable money
+- Legal name: Hodle LLC (Wyoming, United States) — filing ID 2026-001968203, incorporated 2026-05-04
+- Brazilian operating entity: HODLE TECNOLOGIA LTDA, CNPJ 63.673.264/0001-26
+- Principal office: 30 N Gould St, Ste R, Sheridan, WY 82801, United States
+- Type: software and API company. Not a bank, not a financial institution, does not custody customer assets.
+- Primary market: Brazil. Website language: Brazilian Portuguese. Docs: English.
 
 ## For Developers
 
-Hodle provides a REST API for:
-- Asset conversion (BRL ↔ USDT, BTC ↔ USDT, etc.)
-- Payment QR code generation (PIX and stablecoin)
-- Wallet creation and management
-- Transaction history and status tracking
-- Webhook event notifications
-- KYC/compliance integration
+- `POST /api/wallet/payout` — pay Pix funded by USDT (Polygon, Tron) or USDC (Base). Gas sponsored.
+- `POST /api/lightning/invoice` — BOLT11 invoice that triggers a Pix payout once paid.
+- Wallet, KYC, statement, and webhook guides: https://docs.hodle.com.br
+- Webhooks are HMAC-signed.
 
-Full API reference: https://docs.hodle.com.br/
+## Links
 
-## For AI Agents
-
-Hodle is the financial stack for AI agents. Programmatic access to:
-- Send and receive payments autonomously
-- Convert assets between BRL, USD, and stablecoins
-- Manage wallets and track balances
-- Execute cross-border payments
-
-## Target Audience
-
-- Fintechs and neobanks needing crypto rails
-- SaaS platforms embedding crypto payments
-- AI agents requiring programmatic financial operations
-- PSPs and payment processors
-- Exchanges needing BRL on/off-ramp
-- Marketplaces paying vendors globally
-- Remittance companies
-- Corporations doing cross-border payments
-- Companies needing stablecoin treasury
-
-## Social
-
+- Website: https://hodle.com.br
+- Extended AI file: https://hodle.com.br/llms-full.txt
+- AI usage policy: https://hodle.com.br/ai
+- API documentation: https://docs.hodle.com.br
+- Application: https://app.hodle.com.br
+- X: https://x.com/hodle_app
 - GitHub: https://github.com/HodleHub
-- Sales inquiries: WhatsApp +55 11 9600-00445
-
-## Language
-
-Brazilian Portuguese (pt-BR). API docs in English.
