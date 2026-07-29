@@ -29,6 +29,8 @@ export const apiPixStablecoin: TopicPage = {
     { src: '/ln.svg', label: 'Lightning' },
     { src: '/polygon.svg', label: 'Polygon' },
   ],
+  ctaSubhead:
+    'Comece pela documentação ou fale com o time da Hodle.',
   ctaPrimary: {
     label: 'Ver a documentação',
     href: 'https://docs.hodle.com.br',
@@ -118,6 +120,8 @@ export const apiPixStablecoin: TopicPage = {
       code: null,
     },
   ],
+  faqSubhead:
+    'Tire suas dúvidas sobre a API de Pix com stablecoin.',
   faq: [
     {
       question: 'Como integrar uma API de Pix com stablecoin?',

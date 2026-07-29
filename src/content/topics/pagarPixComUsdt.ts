@@ -28,6 +28,8 @@ export const pagarPixComUsdt: TopicPage = {
     { src: '/polygon.svg', label: 'Polygon' },
     { src: '/base.png', label: 'Base' },
   ],
+  ctaSubhead:
+    'Receba em Pix, guarde em dólar, pague em stablecoin.',
   ctaPrimary: {
     label: 'Falar com vendas',
     href: 'https://api.whatsapp.com/send?phone=5511960000445',
@@ -109,6 +111,8 @@ export const pagarPixComUsdt: TopicPage = {
       code: null,
     },
   ],
+  faqSubhead:
+    'Tire suas dúvidas sobre pagar Pix com saldo em stablecoin.',
   faq: [
     {
       question: 'Como pagar um Pix com USDT?',

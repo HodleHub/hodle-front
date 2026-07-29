@@ -28,6 +28,8 @@ export const walletAutoCustodial: TopicPage = {
     { src: '/polygon.svg', label: 'Polygon' },
     { src: '/base.png', label: 'Base' },
   ],
+  ctaSubhead:
+    'Ofereça carteiras no seu produto sem assumir custódia.',
   ctaPrimary: {
     label: 'Falar com vendas',
     href: 'https://api.whatsapp.com/send?phone=5511960000445',
@@ -115,6 +117,8 @@ export const walletAutoCustodial: TopicPage = {
       code: null,
     },
   ],
+  faqSubhead:
+    'Tire suas dúvidas sobre carteiras auto-custodiais para empresas.',
   faq: [
     {
       question: 'O que é uma carteira auto-custodial?',

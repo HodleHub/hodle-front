@@ -32,6 +32,8 @@ export const realOnchain: TopicPage = {
     { src: '/usdt.svg', label: 'USDT' },
     { src: '/usdc.svg', label: 'USDC' },
   ],
+  ctaSubhead:
+    'Receba em Pix, guarde em real onchain na Hodle.',
   ctaPrimary: {
     label: 'Falar com vendas',
     href: 'https://api.whatsapp.com/send?phone=5511960000445',
@@ -188,6 +190,8 @@ export const realOnchain: TopicPage = {
       },
     },
   ],
+  faqSubhead:
+    'Tire suas dúvidas sobre real tokenizado e real onchain.',
   faq: [
     {
       question: 'O que é real tokenizado?',

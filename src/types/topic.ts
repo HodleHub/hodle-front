@@ -34,9 +34,11 @@ export type TopicPage = {
   kicker: string
   subhead: string
   heroIcons: TopicIcon[]
+  ctaSubhead: string
   ctaPrimary: TopicCta
   ctaSecondary: TopicCta
   sections: TopicSection[]
+  faqSubhead: string
   faq: TopicFaq[]
   related: TopicCta[]
   ogImage: string
