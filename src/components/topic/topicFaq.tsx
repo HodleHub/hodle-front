@@ -1,6 +1,12 @@
 import { TopicPage } from '../../types/topic'
 
-export default function TopicFaq({ faq }: { faq: TopicPage['faq'] }) {
+export default function TopicFaq({
+  faq,
+  subhead,
+}: {
+  faq: TopicPage['faq']
+  subhead: TopicPage['faqSubhead']
+}) {
   return (
     <section className="border-t border-gray-200">
       <div className="max-w-[700px] mx-auto px-6 py-16 lg:py-20">
@@ -9,7 +15,7 @@ export default function TopicFaq({ faq }: { faq: TopicPage['faq'] }) {
             Perguntas frequentes
           </h2>
           <p className="text-sm text-gray-500">
-            Tire suas dúvidas sobre real tokenizado e real onchain.
+            {subhead}
           </p>
         </div>
 
