@@ -40,6 +40,7 @@ export function Footer() {
                 { label: 'Wallets', href: '#wallets' },
                 { label: 'Conta PJ', href: '#conta-pj' },
                 { label: 'Pagamentos QR', href: '#pagamentos' },
+                { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
               ],
             },
             {
@@ -93,6 +94,19 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-200 pt-8">
+          <p className="mb-6 max-w-[900px] text-[11px] leading-[1.7] text-gray-500">
+            A Hodle opera como plataforma, API e camada de infraestrutura
+            fintech, oferecendo um painel e integrações que viabilizam a compra
+            e venda de ativos digitais, wallets auto-custodiais, pagamentos com
+            stablecoins e a abertura de contas PJ por meio de parceiros. A Hodle
+            não é um banco, não é instituição financeira, não emite moeda
+            eletrônica e não custodia fundos ou ativos de clientes — nas wallets
+            auto-custodiais, as chaves privadas permanecem sob controle
+            exclusivo do usuário. O fluxo de fundos regulados, a liquidação em
+            reais e os serviços financeiros licenciados são conduzidos por
+            instituições parceiras autorizadas e/ou reguladas pelo Banco Central
+            do Brasil.
+          </p>
           <p className="text-xs text-gray-500">
             &copy; {new Date().getFullYear()} Hodle. Todos os direitos
             reservados.
