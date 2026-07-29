@@ -130,14 +130,42 @@ escopo deste programa.
 | 4 | Superfície em inglês? | **Leva separada, depois** | Nenhum card desta leva gera `/en` ou `hreflang` |
 | 5 | Comparativos com concorrentes? | **Não quer** | Nenhuma seção `COMPARISON` contra concorrente nomeado; nenhuma página "vs" |
 | 6 | DEPIX na landing? | **Não mencionar mais** | Sai a linha DEPIX do `llms.txt`; `public/depix.png` fica no repo mas sem referência |
+| 7 | Redação do disclaimer legal | **Texto aprovado pelo dono** (ver abaixo) | Descarta a menção nominal ao Banco Central ao descrever os parceiros; descarta "não presta serviços de transmissão de valores" em favor de "não provê... transmissão de dinheiro"; acrescenta "não emite cartões diretamente" |
 
-A decisão 2 é coerente com o disclaimer legal que já estava em progresso neste repo
-(`src/app/termos/page.tsx` §6 e o rodapé): *"A Hodle não é um banco, não é instituição
-financeira, não emite moeda eletrônica, não emite stablecoins, não custodia fundos ou
-ativos de clientes... O fluxo de fundos regulados, a liquidação em reais e os serviços
-financeiros licenciados são conduzidos por instituições parceiras autorizadas e/ou
-reguladas pelo Banco Central do Brasil."* O JSON-LD dizia o oposto do termo de serviço.
-Esse disclaimer é a **fonte da verdade** para qualquer redação futura sobre regulação.
+### Redação canônica (decisão 7)
+
+O dono forneceu o texto aprovado. Aplicado em `src/app/termos/page.tsx` §6 e no rodapé, e
+propagado para `/ai`, `llms.txt` e o FAQ:
+
+> A Hodle opera como plataforma, API e camada de infraestrutura fintech, oferecendo um painel
+> e integrações que viabilizam a compra e venda de ativos digitais, pagamentos com
+> stablecoins, wallets auto-custodiais, fluxos de emissão de cartão e a abertura de contas
+> por meio de integrações de terceiros.
+>
+> A Hodle não é um banco, não é instituição financeira, não emite moeda eletrônica, não emite
+> stablecoins, não emite cartões diretamente, não custodia fundos ou ativos de clientes e não
+> provê, por conta própria, serviços licenciados de transmissão de dinheiro, câmbio ou
+> intermediação financeira.
+>
+> O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros
+> licenciados e/ou regulados.
+
+Três desvios em relação ao texto que estava no repo, todos deliberados:
+
+1. **"parceiros licenciados e/ou regulados"** substitui *"instituições parceiras autorizadas
+   e/ou reguladas pelo Banco Central do Brasil"*. Mais conservador: não nomeia autoridade.
+2. **"não emite cartões diretamente"** é novo, e cobre o produto de cartão (a aba Cartões
+   entrou no monorepo em `c9756185`, roteando KYC individual para a Gnosis Pay).
+3. **"transmissão de dinheiro"** substitui *"transmissão de valores"*.
+
+Dois parágrafos específicos da Hodle foram **mantidos** além do texto aprovado, porque são
+proteções substantivas que o template não cobre e removê-los enfraqueceria os termos: a
+titularidade da conta estabelecida diretamente entre Cliente e instituição parceira, e a
+declaração de que a Hodle não detém, não acessa e não recupera as chaves privadas — e
+portanto não tem capacidade técnica de movimentar, bloquear ou restituir os ativos.
+
+Esta redação é a **fonte da verdade** para qualquer afirmação sobre regulação no repositório.
+O JSON-LD anterior dizia o oposto dela, e é isso que a decisão 2 corrige.
 
 ---
 
@@ -335,6 +363,9 @@ Cards antigos do board `hodle-front` (`t_2b3d5291`, `t_fc62c644`) estavam `block
 trabalho **já mergeado** (PRs #28 e #29) — encerrados, não reenfileirados.
 
 ## 8. Ações que só o humano faz
+
+Detalhamento completo, com o custo de cada item não feito e os limites de método:
+[`pendencias-externas.md`](pendencias-externas.md). Resumo:
 
 1. `vercel --prod --yes` a partir de `main` — publica direto em `hodle.com.br`.
 2. Setar `NEXT_PUBLIC_GOOGLE_VERIFICATION` na Vercel; verificar no Google Search Console e

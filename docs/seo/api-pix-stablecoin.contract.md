@@ -227,7 +227,7 @@ Q: Quais redes a API suporta?
 A: USDT em Polygon e Tron, USDC em Base, ambas também em Arbitrum e Spark. Bitcoin on-chain e por Lightning Network. Reais por Pix.
 
 Q: Preciso de licença para usar a API?
-A: A Hodle é uma empresa de software e API: não é banco, não é instituição financeira e não custodia ativos de clientes. O fluxo de fundos regulados e a liquidação em reais são conduzidos por instituições parceiras autorizadas e/ou reguladas pelo Banco Central do Brasil. Os requisitos aplicáveis ao seu caso dependem do seu modelo de negócio — trate isso com o seu jurídico e fale com o nosso time comercial.
+A: A Hodle é uma empresa de software e API: não é banco, não é instituição financeira e não custodia fundos ou ativos de clientes. O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados. Os requisitos aplicáveis ao seu caso dependem do seu modelo de negócio — trate isso com o seu jurídico e fale com o nosso time comercial.
 ```
 
 A resposta da quinta pergunta usa a redação do §6 dos termos. **Não a reescreva.**
