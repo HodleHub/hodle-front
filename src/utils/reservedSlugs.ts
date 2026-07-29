@@ -7,6 +7,7 @@ export const reservedSlugs: string[] = [
   'cookies',
   'create',
   'faq',
+  'glossario',
   'lnurlp',
   'pitch',
   'privacidade',

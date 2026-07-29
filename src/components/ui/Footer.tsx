@@ -59,6 +59,7 @@ export function Footer() {
             {
               title: 'Recursos',
               links: [
+                { label: 'Glossário', href: '/glossario' },
                 { label: 'Blog', href: '/articles' },
                 { label: 'Preços', href: '/articles/precos' },
                 { label: 'FAQ', href: '/faq' },

@@ -67,6 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${siteUrl}/glossario`,
+      lastModified: new Date('2026-07-29'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     ...articleEntries,
     ...topicEntries,
   ]
