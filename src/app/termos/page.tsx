@@ -30,9 +30,10 @@ const sections = [
           destes Termos, não utilize o Serviço.
         </p>
         <p className="mt-4">
-          A Hodle Tecnologia Ltda., inscrita sob CNPJ a ser informado,
-          com sede no Brasil, é a provedora do Serviço. Estes Termos aplicam-se
-          a todas as pessoas físicas e jurídicas que utilizam a plataforma.
+          A HODLE TECNOLOGIA LTDA., inscrita no CNPJ sob o nº
+          63.673.264/0001-26, com sede no Brasil, é a provedora do Serviço no
+          Brasil. Estes Termos aplicam-se a todas as pessoas físicas e jurídicas
+          que utilizam a plataforma.
         </p>
       </>
     ),
