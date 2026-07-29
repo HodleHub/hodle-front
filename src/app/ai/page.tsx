@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       'Permissões de rastreamento e citação por sistemas de IA, dados de identificação da Hodle e o que a empresa é e não é, para uso como referência por LLMs.',
     url: `${siteUrl}/ai`,
+    images: ['/og-image-v2.png'],
   },
 }
 

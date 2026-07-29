@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       'Esclareça suas principais dúvidas sobre nossa plataforma de infraestrutura cripto para empresas.',
     url: 'https://hodle.com.br/faq',
+    images: ['/og-image-v2.png'],
   },
 }
 
