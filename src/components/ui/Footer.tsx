@@ -41,6 +41,7 @@ export function Footer() {
                 { label: 'Conta PJ', href: '#conta-pj' },
                 { label: 'Pagamentos QR', href: '#pagamentos' },
                 { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
+                { label: 'Real onchain', href: '/real-onchain' },
               ],
             },
             {
@@ -59,7 +60,6 @@ export function Footer() {
               title: 'Recursos',
               links: [
                 { label: 'Blog', href: '/articles' },
-                { label: 'Real onchain', href: '/real-onchain' },
                 { label: 'Preços', href: '/articles/precos' },
                 { label: 'FAQ', href: '/faq' },
                 { label: 'Suporte', href: 'https://api.whatsapp.com/send?phone=5511960000445' },
