@@ -69,6 +69,7 @@ export function Footer() {
                 { label: 'Termos de Serviço', href: '/termos' },
                 { label: 'Privacidade', href: '/privacidade' },
                 { label: 'Cookies', href: '/cookies' },
+                { label: 'Uso por IA', href: '/ai' },
               ],
             },
           ].map((col) => (

@@ -1,4 +1,5 @@
 export const reservedSlugs: string[] = [
+  'ai',
   'api',
   'articles',
   'animation',
@@ -7,6 +8,7 @@ export const reservedSlugs: string[] = [
   'create',
   'faq',
   'lnurlp',
+  'pitch',
   'privacidade',
   'termos',
   'test-lightning',

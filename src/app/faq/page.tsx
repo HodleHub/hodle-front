@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
+import { Fragment } from 'react'
 import Link from 'next/link'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -15,10 +17,17 @@ export const metadata: Metadata = {
     description:
       'Esclareça suas principais dúvidas sobre nossa plataforma de infraestrutura cripto para empresas.',
     url: 'https://hodle.com.br/faq',
+    images: ['/og-image-v2.png'],
   },
 }
 
-const faqItems = [
+type FaqItem = {
+  question: string
+  answer: string
+  link?: { text: string; href: string }
+}
+
+const faqItems: FaqItem[] = [
   {
     question: 'O que é a Hodle?',
     answer:
@@ -42,12 +51,13 @@ const faqItems = [
   {
     question: 'A Hodle é regulada?',
     answer:
-      'A Hodle opera em conformidade com a legislação brasileira, incluindo o Marco Legal das Criptomoedas (Lei nº 14.478/2022) e as diretrizes do Banco Central. Trabalhamos com parceiros regulados para serviços bancários.',
+      'A Hodle é uma empresa de software e API: não é banco, não é instituição financeira, não emite cartões diretamente e não custodia fundos ou ativos de clientes. O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados. O uso de ativos digitais no Brasil é regido pelo Marco Legal das Criptomoedas (Lei nº 14.478/2022). Os requisitos aplicáveis ao seu caso dependem do seu modelo de negócio.',
   },
   {
     question: 'Quais são as taxas cobradas?',
     answer:
-      'As taxas variam conforme o serviço utilizado. Consulte nossa página de preços (/articles/precos) para informações detalhadas sobre taxas de compra, venda, saque e transferência.',
+      'As taxas variam conforme o serviço utilizado. Consulte nossa página de preços para informações detalhadas sobre taxas de compra, venda, saque e transferência.',
+    link: { text: 'página de preços', href: '/articles/precos' },
   },
 ]
 
@@ -62,6 +72,28 @@ const faqJsonLd = {
       text: item.answer,
     },
   })),
+}
+
+const renderFaqAnswer = (item: FaqItem): ReactNode => {
+  const { link, answer } = item
+
+  if (!link) {
+    return answer
+  }
+
+  return answer.split(link.text).map((part, index, parts) => (
+    <Fragment key={index}>
+      {part}
+      {index < parts.length - 1 && (
+        <Link
+          href={link.href}
+          className="text-foreground underline underline-offset-2 hover:text-gray-600"
+        >
+          {link.text}
+        </Link>
+      )}
+    </Fragment>
+  ))
 }
 
 const breadcrumbJsonLd = {
@@ -129,7 +161,7 @@ export default function FAQPage() {
               </summary>
               <div className="px-5 pb-4">
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  {item.answer}
+                  {renderFaqAnswer(item)}
                 </p>
               </div>
             </details>

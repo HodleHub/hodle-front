@@ -29,9 +29,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
-  openGraph: {
-    url: siteUrl,
-  },
 }
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
