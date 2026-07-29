@@ -46,7 +46,7 @@ src/app/[slug]/page.tsx
 
 ```
 src/app/sitemap.ts             espalhar as entradas de getAllTopics() (sem hardcode por página)
-src/components/ui/Footer.tsx   coluna "Recursos": adicionar { label: 'Real onchain', href: '/real-onchain' }
+src/components/ui/Footer.tsx   coluna "Produtos": adicionar { label: 'Real onchain', href: '/real-onchain' }
 ```
 
 **Ícone do BRLA** — não existe ainda no repo e **não deve ser gerado**. Copie o que o
