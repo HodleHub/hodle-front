@@ -37,15 +37,17 @@ export function Footer() {
               title: 'Produtos',
               links: [
                 { label: 'Compra e Venda', href: '#compra-venda' },
-                { label: 'Wallets', href: '#wallets' },
+                { label: 'Wallets', href: '/wallet-auto-custodial' },
                 { label: 'Conta PJ', href: '#conta-pj' },
                 { label: 'Pagamentos QR', href: '#pagamentos' },
+                { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
                 { label: 'Real onchain', href: '/real-onchain' },
               ],
             },
             {
               title: 'Desenvolvedores',
               links: [
+                { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
                 { label: 'Documentação', href: 'https://docs.hodle.com.br' },
                 { label: 'API Reference', href: 'https://docs.hodle.com.br' },
                 {

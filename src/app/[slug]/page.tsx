@@ -87,7 +87,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       <TopicJsonLd topic={topic} />
       <TopicHero topic={topic} />
       <TopicSections topic={topic} />
-      <TopicFaq faq={topic.faq} />
+      <TopicFaq faq={topic.faq} subhead={topic.faqSubhead} />
       <TopicRelated related={topic.related} />
       <TopicCta topic={topic} />
     </div>

@@ -11,7 +11,7 @@ export default function TopicCta({ topic }: { topic: TopicPage }) {
           Pronto para começar?
         </h2>
         <p className="text-sm text-gray-500 mb-6">
-          Receba em Pix, guarde em real onchain na Hodle.
+          {topic.ctaSubhead}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
           <Link
