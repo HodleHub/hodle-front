@@ -27,6 +27,15 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/articles/precos',
+        destination: '/precos',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

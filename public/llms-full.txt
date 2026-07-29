@@ -97,7 +97,7 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 | Pix stablecoin API | https://hodle.com.br/api-pix-stablecoin | API overview for developers |
 | Self-custodial wallets | https://hodle.com.br/wallet-auto-custodial | Wallets where the end user holds the keys |
 | Real onchain | https://hodle.com.br/real-onchain | BRL onchain explainer |
-| Pricing | https://hodle.com.br/articles/precos | Published service fees |
+| Pricing | https://hodle.com.br/precos | Published service fees |
 | FAQ | https://hodle.com.br/faq | Common questions |
 | AI usage policy | https://hodle.com.br/ai | Crawling and citation terms |
 | Terms of service | https://hodle.com.br/termos | Legal terms, including the nature of the service |

@@ -150,7 +150,7 @@ export const walletAutoCustodial: TopicPage = {
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
     { label: 'Perguntas frequentes', href: '/faq' },
-    { label: 'Preços e taxas', href: '/articles/precos' },
+    { label: 'Preços e taxas', href: '/precos' },
   ],
   ogImage: '/og-image-v2.png',
 }

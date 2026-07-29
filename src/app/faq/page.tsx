@@ -57,7 +57,7 @@ const faqItems: FaqItem[] = [
     question: 'Quais são as taxas cobradas?',
     answer:
       'As taxas variam conforme o serviço utilizado. Consulte nossa página de preços para informações detalhadas sobre taxas de compra, venda, saque e transferência.',
-    link: { text: 'página de preços', href: '/articles/precos' },
+    link: { text: 'página de preços', href: '/precos' },
   },
 ]
 
@@ -193,7 +193,7 @@ export default function FAQPage() {
               Ver artigos
             </Link>
             <Link
-              href="/articles/precos"
+              href="/precos"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-gray-300 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
             >
               Ver preços

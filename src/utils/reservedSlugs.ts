@@ -10,6 +10,7 @@ export const reservedSlugs: string[] = [
   'glossario',
   'lnurlp',
   'pitch',
+  'precos',
   'privacidade',
   'termos',
   'test-lightning',
