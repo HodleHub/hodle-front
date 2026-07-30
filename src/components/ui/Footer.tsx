@@ -36,11 +36,13 @@ export function Footer() {
             {
               title: 'Produtos',
               links: [
-                { label: 'Compra e Venda', href: '#compra-venda' },
+                { label: 'Compra e Venda', href: '/comprar-bitcoin-com-pix' },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
                 { label: 'Conta PJ', href: '#conta-pj' },
                 { label: 'Pagamentos QR', href: '#pagamentos' },
                 { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
+                { label: 'Lightning para Pix', href: '/lightning-para-pix' },
+                { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
                 { label: 'Real onchain', href: '/real-onchain' },
               ],
             },

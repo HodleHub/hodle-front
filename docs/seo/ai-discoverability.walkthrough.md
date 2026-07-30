@@ -470,8 +470,45 @@ documentadas, e cada página seria verdade:
 | Leva | Páginas | Estado |
 |---|---|---|
 | **A** | `/precos` (migração + 301), `/glossario`, `/para-agentes-de-ia` | contratos escritos, enfileirado |
-| **B** | `/usdt-para-pix` · `/usdc-para-pix` · `/lightning-para-pix` · `/bitcoin-para-pix` · `/pix-para-usdt` · `/pix-para-usdc` · `/pix-para-lightning` | mapeado |
+| **B** | `/lightning-para-pix` · `/comprar-bitcoin-com-pix` · `/comprar-usdt-com-pix` | contratos escritos, enfileirado |
 | **C** | `/para-saas-e-marketplaces` · `/para-fintechs-e-psps` · `/para-importadores-e-exportadores` · `/changelog` | mapeado |
 
 As quatro audiências da leva C já têm copy-base: são as seções `Key Use Cases` que o WS-A
 escreveu em `public/llms.txt`.
+
+### Correção da leva B: de 7 páginas para 3
+
+O esboço inicial listava 7 rotas de par, copiando o padrão `<stablecoin>-to-<fiat>` da BlindPay.
+A Phase 0 (canibalização) e a Phase 2 (frase real) derrubaram 4 delas:
+
+| Descartada | Motivo |
+|---|---|
+| `/usdt-para-pix` | **Canibaliza** `/pagar-pix-com-usdt`, que já está no ar com essa exata intenção e essa exata keyword primária |
+| `/usdc-para-pix` | Mesma intenção; a copy de `/pagar-pix-com-usdt` já cobre USDC como fonte de fundos |
+| `/bitcoin-para-pix` | **Não existe no produto.** `wallet-payout` é financiado por USDT/USDC; BTC on-chain para Pix não é endpoint publicado |
+| `/pix-para-usdc` | Autocanibalizaria `/comprar-usdt-com-pix`; USDC entra como secundária dentro dela, como a Bipa faz em `/usdt` |
+
+E duas mudaram de nome: `/pix-para-usdt` → **`/comprar-usdt-com-pix`**, porque a pesquisa
+mostrou que o mercado escreve "comprar USDT com Pix". O padrão de slug da BlindPay é inglês e
+não traduz para a busca em pt-BR.
+
+Sobraram 3, todas com endpoint documentado e ângulo vazio verificado:
+
+| Página | Endpoint | Ângulo vazio |
+|---|---|---|
+| `/lightning-para-pix` | `POST /api/lightning/invoice` | **Nenhuma página de produto é dona do termo.** O mais próximo é `mercadobitcoin.pt/pix` (remessa para o Brasil), que é fluxo de app e não usa Lightning |
+| `/comprar-bitcoin-com-pix` | `deposit-asset` (entrega Lightning) + preços publica on-chain e Liquid | Ninguém cobre **os três trilhos juntos** por API entregando no endereço indicado. `pixbitcoin.org` faz Liquid mas vende "sem KYC"; Bipa faz Lightning e é retail |
+| `/comprar-usdt-com-pix` | `deposit-asset` | A SERP é guia de compra para pessoa física mais dois checkouts. Ninguém cobre **on-ramp por API multi-rede com entrega no endereço do usuário final** |
+
+Duas restrições competitivas que entraram como proibição nos contratos:
+
+1. **Não competir em preço.** A SERP de USDT tem `bitcoinp2p.com.br` anunciando **0,45%** com
+   API REST; a nossa taxa publicada é 2%. As duas páginas de compra **não citam percentual** —
+   linkam `/precos`, que é a fonte única.
+2. **Não competir em privacidade.** `pixbitcoin.org` se posiciona em "sem KYC" e "anônimo". É o
+   **oposto** do nosso produto, que tem KYC integrado nos trilhos como feature. A página de
+   Bitcoin tem uma seção dedicada a isso, no positivo.
+
+Também descartado o `/webhooks-pagamento-cripto` que estava na cauda longa: a SERP é 100%
+conteúdo educacional de dev (Celcoin, Vindi, Efipay, blogs), baixa concorrência mas baixa
+intenção comercial. Fica registrado, não priorizado.
