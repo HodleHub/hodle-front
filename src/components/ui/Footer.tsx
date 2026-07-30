@@ -42,6 +42,7 @@ export function Footer() {
                 { label: 'Pagamentos QR', href: '#pagamentos' },
                 { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
                 { label: 'Lightning para Pix', href: '/lightning-para-pix' },
+                { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
                 { label: 'Real onchain', href: '/real-onchain' },
               ],
             },
