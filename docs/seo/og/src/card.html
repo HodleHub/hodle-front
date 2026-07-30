@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* Tokens de hodle-design-system.md */
+  :root {
+    --text: #0f0f15;
+    --text2: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f9fafb;
+    --blue: #2563eb;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: var(--bg);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    color: var(--text);
+    position: relative;
+  }
+
+  /* campo de pontos de fundo, bem discreto */
+  .dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 16px 16px;
+    opacity: .55;
+  }
+  /* vinheta suave para o centro */
+  .vig {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 55% 45%, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 62%);
+  }
+
+  .wrap { position: absolute; inset: 0; padding: 46px 56px; display: flex; flex-direction: column; }
+
+  .logo { height: 34px; width: 115px; flex: none; align-self: flex-start; }
+
+  .body { flex: 1; display: flex; align-items: center; gap: 48px; margin-top: 30px; }
+
+  .head { width: 524px; flex: none; }
+  .head h1 {
+    font-size: 49px; line-height: 1.08; font-weight: 700;
+    letter-spacing: -.032em;
+  }
+  .head .b { color: var(--blue); display: block; }
+
+  /* --- diagrama de fluxo, 3 celulas, no estilo halftone --- */
+  .flow { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 0; }
+  .cell {
+    width: 158px; height: 176px; flex: none;
+    border-left: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .cell:last-child { border-right: 1px solid var(--border); }
+
+  /* o glifo vira mascara sobre um campo de pontos = halftone real */
+  .ht {
+    width: 108px; height: 108px;
+    background-image: radial-gradient(var(--text) 1.35px, transparent 1.5px);
+    background-size: 6px 6px;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-position: center; mask-position: center;
+    -webkit-mask-size: contain; mask-size: contain;
+  }
+
+  .arrow { flex: none; width: 46px; height: 2px; background: var(--blue); position: relative; }
+  .arrow::after {
+    content: ''; position: absolute; right: -1px; top: -4px;
+    border-left: 9px solid var(--blue);
+    border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  }
+
+  /* --- linha de features --- */
+  .feats { display: flex; border-top: 1px solid var(--border); }
+  .feat {
+    flex: 1; padding: 20px 0 4px 22px;
+    border-left: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .feat:first-child { border-left: none; padding-left: 0; }
+  .feat .k { font-size: 17px; font-weight: 500; color: var(--text); }
+  .feat .v { font-size: 17px; font-weight: 500; color: var(--blue); }
+  .feat .ic { margin-top: 12px; width: 26px; height: 26px; color: var(--text); }
+  .feat .ic svg { width: 100%; height: 100%; display: block; }
+</style>
+</head>
+<body>
+  <div class="dots"></div>
+  <div class="vig"></div>
+  <div class="wrap">
+    <img class="logo" id="logo" src="assets/new_logo_hodle.png" alt="" />
+    <div class="body">
+      <div class="head"><h1 id="h1"></h1></div>
+      <div class="flow" id="flow"></div>
+    </div>
+    <div class="feats" id="feats"></div>
+  </div>
+
+<script src="cards.js"></script>
+<script>
+  // glifos de marca reais, usados como mascara do halftone
+  const ASSET = {
+    pix: 'assets/pix.svg', usdt: 'assets/usdt.svg', usdc: 'assets/usdc.svg',
+    btc: 'assets/btc.svg', ln: 'assets/ln.svg', liquid: 'assets/liquid.svg',
+    polygon: 'assets/polygon.svg', spark: 'assets/spark.svg', arbitrum: 'assets/arbitrum.svg',
+  }
+
+  // marcas geometricas inline para conceitos sem asset de marca
+  const GLYPH = {
+    convert: '<svg viewBox="0 0 100 100"><path d="M16 36h56l-16-16M84 64H28l16 16" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    network: '<svg viewBox="0 0 100 100"><circle cx="50" cy="20" r="9"/><circle cx="20" cy="72" r="9"/><circle cx="80" cy="72" r="9"/><path d="M50 20 20 72M50 20l30 52M20 72h60" fill="none" stroke="currentColor" stroke-width="11"/></svg>',
+    key: '<svg viewBox="0 0 100 100"><circle cx="34" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="13"/><path d="M52 50h32M72 50v16" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"/></svg>',
+    code: '<svg viewBox="0 0 100 100"><path d="M36 26 12 50l24 24M64 26l24 24-24 24" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    shield: '<svg viewBox="0 0 100 100"><path d="M50 12l30 11v26c0 21-14 32-30 39-16-7-30-18-30-39V23z" fill="currentColor"/><path d="M36 50l10 11 19-21" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    bolt: '<svg viewBox="0 0 100 100"><path d="M56 8 26 56h20l-6 36 32-50H50z" fill="currentColor"/></svg>',
+    drop: '<svg viewBox="0 0 100 100"><path d="M50 10c16 20 26 31 26 45a26 26 0 1 1-52 0c0-14 10-25 26-45z" fill="currentColor"/></svg>',
+    coins: '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="7"/><path d="M50 26v48M40 38h16a7 7 0 0 1 0 14H44a7 7 0 0 0 0 14h16" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>',
+  }
+
+
+  // variantes finas: os glifos grossos servem a mascara do halftone (108px),
+  // mas ficam pesados demais na linha de features (26px)
+  const GLYPH_SM = {
+    network: '<svg viewBox="0 0 100 100"><path d="M50 22 22 72M50 22l28 50M22 72h56" fill="none" stroke="currentColor" stroke-width="9"/><circle cx="50" cy="22" r="15" fill="currentColor"/><circle cx="22" cy="72" r="15" fill="currentColor"/><circle cx="78" cy="72" r="15" fill="currentColor"/></svg>',
+    key: '<svg viewBox="0 0 100 100"><circle cx="32" cy="50" r="17" fill="none" stroke="currentColor" stroke-width="7"/><path d="M50 50h34M72 50v15" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>',
+    code: '<svg viewBox="0 0 100 100"><path d="M36 28 14 50l22 22M64 28l22 22-22 22" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  }
+
+  const slug = new URLSearchParams(location.search).get('slug')
+  const c = CARDS[slug]
+  if (!c) { document.body.innerHTML = '<h1 style="padding:60px">slug desconhecido: ' + slug + '</h1>' }
+  else {
+    document.getElementById('h1').innerHTML =
+      c.l1 + '<span class="b">' + c.l2 + '</span>'
+
+    const flow = document.getElementById('flow')
+    c.flow.forEach((g, i) => {
+      if (i > 0) flow.insertAdjacentHTML('beforeend', '<div class="arrow"></div>')
+      const cell = document.createElement('div')
+      cell.className = 'cell'
+      const ht = document.createElement('div')
+      ht.className = 'ht'
+      if (ASSET[g]) {
+        ht.style.webkitMaskImage = 'url(' + ASSET[g] + ')'
+        ht.style.maskImage = 'url(' + ASSET[g] + ')'
+      } else {
+        const svg = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+          GLYPH[g].replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace(/currentColor/g, 'black'))
+        ht.style.webkitMaskImage = 'url("' + svg + '")'
+        ht.style.maskImage = 'url("' + svg + '")'
+      }
+      cell.appendChild(ht)
+      flow.appendChild(cell)
+    })
+
+    document.getElementById('feats').innerHTML = c.feats.map((f) =>
+      '<div class="feat"><div class="k">' + f.k + '</div><div class="v">' + f.v +
+      '</div><div class="ic">' + (GLYPH_SM[f.i] || GLYPH[f.i] || GLYPH.coins) + '</div></div>').join('')
+  }
+</script>
+</body>
+</html>
