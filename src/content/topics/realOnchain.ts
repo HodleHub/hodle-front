@@ -221,7 +221,7 @@ export const realOnchain: TopicPage = {
   ],
   related: [
     { label: 'Perguntas frequentes', href: '/faq' },
-    { label: 'Preços e taxas', href: '/articles/precos' },
+    { label: 'Preços e taxas', href: '/precos' },
     { label: 'Artigos', href: '/articles' },
   ],
   ogImage: '/og-image-v2.png',

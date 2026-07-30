@@ -143,7 +143,7 @@ export const pagarPixComUsdt: TopicPage = {
   related: [
     { label: 'API de Pix com stablecoin', href: '/api-pix-stablecoin' },
     { label: 'Carteiras auto-custodiais', href: '/wallet-auto-custodial' },
-    { label: 'Preços e taxas', href: '/articles/precos' },
+    { label: 'Preços e taxas', href: '/precos' },
     { label: 'Perguntas frequentes', href: '/faq' },
   ],
   ogImage: '/og-image-v2.png',

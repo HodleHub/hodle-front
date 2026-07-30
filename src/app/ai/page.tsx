@@ -198,7 +198,7 @@ export default function AiPage() {
                 hodle.com.br na data da consulta. Já circularam, em fontes de
                 terceiros, taxas antigas que não valem mais — a{' '}
                 <Link
-                  href="/articles/precos"
+                  href="/precos"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   página de preços

@@ -48,6 +48,7 @@ export function Footer() {
               title: 'Desenvolvedores',
               links: [
                 { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
+                { label: 'Para agentes de IA', href: '/para-agentes-de-ia' },
                 { label: 'Documentação', href: 'https://docs.hodle.com.br' },
                 { label: 'API Reference', href: 'https://docs.hodle.com.br' },
                 {
@@ -59,8 +60,8 @@ export function Footer() {
             {
               title: 'Recursos',
               links: [
-                { label: 'Blog', href: '/articles' },
-                { label: 'Preços', href: '/articles/precos' },
+                { label: 'Glossário', href: '/glossario' },
+                { label: 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },
                 { label: 'Suporte', href: 'https://api.whatsapp.com/send?phone=5511960000445' },
               ],

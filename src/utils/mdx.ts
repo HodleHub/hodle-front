@@ -50,6 +50,10 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 }
 
 export function getAllArticles(): ArticleMeta[] {
+  if (!fs.existsSync(articlesDirectory)) {
+    return []
+  }
+
   const fileNames = fs.readdirSync(articlesDirectory)
 
   const allArticles = fileNames
