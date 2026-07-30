@@ -36,7 +36,7 @@ export function Footer() {
             {
               title: 'Produtos',
               links: [
-                { label: 'Compra e Venda', href: '#compra-venda' },
+                { label: 'Compra e Venda', href: '/comprar-bitcoin-com-pix' },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
                 { label: 'Conta PJ', href: '#conta-pj' },
                 { label: 'Pagamentos QR', href: '#pagamentos' },
