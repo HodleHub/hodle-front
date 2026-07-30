@@ -41,6 +41,7 @@ export function Footer() {
                 { label: 'Conta PJ', href: '#conta-pj' },
                 { label: 'Pagamentos QR', href: '#pagamentos' },
                 { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
+                { label: 'Lightning para Pix', href: '/lightning-para-pix' },
                 { label: 'Real onchain', href: '/real-onchain' },
               ],
             },
