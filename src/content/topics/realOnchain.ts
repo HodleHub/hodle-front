@@ -181,7 +181,7 @@ export const realOnchain: TopicPage = {
         label: 'Transferir real onchain',
         language: 'cURL',
         snippet: `curl -X POST https://api.hodle.com.br/api/wallet/transfer \\
-  -H "Authorization: Bearer *** \\
+  -H "Authorization: Bearer $HODLE_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
     "asset": "BRLA",
