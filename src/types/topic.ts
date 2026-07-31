@@ -4,7 +4,21 @@ export type TopicFaq = { question: string; answer: string }
 
 export type TopicCta = { label: string; href: string }
 
-export type TopicSectionKind = 'PROSE' | 'STEPS' | 'ASSETS' | 'COMPARISON' | 'CODE'
+export type TopicImage = {
+  src: string
+  alt: string
+  caption: string
+  width: number
+  height: number
+}
+
+export type TopicSectionKind =
+  | 'PROSE'
+  | 'STEPS'
+  | 'ASSETS'
+  | 'COMPARISON'
+  | 'CODE'
+  | 'SCREENSHOT'
 
 export type TopicComparison = { headers: string[]; rows: string[][] }
 
@@ -19,6 +33,7 @@ export type TopicSection = {
   icons: TopicIcon[]
   comparison: TopicComparison | null
   code: TopicCode | null
+  image: TopicImage | null
 }
 
 export type TopicPage = {

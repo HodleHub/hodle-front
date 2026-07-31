@@ -53,6 +53,7 @@ export const walletAutoCustodial: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'o-que-muda',
@@ -67,6 +68,7 @@ export const walletAutoCustodial: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'como-integrar',
@@ -82,6 +84,7 @@ export const walletAutoCustodial: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'redes',
@@ -101,6 +104,7 @@ export const walletAutoCustodial: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'com-pix',
@@ -115,6 +119,7 @@ export const walletAutoCustodial: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faqSubhead:

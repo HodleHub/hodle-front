@@ -53,6 +53,7 @@ export const pagarPixComUsdt: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'como-funciona',
@@ -68,6 +69,7 @@ export const pagarPixComUsdt: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'ativos-e-redes',
@@ -84,6 +86,7 @@ export const pagarPixComUsdt: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'pela-api',
@@ -99,6 +102,7 @@ export const pagarPixComUsdt: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'quem-recebe',
@@ -109,6 +113,7 @@ export const pagarPixComUsdt: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faqSubhead:

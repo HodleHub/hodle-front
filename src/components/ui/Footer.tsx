@@ -44,6 +44,7 @@ export function Footer() {
                 { label: 'Lightning para Pix', href: '/lightning-para-pix' },
                 { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
                 { label: 'Real onchain', href: '/real-onchain' },
+                { label: 'Receber Pix em stablecoin', href: '/receber-pix-em-stablecoin' },
               ],
             },
             {

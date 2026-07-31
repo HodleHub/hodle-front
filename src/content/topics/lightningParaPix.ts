@@ -55,6 +55,7 @@ export const lightningParaPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'como-funciona',
@@ -70,6 +71,7 @@ export const lightningParaPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'quem-usa',
@@ -84,6 +86,7 @@ export const lightningParaPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'pela-api',
@@ -99,6 +102,7 @@ export const lightningParaPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'redes',
@@ -114,6 +118,7 @@ export const lightningParaPix: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faq: [

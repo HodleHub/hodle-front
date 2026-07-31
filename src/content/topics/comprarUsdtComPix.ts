@@ -56,6 +56,7 @@ export const comprarUsdtComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'como-funciona',
@@ -70,6 +71,7 @@ export const comprarUsdtComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'para-que-serve',
@@ -84,6 +86,7 @@ export const comprarUsdtComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'redes',
@@ -102,6 +105,7 @@ export const comprarUsdtComPix: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'pela-api',
@@ -117,6 +121,7 @@ export const comprarUsdtComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faq: [
