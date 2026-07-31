@@ -130,8 +130,56 @@ e estes dois documentos commitados).
 
 ## Phase 6 — review
 
-_A preencher pelo review no Claude Code._
+`REVIEW: PASS` — rodado no Claude Code em 2026-07-30, na branch, contra `PORT=3111 pnpm start`
+(build de produção, não dev server).
+
+| Item | Verdict | Evidência |
+|---|---|---|
+| 1. `pnpm build` verde, página estática | PASS | `.next/server/app/receber-pix-em-stablecoin.html` gerado |
+| 2. Print desktop 1440 e mobile 390, sem overflow | PASS | `scrollWidth > innerWidth` = `false` nos dois; prints em `evidence/` |
+| 3. `/sitemap.xml` com a URL e `lastmod` | PASS | `<loc>https://hodle.com.br/receber-pix-em-stablecoin</loc>` + `<lastmod>2026-07-30T00:00:00.000Z</lastmod>` |
+| 4. title, description, canonical, OG, um só `<h1>` | PASS | canonical self-referente absoluto; `<h1>` count = 1; 9 `<h2>` |
+| 5. JSON-LD `WebPage` + `FAQPage` + `BreadcrumbList` | PASS | 7 blocos `ld+json`, todos parseiam; FAQPage com as 5 perguntas do PAA |
+| 6. Zero erro de console, zero 404, rotas vizinhas abrem | PASS | 8 rotas em 200; único 404 é `/_vercel/insights/script.js` |
+| 7. Links internos nos dois sentidos | PASS | footer → página; página → `/precos`, `/pagar-pix-com-usdt`, `/comprar-usdt-com-pix`, `/api-pix-stablecoin` |
+| 8. Prints renderizados no corpo do PR | PASS | seção `## Evidência` do PR #45, raw URL fixada no SHA |
+| Extra: `tsc --noEmit` | PASS para esta PR | zero erro nos arquivos tocados |
+| Extra: `eslint` nos arquivos tocados | PASS | exit 0 |
+| Extra: copy = contrato, palavra por palavra | PASS | sem drift; zero "Woovi" e zero "pix automático" em `src/`+`public/` |
+
+### Falsos positivos investigados, e por que não são falha
+
+1. **404 de `/_vercel/insights/script.js`.** O `@vercel/analytics` já está no `layout.tsx` do
+   `main`; o script só existe quando servido pela Vercel. Afeta toda página, local, e não é
+   desta PR.
+2. **Header sobre o hero no print mobile de página inteira.** Artefato de `fullPage` com header
+   `position: sticky`. Medido no DOM: header `0→65px`, `<h1>` em `204px`, `overlap: false`. O
+   print de viewport (`mobile-hero.jpeg`) mostra o hero correto.
+3. **`tsc --noEmit` com 4 erros.** Todos em `.next/types/app/articles/[slug]/page.ts`, gerados
+   de `src/app/articles/[slug]/page.tsx`, que declara `params: { slug: string }` em vez de
+   `Promise<{ slug: string }>` — migração Next 15 pendente num route que esta PR não toca.
+4. **`pnpm lint` falhando.** Conflito de config do eslint por rodar dentro de `.worktrees/`
+   (o `.eslintrc.js` do repo pai colide). Com `--resolve-plugins-relative-to .` nos arquivos
+   da PR: exit 0.
 
 ## Phase 7 — ciclo SEO
 
-_A preencher._
+### Aberto, ranqueado por (impacto × facilidade)
+
+1. **`/og-image-v2.png` não existe no repositório** — alto impacto, fácil. Ver §Achado fora de
+   escopo. Quebra o OG do site inteiro no próximo `vercel --prod`. Card próprio.
+2. **`public/base.png` é um quadrado azul sem marca alguma** — médio impacto, fácil. Aparece no
+   hero e na seção `ativos` desta página, cuja prova é justamente "USDC na Base", e também no
+   `/comprar-usdt-com-pix` que já está no ar. Trocar pelo símbolo real da Base a partir do brand
+   kit oficial, sem redesenhar de cabeça.
+3. **`src/app/articles/[slug]/page.tsx` com `params` não-Promise** — baixo impacto para SEO,
+   fácil. É o que suja o `tsc --noEmit` do repo e esconde erro real de tipo nas próximas
+   rodadas. `next.config.ts` tem `ignoreBuildErrors`, então o build não pega.
+4. **Página-filha `/receber-pix-em-dolar`** — ângulo pessoa física, para atacar o termo que o
+   PixGo ocupa hoje. É a única secundária da Phase 2 que não cabe nesta página.
+
+### Aprendizado desta rodada, para a skill
+
+Commitar o asset antes do dispatch usando um worktree próprio **no mesmo branch** faz o Hermes
+falhar com `git worktree add failed ... already checked out` e o card vira `blocked` em 1s. O
+asset tem que ir para o branch e o branch tem que ficar livre antes do dispatch.
