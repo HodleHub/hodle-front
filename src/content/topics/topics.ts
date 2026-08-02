@@ -7,6 +7,7 @@ import { paraAgentesDeIa } from './paraAgentesDeIa'
 import { lightningParaPix } from './lightningParaPix'
 import { comprarBitcoinComPix } from './comprarBitcoinComPix'
 import { comprarUsdtComPix } from './comprarUsdtComPix'
+import { receberPixEmStablecoin } from './receberPixEmStablecoin'
 
 export const topics: TopicPage[] = [
   realOnchain,
@@ -14,6 +15,7 @@ export const topics: TopicPage[] = [
   lightningParaPix,
   comprarBitcoinComPix,
   comprarUsdtComPix,
+  receberPixEmStablecoin,
   apiPixStablecoin,
   walletAutoCustodial,
   paraAgentesDeIa,

@@ -55,6 +55,7 @@ export const apiPixStablecoin: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'integracao',
@@ -70,6 +71,7 @@ export const apiPixStablecoin: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'gas-patrocinado',
@@ -84,6 +86,7 @@ export const apiPixStablecoin: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'exemplo',
@@ -99,6 +102,7 @@ export const apiPixStablecoin: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'redes-e-ativos',
@@ -118,6 +122,7 @@ export const apiPixStablecoin: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faqSubhead:

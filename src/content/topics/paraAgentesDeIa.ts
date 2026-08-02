@@ -54,6 +54,7 @@ export const paraAgentesDeIa: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'o-que-o-agente-faz',
@@ -71,6 +72,7 @@ export const paraAgentesDeIa: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'autorizacao',
@@ -85,6 +87,7 @@ export const paraAgentesDeIa: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'exemplo',
@@ -100,6 +103,7 @@ export const paraAgentesDeIa: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'redes',
@@ -119,6 +123,7 @@ export const paraAgentesDeIa: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faqSubhead:

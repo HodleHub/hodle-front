@@ -55,6 +55,7 @@ export const comprarBitcoinComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'como-funciona',
@@ -69,6 +70,7 @@ export const comprarBitcoinComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'tres-trilhos',
@@ -84,6 +86,7 @@ export const comprarBitcoinComPix: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'pela-api',
@@ -99,6 +102,7 @@ export const comprarBitcoinComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'kyc',
@@ -113,6 +117,7 @@ export const comprarBitcoinComPix: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
   ],
   faq: [

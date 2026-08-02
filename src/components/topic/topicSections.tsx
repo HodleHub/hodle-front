@@ -5,13 +5,27 @@ import { TopicPage } from '../../types/topic'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+function SectionBody({ body }: { body: string }) {
+  const paragraphs = body.split('\n\n')
+
+  return (
+    <>
+      {paragraphs.map((p, i) => (
+        <p key={i} className={`text-gray-500 leading-relaxed ${i < paragraphs.length - 1 ? 'mb-4' : 'mb-6'}`}>
+          {p}
+        </p>
+      ))}
+    </>
+  )
+}
+
 function SectionProse({ section }: { section: TopicPage['sections'][number] }) {
   return (
     <>
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
         {section.heading}
       </h2>
-      <p className="text-gray-500 leading-relaxed mb-6">{section.body}</p>
+      <SectionBody body={section.body} />
       {section.bullets.length > 0 && (
         <ul className="space-y-2">
           {section.bullets.map((bullet, i) => (
@@ -32,7 +46,7 @@ function SectionSteps({ section }: { section: TopicPage['sections'][number] }) {
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
         {section.heading}
       </h2>
-      <p className="text-gray-500 leading-relaxed mb-6">{section.body}</p>
+      <SectionBody body={section.body} />
       {section.bullets.length > 0 && (
         <ol className="space-y-4">
           {section.bullets.map((bullet, i) => (
@@ -55,7 +69,7 @@ function SectionAssets({ section }: { section: TopicPage['sections'][number] }) 
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
         {section.heading}
       </h2>
-      <p className="text-gray-500 leading-relaxed mb-6">{section.body}</p>
+      <SectionBody body={section.body} />
       {section.bullets.length > 0 && (
         <ul className="space-y-2 mb-6">
           {section.bullets.map((bullet, i) => (
@@ -90,7 +104,7 @@ function SectionComparison({ section }: { section: TopicPage['sections'][number]
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
         {section.heading}
       </h2>
-      <p className="text-gray-500 leading-relaxed mb-6">{section.body}</p>
+      <SectionBody body={section.body} />
       {section.comparison && (
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -130,7 +144,7 @@ function SectionCode({ section }: { section: TopicPage['sections'][number] }) {
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
         {section.heading}
       </h2>
-      <p className="text-gray-500 leading-relaxed mb-6">{section.body}</p>
+      <SectionBody body={section.body} />
       {section.bullets.length > 0 && (
         <ul className="space-y-2 mb-6">
           {section.bullets.map((bullet, i) => (
@@ -142,6 +156,30 @@ function SectionCode({ section }: { section: TopicPage['sections'][number] }) {
         </ul>
       )}
       {section.code && <TopicCodeBlock code={section.code} />}
+    </>
+  )
+}
+
+function SectionScreenshot({ section }: { section: TopicPage['sections'][number] }) {
+  return (
+    <>
+      <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
+        {section.heading}
+      </h2>
+      <SectionBody body={section.body} />
+      {section.image && (
+        <div>
+          <Image
+            src={section.image.src}
+            alt={section.image.alt}
+            width={section.image.width}
+            height={section.image.height}
+            className="w-full h-auto rounded-2xl border border-gray-200"
+            sizes="(max-width: 768px) 100vw, 700px"
+          />
+          <p className="mt-3 text-xs text-gray-400">{section.image.caption}</p>
+        </div>
+      )}
     </>
   )
 }
@@ -158,6 +196,8 @@ function renderSection(section: TopicPage['sections'][number]) {
       return <SectionComparison section={section} />
     case 'CODE':
       return <SectionCode section={section} />
+    case 'SCREENSHOT':
+      return <SectionScreenshot section={section} />
   }
 }
 

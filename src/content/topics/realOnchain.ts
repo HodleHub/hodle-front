@@ -54,6 +54,7 @@ export const realOnchain: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'como-funciona',
@@ -69,6 +70,7 @@ export const realOnchain: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'onde-circula',
@@ -90,6 +92,7 @@ export const realOnchain: TopicPage = {
       ],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'brla-brz-brl1',
@@ -128,6 +131,7 @@ export const realOnchain: TopicPage = {
         ],
       },
       code: null,
+      image: null,
     },
     {
       id: 'vs-drex',
@@ -142,6 +146,7 @@ export const realOnchain: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'rendimento',
@@ -157,6 +162,7 @@ export const realOnchain: TopicPage = {
       icons: [],
       comparison: null,
       code: null,
+      image: null,
     },
     {
       id: 'api',
@@ -188,6 +194,7 @@ export const realOnchain: TopicPage = {
 
 # 200 -> { "success": true, "data": { "txHash": "0xd3c1...", "asset": "BRLA", "amount": "50" } }`,
       },
+      image: null,
     },
   ],
   faqSubhead:
