@@ -16,6 +16,13 @@ export const BrsHero = () => {
           <LatamDotMap />
         </div>
       </div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 78% 72% at 50% 42%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 45%, rgba(255,255,255,0.75) 65%, rgba(255,255,255,0) 90%)',
+        }}
+      />
       <div className="hero-spotlight absolute inset-0 pointer-events-none" />
 
       <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-28 lg:pt-32 lg:pb-36">
