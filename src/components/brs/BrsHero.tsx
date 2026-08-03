@@ -24,7 +24,7 @@ export const BrsHero = () => {
 
       <div className="relative max-w-[1200px] mx-auto px-6 pt-20 pb-28 lg:pt-24 lg:pb-36">
         <div className="text-center max-w-[900px] mx-auto">
-          <div className="brs-coin-float mb-6 flex justify-center">
+          <div className="mb-6 flex justify-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-100 bg-white shadow-[0_8px_24px_rgba(0,156,59,0.18)] lg:h-16 lg:w-16">
               <Image
                 src="/brs.svg"
@@ -91,18 +91,6 @@ export const BrsHero = () => {
             0 0 14px #fff,
             0 0 22px #fff,
             0 0 22px #fff;
-        }
-        .brs-coin-float {
-          animation: brsCoinFloat 5.5s ease-in-out infinite;
-        }
-        @keyframes brsCoinFloat {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .brs-coin-float {
-            animation: none;
-          }
         }
       `}</style>
     </section>
