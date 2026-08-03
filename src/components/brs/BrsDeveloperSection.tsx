@@ -9,7 +9,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
 const DEV_ITEMS = [
   'API REST para enviar e receber BRS via Pix ou on-chain',
   'Webhooks em tempo real para cada movimentação',
-  'Suporte a Polygon, Base e Solana no mesmo endpoint',
+  'Liquidação on-chain na rede Solana',
 ] as const
 
 export const BrsDeveloperSection = () => {

@@ -54,7 +54,7 @@ const TypeScriptSnippet = () => {
       <div className="pl-6">
         <span className="text-gray-300">{'network'}</span>
         <span className="text-gray-500">{': '}</span>
-        <span className="text-amber-300">{"'polygon'"}</span>
+        <span className="text-amber-300">{"'solana'"}</span>
         <span className="text-gray-600">,</span>
       </div>
       <div className="pl-6">
@@ -66,7 +66,7 @@ const TypeScriptSnippet = () => {
       <div className="pl-6">
         <span className="text-gray-300">{'destination'}</span>
         <span className="text-gray-500">{': '}</span>
-        <span className="text-amber-300">{"'0x9F1c...4aE2'"}</span>
+        <span className="text-amber-300">{"'7xKqM3...9fBz'"}</span>
       </div>
       <div>
         <span className="text-gray-400">{'});'}</span>
@@ -116,7 +116,7 @@ const CurlSnippet = () => {
       <div className="pl-12">
         <span className="text-blue-300">{'"network"'}</span>
         <span className="text-gray-500">{': '}</span>
-        <span className="text-amber-300">{'"polygon"'}</span>
+        <span className="text-amber-300">{'"solana"'}</span>
         <span className="text-gray-600">,</span>
       </div>
       <div className="pl-12">
@@ -128,7 +128,7 @@ const CurlSnippet = () => {
       <div className="pl-12">
         <span className="text-blue-300">{'"destination"'}</span>
         <span className="text-gray-500">{': '}</span>
-        <span className="text-amber-300">{'"0x9F1c...4aE2"'}</span>
+        <span className="text-amber-300">{'"7xKqM3...9fBz"'}</span>
       </div>
       <div className="pl-6">
         <span className="text-gray-400">{'}'}</span>

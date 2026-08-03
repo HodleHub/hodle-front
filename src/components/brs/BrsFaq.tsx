@@ -25,7 +25,7 @@ const FAQ_ITEMS = [
   {
     question: 'Em quais redes o BRS existe?',
     answer:
-      'BRS circula on-chain em Polygon, Base e Solana. Você escolhe a rede na hora de receber ou enviar.',
+      'BRS circula on-chain na rede Solana, onde você recebe e envia direto da sua carteira.',
   },
   {
     question: 'Quanto tempo leva a liquidação?',

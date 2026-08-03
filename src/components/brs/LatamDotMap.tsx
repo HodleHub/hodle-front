@@ -5,8 +5,8 @@ import {
 } from './latamDotMapData'
 
 const CELL_SIZE = 18 as const
-const DOT_RADIUS_BASE = 2.1 as const
-const DOT_RADIUS_HIGHLIGHT = 3.4 as const
+const DOT_RADIUS_BASE = 2.3 as const
+const DOT_RADIUS_HIGHLIGHT = 3.8 as const
 
 const getAnimationDelay = (col: number, row: number): string => {
   const wave = (col + row * 1.3) % 12
@@ -20,7 +20,7 @@ export const LatamDotMap = () => {
 
   return (
     <div
-      className="brs-dot-map pointer-events-none select-none"
+      className="brs-dot-map pointer-events-none select-none absolute inset-0"
       aria-hidden="true"
     >
       <svg
@@ -43,23 +43,23 @@ export const LatamDotMap = () => {
       </svg>
       <style>{`
         .brs-dot-map {
-          -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 40%, #000 45%, transparent 100%);
-          mask-image: radial-gradient(ellipse 75% 75% at 50% 40%, #000 45%, transparent 100%);
+          -webkit-mask-image: radial-gradient(ellipse 92% 92% at 50% 42%, #000 60%, transparent 100%);
+          mask-image: radial-gradient(ellipse 92% 92% at 50% 42%, #000 60%, transparent 100%);
         }
         .brs-dot {
           fill: #32bcad;
-          opacity: 0.35;
+          opacity: 0.4;
           animation: brsDotPulse 4.8s ease-in-out infinite;
           transform-origin: center;
           transform-box: fill-box;
         }
         .brs-dot--highlight {
           fill: #009c3b;
-          opacity: 0.55;
+          opacity: 0.68;
         }
         @keyframes brsDotPulse {
-          0%, 100% { opacity: 0.28; transform: scale(1); }
-          50% { opacity: 0.85; transform: scale(1.35); }
+          0%, 100% { opacity: 0.32; transform: scale(1); }
+          50% { opacity: 0.9; transform: scale(1.35); }
         }
         @media (prefers-reduced-motion: reduce) {
           .brs-dot {

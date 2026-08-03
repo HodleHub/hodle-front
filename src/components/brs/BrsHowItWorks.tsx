@@ -1,27 +1,25 @@
-import { QrCode, WalletMinimal, ArrowLeftRight, Banknote } from 'lucide-react'
-import { ChevronRight } from 'lucide-react'
 import AnimatedSection from '../AnimatedSection'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const STEPS = [
   {
-    icon: QrCode,
+    number: '01',
     title: 'Pix in',
     desc: 'Você paga um Pix na Hodle, do valor que quiser.',
   },
   {
-    icon: WalletMinimal,
+    number: '02',
     title: 'BRS na carteira',
     desc: 'O Real vira BRS e cai na sua carteira auto-custodial.',
   },
   {
-    icon: ArrowLeftRight,
+    number: '03',
     title: 'Envia e recebe on-chain',
-    desc: 'Movimente BRS entre carteiras em Polygon, Base ou Solana.',
+    desc: 'Movimente BRS entre carteiras na rede Solana.',
   },
   {
-    icon: Banknote,
+    number: '04',
     title: 'Pix out',
     desc: 'Converta de volta para reais e saque via Pix quando quiser.',
   },
@@ -54,11 +52,10 @@ export const BrsHowItWorks = () => {
                 className="flex-1 h-full"
               >
                 <div className="h-full rounded-2xl border border-gray-200 bg-white p-6 text-center">
-                  <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-5 h-5 text-[#009c3b]" />
-                  </div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400 mb-1.5">
-                    {i + 1}
+                  <p
+                    className={`${heading} text-4xl font-light text-[#32bcad] mb-3 tracking-tight`}
+                  >
+                    {step.number}
                   </p>
                   <h3
                     className={`${heading} text-base font-medium text-foreground mb-2`}
@@ -72,7 +69,12 @@ export const BrsHowItWorks = () => {
               </AnimatedSection>
 
               {i < STEPS.length - 1 && (
-                <ChevronRight className="hidden lg:block w-5 h-5 text-gray-300 shrink-0" />
+                <span
+                  className={`${heading} hidden lg:block text-2xl text-gray-300 shrink-0`}
+                  aria-hidden="true"
+                >
+                  &rarr;
+                </span>
               )}
             </div>
           ))}

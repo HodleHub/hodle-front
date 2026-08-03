@@ -1,26 +1,59 @@
-import { ShieldCheck, Zap, Share2, Building2 } from 'lucide-react'
+import Image from 'next/image'
 import AnimatedSection from '../AnimatedSection'
+import { NoraMark } from './NoraMark'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const VALUE_PROPS = [
   {
-    icon: ShieldCheck,
+    mark: (
+      <Image
+        src="/brs.svg"
+        alt="BRS"
+        width={44}
+        height={44}
+        className="h-11 w-11"
+      />
+    ),
     title: '1:1 lastreado em Real',
     desc: 'Cada BRS em circulação é respaldado por reais em reserva, sem surpresas de paridade.',
   },
   {
-    icon: Zap,
+    mark: (
+      <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center">
+        <Image
+          src="/pix.svg"
+          alt="Pix"
+          width={20}
+          height={20}
+          className="h-5 w-5"
+        />
+      </div>
+    ),
     title: 'Liquidação instantânea via Pix',
     desc: 'Entrada e saída em Pix, 24 horas por dia, todos os dias — sem esperar horário bancário.',
   },
   {
-    icon: Share2,
-    title: 'On-chain, em várias redes',
-    desc: 'BRS circula em Polygon, Base e Solana. Envie e receba direto na carteira, sem fronteiras.',
+    mark: (
+      <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center">
+        <Image
+          src="/solana.svg"
+          alt="Solana"
+          width={20}
+          height={20}
+          className="h-5 w-5"
+        />
+      </div>
+    ),
+    title: 'On-chain, na Solana',
+    desc: 'BRS circula na rede Solana. Envie e receba direto na carteira, sem fronteiras.',
   },
   {
-    icon: Building2,
+    mark: (
+      <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center">
+        <NoraMark className="h-6 w-6 text-[#009c3b]" />
+      </div>
+    ),
     title: 'Nora Finance, disponível na Hodle',
     desc: 'BRS é emitido pela Nora Finance. Na Hodle, você compra, guarda e movimenta com Pix.',
   },
@@ -48,9 +81,7 @@ export const BrsValueProps = () => {
           {VALUE_PROPS.map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.08} direction="up">
               <div className="h-full rounded-2xl border border-gray-200 bg-white p-7">
-                <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center mb-5">
-                  <item.icon className="w-5 h-5 text-[#009c3b]" />
-                </div>
+                <div className="mb-5">{item.mark}</div>
                 <h3
                   className={`${heading} text-base font-medium text-foreground mb-2.5`}
                 >

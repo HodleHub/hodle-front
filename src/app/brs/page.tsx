@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { BrsHero } from '../../components/brs/BrsHero'
 import { BrsValueProps } from '../../components/brs/BrsValueProps'
 import { BrsHowItWorks } from '../../components/brs/BrsHowItWorks'
+import { BrsUseCases } from '../../components/brs/BrsUseCases'
 import { BrsDeveloperSection } from '../../components/brs/BrsDeveloperSection'
 import { BrsFaq } from '../../components/brs/BrsFaq'
 import { BrsFinalCta } from '../../components/brs/BrsFinalCta'
@@ -11,7 +12,7 @@ const pageUrl = `${siteUrl}/brs`
 
 const title = 'BRS: a stablecoin local do Real, na Hodle'
 const description =
-  'BRS é a stablecoin de Real da Nora Finance, disponível na Hodle. Lastreada 1:1 em reais, entra e sai via Pix 24/7, e circula on-chain em Polygon, Base e Solana.'
+  'BRS é a stablecoin de Real da Nora Finance, disponível na Hodle. Lastreada 1:1 em reais, entra e sai via Pix 24/7, e circula on-chain na rede Solana.'
 
 export const metadata: Metadata = {
   title,
@@ -90,7 +91,7 @@ const faqJsonLd = {
       name: 'Em quais redes o BRS existe?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'BRS circula on-chain em Polygon, Base e Solana. Você escolhe a rede na hora de receber ou enviar.',
+        text: 'BRS circula on-chain na rede Solana, onde você recebe e envia direto da sua carteira.',
       },
     },
   ],
@@ -110,6 +111,7 @@ export default function BrsPage() {
       <BrsHero />
       <BrsValueProps />
       <BrsHowItWorks />
+      <BrsUseCases />
       <BrsDeveloperSection />
       <BrsFaq />
       <BrsFinalCta />
