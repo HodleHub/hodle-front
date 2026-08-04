@@ -13,6 +13,12 @@ vercel --prod --yes
 
 That builds (`next build`), uploads, and aliases the deployment to `hodle.com.br`. Takes ~1 min.
 
+After the production deployment succeeds, submit the sitemap URLs to IndexNow:
+
+```bash
+pnpm run postdeploy:indexnow
+```
+
 ## Prerequisites (one-time)
 
 - `vercel` CLI installed (`pnpm add -g vercel`) and logged in:
@@ -33,6 +39,7 @@ git push -u origin <branch>
 gh pr create --title "..." --body "..."
 gh pr merge <n> --merge --delete-branch   # fast-forwards main
 vercel --prod --yes                       # deploy main to production
+pnpm run postdeploy:indexnow              # notify IndexNow after production deploy
 ```
 
 Verify the live page after deploy, e.g.:

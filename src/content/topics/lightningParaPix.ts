@@ -15,7 +15,7 @@ export const lightningParaPix: TopicPage = {
     'bolt11 para pix',
     'api lightning pix',
   ],
-  updatedAt: '2026-07-29',
+  updatedAt: '2026-07-30T21:04:55-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',

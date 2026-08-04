@@ -24,10 +24,6 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/og-image-v2.png',
-        destination: '/api/og',
-      },
-      {
         source: '/pitch',
         destination: '/pitch.html',
       },

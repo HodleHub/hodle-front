@@ -15,7 +15,7 @@ export const comprarBitcoinComPix: TopicPage = {
     'comprar bitcoin liquid',
     'bitcoin via pix para empresas',
   ],
-  updatedAt: '2026-07-29',
+  updatedAt: '2026-07-30T21:04:55-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',

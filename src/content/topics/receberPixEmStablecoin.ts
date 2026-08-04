@@ -16,7 +16,7 @@ export const receberPixEmStablecoin: TopicPage = {
     'qr code estático pix',
     'receber pix em usdt',
   ],
-  updatedAt: '2026-07-30',
+  updatedAt: '2026-07-30T21:04:55-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
