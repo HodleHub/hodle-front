@@ -8,6 +8,7 @@ export const reservedSlugs: string[] = [
   'create',
   'faq',
   'glossario',
+  'legal',
   'lnurlp',
   'pitch',
   'precos',

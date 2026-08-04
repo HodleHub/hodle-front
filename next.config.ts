@@ -1,5 +1,19 @@
 import type { NextConfig } from 'next'
 
+const legalAliases = [
+  { source: '/politica-de-privacidade', destination: '/privacidade' },
+  { source: '/politica-privacidade', destination: '/privacidade' },
+  { source: '/privacy', destination: '/privacidade' },
+  { source: '/privacy-policy', destination: '/privacidade' },
+  { source: '/termos-de-uso', destination: '/termos' },
+  { source: '/termos-de-servico', destination: '/termos' },
+  { source: '/terms', destination: '/termos' },
+  { source: '/terms-of-use', destination: '/termos' },
+  { source: '/terms-of-service', destination: '/termos' },
+  { source: '/politica-de-cookies', destination: '/cookies' },
+  { source: '/cookie-policy', destination: '/cookies' },
+]
+
 const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -34,6 +48,7 @@ const nextConfig: NextConfig = {
         destination: '/precos',
         permanent: true,
       },
+      ...legalAliases.map((alias) => ({ ...alias, permanent: true })),
     ]
   },
 }
