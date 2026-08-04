@@ -33,7 +33,9 @@ const TypeScriptSnippet = () => {
         <span className="text-gray-400">{'});'}</span>
       </div>
       <div className="mt-3">
-        <span className="text-gray-600">{'// Pix in -> BRS na carteira'}</span>
+        <span className="text-gray-600">
+          {'// Payout: BRS da sua conta -> carteira on-chain'}
+        </span>
       </div>
       <div>
         <span className="text-purple-400">const</span>
