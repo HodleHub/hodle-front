@@ -43,40 +43,25 @@ export const BrsHowItWorks = () => {
           </div>
         </AnimatedSection>
 
-        <div className="flex flex-col lg:flex-row items-stretch gap-4">
+        <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-6 lg:border-t lg:border-gray-200 lg:pt-8">
           {STEPS.map((step, i) => (
-            <div key={step.title} className="flex-1 flex items-center gap-4">
-              <AnimatedSection
-                delay={i * 0.1}
-                direction="up"
-                className="flex-1 h-full"
-              >
-                <div className="h-full rounded-2xl border border-gray-200 bg-white p-6 text-center">
-                  <p
-                    className={`${heading} text-4xl font-light text-[#32bcad] mb-3 tracking-tight`}
-                  >
-                    {step.number}
-                  </p>
-                  <h3
-                    className={`${heading} text-base font-medium text-foreground mb-2`}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              {i < STEPS.length - 1 && (
-                <span
-                  className={`${heading} hidden lg:block text-2xl text-gray-300 shrink-0`}
-                  aria-hidden="true"
+            <AnimatedSection key={step.title} delay={i * 0.1} direction="up">
+              <div className="border-t border-gray-200 pt-6 lg:border-t-0 lg:pt-0">
+                <p
+                  className={`${heading} text-3xl font-light text-[#009c3b] mb-3 tracking-tight`}
                 >
-                  &rarr;
-                </span>
-              )}
-            </div>
+                  {step.number}
+                </p>
+                <h3
+                  className={`${heading} text-base font-semibold text-foreground mb-2`}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
