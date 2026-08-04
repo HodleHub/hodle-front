@@ -19,7 +19,7 @@ export const realOnchain: TopicPage = {
     'Polygon',
   ],
   primaryKeyword: 'real tokenizado',
-  updatedAt: '2026-07-25',
+  updatedAt: '2026-07-30T21:22:16-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'Real onchain',

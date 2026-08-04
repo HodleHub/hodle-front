@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getAllArticles } from '../utils/mdx'
 import { getAllTopics } from '../utils/getAllTopics'
+import { pageUpdatedAt } from '../content/pageUpdatedAt'
 
 const siteUrl = 'https://hodle.com.br'
 
@@ -27,55 +28,55 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: siteUrl,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.home),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${siteUrl}/faq`,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.faq),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${siteUrl}/legal`,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.legal),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/privacidade`,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.privacidade),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/termos`,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.termos),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/cookies`,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.cookies),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/ai`,
-      lastModified: new Date(),
+      lastModified: new Date(pageUpdatedAt.ai),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/glossario`,
-      lastModified: new Date('2026-07-29'),
+      lastModified: new Date(pageUpdatedAt.glossario),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${siteUrl}/precos`,
-      lastModified: new Date('2026-07-29'),
+      lastModified: new Date(pageUpdatedAt.precos),
       changeFrequency: 'monthly',
       priority: 0.8,
     },

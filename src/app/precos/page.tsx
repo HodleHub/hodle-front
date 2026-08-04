@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { pageUpdatedAt } from '../../content/pageUpdatedAt'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const siteUrl = 'https://hodle.com.br'
+const updatedAt = pageUpdatedAt.precos
+const formattedUpdatedAt = new Intl.DateTimeFormat('pt-BR', {
+  dateStyle: 'long',
+  timeZone: 'UTC',
+}).format(new Date(updatedAt))
 
 export const metadata: Metadata = {
   title: 'Preços e taxas',
@@ -34,7 +40,7 @@ const webpageJsonLd = {
     name: 'Hodle',
     url: siteUrl,
   },
-  dateModified: '2026-07-29',
+  dateModified: updatedAt,
 }
 
 const offerCatalogJsonLd = {
@@ -105,7 +111,7 @@ export default function PrecosPage() {
             Preços e Taxas
           </h1>
           <p className="text-sm text-gray-400">
-            Última atualização: 29 de julho de 2026.
+            Atualizado em {formattedUpdatedAt}.
           </p>
         </div>
 
@@ -250,7 +256,7 @@ export default function PrecosPage() {
           </p>
 
           <p className="text-sm text-gray-400 pt-4 border-t border-gray-200">
-            Última atualização: 29 de julho de 2026.
+            Atualizado em {formattedUpdatedAt}.
           </p>
         </div>
 
