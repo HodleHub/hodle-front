@@ -5,13 +5,13 @@ import {
 } from './latamDotMapData'
 
 const CELL_SIZE = 18 as const
-const DOT_RADIUS_BASE = 2.3 as const
-const DOT_RADIUS_HIGHLIGHT = 3.8 as const
+const DOT_RADIUS_BASE = 2.1 as const
+const DOT_RADIUS_HIGHLIGHT = 3.1 as const
 
 const getAnimationDelay = (col: number, row: number): string => {
-  const wave = (col + row * 1.3) % 12
+  const wave = (col * 0.7 + row) % 14
 
-  return `${(wave * 0.18).toFixed(2)}s`
+  return `${(wave * 0.32).toFixed(2)}s`
 }
 
 export const LatamDotMap = () => {
@@ -37,7 +37,11 @@ export const LatamDotMap = () => {
             className={
               dot.highlighted ? 'brs-dot brs-dot--highlight' : 'brs-dot'
             }
-            style={{ animationDelay: getAnimationDelay(dot.col, dot.row) }}
+            style={
+              dot.highlighted
+                ? { animationDelay: getAnimationDelay(dot.col, dot.row) }
+                : undefined
+            }
           />
         ))}
       </svg>
@@ -47,22 +51,20 @@ export const LatamDotMap = () => {
           mask-image: radial-gradient(ellipse 92% 92% at 50% 42%, #000 60%, transparent 100%);
         }
         .brs-dot {
-          fill: #32bcad;
-          opacity: 0.4;
-          animation: brsDotPulse 4.8s ease-in-out infinite;
-          transform-origin: center;
-          transform-box: fill-box;
+          fill: #94a3b8;
+          opacity: 0.3;
         }
         .brs-dot--highlight {
           fill: #009c3b;
-          opacity: 0.68;
+          opacity: 0.85;
+          animation: brsDotShimmer 5.2s ease-in-out infinite;
         }
-        @keyframes brsDotPulse {
-          0%, 100% { opacity: 0.32; transform: scale(1); }
-          50% { opacity: 0.9; transform: scale(1.35); }
+        @keyframes brsDotShimmer {
+          0%, 100% { opacity: 0.55; }
+          50% { opacity: 1; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .brs-dot {
+          .brs-dot--highlight {
             animation: none;
           }
         }
