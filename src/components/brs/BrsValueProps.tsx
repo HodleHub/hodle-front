@@ -4,15 +4,20 @@ import { NoraMark } from './NoraMark'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+const monoGreenFilter = {
+  filter: 'grayscale(1) sepia(1) hue-rotate(70deg) saturate(4) brightness(0.9)',
+} as const
+
 const VALUE_PROPS = [
   {
     mark: (
       <Image
         src="/brs.svg"
         alt="BRS"
-        width={44}
-        height={44}
-        className="h-11 w-11"
+        width={24}
+        height={24}
+        className="h-6 w-6"
+        style={monoGreenFilter}
       />
     ),
     title: '1:1 lastreado em Real',
@@ -20,40 +25,34 @@ const VALUE_PROPS = [
   },
   {
     mark: (
-      <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center">
-        <Image
-          src="/pix.svg"
-          alt="Pix"
-          width={20}
-          height={20}
-          className="h-5 w-5"
-        />
-      </div>
+      <Image
+        src="/pix.svg"
+        alt="Pix"
+        width={24}
+        height={24}
+        className="h-6 w-6"
+        style={monoGreenFilter}
+      />
     ),
     title: 'Liquidação instantânea via Pix',
     desc: 'Entrada e saída em Pix, 24 horas por dia, todos os dias — sem esperar horário bancário.',
   },
   {
     mark: (
-      <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center">
-        <Image
-          src="/solana.svg"
-          alt="Solana"
-          width={20}
-          height={20}
-          className="h-5 w-5"
-        />
-      </div>
+      <Image
+        src="/solana.svg"
+        alt="Solana"
+        width={24}
+        height={24}
+        className="h-6 w-6"
+        style={monoGreenFilter}
+      />
     ),
     title: 'On-chain, na Solana',
     desc: 'BRS circula na rede Solana. Envie e receba direto na carteira, sem fronteiras.',
   },
   {
-    mark: (
-      <div className="w-11 h-11 rounded-xl bg-[#32bcad]/10 flex items-center justify-center">
-        <NoraMark className="h-6 w-6 text-[#009c3b]" />
-      </div>
-    ),
+    mark: <NoraMark className="h-6 w-6 text-[#009c3b]" />,
     title: 'Nora Finance, disponível na Hodle',
     desc: 'BRS é emitido pela Nora Finance. Na Hodle, você compra, guarda e movimenta com Pix.',
   },
@@ -77,13 +76,13 @@ export const BrsValueProps = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
           {VALUE_PROPS.map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.08} direction="up">
-              <div className="h-full rounded-2xl border border-gray-200 bg-white p-7">
+              <div className="h-full border-t border-gray-200 pt-6">
                 <div className="mb-5">{item.mark}</div>
                 <h3
-                  className={`${heading} text-base font-medium text-foreground mb-2.5`}
+                  className={`${heading} text-base font-semibold text-foreground mb-2.5`}
                 >
                   {item.title}
                 </h3>
