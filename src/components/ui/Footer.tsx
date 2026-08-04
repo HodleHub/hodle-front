@@ -71,6 +71,7 @@ export function Footer() {
             {
               title: 'Legal',
               links: [
+                { label: 'Central Legal', href: '/legal' },
                 { label: 'Termos de Serviço', href: '/termos' },
                 { label: 'Privacidade', href: '/privacidade' },
                 { label: 'Cookies', href: '/cookies' },
