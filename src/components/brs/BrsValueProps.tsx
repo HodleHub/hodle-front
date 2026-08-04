@@ -45,7 +45,6 @@ const VALUE_PROPS = [
         width={24}
         height={24}
         className="h-6 w-6"
-        style={monoGreenFilter}
       />
     ),
     title: 'On-chain, na Solana',
