@@ -12,14 +12,6 @@ const USE_CASES = [
     desc: 'O saldo em BRS parado rende sozinho, sem produto financeiro à parte.',
   },
   {
-    title: 'Bolsos de poupança programáveis',
-    desc: 'Regras de reserva e metas escritas direto no contrato, não numa planilha.',
-  },
-  {
-    title: 'Onboarding Pix → BRS',
-    desc: 'Primeiro contato com cripto sem sair da experiência de Pix.',
-  },
-  {
     title: 'Folha de pagamento e pagamentos recorrentes',
     desc: 'Salários e assinaturas liquidados automaticamente, no dia certo.',
   },
@@ -28,24 +20,8 @@ const USE_CASES = [
     desc: 'Fundos retidos por contrato até a entrega ser confirmada.',
   },
   {
-    title: 'Crédito e empréstimo em BRL',
-    desc: 'Colateral e liquidação on-chain, sem intermediário para cada etapa.',
-  },
-  {
-    title: 'Recebíveis tokenizados e RWA',
-    desc: 'Duplicatas e ativos do mundo real representados e negociados on-chain.',
-  },
-  {
-    title: 'Infraestrutura de pagamentos para marketplaces',
-    desc: 'Splits e repasses a vendedores liquidados instantaneamente.',
-  },
-  {
     title: 'Tesouraria em BRS para empresas globais',
     desc: 'Caixa em Real acessível de qualquer lugar, 24 horas por dia.',
-  },
-  {
-    title: 'Produtos cross-border BRL ↔ dólar digital',
-    desc: 'Conversão direta entre Real e stablecoins de dólar, sem SWIFT.',
   },
   {
     title: 'FX automatizado entre BRS, USDC e USDT',
@@ -71,21 +47,27 @@ export const BrsUseCases = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 rounded-2xl overflow-hidden border border-gray-200">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12">
           {USE_CASES.map((useCase, i) => (
-            <AnimatedSection key={useCase.title} delay={(i % 3) * 0.06} direction="up">
-              <div className="h-full bg-white p-6">
+            <AnimatedSection
+              key={useCase.title}
+              delay={(i % 2) * 0.08}
+              direction="up"
+            >
+              <div className="border-t border-gray-200 py-6 flex gap-5">
                 <p
-                  className={`${heading} text-xs font-semibold text-[#32bcad] mb-3 tracking-widest`}
+                  className={`${heading} text-sm font-semibold text-[#009c3b] shrink-0`}
                 >
                   {String(i + 1).padStart(2, '0')}
                 </p>
-                <h3 className="text-sm font-semibold text-foreground mb-2 leading-snug">
-                  {useCase.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {useCase.desc}
-                </p>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground mb-2 leading-snug">
+                    {useCase.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    {useCase.desc}
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           ))}
