@@ -3,38 +3,15 @@
 import { useState, useCallback } from 'react'
 import { Plus, Minus } from 'lucide-react'
 import AnimatedSection from '../AnimatedSection'
+import { brsCopy, type BrsCopy } from './brsCopy'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
-const FAQ_ITEMS = [
-  {
-    question: 'O que é o BRS?',
-    answer:
-      'BRS é uma stablecoin de Real, emitida pela Nora Finance. Cada BRS é lastreado 1:1 em reais mantidos em reserva, e você pode comprar, guardar e movimentar BRS na Hodle.',
-  },
-  {
-    question: 'A Hodle emite o BRS?',
-    answer:
-      'Não. O BRS é emitido pela Nora Finance. A Hodle é a plataforma onde você compra, guarda em carteira auto-custodial e movimenta BRS via Pix ou on-chain.',
-  },
-  {
-    question: 'Como eu compro e saco BRS?',
-    answer:
-      'Você paga um Pix na Hodle e recebe BRS na sua carteira. Para sacar, converte o BRS de volta para reais e recebe via Pix, 24 horas por dia.',
-  },
-  {
-    question: 'Em quais redes o BRS existe?',
-    answer:
-      'BRS circula on-chain na rede Solana, onde você recebe e envia direto da sua carteira.',
-  },
-  {
-    question: 'Quanto tempo leva a liquidação?',
-    answer:
-      'A entrada e a saída via Pix são praticamente instantâneas. Movimentações on-chain seguem o tempo de confirmação da rede escolhida.',
-  },
-] as const
+type BrsFaqProps = {
+  copy?: BrsCopy
+}
 
-export const BrsFaq = () => {
+export const BrsFaq = ({ copy = brsCopy.pt }: BrsFaqProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleAccordion = useCallback((index: number) => {
@@ -47,17 +24,17 @@ export const BrsFaq = () => {
         <AnimatedSection delay={0.1} className="w-full max-w-[700px]">
           <div className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#009c3b] mb-4 block">
-              FAQ
+              {copy.faq.eyebrow}
             </span>
             <h2
               className={`${heading} text-[clamp(2rem,4vw,3rem)] font-light text-foreground`}
             >
-              Perguntas frequentes
+              {copy.faq.title}
             </h2>
           </div>
 
           <div className="space-y-2">
-            {FAQ_ITEMS.map((item, index) => (
+            {copy.faq.items.map((item, index) => (
               <div
                 key={item.question}
                 className="border border-gray-200 rounded-xl overflow-hidden bg-white"

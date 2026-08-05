@@ -1,8 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Github } from 'lucide-react'
 
 export function Footer() {
+  const pathname = usePathname()
+  const isEnglish = pathname.startsWith('/en/')
+
   return (
     <footer className="border-t border-gray-200 bg-white pt-16 pb-8">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -18,7 +24,9 @@ export function Footer() {
               />
             </Link>
             <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-              Infraestrutura cripto para empresas.
+              {isEnglish
+                ? 'Crypto infrastructure for businesses.'
+                : 'Infraestrutura cripto para empresas.'}
             </p>
             <div className="flex space-x-3">
               <a
@@ -34,49 +42,81 @@ export function Footer() {
 
           {[
             {
-              title: 'Produtos',
+              title: isEnglish ? 'Products' : 'Produtos',
               links: [
-                { label: 'Compra e Venda', href: '/comprar-bitcoin-com-pix' },
+                {
+                  label: isEnglish ? 'Buy & Sell' : 'Compra e Venda',
+                  href: '/comprar-bitcoin-com-pix',
+                },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
-                { label: 'Conta PJ', href: '#conta-pj' },
-                { label: 'Pagamentos QR', href: '#pagamentos' },
-                { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
-                { label: 'Lightning para Pix', href: '/lightning-para-pix' },
-                { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
-                { label: 'Real onchain', href: '/real-onchain' },
-                { label: 'Receber Pix em stablecoin', href: '/receber-pix-em-stablecoin' },
+                { label: isEnglish ? 'Business account' : 'Conta PJ', href: '#conta-pj' },
+                { label: isEnglish ? 'QR payments' : 'Pagamentos QR', href: '#pagamentos' },
+                {
+                  label: isEnglish ? 'Pay Pix with USDT' : 'Pagar Pix com USDT',
+                  href: '/pagar-pix-com-usdt',
+                },
+                {
+                  label: isEnglish ? 'Lightning to Pix' : 'Lightning para Pix',
+                  href: '/lightning-para-pix',
+                },
+                {
+                  label: isEnglish ? 'Buy USDT with Pix' : 'Comprar USDT com Pix',
+                  href: '/comprar-usdt-com-pix',
+                },
+                { label: isEnglish ? 'Real on-chain' : 'Real onchain', href: '/real-onchain' },
+                {
+                  label: isEnglish
+                    ? 'Receive Pix in stablecoin'
+                    : 'Receber Pix em stablecoin',
+                  href: '/receber-pix-em-stablecoin',
+                },
               ],
             },
             {
-              title: 'Desenvolvedores',
+              title: isEnglish ? 'Developers' : 'Desenvolvedores',
               links: [
-                { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
-                { label: 'Para agentes de IA', href: '/para-agentes-de-ia' },
-                { label: 'Documentação', href: 'https://docs.hodle.com.br' },
+                {
+                  label: isEnglish ? 'Stablecoin Pix API' : 'API Pix stablecoin',
+                  href: '/api-pix-stablecoin',
+                },
+                {
+                  label: isEnglish ? 'For AI agents' : 'Para agentes de IA',
+                  href: '/para-agentes-de-ia',
+                },
+                {
+                  label: isEnglish ? 'Documentation' : 'Documentação',
+                  href: 'https://docs.hodle.com.br',
+                },
                 { label: 'API Reference', href: 'https://docs.hodle.com.br' },
                 {
-                  label: 'Falar com vendas',
+                  label: isEnglish ? 'Talk to sales' : 'Falar com vendas',
                   href: 'https://api.whatsapp.com/send?phone=5511960000445',
                 },
               ],
             },
             {
-              title: 'Recursos',
+              title: isEnglish ? 'Resources' : 'Recursos',
               links: [
-                { label: 'Glossário', href: '/glossario' },
-                { label: 'Preços', href: '/precos' },
+                { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
+                { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },
-                { label: 'Suporte', href: 'https://api.whatsapp.com/send?phone=5511960000445' },
+                {
+                  label: isEnglish ? 'Support' : 'Suporte',
+                  href: 'https://api.whatsapp.com/send?phone=5511960000445',
+                },
               ],
             },
             {
               title: 'Legal',
               links: [
-                { label: 'Central Legal', href: '/legal' },
-                { label: 'Termos de Serviço', href: '/termos' },
-                { label: 'Privacidade', href: '/privacidade' },
+                { label: isEnglish ? 'Legal Center' : 'Central Legal', href: '/legal' },
+                {
+                  label: isEnglish ? 'Terms of Service' : 'Termos de Serviço',
+                  href: '/termos',
+                },
+                { label: isEnglish ? 'Privacy' : 'Privacidade', href: '/privacidade' },
                 { label: 'Cookies', href: '/cookies' },
-                { label: 'Uso por IA', href: '/ai' },
+                { label: isEnglish ? 'AI usage' : 'Uso por IA', href: '/ai' },
               ],
             },
           ].map((col) => (
@@ -102,20 +142,13 @@ export function Footer() {
 
         <div className="border-t border-gray-200 pt-8">
           <p className="mb-6 max-w-[900px] text-[11px] leading-[1.7] text-gray-500">
-            A Hodle opera como plataforma, API e camada de infraestrutura
-            fintech, oferecendo um painel e integrações que viabilizam a compra
-            e venda de ativos digitais, pagamentos com stablecoins, wallets
-            auto-custodiais e fluxos de emissão de cartão por meio de
-            integrações de terceiros. A Hodle não é um banco, não é instituição
-            financeira, não emite moeda eletrônica, não emite cartões
-            diretamente e não custodia fundos ou ativos de clientes — nas
-            wallets auto-custodiais, as chaves privadas permanecem sob controle
-            exclusivo do usuário. O fluxo de fundos regulados e os serviços
-            financeiros são conduzidos por parceiros licenciados e/ou regulados.
+            {isEnglish
+              ? "Hodle operates as a platform, API, and fintech infrastructure layer, providing a dashboard and integrations that enable the purchase and sale of digital assets, stablecoin payments, self-custodial wallets, and card issuance flows through third-party integrations. Hodle is not a bank or financial institution, does not issue electronic money, does not issue cards directly, and does not custody customer funds or assets — in self-custodial wallets, private keys remain under the user's exclusive control. Regulated funds flows and financial services are handled by licensed and/or regulated partners."
+              : 'A Hodle opera como plataforma, API e camada de infraestrutura fintech, oferecendo um painel e integrações que viabilizam a compra e venda de ativos digitais, pagamentos com stablecoins, wallets auto-custodiais e fluxos de emissão de cartão por meio de integrações de terceiros. A Hodle não é um banco, não é instituição financeira, não emite moeda eletrônica, não emite cartões diretamente e não custodia fundos ou ativos de clientes — nas wallets auto-custodiais, as chaves privadas permanecem sob controle exclusivo do usuário. O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados.'}
           </p>
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} Hodle. Todos os direitos
-            reservados.
+            &copy; {new Date().getFullYear()} Hodle.{' '}
+            {isEnglish ? 'All rights reserved.' : 'Todos os direitos reservados.'}
           </p>
         </div>
       </div>

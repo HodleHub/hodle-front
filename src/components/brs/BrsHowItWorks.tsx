@@ -1,31 +1,13 @@
 import AnimatedSection from '../AnimatedSection'
+import { brsCopy, type BrsCopy } from './brsCopy'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
-const STEPS = [
-  {
-    number: '01',
-    title: 'Pix in',
-    desc: 'Você paga um Pix na Hodle, do valor que quiser.',
-  },
-  {
-    number: '02',
-    title: 'BRS na carteira',
-    desc: 'O Real vira BRS e cai na sua carteira auto-custodial.',
-  },
-  {
-    number: '03',
-    title: 'Envia e recebe on-chain',
-    desc: 'Movimente BRS entre carteiras na rede Solana.',
-  },
-  {
-    number: '04',
-    title: 'Pix out',
-    desc: 'Converta de volta para reais e saque via Pix quando quiser.',
-  },
-] as const
+type BrsHowItWorksProps = {
+  copy?: BrsCopy
+}
 
-export const BrsHowItWorks = () => {
+export const BrsHowItWorks = ({ copy = brsCopy.pt }: BrsHowItWorksProps) => {
   return (
     <section className="border-t border-gray-200">
       <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
@@ -33,18 +15,18 @@ export const BrsHowItWorks = () => {
           <div className="max-w-[600px] mx-auto text-center mb-16">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
-              Como funciona
+              {copy.howItWorks.eyebrow}
             </span>
             <h2
               className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15]`}
             >
-              Do Pix ao on-chain, e de volta
+              {copy.howItWorks.title}
             </h2>
           </div>
         </AnimatedSection>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-6 lg:border-t lg:border-gray-200 lg:pt-8">
-          {STEPS.map((step, i) => (
+          {copy.howItWorks.steps.map((step, i) => (
             <AnimatedSection key={step.title} delay={i * 0.1} direction="up">
               <div className="border-t border-gray-200 pt-6 lg:border-t-0 lg:pt-0">
                 <p

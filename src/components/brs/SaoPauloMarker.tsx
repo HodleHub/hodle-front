@@ -7,7 +7,11 @@ import {
 const leftPct = ((SAO_PAULO_MARKER.col + 0.5) / LATAM_DOT_MAP_COLS) * 100
 const topPct = ((SAO_PAULO_MARKER.row + 0.5) / LATAM_DOT_MAP_ROWS) * 100
 
-export const SaoPauloMarker = () => {
+type SaoPauloMarkerProps = {
+  label?: string
+}
+
+export const SaoPauloMarker = ({ label = 'São Paulo' }: SaoPauloMarkerProps) => {
   return (
     <div
       className="absolute pointer-events-none select-none"
@@ -19,7 +23,7 @@ export const SaoPauloMarker = () => {
         <span className="block h-2 w-2 rounded-full bg-[#009c3b]" />
       </div>
       <span className="brs-sp-label hidden sm:block absolute left-full top-1/2 ml-1.5 -translate-y-1/2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-[#009c3b]">
-        São Paulo
+        {label}
       </span>
       <style>{`
         .brs-sp-label {

@@ -3,16 +3,17 @@ import { Check, ChevronRight } from 'lucide-react'
 import { ButtonShadow } from '../ui/ButtonShadow'
 import AnimatedSection from '../AnimatedSection'
 import { BrsCodeBlock } from './BrsCodeBlock'
+import { brsCopy, type BrsCopy } from './brsCopy'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
-const DEV_ITEMS = [
-  'API REST para enviar e receber BRS via Pix ou on-chain',
-  'Webhooks em tempo real para cada movimentação',
-  'Liquidação on-chain na rede Solana',
-] as const
+type BrsDeveloperSectionProps = {
+  copy?: BrsCopy
+}
 
-export const BrsDeveloperSection = () => {
+export const BrsDeveloperSection = ({
+  copy = brsCopy.pt,
+}: BrsDeveloperSectionProps) => {
   return (
     <section
       id="developer"
@@ -23,20 +24,18 @@ export const BrsDeveloperSection = () => {
           <AnimatedSection delay={0.1} direction="left" className="flex-1">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
-              Developer
+              {copy.developer.eyebrow}
             </span>
             <h2
               className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
             >
-              Uma API para mover BRS
+              {copy.developer.title}
             </h2>
             <p className="text-gray-500 mb-8 leading-relaxed">
-              Envie um payout em BRS direto para uma carteira on-chain, ou
-              receba via Pix e converta automaticamente. Tudo pela mesma API
-              que já move Pix, dólar e stablecoins na Hodle.
+              {copy.developer.description}
             </p>
             <ul className="space-y-4 mb-10">
-              {DEV_ITEMS.map((item) => (
+              {copy.developer.items.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <Check className="h-4 w-4 text-[#009c3b] shrink-0 mt-0.5" />
                   <span className="text-gray-500">{item}</span>
@@ -50,7 +49,7 @@ export const BrsDeveloperSection = () => {
                 faceClassName="border-[#009c3b] bg-[#009c3b] text-white hover:bg-[#009c3b]"
                 shadowClassName="bg-[#32bcad]/40"
               >
-                Ver documentação
+                {copy.developer.docsCta}
                 <ChevronRight className="w-3.5 h-3.5 ml-1" />
               </ButtonShadow>
             </Link>
@@ -61,7 +60,7 @@ export const BrsDeveloperSection = () => {
             direction="right"
             className="flex-1 w-full"
           >
-            <BrsCodeBlock />
+            <BrsCodeBlock comment={copy.codeComment} />
           </AnimatedSection>
         </div>
       </div>

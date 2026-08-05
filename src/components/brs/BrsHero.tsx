@@ -6,12 +6,17 @@ import { LatamDotMap } from './LatamDotMap'
 import { SaoPauloMarker } from './SaoPauloMarker'
 import { GlobalToLocal } from './GlobalToLocal'
 import { NoraBadge } from './NoraBadge'
+import { brsCopy, type BrsCopy } from './brsCopy'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const REGISTER_URL = 'https://app.hodle.com.br/register'
 
-export const BrsHero = () => {
+type BrsHeroProps = {
+  copy?: BrsCopy
+}
+
+export const BrsHero = ({ copy = brsCopy.pt }: BrsHeroProps) => {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="relative max-w-[1200px] mx-auto px-6 pt-20 pb-16 lg:pt-28 lg:pb-28">
@@ -32,7 +37,7 @@ export const BrsHero = () => {
 
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
-              BRS na Hodle
+              {copy.hero.eyebrow}
             </span>
 
             <h1
@@ -42,17 +47,15 @@ export const BrsHero = () => {
               <span className="block sm:inline">
                 <GlobalToLocal />
               </span>{' '}
-              do Real
+              {copy.hero.titleSuffix}
             </h1>
 
             <p className="text-lg lg:text-xl text-gray-500 max-w-[560px] mx-auto lg:mx-0 mb-6 leading-relaxed text-pretty">
-              BRS é o Real digital 1:1, emitido pela Nora Finance e disponível
-              na Hodle. Entra e sai em Pix, 24 horas por dia, e circula
-              on-chain na velocidade da internet.
+              {copy.hero.description}
             </p>
 
             <div className="flex justify-center lg:justify-start mb-9">
-              <NoraBadge />
+              <NoraBadge label={copy.hero.issuer} />
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-stretch sm:items-center">
@@ -61,7 +64,7 @@ export const BrsHero = () => {
                   faceClassName="border-[#009c3b] bg-[#009c3b] text-white hover:bg-[#009c3b]"
                   shadowClassName="bg-[#32bcad]/40"
                 >
-                  Comprar BRS
+                  {copy.hero.buyCta}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
@@ -70,7 +73,7 @@ export const BrsHero = () => {
                   faceClassName="border-gray-300 bg-white text-gray-600 hover:text-foreground"
                   shadowClassName="bg-gray-200"
                 >
-                  Ver a API
+                  {copy.hero.apiCta}
                   <ArrowUpRight className="w-4 h-4 ml-2" />
                 </ButtonShadow>
               </Link>
@@ -79,7 +82,7 @@ export const BrsHero = () => {
 
           <div className="relative w-full max-w-[420px] mx-auto aspect-[34/49] lg:max-w-none lg:mx-0">
             <LatamDotMap />
-            <SaoPauloMarker />
+            <SaoPauloMarker label={copy.hero.mapLabel} />
           </div>
         </div>
       </div>
