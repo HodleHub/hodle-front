@@ -80,6 +80,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${siteUrl}/brs`,
+      lastModified: new Date('2026-08-03'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     ...articleEntries,
     ...topicEntries,
   ]
