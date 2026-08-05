@@ -2,22 +2,37 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, X, MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 import { ButtonShadow } from './ui/ButtonShadow'
 
 const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 
-const navLinks = [
-  { label: 'Plataforma', href: '#plataforma' },
-  { label: 'API', href: '#api' },
-  { label: 'Wallets', href: '#wallets' },
-  { label: 'Pagamentos', href: '#pagamentos' },
-  { label: 'Conta PJ', href: '#conta-pj' },
-]
+const NAV_LINKS = {
+  pt: [
+    { label: 'Plataforma', href: '#plataforma' },
+    { label: 'API', href: '#api' },
+    { label: 'Wallets', href: '#wallets' },
+    { label: 'Pagamentos', href: '#pagamentos' },
+    { label: 'Conta PJ', href: '#conta-pj' },
+  ],
+  en: [
+    { label: 'Platform', href: '#plataforma' },
+    { label: 'API', href: '#api' },
+    { label: 'Wallets', href: '#wallets' },
+    { label: 'Payments', href: '#pagamentos' },
+    { label: 'Business account', href: '#conta-pj' },
+  ],
+} as const
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isEnglish = pathname.startsWith('/en/')
+  const navLinks = isEnglish ? NAV_LINKS.en : NAV_LINKS.pt
+  const salesLabel = isEnglish ? 'Talk to sales' : 'Falar com vendas'
+  const appLabel = isEnglish ? 'Open App' : 'Abrir App'
 
   return (
     <header className="bg-white/90 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50">
@@ -54,10 +69,10 @@ export default function Header() {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              Falar com vendas
+              {salesLabel}
             </Link>
             <Link href="https://app.hodle.com.br" target="_blank">
-              <ButtonShadow as="span" size="sm">Abrir App</ButtonShadow>
+              <ButtonShadow as="span" size="sm">{appLabel}</ButtonShadow>
             </Link>
           </div>
 
@@ -97,7 +112,7 @@ export default function Header() {
               className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-500 hover:text-foreground hover:bg-gray-50 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              Falar com vendas
+              {salesLabel}
             </Link>
             <div className="pt-3">
               <Link
@@ -111,7 +126,7 @@ export default function Header() {
                   className="w-full"
                   faceClassName="w-full"
                 >
-                  Abrir App
+                  {appLabel}
                 </ButtonShadow>
               </Link>
             </div>

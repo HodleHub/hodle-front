@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { brsCopy } from './brsCopy'
 
 const TABS = ['TypeScript', 'cURL'] as const
 type Tab = (typeof TABS)[number]
 
-const TypeScriptSnippet = () => {
+const TypeScriptSnippet = ({ comment }: { comment: string }) => {
   return (
     <>
       <div>
@@ -34,7 +35,7 @@ const TypeScriptSnippet = () => {
       </div>
       <div className="mt-3">
         <span className="text-gray-600">
-          {'// Payout: BRS da sua conta -> carteira on-chain'}
+          {comment}
         </span>
       </div>
       <div>
@@ -140,7 +141,11 @@ const CurlSnippet = () => {
   )
 }
 
-export const BrsCodeBlock = () => {
+export const BrsCodeBlock = ({
+  comment = brsCopy.pt.codeComment,
+}: {
+  comment?: string
+}) => {
   const [active, setActive] = useState<Tab>('TypeScript')
 
   return (
@@ -167,7 +172,11 @@ export const BrsCodeBlock = () => {
       </div>
       <div className="p-5 font-mono text-[12px] leading-6 overflow-x-auto min-h-[300px]">
         <div key={active}>
-          {active === 'TypeScript' ? <TypeScriptSnippet /> : <CurlSnippet />}
+          {active === 'TypeScript' ? (
+            <TypeScriptSnippet comment={comment} />
+          ) : (
+            <CurlSnippet />
+          )}
         </div>
       </div>
     </div>
