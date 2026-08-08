@@ -187,10 +187,10 @@ export default function FAQPage() {
               Falar com vendas
             </a>
             <Link
-              href="/articles"
+              href="/glossario"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-gray-300 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
             >
-              Ver artigos
+              Ver glossário
             </Link>
             <Link
               href="/precos"

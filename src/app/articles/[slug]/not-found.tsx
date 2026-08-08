@@ -11,10 +11,10 @@ export default function ArticleNotFound() {
         O artigo que você está procurando não existe ou foi removido.
       </p>
       <Link
-        href="/articles"
+        href="/glossario"
         className="bg-foreground hover:bg-foreground/90 text-white font-medium px-6 py-3 rounded-xl transition-colors"
       >
-        Ver todos os artigos
+        Ver o glossário
       </Link>
     </div>
   )
