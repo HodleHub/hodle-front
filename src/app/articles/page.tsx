@@ -1,4 +1,5 @@
 import { getAllArticles } from '../../utils/mdx'
+import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -7,6 +8,14 @@ export const revalidate = 3600 // Revalidate every hour
 
 export default function ArticlesPage() {
   const articles = getAllArticles()
+
+  // src/content/articles is empty since the blog was folded into the topic
+  // pages. Rendering the shell with zero cards answers 200 with no content,
+  // which Search Console files as a soft 404. Answering 404 is the honest
+  // status; the page comes back on its own the day an article is added.
+  if (articles.length === 0) {
+    notFound()
+  }
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

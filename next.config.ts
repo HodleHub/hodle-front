@@ -44,6 +44,11 @@ const nextConfig: NextConfig = {
         destination: '/precos',
         permanent: true,
       },
+      {
+        source: '/articles/comecando-com-bitcoin',
+        destination: '/comprar-bitcoin-com-pix',
+        permanent: true,
+      },
       ...legalAliases.map((alias) => ({ ...alias, permanent: true })),
     ]
   },
