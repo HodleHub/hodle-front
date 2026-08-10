@@ -1,4 +1,4 @@
-import { getAllArticles } from '../../../utils/mdx'
+import { getAllArticles } from '../../../utils/getAllArticles'
 import { NextResponse } from 'next/server'
 
 export async function GET() {

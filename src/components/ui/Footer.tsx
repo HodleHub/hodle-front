@@ -97,6 +97,7 @@ export function Footer() {
             {
               title: isEnglish ? 'Resources' : 'Recursos',
               links: [
+                { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
                 { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },

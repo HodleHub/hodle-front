@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getAllArticles } from '../utils/mdx'
+import { getAllArticles } from '../utils/getAllArticles'
 import { getAllTopics } from '../utils/getAllTopics'
 import { pageUpdatedAt } from '../content/pageUpdatedAt'
 

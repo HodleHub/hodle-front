@@ -1,0 +1,61 @@
+---
+title: 'A invoice que o mundo paga e o Brasil recebe em Pix'
+description: 'Uma BOLT11 emitida pela API dispara um payout Pix assim que é paga. O pagador pode estar em qualquer lugar; o recebedor está no Brasil e vê um Pix.'
+date: '2026-07-22'
+category: 'produto'
+author: 'Hodle'
+authorRole: 'Equipe de produto'
+coverKicker: 'Lightning → Pix'
+---
+
+Existe um problema que quase toda plataforma brasileira com clientes fora do país
+encontra mais cedo ou mais tarde: o pagador está em outro lugar, e o recebedor
+quer Pix. As duas pontas funcionam bem. O meio é que costuma ser caro, lento e
+cheio de cadastro.
+
+A resposta da Hodle é uma invoice.
+
+## O formato
+
+`POST /api/lightning/invoice` emite uma BOLT11. Ela é paga como qualquer invoice
+Lightning — o pagador não precisa saber que existe Pix do outro lado, nem abrir
+conta em lugar nenhum. Quando a invoice é paga, o payout Pix é disparado
+automaticamente.
+
+Do ponto de vista de quem integra, são duas responsabilidades:
+
+- emitir a invoice e mostrar ao pagador;
+- tratar o webhook que avisa a mudança de estado.
+
+Não há terceira etapa. Não há tela intermediária pedindo que alguém "saque".
+
+## Por que isso muda o produto, e não só a integração
+
+Vale separar o que é conveniência técnica do que é conveniência de produto.
+
+Tecnicamente, o ganho é ter um único identificador atravessando as duas redes: a
+invoice é o que o pagador paga e é a mesma coisa que a sua aplicação acompanha
+até o Pix cair.
+
+De produto, o ganho é que o recebedor brasileiro nunca precisa entender Bitcoin.
+Ele vê um Pix. Toda a complexidade fica do lado que já escolheu conviver com ela.
+
+> O melhor trilho de pagamento é o que o recebedor não precisa aprender.
+
+## O que confirmar antes de ir para produção
+
+Três pontos que valem uma leitura atenta da documentação:
+
+- **Assinatura de webhook.** O mesmo HMAC dos demais eventos. Sem verificação, a
+  confirmação de pagamento é só um POST que qualquer um manda.
+- **KYC.** On-ramp e off-ramp exigem KYC do usuário final. Isso é parte do fluxo,
+  não um detalhe de compliance a resolver depois.
+- **Estados intermediários.** A invoice paga e o Pix liquidado são eventos
+  distintos. Modele os dois; não colapse em um booleano.
+
+## Referência
+
+O fluxo ponta a ponta está em
+[Lightning to Pix](https://docs.hodle.com.br/docs/flow-lightning-pix), e o
+endpoint em
+[lightning-invoice](https://docs.hodle.com.br/docs/lightning-invoice).
