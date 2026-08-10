@@ -1,97 +1,52 @@
-import { getAllArticles } from '../../utils/mdx'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
+import { getAllArticles } from '../../utils/getAllArticles'
+import ArticleRow from '../../components/article/articleRow'
+
+const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 export const dynamic = 'force-static'
-export const revalidate = 3600 // Revalidate every hour
+export const revalidate = 3600
 
 export default function ArticlesPage() {
   const articles = getAllArticles()
 
-  // src/content/articles is empty since the blog was folded into the topic
-  // pages. Rendering the shell with zero cards answers 200 with no content,
-  // which Search Console files as a soft 404. Answering 404 is the honest
-  // status; the page comes back on its own the day an article is added.
+  // Rendering the shell with zero rows answers 200 with no content, which
+  // Search Console files as a soft 404. Answering 404 is the honest status; the
+  // page comes back on its own the day an article is added.
   if (articles.length === 0) {
     notFound()
   }
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
-          <span className="h-1 w-1 rounded-full bg-foreground" />
-          Blog
+    <div className="mx-auto max-w-[1160px] px-6 pb-24 pt-14 lg:pt-20">
+      <header className="lg:grid lg:grid-cols-[168px_minmax(0,1fr)] lg:gap-14">
+        <span className="mb-7 block text-[13px] leading-none tracking-[-0.01em] text-foreground lg:mb-0 lg:pt-3">
+          artigos
         </span>
-        <h1 className="text-[clamp(2.4rem,5vw,3.8rem)] font-light text-foreground tracking-[-0.03em] mb-6">
-          <span
-            className="italic"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-          >
-            Artigos
-          </span>{' '}
-          Hodle
-        </h1>
-        <p className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
-          Aprenda sobre Bitcoin, Lightning Network e como aproveitar ao máximo a
-          tecnologia blockchain.
-        </p>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {articles.map((article) => (
-          <Link
-            key={article.slug}
-            href={`/articles/${article.slug}`}
-            target="_blank"
-            className="block group"
+        <div className="max-w-[720px]">
+          <h1
+            className={`${heading} text-[clamp(2.4rem,5vw,3.6rem)] font-light leading-[1.05] tracking-[-0.035em] text-foreground`}
           >
-            <div className="h-full flex flex-col overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white border border-gray-200 group-hover:border-gray-400 transform group-hover:-translate-y-1">
-              <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src={article.imageUrl}
-                  alt={article.title}
-                  width={600}
-                  height={350}
-                  className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="flex-1 p-6 flex flex-col">
-                <h3 className="text-xl font-semibold text-foreground mb-2 transition-colors duration-200">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 text-sm flex-1 mb-4">
-                  {article.description}
-                </p>
-                <div className="text-sm text-gray-500 mb-4">
-                  {new Date(article.date).toLocaleDateString('pt-BR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </div>
-                <div className="text-foreground text-sm font-semibold flex items-center">
-                  Ler artigo
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </Link>
+            <span
+              className="italic"
+              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+            >
+              Artigos
+            </span>{' '}
+            Hodle
+          </h1>
+
+          <p className="mt-5 max-w-[560px] text-[15px] leading-[1.7] text-gray-500">
+            Notas de produto, engenharia e mercado sobre os trilhos que a Hodle
+            opera: Pix, stablecoins, Lightning e as APIs que ligam os três.
+          </p>
+        </div>
+      </header>
+
+      <div className="mt-14 border-t border-gray-200">
+        {articles.map((article) => (
+          <ArticleRow key={article.slug} article={article} withThumb />
         ))}
       </div>
     </div>

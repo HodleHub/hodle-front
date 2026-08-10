@@ -1,0 +1,74 @@
+---
+title: 'Um POST e um GET: como um Pix sai de um saldo em stablecoin'
+description: 'O caminho inteiro de um pagamento Pix financiado por USDT ou USDC, do payout à confirmação por webhook — e por que o gás não aparece na conta de quem integra.'
+date: '2026-08-06'
+category: 'engenharia'
+author: 'Hodle'
+authorRole: 'Equipe de engenharia'
+coverKicker: 'USDT → Pix'
+---
+
+Quem integra pagamentos costuma esperar que "pagar um Pix com stablecoin" seja
+uma sequência longa: aprovar token, estimar gás, esperar confirmação, converter,
+só então disparar o Pix. Na API da Hodle isso é um `POST` e um `GET`.
+
+Este texto descreve o caminho inteiro — o que a sua aplicação faz, o que acontece
+do outro lado, e onde ficam as decisões que valem a pena entender antes de
+colocar em produção.
+
+## O que a sua aplicação envia
+
+O ponto de entrada é o payout. A chamada declara o destino Pix, o valor e o ativo
+que financia a operação — USDT em Polygon ou Tron, USDC em Base.
+
+```http
+POST /api/wallet/payout
+```
+
+A rede não é uma integração separada: é parâmetro da mesma chamada. O mesmo
+código atende Polygon, Base ou Tron trocando um campo, e não uma implementação.
+
+## Onde foi parar o gás
+
+Nas redes EVM o gás é patrocinado. Isso não é uma cortesia de marketing — é uma
+decisão de arquitetura que muda o que a sua aplicação precisa saber.
+
+Sem patrocínio, todo produto que toca stablecoin herda um segundo problema de
+tesouraria: manter saldo da moeda nativa em cada rede, em cada carteira, e lidar
+com o pagamento que falha porque a carteira ficou sem MATIC. Com o gás
+patrocinado, a carteira do usuário só precisa do ativo que ele de fato tem.
+
+> A carteira do usuário guarda o ativo que ele quer guardar. Nada além disso.
+
+## Como você sabe que acabou
+
+Duas formas, e elas servem a propósitos diferentes.
+
+- **`GET` no payout** — leitura direta do estado. Bom para uma tela que o usuário
+  está olhando agora.
+- **Webhook assinado** — a mudança de estado chega até você. Bom para tudo que
+  precisa acontecer sem ninguém olhando: baixa no pedido, e-mail, conciliação.
+
+Os webhooks são assinados com HMAC. Verificar a assinatura não é opcional: um
+endpoint que aceita qualquer corpo POST é um endpoint que aceita a confirmação de
+um pagamento que nunca existiu.
+
+## O que fica fora do caminho
+
+Vale dizer o que a operação **não** faz, porque é isso que costuma surpreender
+quem vem de exchange.
+
+Não existe saldo interno intermediário esperando saque. A entrega é o passo final
+da própria operação, não um segundo pedido que o usuário precisa lembrar de
+fazer. As chaves privadas seguem sob controle exclusivo do usuário — a Hodle é
+software, não custodiante.
+
+## Por onde começar
+
+A referência de endpoints está em
+[docs.hodle.com.br](https://docs.hodle.com.br/docs/wallet-payout), e o fluxo
+completo, ponta a ponta, está documentado em
+[Stable to Pix](https://docs.hodle.com.br/docs/flow-stable-pix).
+
+Se o seu caso é o inverso — dinheiro entrando de fora do Brasil e saindo em Pix —
+o caminho é a invoice Lightning, e ele merece o próprio texto.

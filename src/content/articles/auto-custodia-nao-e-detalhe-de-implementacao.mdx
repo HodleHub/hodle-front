@@ -1,0 +1,63 @@
+---
+title: 'Auto-custódia não é detalhe de implementação'
+description: 'Quando as chaves ficam com o usuário, muda o que a sua empresa é obrigada a fazer, o que ela é obrigada a guardar e o que acontece com o cliente no pior dia possível.'
+date: '2026-07-09'
+category: 'mercado'
+author: 'Hodle'
+authorRole: 'Equipe Hodle'
+coverKicker: 'Chaves sob controle do usuário'
+---
+
+"Auto-custodial" virou item de tabela comparativa, ao lado de coisas como
+"suporte 24/7". É uma perda: a escolha de custódia é provavelmente a decisão de
+arquitetura mais consequente que um produto financeiro toma, e ela é tomada uma
+vez.
+
+## O que a palavra quer dizer, na prática
+
+Em uma carteira auto-custodial, a chave privada fica sob controle exclusivo do
+usuário. A empresa que oferece a carteira não consegue movimentar o saldo — não
+por política interna, mas porque não tem como.
+
+Isso soa como uma limitação, e é. A questão é o que essa limitação compra.
+
+## O que a limitação compra
+
+**Reduz a superfície do pior dia.** Um provedor que não pode mover fundos não é
+um alvo com o mesmo valor. O invasor que entra no seu banco de dados encontra
+metadados, não a capacidade de sacar.
+
+**Muda o que você é.** Um sistema que custodia ativos de terceiros é uma coisa
+diferente, em obrigação e em regulação, de um sistema que emite instruções. A
+Hodle opera como software: não é banco, não é instituição financeira, não emite
+moeda eletrônica e não custodia ativos de clientes. Os fluxos regulados correm
+por parceiros licenciados.
+
+**Deixa o cliente sair.** Uma carteira em que a chave é do usuário continua
+funcionando se o fornecedor desaparecer. É a diferença entre um produto e uma
+dependência.
+
+> Custódia é a única decisão de arquitetura que o seu cliente sente no dia em que
+> tudo dá errado.
+
+## O que a limitação custa
+
+Seria desonesto listar só o primeiro lado.
+
+- **Recuperação é um problema de produto.** Não existe "esqueci a senha" com
+  reset por e-mail. Existe desenho de recuperação, e ele precisa ser bom.
+- **Nem todo fluxo cabe.** Operações que dependem de mover saldo de terceiros sem
+  a presença deles simplesmente não existem nesse modelo.
+- **Assinar é uma etapa.** Payouts e transferências exigem material de chave que
+  a sua aplicação precisa buscar e tratar com cuidado.
+
+Esses custos são reais, e são o motivo pelo qual muita gente escolhe o outro
+caminho. A recomendação aqui não é que auto-custódia seja sempre certa — é que
+seja uma decisão, e não um adjetivo herdado do fornecedor.
+
+## Onde ver como isso aparece na API
+
+As carteiras expõem endereços e saldos por rede, e o material de chave necessário
+para assinar fica em [wallet-keys](https://docs.hodle.com.br/docs/wallet-keys).
+Vale ler esse endpoint antes de decidir a arquitetura: ele é o ponto em que a
+escolha de custódia deixa de ser abstrata.
