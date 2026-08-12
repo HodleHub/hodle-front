@@ -42,12 +42,12 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center" aria-label="Hodle">
             <Image
-              width={868}
-              height={257}
-              src="/new_logo_hodle.png"
+              width={500}
+              height={500}
+              src="/h-logo.svg"
               alt="Hodle"
               priority
-              className="h-7 w-auto"
+              className="h-8 w-8"
             />
           </Link>
 
