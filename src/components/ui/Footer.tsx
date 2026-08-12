@@ -70,7 +70,6 @@ export function Footer() {
                     : 'Receber Pix em stablecoin',
                   href: '/receber-pix-em-stablecoin',
                 },
-                { label: 'Offshore', href: '/offshore' },
               ],
             },
             {

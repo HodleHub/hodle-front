@@ -2,7 +2,7 @@ import { TopicPage } from '../../types/topic'
 
 export const offshore: TopicPage = {
   slug: 'offshore',
-  title: 'Offshore, LLC e proteção patrimonial com cripto | Hodle',
+  title: 'Offshore, LLC e proteção patrimonial com cripto',
   h1: 'Offshore, LLC e proteção patrimonial para quem opera cripto',
   description:
     'Como estruturar offshore e LLC de forma lícita, proteger patrimônio com autocustódia e operar stablecoin na conta PJ. A Hodle cuida do rail Pix–stablecoin; a Solidus Wealth estrutura o jurídico.',
@@ -30,7 +30,7 @@ export const offshore: TopicPage = {
     { src: '/h-logo.svg', label: 'Hodle' },
   ],
   ctaSubhead:
-    'Estruturação jurídica é com especialista. Para offshore, LLC e sucessão, recomendamos a Solidus Wealth.',
+    'Estruturação jurídica é com especialista. Para offshore, LLC e sucessão, recomendamos a Solidus Wealth. A Hodle não presta consultoria jurídica ou tributária.',
   ctaPrimary: {
     label: 'Falar com a Solidus Wealth',
     href: 'https://www.soliduswealth.org/index_pt',
