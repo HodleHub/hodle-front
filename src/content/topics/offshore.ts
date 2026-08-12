@@ -1,0 +1,165 @@
+import { TopicPage } from '../../types/topic'
+
+export const offshore: TopicPage = {
+  slug: 'offshore',
+  title: 'Offshore, LLC e proteção patrimonial com cripto | Hodle',
+  h1: 'Offshore, LLC e proteção patrimonial para quem opera cripto',
+  description:
+    'Como estruturar offshore e LLC de forma lícita, proteger patrimônio com autocustódia e operar stablecoin na conta PJ. A Hodle cuida do rail Pix–stablecoin; a Solidus Wealth estrutura o jurídico.',
+  keywords: [
+    'offshore',
+    'abrir llc',
+    'llc para brasileiros',
+    'proteção patrimonial',
+    'holding patrimonial',
+    'offshore cripto',
+    'stablecoin conta pj',
+    'planejamento sucessório bitcoin',
+  ],
+  primaryKeyword: 'offshore cripto',
+  updatedAt: '2026-08-12T17:50:45Z',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+  kicker: 'OFFSHORE E PROTEÇÃO PATRIMONIAL',
+  subhead:
+    'Estruturar uma offshore ou LLC não é esconder patrimônio: é organizar, declarar e proteger. Esta página explica o que cada estrutura resolve, onde entram as stablecoins na conta PJ e quem pode montar isso com você.',
+  heroIcons: [
+    { src: '/btc.svg', label: 'Bitcoin' },
+    { src: '/usdt.svg', label: 'USDT' },
+    { src: '/globe.svg', label: 'Offshore' },
+    { src: '/h-logo.svg', label: 'Hodle' },
+  ],
+  ctaSubhead:
+    'Estruturação jurídica é com especialista. Para offshore, LLC e sucessão, recomendamos a Solidus Wealth.',
+  ctaPrimary: {
+    label: 'Falar com a Solidus Wealth',
+    href: 'https://www.soliduswealth.org/index_pt',
+  },
+  ctaSecondary: { label: 'Abrir conta PJ na Hodle', href: 'https://app.hodle.com.br' },
+  sections: [
+    {
+      id: 'por-que-offshore',
+      kind: 'PROSE',
+      heading: 'Por que empresas e famílias montam estruturas offshore',
+      body: 'Uma estrutura offshore é uma pessoa jurídica constituída fora do país de residência — declarada às autoridades e operada dentro da lei. Os motivos legítimos são conhecidos: diversificação jurisdicional, acesso a bancos e provedores internacionais, planejamento sucessório e separação clara entre patrimônio pessoal e operação da empresa. Para quem tem parte do patrimônio em Bitcoin e stablecoins, a estrutura resolve um problema a mais: dar personalidade jurídica e governança a ativos que, sozinhos, ficam no CPF do fundador.',
+      bullets: [],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+    {
+      id: 'llc',
+      kind: 'PROSE',
+      heading: 'LLC: a porta de entrada mais comum',
+      body: 'A LLC americana é a estrutura mais usada por brasileiros que operam digital: barata de constituir, simples de manter e aceita por processadores de pagamento, exchanges e bancos digitais internacionais. Wyoming, Delaware e New Mexico são as jurisdições mais frequentes. Uma LLC bem constituída tem operating agreement, registered agent, contabilidade em dia e — ponto que quase todo mundo esquece — as declarações brasileiras correspondentes. LLC sem declaração não é planejamento: é passivo.',
+      bullets: [
+        'Constituição rápida e custo de manutenção baixo em relação a outras jurisdições',
+        'Aceita em provedores de pagamento e plataformas cripto internacionais',
+        'Exige operating agreement, registered agent e contabilidade em dia',
+        'Deve ser declarada no Brasil — a estrutura é lícita, não invisível',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+    {
+      id: 'protecao-patrimonial',
+      kind: 'PROSE',
+      heading: 'Proteção patrimonial e sucessão com ativos digitais',
+      body: 'Proteção patrimonial séria combina o veículo jurídico certo — holding, LLC, fundação ou trust — com custódia técnica bem desenhada. Para Bitcoin e stablecoins isso significa autocustódia com multisig, chaves distribuídas geograficamente e um plano de sucessão que não dependa de uma única pessoa lembrar de uma senha. O objetivo não é esconder: é garantir que o patrimônio sobreviva a litígios, a divórcios mal resolvidos e à própria sucessão, com tudo declarado e documentado.',
+      bullets: [],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+    {
+      id: 'stablecoin-conta-pj',
+      kind: 'PROSE',
+      heading: 'Stablecoin na conta PJ: onde a Hodle entra',
+      body: 'Estrutura jurídica pronta, falta o rail financeiro. A conta PJ da Hodle permite que a empresa receba Pix e converta para stablecoin, pague Pix a partir de USDT e mantenha tesouraria em dólar digital com autocustódia — a chave é da empresa, não nossa. É a ponte entre a operação em reais no Brasil e a tesouraria internacional da estrutura.',
+      bullets: [
+        'Receber Pix direto em stablecoin na conta da empresa',
+        'Pagar contas e fornecedores em Pix usando saldo em USDT',
+        'Tesouraria em dólar digital com autocustódia e API',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+    {
+      id: 'regularizacao',
+      kind: 'PROSE',
+      heading: 'Regularização societária: arrumar a casa antes de estruturar',
+      body: 'Não adianta montar offshore em cima de uma empresa desorganizada. Regularização societária é o passo zero: contratos sociais atualizados, capital integralizado de verdade, contabilidade que bate com o extrato, ativos digitais registrados no balanço e separação real entre conta da empresa e conta do sócio. Uma estrutura internacional construída sobre uma base irregular não protege nada — só transfere o problema de jurisdição.',
+      bullets: [],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+    {
+      id: 'como-comecar',
+      kind: 'STEPS',
+      heading: 'Como começar',
+      body: 'O caminho que a Solidus Wealth aplica com clientes segue três etapas.',
+      bullets: [
+        'Qualificação: entender patrimônio, residência fiscal, objetivos de sucessão e exposição a cripto',
+        'Análise: desenhar a estrutura — LLC, holding, trust ou combinação — com os profissionais de cada jurisdição',
+        'Estruturação: constituir os veículos, montar a custódia multisig e documentar o plano de sucessão',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+    {
+      id: 'solidus',
+      kind: 'PROSE',
+      heading: 'Por que recomendamos a Solidus Wealth',
+      body: 'A Solidus Wealth é especializada em estruturação patrimonial para quem tem Bitcoin e ativos digitais no centro do patrimônio: constituição de LLCs, holdings familiares, fundações e trusts (Solidus Structure), onboarding de autocustódia com diagnóstico de segurança (Solidus Compass) e custódia multisig com chaves distribuídas e plano de sucessão (Solidus Vault). É o tipo de trabalho que não dá para fazer sozinho com tutorial — e o parceiro que indicamos quando um cliente PJ da Hodle precisa da camada jurídica. A Solidus Wealth é uma empresa independente; a Hodle não presta consultoria jurídica ou tributária, e esta página não substitui aconselhamento profissional.',
+      bullets: [],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+    },
+  ],
+  faqSubhead: 'Perguntas frequentes sobre offshore, LLC e proteção patrimonial.',
+  faq: [
+    {
+      question: 'Abrir uma offshore ou LLC é legal para brasileiros?',
+      answer:
+        'Sim, desde que a estrutura seja declarada às autoridades brasileiras e mantida em conformidade nas duas jurisdições. O que é ilegal é omitir a existência da estrutura ou usá-la para ocultar patrimônio.',
+    },
+    {
+      question: 'Preciso de uma LLC para usar a conta PJ da Hodle?',
+      answer:
+        'Não. A conta PJ da Hodle atende empresas brasileiras normalmente. A estrutura internacional é um complemento para quem precisa de tesouraria ou governança fora do país.',
+    },
+    {
+      question: 'A Hodle abre a offshore para mim?',
+      answer:
+        'Não. A Hodle é a infraestrutura financeira — Pix, stablecoin e autocustódia para a conta PJ. Para constituição de offshore, LLC e planejamento sucessório, recomendamos a Solidus Wealth, empresa independente especializada nisso.',
+    },
+    {
+      question: 'O que é proteção patrimonial com Bitcoin?',
+      answer:
+        'É combinar um veículo jurídico adequado com autocustódia técnica: multisig, chaves distribuídas e plano de sucessão documentado. O objetivo é proteger o patrimônio de litígios e garantir a sucessão, sempre com tudo declarado.',
+    },
+    {
+      question: 'O que significa regularizar a empresa antes de estruturar?',
+      answer:
+        'Colocar contratos, contabilidade e balanço em ordem, registrar os ativos digitais da empresa e separar as finanças da empresa das do sócio. É pré-requisito para qualquer estruturação internacional fazer sentido.',
+    },
+  ],
+  related: [
+    { label: 'Receba Pix em stablecoin, direto na sua carteira', href: '/receber-pix-em-stablecoin' },
+    { label: 'Carteiras em que a chave é do usuário', href: '/wallet-auto-custodial' },
+    { label: 'Pague um Pix com saldo em USDT', href: '/pagar-pix-com-usdt' },
+  ],
+  ogImage: '/og-image-v2.png',
+}

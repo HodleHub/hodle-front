@@ -16,6 +16,7 @@ const NAV_LINKS = {
     { label: 'Wallets', href: '#wallets' },
     { label: 'Pagamentos', href: '#pagamentos' },
     { label: 'Conta PJ', href: '#conta-pj' },
+    { label: 'Offshore', href: '/offshore' },
   ],
   en: [
     { label: 'Platform', href: '#plataforma' },
@@ -23,6 +24,7 @@ const NAV_LINKS = {
     { label: 'Wallets', href: '#wallets' },
     { label: 'Payments', href: '#pagamentos' },
     { label: 'Business account', href: '#conta-pj' },
+    { label: 'Offshore', href: '/offshore' },
   ],
 } as const
 
