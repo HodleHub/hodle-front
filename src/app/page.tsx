@@ -273,11 +273,11 @@ export default function HomePage() {
                 <div className="hidden lg:flex flex-col w-52 border-r border-gray-200 py-4 shrink-0">
                   <div className="px-4 mb-5">
                     <Image
-                      src="/new_logo_hodle.png"
+                      src="/h-logo.svg"
                       alt="Hodle"
-                      width={868}
-                      height={257}
-                      className="h-5 w-auto"
+                      width={500}
+                      height={500}
+                      className="h-6 w-6"
                     />
                   </div>
                   <nav className="flex-1 space-y-px px-2">

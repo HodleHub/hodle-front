@@ -81,11 +81,11 @@ export default function LightningPage() {
           <div className="flex justify-center mb-6">
             <Link href="/">
               <Image
-                src="/new_logo_hodle.png"
+                src="/h-logo.svg"
                 alt="Hodle"
-                width={868}
-                height={257}
-                className="h-8 w-auto mx-auto cursor-pointer"
+                width={500}
+                height={500}
+                className="h-9 w-9 mx-auto cursor-pointer"
               />
             </Link>
           </div>

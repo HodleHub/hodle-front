@@ -22,7 +22,7 @@ export default function ArticleJsonLd({ article }: { article: ArticleMeta }) {
       '@type': 'Organization',
       name: 'Hodle',
       url: siteUrl,
-      logo: { '@type': 'ImageObject', url: `${siteUrl}/new_logo_hodle.png` },
+      logo: { '@type': 'ImageObject', url: `${siteUrl}/h-logo.svg` },
     },
   }
 

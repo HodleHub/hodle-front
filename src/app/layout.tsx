@@ -106,7 +106,7 @@ const organizationJsonLd = {
   name: 'Hodle',
   legalName: 'Hodle LLC',
   url: siteUrl,
-  logo: `${siteUrl}/new_logo_hodle.png`,
+  logo: `${siteUrl}/h-logo.svg`,
   description:
     'Infraestrutura cripto para empresas: API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede e conversão entre reais, dólar e stablecoins.',
   foundingDate: '2026-05-04',

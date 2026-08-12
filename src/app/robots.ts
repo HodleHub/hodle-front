@@ -6,19 +6,17 @@ import { MetadataRoute } from 'next'
 //
 // /lnurlpay/ and /verify/ are rewrites onto lnurl.hodle.com.br: when that host
 // is down they answer 5xx under this domain and Search Console reports it as a
-// server error on hodle.com.br. /checkout, /create, /animation and
-// /test-lightning are app and demo surfaces that answer 200 with no indexable
-// content, which is what Search Console flags as a soft 404.
+// server error on hodle.com.br. /create and /animation are app and demo
+// surfaces that answer 200 with no indexable content, which is what Search
+// Console flags as a soft 404.
 const disallow: string[] = [
   '/api/',
   '/.well-known/',
   '/lnurlp/',
   '/lnurlpay/',
   '/verify/',
-  '/checkout',
   '/create',
   '/animation',
-  '/test-lightning',
 ]
 
 const aiUserAgents: string[] = [
