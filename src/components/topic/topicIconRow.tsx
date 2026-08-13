@@ -11,7 +11,7 @@ export default function TopicIconRow({ icons }: { icons: TopicIcon[] }) {
             alt={icon.label}
             width={28}
             height={28}
-            className="w-7 h-7 rounded-full"
+            className="w-7 h-7 rounded-full object-contain"
           />
           <span className="text-xs font-medium text-gray-500">{icon.label}</span>
         </div>

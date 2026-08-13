@@ -26,9 +26,17 @@ export const offshore: TopicPage = {
   heroIcons: [
     { src: '/btc.svg', label: 'Bitcoin' },
     { src: '/usdt.svg', label: 'USDT' },
-    { src: '/globe.svg', label: 'Offshore' },
+    { src: '/solidus.png', label: 'Solidus' },
     { src: '/h-logo.svg', label: 'Hodle' },
   ],
+  partner: {
+    kicker: 'Parceiro',
+    name: 'Solidus Wealth',
+    href: 'https://www.soliduswealth.org/index_pt',
+    logoSrc: '/solidus-wordmark.png',
+    logoWidth: 188,
+    logoHeight: 40,
+  },
   ctaSubhead:
     'Estruturação jurídica é com especialista. Para offshore, LLC e sucessão, recomendamos a Solidus Wealth. A Hodle não presta consultoria jurídica ou tributária.',
   ctaPrimary: {
@@ -126,6 +134,14 @@ export const offshore: TopicPage = {
       comparison: null,
       code: null,
       image: null,
+      logo: {
+        kicker: 'Parceiro',
+        name: 'Solidus Wealth',
+        href: 'https://www.soliduswealth.org/index_pt',
+        logoSrc: '/solidus-wordmark.png',
+        logoWidth: 188,
+        logoHeight: 40,
+      },
     },
   ],
   faqSubhead: 'Perguntas frequentes sobre offshore, LLC e proteção patrimonial.',
