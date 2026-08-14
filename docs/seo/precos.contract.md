@@ -1,5 +1,23 @@
 # Contrato — `/precos` (migração de `/articles/precos`)
 
+> **DOCUMENTO HISTÓRICO — não execute as instruções abaixo.** Este contrato descreve a
+> migração de `/articles/precos` para `/precos`, concluída na leva A. A migração já
+> aconteceu. Tudo daqui para baixo é registro do que foi feito naquela leva, incluindo
+> instruções que **não valem mais**: "o corpo vai palavra por palavra do `.mdx`", "a única
+> taxa autorizada é 2%", o `OfferCatalog` de três ofertas e o critério de aceite "único
+> percentual no corpo é 2%".
+>
+> **A especificação viva de preço é `src/app/precos/page.tsx`.** Em 13 de agosto de 2026 a
+> página passou a publicar a tabela de volume (2% a 0,5%), o mínimo de R$ 0,75 por operação
+> de on-ramp/off-ramp, o rail Pix para Real on-chain (R$ 0,75 até R$ 5.000; acima disso
+> 0,10% no lugar, teto de R$ 50), o setup de contas PJ nominais (R$ 15.000, sem custo por
+> conta) e a contestação (R$ 10,00). O payout Pix, antes não publicado, virou o off-ramp.
+>
+> O que continua valendo do contrato: a rota, o redirect permanente de `/articles/precos`
+> (`permanent: true`, servido como 308), `reservedSlugs`, o rodapé, e
+> a regra de **nunca usar a chave `price` do schema.org para taxa percentual ou
+> condicional** — só para valor absoluto e incondicional em reais.
+
 Leva A. Contexto: [`ai-discoverability.walkthrough.md`](ai-discoverability.walkthrough.md).
 
 **Esta é uma migração, não uma página nova.** O conteúdo atual de
@@ -28,10 +46,15 @@ Visual: padrão de `src/app/ai/page.tsx` e `src/app/cookies/page.tsx`.
 
 ## Restrição absoluta
 
-**A única taxa autorizada é 2%.** Não invente, não estime, não interpole. As três categorias
-que o texto atual declara como não publicadas (payout Pix, transferência entre redes,
-conversão entre ativos) **continuam não publicadas** — inclusive no JSON-LD. Se você achar
-que falta um número, comente no card.
+**Não invente, não estime, não interpole nenhuma taxa.** Os valores autorizados são os que
+estão publicados hoje em `src/app/precos/page.tsx` — a nota de supersedência no topo deste
+arquivo lista quais são. As duas categorias que o texto declara como não publicadas
+(transferência entre redes, conversão entre ativos) **continuam não publicadas** — inclusive
+no JSON-LD. Se você achar que falta um número, comente no card.
+
+Na leva A esta seção dizia "a única taxa autorizada é 2%" e as categorias não publicadas
+eram três, incluindo payout Pix. O payout Pix passou a ser publicado como off-ramp em
+13 de agosto de 2026.
 
 ## Arquivos
 
