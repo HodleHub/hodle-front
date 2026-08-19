@@ -65,6 +65,10 @@ export function Footer() {
                 },
                 { label: isEnglish ? 'Real on-chain' : 'Real onchain', href: '/real-onchain' },
                 {
+                  label: 'BRS stablecoin',
+                  href: isEnglish ? '/en/brs' : '/brs',
+                },
+                {
                   label: isEnglish
                     ? 'Receive Pix in stablecoin'
                     : 'Receber Pix em stablecoin',
