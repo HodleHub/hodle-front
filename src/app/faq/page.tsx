@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
-import { Fragment } from 'react'
 import Link from 'next/link'
+import { faqItems } from '../../content/faq/faqItems'
+import { FaqAnswer } from '../../components/FaqAnswer'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -21,46 +21,6 @@ export const metadata: Metadata = {
   },
 }
 
-type FaqItem = {
-  question: string
-  answer: string
-  link?: { text: string; href: string }
-}
-
-const faqItems: FaqItem[] = [
-  {
-    question: 'O que é a Hodle?',
-    answer:
-      'A Hodle é uma plataforma brasileira de infraestrutura cripto para empresas. Oferecemos compra e venda de ativos digitais, APIs para pagamentos crossborder, wallets auto-custodiais, contas PJ com bancos parceiros e pagamento de QR codes com stablecoins.',
-  },
-  {
-    question: 'Para quem é a plataforma?',
-    answer:
-      'A Hodle é ideal para empresas SaaS, agentes de IA, fintechs e negócios que precisam de infraestrutura cripto confiável. Oferecemos APIs robustas para integração direta, além da plataforma visual para gerenciamento.',
-  },
-  {
-    question: 'As wallets são realmente auto-custodiais?',
-    answer:
-      'Sim. Na Hodle, as chaves privadas ficam 100% sob o controle do usuário. Não temos acesso às suas chaves nem aos seus fundos. Você tem total autonomia sobre seus ativos digitais.',
-  },
-  {
-    question: 'Como funciona a API?',
-    answer:
-      'Nossa API REST é completa e documentada, permitindo integração com seu sistema em minutos. Oferecemos SDKs, webhooks e callbacks em tempo real. Consulte nossa documentação em docs.hodle.com.br para mais detalhes.',
-  },
-  {
-    question: 'A Hodle é regulada?',
-    answer:
-      'A Hodle é uma empresa de software e API: não é banco, não é instituição financeira, não emite cartões diretamente e não custodia fundos ou ativos de clientes. O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados. O uso de ativos digitais no Brasil é regido pelo Marco Legal das Criptomoedas (Lei nº 14.478/2022). Os requisitos aplicáveis ao seu caso dependem do seu modelo de negócio.',
-  },
-  {
-    question: 'Quais são as taxas cobradas?',
-    answer:
-      'As taxas variam conforme o serviço utilizado. Consulte nossa página de preços para informações detalhadas sobre taxas de compra, venda, saque e transferência.',
-    link: { text: 'página de preços', href: '/precos' },
-  },
-]
-
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -72,28 +32,6 @@ const faqJsonLd = {
       text: item.answer,
     },
   })),
-}
-
-const renderFaqAnswer = (item: FaqItem): ReactNode => {
-  const { link, answer } = item
-
-  if (!link) {
-    return answer
-  }
-
-  return answer.split(link.text).map((part, index, parts) => (
-    <Fragment key={index}>
-      {part}
-      {index < parts.length - 1 && (
-        <Link
-          href={link.href}
-          className="text-foreground underline underline-offset-2 hover:text-gray-600"
-        >
-          {link.text}
-        </Link>
-      )}
-    </Fragment>
-  ))
 }
 
 const breadcrumbJsonLd = {
@@ -161,7 +99,7 @@ export default function FAQPage() {
               </summary>
               <div className="px-5 pb-4">
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  {renderFaqAnswer(item)}
+                  <FaqAnswer item={item} />
                 </p>
               </div>
             </details>

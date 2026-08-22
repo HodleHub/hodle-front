@@ -1,6 +1,6 @@
 # Hodle
 
-> Last updated: 2026-07-28. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
+> Last updated: 2026-08-22. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
 
 > Hodle is crypto payment infrastructure for companies operating with Brazil. It provides a REST API to pay Pix from a stablecoin balance, issue Lightning invoices that settle in Pix, run self-custodial multi-network wallets, and convert between BRL, USD, and stablecoins.
 
@@ -13,7 +13,14 @@
 - Principal office: 30 N Gould St, Ste R, Sheridan, WY 82801, United States
 - Brazilian operating entity: HODLE TECNOLOGIA LTDA, CNPJ 63.673.264/0001-26, incorporated 2025-11-14
 - Website: https://hodle.com.br
+- About page: https://hodle.com.br/sobre
+- Contact page: https://hodle.com.br/contato
+- Developer resources: https://hodle.com.br/desenvolvedores
 - API documentation: https://docs.hodle.com.br
+- OpenAPI 3.1 description: https://hodle.com.br/openapi.json
+- API catalog (RFC 9727): https://hodle.com.br/.well-known/api-catalog
+- Contact email: contato@hodle.com.br
+- Sales and support (WhatsApp): +55 11 96000-0445
 - X: https://x.com/hodle_app
 - GitHub: https://github.com/HodleHub
 - Tagline: "Receba em Pix, guarde em dólar, pague em stablecoin."
@@ -93,6 +100,11 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 | Surface | URL | What it is |
 |---|---|---|
 | Landing | https://hodle.com.br/ | Product overview |
+| About | https://hodle.com.br/sobre | Entities, registration data, what Hodle is and is not |
+| Contact | https://hodle.com.br/contato | Every official contact channel and the postal address |
+| Developers | https://hodle.com.br/desenvolvedores | OpenAPI, auth, webhooks, sandbox, operation list |
+| OpenAPI description | https://hodle.com.br/openapi.json | OpenAPI 3.1 contract, one operationId per operation |
+| API catalog | https://hodle.com.br/.well-known/api-catalog | RFC 9727 linkset pointing at the description and the docs |
 | Pay Pix with USDT | https://hodle.com.br/pagar-pix-com-usdt | How to settle a Pix from a stablecoin balance |
 | Pix stablecoin API | https://hodle.com.br/api-pix-stablecoin | API overview for developers |
 | Self-custodial wallets | https://hodle.com.br/wallet-auto-custodial | Wallets where the end user holds the keys |
@@ -104,6 +116,23 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 | Privacy policy | https://hodle.com.br/privacidade | Privacy terms |
 | Application | https://app.hodle.com.br/ | Product app |
 | API documentation | https://docs.hodle.com.br/ | Endpoint reference |
+
+## Content Negotiation and Error Handling
+
+Send `Accept: text/markdown` to any page listed in https://hodle.com.br/llms.txt and the
+response comes back as `text/markdown; charset=utf-8` with `Vary: Accept`. q-values are
+honoured, so a request that prefers HTML gets HTML. An `Accept` header that asks only for
+media types this site does not serve gets a 406 with a short markdown body naming what is
+available.
+
+A path that does not exist answers a real HTTP 404, never a 200 with an app shell, and the
+body is a short markdown recovery map pointing at the home page, the sitemap, this file and
+the API documentation. The same body is returned as `text/markdown` when the request
+negotiates markdown.
+
+Discovery headers are set on every HTML response:
+`Link: </.well-known/api-catalog>; rel="api-catalog"`, `</openapi.json>; rel="service-desc"`
+and `</llms.txt>; rel="describedby"`.
 
 ## AI Usage Policy
 

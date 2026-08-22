@@ -2,6 +2,12 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import React from 'react'
+import { cn } from '../utils/cn'
+
+// The reveal starts at opacity 0, which would hide the whole page from a
+// reader with scripting off. `layout.tsx` ships a <noscript> stylesheet that
+// pins this class back to its final state.
+const revealClass = 'animated-section'
 
 interface AnimatedSectionProps {
   children: React.ReactNode
@@ -34,7 +40,7 @@ export default function AnimatedSection({
 
   return (
     <motion.div
-      className={className}
+      className={cn(revealClass, className)}
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: '-80px 0px' }}

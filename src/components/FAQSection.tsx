@@ -3,46 +3,10 @@
 import { useState, useCallback } from 'react'
 import { Plus, Minus } from 'lucide-react'
 import AnimatedSection from './AnimatedSection'
-
-interface FAQItem {
-  question: string
-  answer: string
-}
+import { faqItems } from '../content/faq/faqItems'
+import { FaqAnswer } from './FaqAnswer'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
-
-const faqItems: FAQItem[] = [
-  {
-    question: 'O que é a Hodle?',
-    answer:
-      'A Hodle é uma plataforma brasileira de infraestrutura cripto para empresas. Oferecemos compra e venda de ativos digitais, APIs para pagamentos crossborder, wallets auto-custodiais, contas PJ com bancos parceiros e pagamento de QR codes com stablecoins.',
-  },
-  {
-    question: 'Para quem é a plataforma?',
-    answer:
-      'A Hodle é ideal para empresas SaaS, agentes de IA, fintechs e negócios que precisam de infraestrutura cripto confiável. Oferecemos APIs robustas para integração direta, além da plataforma visual para gerenciamento.',
-  },
-  {
-    question: 'As wallets são realmente auto-custodiais?',
-    answer:
-      'Sim. Na Hodle, as chaves privadas ficam 100% sob o controle do usuário. Não temos acesso às suas chaves nem aos seus fundos. Você tem total autonomia sobre seus ativos digitais.',
-  },
-  {
-    question: 'Como funciona a conta PJ?',
-    answer:
-      'A conta PJ é aberta em nome da sua empresa junto a bancos parceiros regulados pelo Banco Central. Permite receber e enviar Pix, TED e boletos, com compliance e KYC automatizados para agilizar o processo.',
-  },
-  {
-    question: 'Como funciona o pagamento de QR codes com stablecoins?',
-    answer:
-      'Você pode pagar qualquer QR code Pix utilizando stablecoins como USDT ou USDC. A conversão para BRL é automática e a liquidação é instantânea, sem que o recebedor precise saber que o pagamento veio de cripto.',
-  },
-  {
-    question: 'Quanto tempo demora a liquidação?',
-    answer:
-      'Pagamentos via Lightning Network e Liquid são praticamente instantâneos (menos de 1 minuto). Transações on-chain dependem do tempo de mineração do bloco, cerca de 10 minutos.',
-  },
-]
 
 export default function FAQSection() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -100,7 +64,7 @@ export default function FAQSection() {
               >
                 <div className="px-5 pb-4">
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    {item.answer}
+                    <FaqAnswer item={item} />
                   </p>
                 </div>
               </div>

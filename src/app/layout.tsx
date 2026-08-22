@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '../components/Header'
 import { Footer } from '../components/ui/Footer'
 import { Analytics } from '@vercel/analytics/next'
+import { organizationContactPoints } from '../content/organizationContactPoints'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -110,6 +111,8 @@ const organizationJsonLd = {
   description:
     'Infraestrutura cripto para empresas: API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede e conversão entre reais, dólar e stablecoins.',
   foundingDate: '2026-05-04',
+  email: 'contato@hodle.com.br',
+  telephone: '+55-11-96000-0445',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '30 N Gould St, Ste R',
@@ -118,6 +121,7 @@ const organizationJsonLd = {
     postalCode: '82801',
     addressCountry: 'US',
   },
+  contactPoint: organizationContactPoints,
   identifier: [
     {
       '@type': 'PropertyValue',
@@ -131,6 +135,7 @@ const organizationJsonLd = {
     'https://app.hodle.com.br',
     'https://docs.hodle.com.br',
   ],
+  mainEntityOfPage: `${siteUrl}/sobre`,
   areaServed: [
     { '@type': 'Country', name: 'Brazil' },
     { '@type': 'Country', name: 'United States' },
@@ -171,6 +176,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Hodle',
+  alternateName: ['Hodle LLC', 'HODLE TECNOLOGIA LTDA', 'hodle.com.br'],
   url: siteUrl,
   description:
     'Infraestrutura cripto para empresas: API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede e conversão entre reais, dólar e stablecoins.',
@@ -179,7 +185,17 @@ const websiteJsonLd = {
     '@type': 'Organization',
     name: 'Hodle',
     url: siteUrl,
+    contactPoint: organizationContactPoints,
   },
+  hasPart: [
+    { '@type': 'AboutPage', name: 'Sobre a Hodle', url: `${siteUrl}/sobre` },
+    { '@type': 'ContactPage', name: 'Contato', url: `${siteUrl}/contato` },
+    {
+      '@type': 'WebPage',
+      name: 'API Hodle para desenvolvedores',
+      url: `${siteUrl}/desenvolvedores`,
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -358,6 +374,11 @@ export default function RootLayout({
             }),
           }}
         />
+        <noscript>
+          <style>{
+            '.animated-section{opacity:1 !important;transform:none !important}'
+          }</style>
+        </noscript>
         <Header />
         {children}
         <Footer />
