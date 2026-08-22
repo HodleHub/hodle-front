@@ -17,7 +17,13 @@ const disallow: string[] = [
   '/verify/',
   '/create',
   '/animation',
+  '/md/',
 ]
+
+// The API catalog is the RFC 9727 discovery point, so it has to stay reachable
+// even though the rest of /.well-known/ is closed. A longer Allow beats the
+// shorter Disallow for every crawler that implements the standard.
+const allow: string[] = ['/', '/.well-known/api-catalog']
 
 const aiUserAgents: string[] = [
   'GPTBot',
@@ -37,12 +43,12 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow,
         disallow,
       },
       {
         userAgent: aiUserAgents,
-        allow: '/',
+        allow,
         disallow,
       },
     ],

@@ -81,6 +81,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/sobre`,
+      lastModified: new Date(pageUpdatedAt.sobre),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/contato`,
+      lastModified: new Date(pageUpdatedAt.contato),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/desenvolvedores`,
+      lastModified: new Date(pageUpdatedAt.desenvolvedores),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/brs`,
       lastModified: new Date('2026-08-03'),
       changeFrequency: 'monthly',

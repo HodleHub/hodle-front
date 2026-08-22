@@ -1,6 +1,6 @@
 # Hodle
 
-> Last updated: 2026-07-28.
+> Last updated: 2026-08-22.
 
 > Crypto payment infrastructure for companies operating with Brazil: pay Pix from a USDT or USDC balance, issue Lightning invoices that settle in Pix, run self-custodial multi-network wallets, and convert between BRL, USD, and stablecoins.
 
@@ -9,6 +9,8 @@
 - Legal name: Hodle LLC (Wyoming, United States) — filing ID 2026-001968203, incorporated 2026-05-04
 - Brazilian operating entity: HODLE TECNOLOGIA LTDA, CNPJ 63.673.264/0001-26
 - Principal office: 30 N Gould St, Ste R, Sheridan, WY 82801, United States
+- Contact: contato@hodle.com.br, +55 11 96000-0445, https://hodle.com.br/contato
+- About: https://hodle.com.br/sobre
 - Type: software and API company. Not a bank, not a financial institution, does not custody customer assets.
 - Primary market: Brazil. Website language: Brazilian Portuguese. Docs: English.
 
@@ -17,7 +19,12 @@
 - `POST /api/wallet/payout` — pay Pix funded by USDT (Polygon, Tron) or USDC (Base). Gas sponsored.
 - `POST /api/lightning/invoice` — BOLT11 invoice that triggers a Pix payout once paid.
 - Wallet, KYC, statement, and webhook guides: https://docs.hodle.com.br
+- OpenAPI 3.1 description: https://hodle.com.br/openapi.json
+- API catalog (RFC 9727): https://hodle.com.br/.well-known/api-catalog
+- Developer index: https://hodle.com.br/desenvolvedores
+- Sandbox: https://sandbox-api.hodle.com.br
 - Webhooks are HMAC-signed.
+- `Accept: text/markdown` returns markdown, with `Vary: Accept`. Dead paths return a real 404 with a markdown body. Full list in https://hodle.com.br/llms.txt
 
 ## Links
 

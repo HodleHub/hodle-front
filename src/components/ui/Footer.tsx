@@ -80,6 +80,12 @@ export function Footer() {
               title: isEnglish ? 'Developers' : 'Desenvolvedores',
               links: [
                 {
+                  label: isEnglish
+                    ? 'Developer resources'
+                    : 'Recursos para desenvolvedores',
+                  href: '/desenvolvedores',
+                },
+                {
                   label: isEnglish ? 'Stablecoin Pix API' : 'API Pix stablecoin',
                   href: '/api-pix-stablecoin',
                 },
@@ -92,6 +98,7 @@ export function Footer() {
                   href: 'https://docs.hodle.com.br',
                 },
                 { label: 'API Reference', href: 'https://docs.hodle.com.br' },
+                { label: 'OpenAPI 3.1', href: '/openapi.json' },
                 {
                   label: isEnglish ? 'Talk to sales' : 'Falar com vendas',
                   href: 'https://api.whatsapp.com/send?phone=5511960000445',
@@ -101,6 +108,8 @@ export function Footer() {
             {
               title: isEnglish ? 'Resources' : 'Recursos',
               links: [
+                { label: isEnglish ? 'About' : 'Sobre a Hodle', href: '/sobre' },
+                { label: isEnglish ? 'Contact' : 'Contato', href: '/contato' },
                 { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
                 { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },

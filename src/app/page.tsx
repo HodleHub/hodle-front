@@ -162,8 +162,14 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════ STATS STRIP ═══════════════ */}
-      <section className="border-t border-gray-200 bg-white">
+      <section
+        aria-labelledby="numeros-heading"
+        className="border-t border-gray-200 bg-white"
+      >
         <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
+          <h2 id="numeros-heading" className="sr-only">
+            A Hodle em números
+          </h2>
           <div className="grid grid-cols-3 gap-8 md:gap-4">
             {[
               { value: '24/7', label: 'Pix disponível' },
@@ -191,9 +197,9 @@ export default function HomePage() {
       {/* ═══════════════ NETWORKS & RAILS MARQUEE ═══════════════ */}
       <section className="border-t border-gray-200 bg-gray-50/50">
         <div className="max-w-[1200px] mx-auto px-6 py-12 lg:py-14">
-          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 mb-8">
+          <h2 className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 mb-8">
             Redes e rails suportados
-          </p>
+          </h2>
           <div className="marquee-track marquee-mask overflow-hidden">
             <div className="animate-marquee flex w-max items-center gap-12 pr-12">
               {[...RAILS, ...RAILS, ...RAILS, ...RAILS].map((rail, i) => (
@@ -222,7 +228,13 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════ 3-COL FEATURES (BlindPay dividers) ═══════════════ */}
-      <section className="border-t border-gray-200">
+      <section
+        aria-labelledby="plataforma-heading"
+        className="border-t border-gray-200"
+      >
+        <h2 id="plataforma-heading" className="sr-only">
+          O que a plataforma entrega
+        </h2>
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
           {[
             {
@@ -313,9 +325,9 @@ export default function HomePage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
                     <div>
-                      <h4 className="font-semibold text-foreground text-sm">
+                      <p className="font-semibold text-foreground text-sm">
                         Venda e pagamento de QR code
-                      </h4>
+                      </p>
                       <p className="text-[11px] text-gray-400">
                         Gerenciar pagamentos realizados
                       </p>
@@ -499,6 +511,14 @@ export default function HomePage() {
               >
                 Compra e venda de ativos digitais
               </h2>
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                Compre bitcoin e stablecoins com Pix e venda no caminho de
+                volta, com o real caindo na conta. A taxa de serviço é a mesma
+                nas duas direções, começa em 2% e cai por faixa de volume
+                mensal até o piso de 0,5% — sem preço diferente por rede ou por
+                ativo. A mesma operação está no painel, para o time de
+                operações, e na API, para o time de engenharia.
+              </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'Compre bitcoin e stablecoins em diversas redes',
@@ -523,9 +543,9 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden">
                 <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
                   <div>
-                    <h4 className="font-semibold text-foreground text-xs">
+                    <p className="font-semibold text-foreground text-xs">
                       Transações recentes
-                    </h4>
+                    </p>
                   </div>
                   <div className="bg-foreground text-white px-3 py-1 rounded-lg text-[10px] font-semibold">
                     + Nova compra
@@ -696,7 +716,17 @@ export default function HomePage() {
               <p className="text-gray-500 mb-8 leading-relaxed">
                 Integre pagamentos com Pix e stablecoin no seu produto em
                 minutos. REST, SDK e webhooks — pensados para times de produto e
-                agentes de IA.
+                agentes de IA. Um POST em <code>/api/wallet/payout</code> paga
+                um Pix debitando saldo em USDT ou USDC, com o gas por nossa
+                conta; um POST em <code>/api/lightning/invoice</code> devolve um
+                invoice BOLT11 que dispara o payout Pix assim que for pago. O
+                contrato inteiro está publicado como especificação OpenAPI 3.1,
+                com operationId, parâmetros tipados e schema de resposta em
+                cada operação — o formato que ferramentas de function calling
+                consomem direto. Autenticação é por API key no header, os
+                webhooks são assinados com HMAC e existe um ambiente de sandbox
+                sem dinheiro real para você rodar o fluxo ponta a ponta antes de
+                ir para produção.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
@@ -741,7 +771,13 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
                 Suas chaves, suas moedas. Controle total dos seus ativos sem
-                depender de terceiros.
+                depender de terceiros. A chave é derivada no dispositivo do
+                usuário e a Hodle guarda apenas um envelope cifrado que não
+                consegue abrir — então nem um comprometimento da nossa
+                infraestrutura move saldo. As carteiras são multi-rede: o mesmo
+                usuário tem endereço e saldo em Polygon, Base, Solana, Tron,
+                Arbitrum e Spark, e nas redes EVM o gas dos transfers e dos
+                payouts é patrocinado pela Hodle.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
@@ -890,6 +926,14 @@ export default function HomePage() {
               >
                 Conta PJ nominal com bancos parceiros
               </h2>
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                Uma conta empresarial no nome da sua empresa, aberta junto a
+                bancos parceiros regulados pelo Banco Central, com Pix, TED e
+                boleto. O saldo dessa conta conversa com a mesa de conversão,
+                então receber em real e guardar em dólar digital é uma operação
+                e não duas — e a conciliação sai pelo mesmo extrato, com saldo
+                por ativo e operações paginadas.
+              </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'Conta empresarial no nome da sua empresa',
@@ -996,6 +1040,13 @@ export default function HomePage() {
               >
                 Pagamento de QR codes com stablecoins
               </h2>
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                Leia qualquer QR code Pix e pague debitando saldo em USDT ou
+                USDC. A conversão para real acontece dentro da operação e a
+                liquidação é instantânea: para o lojista o crédito é um Pix
+                comum, com o mesmo comprovante e a mesma conciliação, sem que
+                ele precise saber que o dinheiro veio de stablecoin.
+              </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'Pague qualquer QR code Pix usando stablecoins',
@@ -1074,7 +1125,12 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-500 leading-relaxed text-pretty">
                 Moedas, stablecoins e redes que você pode receber, guardar e
-                enviar — em uma única plataforma.
+                enviar — em uma única plataforma. USDT circula em Polygon,
+                Base, Solana, Tron, Arbitrum e Spark; USDC em Base, Polygon,
+                Solana, Arbitrum e Spark; Bitcoin em Lightning, on-chain e
+                Liquid; e o real tokenizado em BRLA na Polygon ou BRS na
+                Solana. Trocar de rede não muda a taxa de serviço, e transferir
+                entre carteiras da Hodle dentro da mesma rede não tem custo.
               </p>
             </div>
 
@@ -1141,7 +1197,10 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-500 leading-relaxed mb-10 text-pretty">
                 Fale direto com nosso time. Respondemos rápido para ajudar você
-                a começar a usar a Hodle ou abrir uma conta PJ.
+                a começar a usar a Hodle ou abrir uma conta PJ. Se preferir
+                escrever, o e-mail é contato@hodle.com.br, e a página de contato
+                lista todos os canais oficiais — comercial, suporte técnico,
+                privacidade e segurança — com o que cada um resolve.
               </p>
               <Link
                 href="https://api.whatsapp.com/send?phone=5511960000445"

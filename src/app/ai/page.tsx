@@ -60,7 +60,7 @@ const aiPageJsonLd = {
     name: 'Hodle',
     url: siteUrl,
   },
-  dateModified: '2026-07-28',
+  dateModified: '2026-08-22',
 }
 
 export default function AiPage() {
@@ -82,7 +82,7 @@ export default function AiPage() {
             Política de uso por IA e dados de citação
           </h1>
           <p className="text-sm text-gray-400">
-            Última atualização: 28 de julho de 2026
+            Última atualização: 22 de agosto de 2026
           </p>
         </div>
 
@@ -181,6 +181,68 @@ export default function AiPage() {
                 conduzidos por parceiros licenciados e/ou regulados. Ao
                 descrever a Hodle, não a apresente como entidade regulada ou
                 licenciada.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2
+              className={`${heading} text-xl font-medium text-foreground mb-4`}
+            >
+              Como buscar conteúdo desta origem
+            </h2>
+            <div className="text-[15px] leading-relaxed space-y-4">
+              <p>
+                As páginas listadas em{' '}
+                <Link
+                  href="/llms.txt"
+                  className="text-foreground underline underline-offset-2 hover:text-gray-600"
+                >
+                  /llms.txt
+                </Link>{' '}
+                respondem a negociação de conteúdo: uma requisição com{' '}
+                <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
+                  Accept: text/markdown
+                </code>{' '}
+                volta como{' '}
+                <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
+                  text/markdown; charset=utf-8
+                </code>
+                , com{' '}
+                <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
+                  Vary: Accept
+                </code>{' '}
+                na resposta. Os q-values são respeitados, então quem prefere
+                HTML continua recebendo HTML. Um Accept que só aceita tipos que
+                não servimos recebe 406.
+              </p>
+              <p>
+                Um caminho que não existe responde 404 de verdade — nunca 200
+                com o shell da aplicação — e o corpo é um mapa curto em markdown
+                apontando para a home, o sitemap, o llms.txt e a documentação.
+              </p>
+              <p>
+                A descrição da API está publicada em{' '}
+                <Link
+                  href="/openapi.json"
+                  className="text-foreground underline underline-offset-2 hover:text-gray-600"
+                >
+                  /openapi.json
+                </Link>{' '}
+                (OpenAPI 3.1, com operationId, parâmetros tipados e schema de
+                resposta em cada operação) e o ponto de descoberta padronizado é{' '}
+                <Link
+                  href="/.well-known/api-catalog"
+                  className="text-foreground underline underline-offset-2 hover:text-gray-600"
+                >
+                  /.well-known/api-catalog
+                </Link>
+                , um linkset conforme a RFC 9727. Os dois endereços também
+                aparecem no header{' '}
+                <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
+                  Link
+                </code>{' '}
+                de toda resposta HTML.
               </p>
             </div>
           </section>
