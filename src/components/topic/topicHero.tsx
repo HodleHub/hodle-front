@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { ButtonShadow } from '../ui/ButtonShadow'
 import TopicIconRow from './topicIconRow'
+import TopicPartnerLockup from './topicPartnerLockup'
 import { TopicPage } from '../../types/topic'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -25,9 +26,15 @@ export default function TopicHero({ topic }: { topic: TopicPage }) {
             {topic.h1}
           </h1>
 
-          <p className="text-lg lg:text-xl text-gray-500 max-w-[660px] mx-auto mb-9 leading-relaxed text-pretty">
+          <p className="text-lg lg:text-xl text-gray-500 max-w-[660px] mx-auto mb-8 leading-relaxed text-pretty">
             {topic.subhead}
           </p>
+
+          {topic.partner && (
+            <div className="mb-8">
+              <TopicPartnerLockup partner={topic.partner} />
+            </div>
+          )}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link
