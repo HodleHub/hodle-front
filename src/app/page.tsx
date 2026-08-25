@@ -37,6 +37,7 @@ const RAILS = [
   { icon: '/arbitrum.svg', name: 'Arbitrum' },
   { icon: '/polygon.svg', name: 'Polygon' },
   { icon: '/base.png', name: 'Base' },
+  { icon: '/solana.svg', name: 'Solana' },
   { icon: '/ln.svg', name: 'Lightning' },
   { icon: '/spark.svg', name: 'Spark' },
 ] as const
@@ -70,6 +71,7 @@ const ASSET_GROUPS = [
       { icon: '/arbitrum.svg', name: 'Arbitrum' },
       { icon: '/polygon.svg', name: 'Polygon' },
       { icon: '/base.png', name: 'Base' },
+      { icon: '/solana.svg', name: 'Solana' },
       { icon: '/spark.svg', name: 'Spark' },
     ],
   },
