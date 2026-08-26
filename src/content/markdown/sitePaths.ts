@@ -19,6 +19,7 @@ export const staticSitePaths: string[] = [
   '/faq',
   '/glossario',
   '/legal',
+  '/neobank',
   '/pitch',
   '/precos',
   '/privacidade',
