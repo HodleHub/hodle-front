@@ -1,1227 +1,549 @@
 import type { Metadata } from 'next'
-import AnimatedSection from '../components/AnimatedSection'
-import FAQSection from '../components/FAQSection'
-import CodeBlock from '../components/CodeBlock'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ButtonShadow } from '../components/ui/ButtonShadow'
 import {
-  Check,
+  ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  Lock,
-  Wallet,
+  Banknote,
+  BadgeCheck,
+  Bitcoin,
+  Blocks,
+  Check,
   ChevronRight,
-  Home,
-  ArrowLeftRight,
-  CreditCard,
-  Link2,
+  CircleDollarSign,
   Code2,
-  QrCode,
-  BarChart3,
+  FileCheck2,
+  KeyRound,
   Landmark,
+  LockKeyhole,
   MessageCircle,
+  RefreshCcw,
+  Scale,
+  ShieldCheck,
+  Sparkles,
+  Wallet,
+  Webhook,
+  Zap,
 } from 'lucide-react'
+import AnimatedSection from '../components/AnimatedSection'
+import { ButtonShadow } from '../components/ui/ButtonShadow'
 
 const siteUrl = 'https://hodle.com.br'
+const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
+const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: siteUrl,
+  title: 'Infraestrutura para neobanks',
+  description:
+    'A infraestrutura da Hodle para neobanks: conta nominal, Pix, wallets, stablecoins de real, swaps, Bitcoin, USD fiat, disputes e KYB em uma única camada.',
+  alternates: { canonical: siteUrl },
+  openGraph: {
+    title: 'Hodle — infraestrutura para neobanks',
+    description:
+      'Lance produtos financeiros conectados a Pix, fiat e cripto sem construir cada trilho do zero.',
+    url: siteUrl,
+    siteName: 'Hodle',
+    images: [
+      {
+        url: `${siteUrl}/og-image-v2.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Hodle — infraestrutura para neobanks',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
   },
 }
 
-const heading = 'font-[family-name:var(--font-space-grotesk)]'
-
-const RAILS = [
-  { icon: '/arbitrum.svg', name: 'Arbitrum' },
-  { icon: '/polygon.svg', name: 'Polygon' },
-  { icon: '/base.png', name: 'Base' },
-  { icon: '/solana.svg', name: 'Solana' },
-  { icon: '/ln.svg', name: 'Lightning' },
-  { icon: '/spark.svg', name: 'Spark' },
+const networks = [
+  { name: 'Bitcoin', detail: 'On-chain', icon: '/btc.svg', tint: 'bg-orange-50' },
+  { name: 'Lightning', detail: 'Instantâneo', icon: '/ln.svg', tint: 'bg-yellow-50' },
+  { name: 'Liquid', detail: 'Bitcoin sidechain', icon: '/liquid.svg', tint: 'bg-blue-50' },
+  { name: 'Polygon', detail: 'EVM', icon: '/polygon.svg', tint: 'bg-violet-50' },
+  { name: 'Base', detail: 'EVM', icon: '/base.png', tint: 'bg-blue-50' },
+  { name: 'Arbitrum', detail: 'EVM', icon: '/arbitrum.svg', tint: 'bg-sky-50' },
+  { name: 'Solana', detail: 'High throughput', icon: '/solana.svg', tint: 'bg-emerald-50' },
+  { name: 'Tron', detail: 'Stablecoins', icon: '/tron.svg', tint: 'bg-red-50' },
+  { name: 'Spark', detail: 'Bitcoin L2', icon: '/spark.svg', tint: 'bg-amber-50' },
 ] as const
 
-const ASSET_GROUPS = [
+const modules = [
   {
-    title: 'Pagamentos',
-    desc: 'Entrada e saída em reais via Pix, disponível 24/7.',
-    items: [{ icon: '/pix.svg', name: 'Pix' }],
+    number: '01',
+    title: 'Conta nominal',
+    description:
+      'Uma conta empresarial no nome do seu cliente, pronta para receber e movimentar BRL.',
+    icon: Landmark,
+    id: 'conta-pj',
   },
   {
-    title: 'Stablecoins',
-    desc: 'Dólar digital que circula pela plataforma e paga QR codes.',
-    items: [
-      { icon: '/usdt.svg', name: 'USDT' },
-      { icon: '/usdc.svg', name: 'USDC' },
-    ],
+    number: '02',
+    title: 'Pix',
+    description:
+      'Entrada, saída e pagamentos Pix 24/7, por API, painel ou experiência white-label.',
+    icon: Zap,
+    id: 'pagamentos',
   },
   {
-    title: 'Bitcoin & Lightning',
-    desc: 'BTC on-chain e liquidação instantânea pela rede Lightning.',
-    items: [
-      { icon: '/btc.svg', name: 'Bitcoin' },
-      { icon: '/ln.svg', name: 'Lightning' },
-    ],
+    number: '03',
+    title: 'Wallets',
+    description:
+      'Carteiras multi-rede auto-custodiais, com chaves sob controle do usuário final.',
+    icon: Wallet,
+    id: 'wallets',
   },
   {
-    title: 'Redes',
-    desc: 'Redes onde você recebe, guarda e envia seus ativos.',
-    items: [
-      { icon: '/arbitrum.svg', name: 'Arbitrum' },
-      { icon: '/polygon.svg', name: 'Polygon' },
-      { icon: '/base.png', name: 'Base' },
-      { icon: '/solana.svg', name: 'Solana' },
-      { icon: '/spark.svg', name: 'Spark' },
-    ],
+    number: '04',
+    title: 'Stablecoins de real',
+    description:
+      'BRS e BRLA para representar o real on-chain e conectar caixa local à sua experiência.',
+    icon: CircleDollarSign,
+    id: 'brs',
+  },
+  {
+    number: '05',
+    title: 'Swaps',
+    description:
+      'Converta entre BRL, stablecoins e BTC dentro do mesmo fluxo.',
+    icon: RefreshCcw,
+    id: 'swaps',
+  },
+  {
+    number: '06',
+    title: 'Bitcoin',
+    description:
+      'BTC on-chain, Liquid e Lightning como pagamento e reserva de valor.',
+    icon: Bitcoin,
+    id: 'bitcoin',
+  },
+  {
+    number: '07',
+    title: 'USD fiat',
+    description:
+      'Operações em dólar e treasury para empresas que atuam além do Brasil.',
+    icon: Banknote,
+    id: 'usd-fiat',
+  },
+  {
+    number: '08',
+    title: 'Disputes',
+    description:
+      'Fluxos para investigar, contestar e resolver movimentações com rastreabilidade.',
+    icon: Scale,
+    id: 'disputes',
+  },
+  {
+    number: '09',
+    title: 'KYB',
+    description:
+      'Onboarding empresarial e verificações de compliance integrados ao ciclo da conta.',
+    icon: FileCheck2,
+    id: 'kyb',
   },
 ] as const
 
-export default function HomePage() {
+const transactions = [
+  {
+    label: 'Pix recebido',
+    meta: 'conta nominal • agora',
+    value: '+ R$ 8.420,00',
+    icon: ArrowDownRight,
+    tone: 'text-green-600',
+  },
+  {
+    label: 'Swap executado',
+    meta: 'BRL → USDC • há 2 min',
+    value: '+ 1.512,42 USDC',
+    icon: RefreshCcw,
+    tone: 'text-orange-500',
+  },
+  {
+    label: 'Payout Lightning',
+    meta: 'BTC → invoice • há 8 min',
+    value: '− 0,0021 BTC',
+    icon: Zap,
+    tone: 'text-orange-500',
+  },
+] as const
+
+const faqs = [
+  {
+    question: 'A Hodle substitui o core banking?',
+    answer:
+      'A Hodle funciona como uma camada de infraestrutura financeira e cripto. Você mantém a experiência do seu produto e conecta os módulos necessários por API ou painel.',
+  },
+  {
+    question: 'Posso começar só com Pix e conta nominal?',
+    answer:
+      'Sim. A arquitetura é modular: comece com o fluxo de BRL e adicione wallets, stablecoins, swaps, BTC, USD fiat e operações conforme o produto evolui.',
+  },
+  {
+    question: 'Quais redes estão disponíveis?',
+    answer:
+      'Bitcoin, Lightning, Liquid, Polygon, Base, Arbitrum, Solana, Tron e Spark. A disponibilidade por ativo e operação pode variar por fluxo.',
+  },
+  {
+    question: 'A integração é por API?',
+    answer:
+      'Sim. A Hodle oferece API, webhooks e documentação para times de produto e engenharia orquestrarem os fluxos dentro da própria experiência.',
+  },
+] as const
+
+function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white">
-      {/* ═══════════════ HERO ═══════════════ */}
-      <section className="relative overflow-hidden">
-        <div className="hero-grid absolute inset-0 pointer-events-none" />
-        <div className="hero-spotlight absolute inset-0 pointer-events-none" />
+    <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b]">
+      <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
+      {children}
+    </span>
+  )
+}
 
-        <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-28 lg:pt-32 lg:pb-36">
-          <div className="text-center max-w-[900px] mx-auto">
-            <h1
-              className={`${heading} text-[clamp(2.8rem,7vw,5.6rem)] font-light text-foreground leading-[1.02] mb-7 tracking-[-0.035em] text-balance`}
-            >
-              Receba em Pix, guarde em dólar,{' '}
-              <span
-                className="italic font-light text-foreground/85"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                pague em stablecoin.
-              </span>
-            </h1>
+function ArrowLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-[#009c3b]"
+    >
+      {children}
+      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    </Link>
+  )
+}
 
-            <p className="text-lg lg:text-xl text-gray-500 max-w-[660px] mx-auto mb-9 leading-relaxed text-pretty">
-              A infraestrutura que conecta Pix, dólar e stablecoins — via API ou
-              plataforma. Feita para empresas que movem dinheiro na América
-              Latina.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center mb-10">
-              <Link
-                href="https://api.whatsapp.com/send?phone=5511960000445"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <ButtonShadow
-                  as="span"
-                  className="w-full sm:w-auto"
-                  faceClassName="w-full border-foreground bg-foreground text-white hover:bg-foreground"
-                  shadowClassName="bg-gray-300"
-                >
-                  Falar com vendas
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </ButtonShadow>
-              </Link>
-              <Link
-                href="https://app.hodle.com.br"
-                target="_blank"
-                className="w-full sm:w-auto"
-              >
-                <ButtonShadow
-                  as="span"
-                  className="w-full sm:w-auto"
-                  faceClassName="w-full border-gray-300 bg-white text-gray-600 hover:text-foreground"
-                  shadowClassName="bg-gray-200"
-                >
-                  Criar minha wallet
-                  <ArrowUpRight className="w-4 h-4 ml-2" />
-                </ButtonShadow>
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2.5">
-              <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gray-400 mr-1">
-                Feita para
-              </span>
-              {[
-                'Fintechs',
-                'Marketplaces',
-                'PSPs',
-                'Plataformas SaaS',
-                'Exchanges',
-                'Agentes de IA',
-              ].map((segment) => (
-                <span
-                  key={segment}
-                  className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600"
-                >
-                  {segment}
-                </span>
-              ))}
-            </div>
+function ProductWindow() {
+  return (
+    <div className="relative mx-auto w-full max-w-[520px]">
+      <div className="absolute -inset-4 rounded-3xl border border-gray-200" aria-hidden="true" />
+      <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_12px_45px_rgba(0,0,0,0.08)]">
+        <div className="flex items-center justify-between border-b border-gray-200 px-5 py-3.5">
+          <div className="flex items-center gap-2.5">
+            <Image
+              src="/h-logo.svg"
+              alt="Hodle"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
+            <span className="text-sm font-semibold text-foreground">Control room</span>
           </div>
+          <span className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-green-600">
+            <span className="h-1.5 w-1.5 rounded-full bg-green-500" /> Live
+          </span>
         </div>
-      </section>
-
-      {/* ═══════════════ STATS STRIP ═══════════════ */}
-      <section
-        aria-labelledby="numeros-heading"
-        className="border-t border-gray-200 bg-white"
-      >
-        <div className="max-w-[1200px] mx-auto px-6 py-14 lg:py-16">
-          <h2 id="numeros-heading" className="sr-only">
-            A Hodle em números
-          </h2>
-          <div className="grid grid-cols-3 gap-8 md:gap-4">
-            {[
-              { value: '24/7', label: 'Pix disponível' },
-              { value: '100%', label: 'Auto-custódia' },
-              { value: '5+', label: 'Redes & rails' },
-            ].map((stat, i) => (
+        <div className="p-5 sm:p-7">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-gray-400">
+                Saldo operacional
+              </p>
+              <p className={`${heading} mt-2 text-4xl font-light tracking-[-0.05em] sm:text-5xl`}>
+                R$ 1.284.320<span className="text-gray-300">,40</span>
+              </p>
+            </div>
+            <span className="mb-1 rounded-full border border-green-200 bg-green-50 px-2.5 py-1 text-[10px] font-semibold text-green-700">
+              +12,8%
+            </span>
+          </div>
+          <div className="mt-7 h-24 overflow-hidden rounded-xl border border-gray-200 bg-gray-50 px-3 pt-3">
+            <svg
+              viewBox="0 0 520 92"
+              className="h-full w-full"
+              preserveAspectRatio="none"
+              aria-label="Gráfico de crescimento operacional"
+            >
+              <defs>
+                <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stopColor="#f7931a" stopOpacity=".22" />
+                  <stop offset="1" stopColor="#f7931a" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0 76 C35 71 40 59 74 63 S110 53 143 57 S177 38 212 44 S250 29 280 35 S320 41 348 23 S388 31 418 19 S463 17 520 5 V92 H0Z"
+                fill="url(#area)"
+              />
+              <path
+                d="M0 76 C35 71 40 59 74 63 S110 53 143 57 S177 38 212 44 S250 29 280 35 S320 41 348 23 S388 31 418 19 S463 17 520 5"
+                fill="none"
+                stroke="#f7931a"
+                strokeWidth="2.5"
+              />
+            </svg>
+          </div>
+          <div className="mt-7 space-y-2.5">
+            {transactions.map((transaction) => (
               <div
-                key={i}
-                className="text-center md:border-r md:last:border-r-0 border-gray-200"
+                key={transaction.label}
+                className="flex items-center gap-3 rounded-xl border border-gray-200 px-3 py-3"
               >
-                <div
-                  className={`${heading} text-3xl md:text-4xl font-light text-foreground tracking-tight mb-1.5`}
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-100">
+                  <transaction.icon className="h-4 w-4 text-foreground" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-xs font-medium text-foreground">
+                    {transaction.label}
+                  </p>
+                  <p className="mt-0.5 truncate text-[10px] text-gray-400">
+                    {transaction.meta}
+                  </p>
+                </div>
+                <span
+                  className={`whitespace-nowrap font-mono text-[11px] font-medium ${transaction.tone}`}
                 >
-                  {stat.value}
-                </div>
-                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-400">
-                  {stat.label}
-                </div>
+                  {transaction.value}
+                </span>
               </div>
             ))}
           </div>
         </div>
-      </section>
+        <div className="flex items-center justify-between border-t border-gray-200 px-5 py-3 text-[10px] uppercase tracking-[0.15em] text-gray-400">
+          <span>09 rails conectados</span>
+          <span>03 webhooks</span>
+        </div>
+      </div>
+    </div>
+  )
+}
 
-      {/* ═══════════════ NETWORKS & RAILS MARQUEE ═══════════════ */}
-      <section className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-12 lg:py-14">
-          <h2 className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 mb-8">
-            Redes e rails suportados
-          </h2>
-          <div className="marquee-track marquee-mask overflow-hidden">
-            <div className="animate-marquee flex w-max items-center gap-12 pr-12">
-              {[...RAILS, ...RAILS, ...RAILS, ...RAILS].map((rail, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-2.5 shrink-0"
-                  aria-hidden={i >= RAILS.length}
+function CodePanel() {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-gray-800 bg-[#111] shadow-[0_10px_35px_rgba(0,0,0,0.12)]">
+      <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3.5">
+        <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+        <span className="ml-4 font-mono text-[10px] text-white/35">create-payment.ts</span>
+      </div>
+      <pre className="overflow-x-auto p-6 font-mono text-[12px] leading-7 sm:p-8 sm:text-[13px]">
+        <code>
+          <span className="text-purple-400">const</span>{' '}
+          <span className="text-blue-300">payment</span>{' '}
+          <span className="text-white/35">=</span>{' '}
+          <span className="text-purple-400">await</span>{' '}
+          <span className="text-blue-300">hodle</span>
+          <span className="text-white/55">.payments</span>
+          <span className="text-yellow-300">.create</span>
+          <span className="text-white/55">({'{'}</span>
+          {'\n'}
+          {'  '}<span className="text-blue-200">amount</span>
+          <span className="text-white/35">:</span>{' '}
+          <span className="text-orange-300">1000.00</span>
+          <span className="text-white/35">,</span>
+          {'\n'}
+          {'  '}<span className="text-blue-200">currency</span>
+          <span className="text-white/35">:</span>{' '}
+          <span className="text-green-300">&apos;BRL&apos;</span>
+          <span className="text-white/35">,</span>
+          {'\n'}
+          {'  '}<span className="text-blue-200">destination</span>
+          <span className="text-white/35">:</span>{' '}
+          <span className="text-green-300">&apos;USDT&apos;</span>
+          <span className="text-white/35">,</span>
+          {'\n'}
+          {'  '}<span className="text-blue-200">network</span>
+          <span className="text-white/35">:</span>{' '}
+          <span className="text-green-300">&apos;polygon&apos;</span>
+          <span className="text-white/35">,</span>
+          {'\n'}
+          {'  '}<span className="text-blue-200">reference</span>
+          <span className="text-white/35">:</span>{' '}
+          <span className="text-green-300">&apos;order_8472&apos;</span>
+          {'\n'}
+          <span className="text-white/55">{'});'}</span>
+        </code>
+      </pre>
+      <div className="flex items-center justify-between border-t border-white/10 px-6 py-4 text-[10px] text-white/35 sm:px-8">
+        <span>POST /v1/payments</span>
+        <span className="flex items-center gap-1.5 text-green-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-green-400" /> 201 Created
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <main className="overflow-hidden bg-white text-foreground">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-white">
+        <div className="hero-grid pointer-events-none absolute inset-0 opacity-60" />
+        <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-6 pb-20 pt-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:px-6 lg:pb-28 lg:pt-28">
+          <AnimatedSection direction="left">
+            <SectionEyebrow>Infraestrutura para neobanks</SectionEyebrow>
+            <h1
+              className={`${heading} mt-6 max-w-[640px] text-[clamp(2.8rem,6.6vw,5.2rem)] font-light leading-[1.02] tracking-[-0.045em]`}
+            >
+              O sistema por trás do seu{' '}
+              <span className="text-[#009c3b]">neobank.</span>
+            </h1>
+            <p className="mt-7 max-w-[560px] text-lg leading-relaxed text-gray-500 lg:text-xl">
+              Uma camada financeira para lançar contas, movimentar Pix e operar ativos digitais — com a experiência da sua marca e a complexidade da infraestrutura já resolvida.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                <ButtonShadow
+                  as="span"
+                  faceClassName="w-full border-foreground bg-foreground text-white hover:bg-foreground sm:w-auto"
+                  shadowClassName="bg-[#009c3b]/35"
                 >
-                  <Image
-                    src={rail.icon}
-                    alt={rail.name}
-                    width={28}
-                    height={28}
-                    className="w-7 h-7 rounded-full"
-                  />
-                  <span
-                    className={`${heading} text-base font-medium text-gray-500`}
-                  >
-                    {rail.name}
-                  </span>
-                </div>
-              ))}
+                  Falar com vendas <ArrowRight className="ml-2 h-4 w-4" />
+                </ButtonShadow>
+              </Link>
+              <ArrowLink href="#stack">Explorar a stack</ArrowLink>
             </div>
-          </div>
+            <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400">
+              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#009c3b]" /> API-first</span>
+              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#009c3b]" /> Multi-rail</span>
+              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#009c3b]" /> Operação 24/7</span>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection direction="right" delay={0.1}>
+            <ProductWindow />
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* ═══════════════ 3-COL FEATURES (BlindPay dividers) ═══════════════ */}
-      <section
-        aria-labelledby="plataforma-heading"
-        className="border-t border-gray-200"
-      >
-        <h2 id="plataforma-heading" className="sr-only">
-          O que a plataforma entrega
-        </h2>
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+      {/* PROOF STRIP */}
+      <section className="border-y border-gray-200 bg-gray-50/50">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-3 divide-x divide-gray-200 px-6 py-8 sm:py-10">
           {[
-            {
-              icon: ArrowLeftRight,
-              title: 'Compra e venda de ativos',
-              desc: 'Compre bitcoin e stablecoins em diversas redes com liquidação instantânea via Pix.',
-            },
-            {
-              icon: Landmark,
-              title: 'Contas PJ nominais',
-              desc: 'Contas empresariais com bancos parceiros regulados pelo Banco Central.',
-            },
-            {
-              icon: Wallet,
-              title: 'Wallets auto-custodiais',
-              desc: 'Chaves privadas 100% sob seu controle. Sem custódia de terceiros.',
-            },
-          ].map((feat, i) => (
-            <AnimatedSection key={i} delay={i * 0.1} direction="up">
-              <div className="px-10 py-16 text-center">
-                <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center mx-auto mb-6">
-                  <feat.icon className="w-5 h-5 text-foreground" />
-                </div>
-                <h3
-                  className={`${heading} text-lg font-medium text-foreground mb-3`}
-                >
-                  {feat.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed max-w-[280px] mx-auto">
-                  {feat.desc}
-                </p>
-              </div>
-            </AnimatedSection>
+            { value: '09', label: 'redes e rails' },
+            { value: '07', label: 'ativos e moedas' },
+            { value: '01', label: 'camada operacional' },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className={`${heading} text-2xl font-light tracking-tight sm:text-3xl`}>{stat.value}</p>
+              <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-gray-400">{stat.label}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ═══════════════ PLATFORM SHOWCASE ═══════════════ */}
-      <AnimatedSection delay={0.1}>
-        <section
-          id="plataforma"
-          className="border-t border-gray-200 bg-gray-50/50 py-20 lg:py-24"
-        >
-          <div className="max-w-[1200px] mx-auto px-6">
-            <div className="bg-white rounded-2xl shadow-[0_4px_40px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden">
-              <div className="flex">
-                {/* Sidebar */}
-                <div className="hidden lg:flex flex-col w-52 border-r border-gray-200 py-4 shrink-0">
-                  <div className="px-4 mb-5">
-                    <Image
-                      src="/h-logo.svg"
-                      alt="Hodle"
-                      width={500}
-                      height={500}
-                      className="h-6 w-6"
-                    />
-                  </div>
-                  <nav className="flex-1 space-y-px px-2">
-                    {[
-                      { icon: Home, label: 'Home', active: false },
-                      { icon: BarChart3, label: 'Transações', active: false },
-                      { icon: CreditCard, label: 'Compra', active: false },
-                      {
-                        icon: QrCode,
-                        label: 'Venda e pagamento QR',
-                        active: true,
-                      },
-                      { icon: Wallet, label: 'Wallets', active: false },
-                      { icon: Code2, label: 'APIs', active: false },
-                      { icon: Link2, label: 'Link de Afiliado', active: false },
-                    ].map((item, i) => (
-                      <div
-                        key={i}
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs ${
-                          item.active
-                            ? 'bg-gray-100 text-foreground font-semibold'
-                            : 'text-gray-400 font-medium'
-                        }`}
-                      >
-                        <item.icon className="w-4 h-4 shrink-0" />
-                        <span className="truncate">{item.label}</span>
-                      </div>
-                    ))}
-                  </nav>
-                </div>
-
-                {/* Main */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
-                    <div>
-                      <p className="font-semibold text-foreground text-sm">
-                        Venda e pagamento de QR code
-                      </p>
-                      <p className="text-[11px] text-gray-400">
-                        Gerenciar pagamentos realizados
-                      </p>
-                    </div>
-                    <div className="bg-foreground text-white px-3 py-1.5 rounded-lg text-[11px] font-semibold">
-                      + Nova compra
-                    </div>
-                  </div>
-
-                  <div className="px-5 py-2 flex gap-5 border-b border-gray-200">
-                    <span className="text-[11px] font-semibold text-foreground border-b-2 border-foreground pb-2">
-                      Novo Pagamento
-                    </span>
-                    <span className="text-[11px] text-gray-400 pb-2">
-                      Payouts
-                    </span>
-                  </div>
-
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-[11px]">
-                      <thead>
-                        <tr className="text-left text-gray-400 border-b border-gray-100">
-                          <th className="px-5 py-2.5 font-medium">ID</th>
-                          <th className="px-3 py-2.5 font-medium">Data</th>
-                          <th className="px-3 py-2.5 font-medium">Pago com</th>
-                          <th className="px-3 py-2.5 font-medium">
-                            Enviado para
-                          </th>
-                          <th className="px-3 py-2.5 font-medium">Valor</th>
-                          <th className="px-3 py-2.5 font-medium">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[
-                          {
-                            id: 'VHJ...TA5',
-                            date: '14/02/2026, 14:07',
-                            from: 'Pix',
-                            fromIcon: '/pix.svg',
-                            to: 'Polygon',
-                            toIcon: '/polygon.svg',
-                            val: '+ R$ 50.00',
-                            status: 'COMPLETED',
-                            pos: true,
-                          },
-                          {
-                            id: 'VHJ...TVk',
-                            date: '07/02/2026, 17:50',
-                            from: 'Lightning',
-                            fromIcon: '/ln.svg',
-                            to: 'Polygon',
-                            toIcon: '/polygon.svg',
-                            val: '- R$ 0.10',
-                            status: 'COMPLETED',
-                            pos: false,
-                          },
-                          {
-                            id: 'VHJ...TM5',
-                            date: '07/02/2026, 17:46',
-                            from: 'Lightning',
-                            fromIcon: '/ln.svg',
-                            to: 'Pix',
-                            toIcon: '/pix.svg',
-                            val: '- R$ 0.10',
-                            status: 'COMPLETED',
-                            pos: false,
-                          },
-                          {
-                            id: 'VHJ...TNi',
-                            date: '07/02/2026, 17:09',
-                            from: 'Pix',
-                            fromIcon: '/pix.svg',
-                            to: 'Polygon',
-                            toIcon: '/polygon.svg',
-                            val: '- R$ 0.10',
-                            status: 'PENDING',
-                            pos: false,
-                          },
-                          {
-                            id: 'VHJ...jli',
-                            date: '07/02/2026, 17:08',
-                            from: 'Lightning',
-                            fromIcon: '/ln.svg',
-                            to: 'Pix',
-                            toIcon: '/pix.svg',
-                            val: '- R$ 1.00',
-                            status: 'PENDING',
-                            pos: false,
-                          },
-                          {
-                            id: 'VHJ...TZi',
-                            date: '06/02/2026, 18:22',
-                            from: 'Pix',
-                            fromIcon: '/pix.svg',
-                            to: 'Polygon',
-                            toIcon: '/polygon.svg',
-                            val: '- R$ 0.10',
-                            status: 'COMPLETED',
-                            pos: false,
-                          },
-                          {
-                            id: 'VHJ...GQx',
-                            date: '05/02/2026, 12:38',
-                            from: 'Pix',
-                            fromIcon: '/pix.svg',
-                            to: 'Polygon',
-                            toIcon: '/polygon.svg',
-                            val: '+ R$ 100.00',
-                            status: 'COMPLETED',
-                            pos: true,
-                          },
-                        ].map((tx, i) => (
-                          <tr
-                            key={i}
-                            className="border-b border-gray-50 last:border-0"
-                          >
-                            <td className="px-5 py-3 font-mono text-gray-400">
-                              {tx.id}
-                            </td>
-                            <td className="px-3 py-3 text-gray-400">
-                              {tx.date}
-                            </td>
-                            <td className="px-3 py-3">
-                              <span className="flex items-center gap-1.5 text-gray-500">
-                                <Image
-                                  src={tx.fromIcon}
-                                  alt={tx.from}
-                                  width={16}
-                                  height={16}
-                                  className="w-4 h-4 shrink-0 rounded-full"
-                                />
-                                {tx.from}
-                              </span>
-                            </td>
-                            <td className="px-3 py-3">
-                              <span className="flex items-center gap-1.5 text-gray-500">
-                                <Image
-                                  src={tx.toIcon}
-                                  alt={tx.to}
-                                  width={16}
-                                  height={16}
-                                  className="w-4 h-4 shrink-0 rounded-full"
-                                />
-                                {tx.to}
-                              </span>
-                            </td>
-                            <td
-                              className={`px-3 py-3 font-medium ${tx.pos ? 'text-green-600' : 'text-red-400'}`}
-                            >
-                              {tx.val}
-                            </td>
-                            <td className="px-3 py-3">
-                              <span
-                                className={`text-[10px] font-bold tracking-wider ${tx.status === 'COMPLETED' ? 'text-green-600' : 'text-yellow-500'}`}
-                              >
-                                {tx.status}
-                              </span>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </AnimatedSection>
-
-      {/* ═══════════════ COMPRA E VENDA ═══════════════ */}
-      <section id="compra-venda" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
-            <AnimatedSection delay={0.1} direction="left" className="flex-1">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                Compra e Venda
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
-              >
-                Compra e venda de ativos digitais
+      {/* MODULES */}
+      <section id="plataforma" className="border-b border-gray-200 bg-white">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
+          <AnimatedSection>
+            <div className="mx-auto mb-14 max-w-[650px] text-center">
+              <SectionEyebrow>O produto inteiro, em blocos</SectionEyebrow>
+              <h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.1] tracking-[-0.035em]`}>
+                Tudo que um neobank precisa para operar dinheiro.
               </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                Compre bitcoin e stablecoins com Pix e venda no caminho de
-                volta, com o real caindo na conta. A taxa de serviço é a mesma
-                nas duas direções, começa em 2% e cai por faixa de volume
-                mensal até o piso de 0,5% — sem preço diferente por rede ou por
-                ativo. A mesma operação está no painel, para o time de
-                operações, e na API, para o time de engenharia.
+              <p className="mt-4 text-sm leading-relaxed text-gray-500">
+                Do onboarding à liquidação, conecte os serviços que normalmente ficam espalhados entre bancos, processadores, custodians e provedores de cripto.
               </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  'Compre bitcoin e stablecoins em diversas redes',
-                  'Liquidação via Pix instantâneo',
-                  'Integração simples via API ou plataforma',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-gray-500">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow as="span" size="sm">
-                  Saiba mais
-                  <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </ButtonShadow>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2} direction="right" className="flex-1">
-              <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden">
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
-                  <div>
-                    <p className="font-semibold text-foreground text-xs">
-                      Transações recentes
-                    </p>
-                  </div>
-                  <div className="bg-foreground text-white px-3 py-1 rounded-lg text-[10px] font-semibold">
-                    + Nova compra
-                  </div>
-                </div>
-                <div className="h-[280px] overflow-hidden relative">
-                  <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
-                  <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
-                  <div className="animate-scroll-up divide-y divide-gray-100">
-                    {[
-                      {
-                        pair: 'BTC/BRL',
-                        type: 'Compra',
-                        icon: '/btc.svg',
-                        val: 'R$ 500,00',
-                        btc: '0.00089 BTC',
-                        status: 'Concluído',
-                      },
-                      {
-                        pair: 'USDT/BRL',
-                        type: 'Venda',
-                        icon: '/usdt.svg',
-                        val: 'R$ 1.200,00',
-                        btc: '240 USDT',
-                        status: 'Concluído',
-                      },
-                      {
-                        pair: 'BTC/BRL',
-                        type: 'Compra',
-                        icon: '/btc.svg',
-                        val: 'R$ 2.000,00',
-                        btc: '0.00356 BTC',
-                        status: 'Pendente',
-                      },
-                      {
-                        pair: 'USDC/BRL',
-                        type: 'Compra',
-                        icon: '/usdc.svg',
-                        val: 'R$ 500,00',
-                        btc: '100 USDC',
-                        status: 'Concluído',
-                      },
-                      {
-                        pair: 'USDT/BRL',
-                        type: 'Compra',
-                        icon: '/usdt.svg',
-                        val: 'R$ 750,00',
-                        btc: '150 USDT',
-                        status: 'Concluído',
-                      },
-                      {
-                        pair: 'BTC/BRL',
-                        type: 'Venda',
-                        icon: '/btc.svg',
-                        val: 'R$ 3.400,00',
-                        btc: '0.00601 BTC',
-                        status: 'Concluído',
-                      },
-                    ]
-                      .concat([
-                        {
-                          pair: 'BTC/BRL',
-                          type: 'Compra',
-                          icon: '/btc.svg',
-                          val: 'R$ 500,00',
-                          btc: '0.00089 BTC',
-                          status: 'Concluído',
-                        },
-                        {
-                          pair: 'USDT/BRL',
-                          type: 'Venda',
-                          icon: '/usdt.svg',
-                          val: 'R$ 1.200,00',
-                          btc: '240 USDT',
-                          status: 'Concluído',
-                        },
-                        {
-                          pair: 'BTC/BRL',
-                          type: 'Compra',
-                          icon: '/btc.svg',
-                          val: 'R$ 2.000,00',
-                          btc: '0.00356 BTC',
-                          status: 'Pendente',
-                        },
-                        {
-                          pair: 'USDC/BRL',
-                          type: 'Compra',
-                          icon: '/usdc.svg',
-                          val: 'R$ 500,00',
-                          btc: '100 USDC',
-                          status: 'Concluído',
-                        },
-                        {
-                          pair: 'USDT/BRL',
-                          type: 'Compra',
-                          icon: '/usdt.svg',
-                          val: 'R$ 750,00',
-                          btc: '150 USDT',
-                          status: 'Concluído',
-                        },
-                        {
-                          pair: 'BTC/BRL',
-                          type: 'Venda',
-                          icon: '/btc.svg',
-                          val: 'R$ 3.400,00',
-                          btc: '0.00601 BTC',
-                          status: 'Concluído',
-                        },
-                      ])
-                      .map((tx, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between px-5 py-3.5"
-                        >
-                          <div className="flex items-center gap-3">
-                            <Image
-                              src={tx.icon}
-                              alt={tx.pair}
-                              width={32}
-                              height={32}
-                              className="w-8 h-8 shrink-0 rounded-lg"
-                            />
-                            <div>
-                              <p className="text-xs font-medium text-foreground">
-                                {tx.pair}
-                              </p>
-                              <p className="text-[10px] text-gray-400">
-                                {tx.type}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-xs font-medium text-foreground">
-                              {tx.val}
-                            </p>
-                            <p className="text-[10px] text-gray-400">
-                              {tx.btc}
-                            </p>
-                          </div>
-                          <span
-                            className={`text-[9px] font-bold tracking-wider ${tx.status === 'Concluído' ? 'text-green-600' : 'text-yellow-500'}`}
-                          >
-                            {tx.status.toUpperCase()}
-                          </span>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ API CROSSBORDER ═══════════════ */}
-      <section id="api" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
-            <AnimatedSection delay={0.1} direction="left" className="flex-1">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                API
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
-              >
-                Uma API. Pix, dólar e stablecoins.
-              </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                Integre pagamentos com Pix e stablecoin no seu produto em
-                minutos. REST, SDK e webhooks — pensados para times de produto e
-                agentes de IA. Um POST em <code>/api/wallet/payout</code> paga
-                um Pix debitando saldo em USDT ou USDC, com o gas por nossa
-                conta; um POST em <code>/api/lightning/invoice</code> devolve um
-                invoice BOLT11 que dispara o payout Pix assim que for pago. O
-                contrato inteiro está publicado como especificação OpenAPI 3.1,
-                com operationId, parâmetros tipados e schema de resposta em
-                cada operação — o formato que ferramentas de function calling
-                consomem direto. Autenticação é por API key no header, os
-                webhooks são assinados com HMAC e existe um ambiente de sandbox
-                sem dinheiro real para você rodar o fluxo ponta a ponta antes de
-                ir para produção.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  'API REST completa e documentada',
-                  'Pagamentos crossborder com stablecoins',
-                  'SDK para automação com agentes de IA',
-                  'Webhooks e callbacks em tempo real',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-gray-500">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="https://docs.hodle.com.br" target="_blank">
-                <ButtonShadow as="span" size="sm">
-                  Ver documentação
-                  <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </ButtonShadow>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2} direction="right" className="flex-1 w-full">
-              <CodeBlock />
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ WALLETS ═══════════════ */}
-      <section id="wallets" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <div className="flex flex-col lg:flex-row-reverse items-start gap-16 lg:gap-24">
-            <AnimatedSection delay={0.1} direction="right" className="flex-1">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                Wallets
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
-              >
-                Wallets 100% auto-custodiais
-              </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                Suas chaves, suas moedas. Controle total dos seus ativos sem
-                depender de terceiros. A chave é derivada no dispositivo do
-                usuário e a Hodle guarda apenas um envelope cifrado que não
-                consegue abrir — então nem um comprometimento da nossa
-                infraestrutura move saldo. As carteiras são multi-rede: o mesmo
-                usuário tem endereço e saldo em Polygon, Base, Solana, Tron,
-                Arbitrum e Spark, e nas redes EVM o gas dos transfers e dos
-                payouts é patrocinado pela Hodle.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  'Chaves privadas sempre sob seu controle',
-                  'Sem custódia de terceiros ou intermediários',
-                  'Compatível com os principais padrões do mercado',
-                  'Backup e recuperação simplificados',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-gray-500">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow as="span" size="sm">
-                  Criar wallet
-                  <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </ButtonShadow>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2} direction="left" className="flex-1">
-              <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden">
-                {/* Header */}
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-                      <Wallet className="w-4 h-4 text-foreground" />
-                    </div>
-                    <span className="text-xs font-semibold text-foreground">
-                      Carteira
-                    </span>
-                    <span className="bg-base text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
-                      Padrão
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-sm font-bold text-foreground">
-                      $15.26
-                    </span>
-                    <span className="ml-auto inline-flex items-center gap-1 bg-green-50 text-green-700 text-[9px] font-bold px-2 py-0.5 rounded-full border border-green-100">
-                      <Lock className="w-2.5 h-2.5" /> SEGURA
-                    </span>
-                  </div>
-                </div>
-
-                {/* Polygon */}
-                <div className="px-5 py-4 border-b border-gray-100">
-                  <p className="text-[10px] font-bold text-foreground tracking-wider mb-2">
-                    POLYGON
-                  </p>
-                  <div className="mb-3">
-                    <p className="text-[10px] text-gray-400 mb-1">
-                      Smart Account
-                    </p>
-                    <div className="inline-flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-1.5 border border-gray-100">
-                      <span className="text-[11px] font-mono text-gray-500">
-                        0x1F2CCa...A5F07d
-                      </span>
-                      <svg
-                        className="w-3 h-3 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <rect
-                          x="9"
-                          y="9"
-                          width="13"
-                          height="13"
-                          rx="2"
-                          ry="2"
-                        />
-                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <p className="text-[10px] text-gray-400 mb-2">Saldos</p>
-                  <div className="space-y-2 mb-3">
-                    {[
-                      {
-                        icon: '/usdt.svg',
-                        name: 'USDT',
-                        balance: '1.250,45',
-                      },
-                      {
-                        icon: '/usdc.svg',
-                        name: 'USDC',
-                        balance: '835,12',
-                      },
-                    ].map((asset) => (
-                      <div
-                        key={asset.name}
-                        className="flex items-center gap-2.5"
-                      >
-                        <Image
-                          src={asset.icon}
-                          alt={asset.name}
-                          width={20}
-                          height={20}
-                          className="w-5 h-5 rounded-full"
-                        />
-                        <span className="text-xs font-medium text-foreground">
-                          {asset.balance}{' '}
-                          <span className="text-gray-400">{asset.name}</span>
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-2">
-                    {[
-                      { label: 'Receber', icon: '↙' },
-                      { label: 'Enviar', icon: '↗' },
-                      { label: 'Sincronizar', icon: '↻' },
-                    ].map((action) => (
-                      <div
-                        key={action.label}
-                        className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-[10px] font-medium text-gray-600"
-                      >
-                        <span>{action.icon}</span>
-                        {action.label}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ CONTA PJ ═══════════════ */}
-      <section id="conta-pj" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
-            <AnimatedSection delay={0.1} direction="left" className="flex-1">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                Conta PJ
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
-              >
-                Conta PJ nominal com bancos parceiros
-              </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                Uma conta empresarial no nome da sua empresa, aberta junto a
-                bancos parceiros regulados pelo Banco Central, com Pix, TED e
-                boleto. O saldo dessa conta conversa com a mesa de conversão,
-                então receber em real e guardar em dólar digital é uma operação
-                e não duas — e a conciliação sai pelo mesmo extrato, com saldo
-                por ativo e operações paginadas.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  'Conta empresarial no nome da sua empresa',
-                  'Bancos parceiros regulados pelo Banco Central',
-                  'Pix com integração direta',
-                  'Compliance e KYC automatizados',
-                  'Produtos financeiros para sua empresa (pix automático, splits de pagamentos)',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-gray-500">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
-                <ButtonShadow as="span" size="sm">
-                  Abrir conta PJ
-                  <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </ButtonShadow>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2} direction="right" className="flex-1">
-              <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 p-7">
-                <div className="flex items-center gap-3 mb-7">
-                  <div className="w-10 h-10 bg-foreground rounded-xl flex items-center justify-center">
-                    <Landmark className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">
-                      Conta PJ
-                    </p>
-                    <p className="text-[10px] text-gray-400">
-                      Banco parceiro regulado
-                    </p>
-                  </div>
-                  <span className="ml-auto bg-green-50 text-green-700 text-[9px] font-bold px-2 py-0.5 rounded-full border border-green-100">
-                    ATIVA
-                  </span>
-                </div>
-
-                <div className="mb-5">
-                  <p className="text-[10px] text-gray-400 mb-0.5">
-                    Razão Social
-                  </p>
-                  <p className="text-sm font-semibold text-foreground">
-                    Sua Empresa Ltda.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 mb-5">
-                  <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
-                    <p className="text-[10px] text-gray-400 mb-0.5">CNPJ</p>
-                    <p className="text-xs font-mono text-gray-600">
-                      12.345.678/0001-90
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-3.5 border border-gray-100">
-                    <p className="text-[10px] text-gray-400 mb-0.5">
-                      Ag / Conta
-                    </p>
-                    <p className="text-xs font-mono text-gray-600">
-                      0001 / 12345-6
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-gray-50 rounded-xl p-3.5 mb-5 border border-gray-100">
-                  <p className="text-[10px] text-gray-400 mb-0.5">
-                    Saldo disponível
-                  </p>
-                  <p className="text-xl font-bold text-foreground">
-                    R$ 45.230,00
-                  </p>
-                </div>
-
-                <div className="flex gap-2">
-                  <div className="flex-1 bg-foreground text-white text-center py-2 rounded-lg text-[10px] font-semibold">
-                    Pix
-                  </div>
-                  <div className="flex-1 bg-gray-100 text-gray-500 text-center py-2 rounded-lg text-[10px] font-semibold border border-gray-200">
-                    TED
-                  </div>
-                  <div className="flex-1 bg-gray-100 text-gray-500 text-center py-2 rounded-lg text-[10px] font-semibold border border-gray-200">
-                    Boleto
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ QR CODE STABLECOINS ═══════════════ */}
-      <section id="pagamentos" className="border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <div className="flex flex-col lg:flex-row-reverse items-start gap-16 lg:gap-24">
-            <AnimatedSection delay={0.1} direction="right" className="flex-1">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5"><span className="h-1 w-1 rounded-full bg-foreground" />
-                Pagamentos
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
-              >
-                Pagamento de QR codes com stablecoins
-              </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                Leia qualquer QR code Pix e pague debitando saldo em USDT ou
-                USDC. A conversão para real acontece dentro da operação e a
-                liquidação é instantânea: para o lojista o crédito é um Pix
-                comum, com o mesmo comprovante e a mesma conciliação, sem que
-                ele precise saber que o dinheiro veio de stablecoin.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  'Pague qualquer QR code Pix usando stablecoins',
-                  'Conversão automática stablecoin para BRL',
-                  'Suporte a USDT e USDC',
-                  'Liquidação instantânea',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-gray-500">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="https://app.hodle.com.br" target="_blank">
-                <ButtonShadow as="span" size="sm">
-                  Começar a pagar
-                  <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                </ButtonShadow>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2} direction="left" className="flex-1">
-              <div className="relative rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1),0_4px_20px_rgba(0,0,0,0.06)] border border-gray-200/80 p-12 lg:p-16 overflow-hidden bg-[#f7f7f5]">
-                {/* Grid background */}
-                <div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)',
-                    backgroundSize: '28px 28px',
-                  }}
-                />
-
-                <div className="relative flex items-center justify-center">
-                  <div className="relative">
-                    {/* QR Code with 3D depth */}
-                    <Image
-                      src="/qr-code.svg"
-                      alt="QR Code Pix"
-                      width={280}
-                      height={280}
-                      className="w-52 h-52 lg:w-64 lg:h-64"
-                      style={{
-                        filter:
-                          'drop-shadow(3px 3px 0px #d4d4d4) drop-shadow(5px 5px 0px rgba(0,0,0,0.08))',
-                      }}
-                    />
-
-                    {/* Corner scan brackets */}
-                    <div className="absolute -top-5 -left-5 w-14 h-14 border-t-[5px] border-l-[5px] border-foreground rounded-tl-2xl" />
-                    <div className="absolute -top-5 -right-5 w-14 h-14 border-t-[5px] border-r-[5px] border-foreground rounded-tr-2xl" />
-                    <div className="absolute -bottom-5 -left-5 w-14 h-14 border-b-[5px] border-l-[5px] border-foreground rounded-bl-2xl" />
-                    <div className="absolute -bottom-5 -right-5 w-14 h-14 border-b-[5px] border-r-[5px] border-foreground rounded-br-2xl" />
-
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SUPORTADO (Lightspark FX-style specs) ═══════════════ */}
-      <section id="suportado" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <AnimatedSection delay={0.1}>
-            <div className="max-w-[600px] mb-14">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
-                <span className="h-1 w-1 rounded-full bg-foreground" />
-                Suportado
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-5`}
-              >
-                Tudo que flui pela Hodle
-              </h2>
-              <p className="text-gray-500 leading-relaxed text-pretty">
-                Moedas, stablecoins e redes que você pode receber, guardar e
-                enviar — em uma única plataforma. USDT circula em Polygon,
-                Base, Solana, Tron, Arbitrum e Spark; USDC em Base, Polygon,
-                Solana, Arbitrum e Spark; Bitcoin em Lightning, on-chain e
-                Liquid; e o real tokenizado em BRLA na Polygon ou BRS na
-                Solana. Trocar de rede não muda a taxa de serviço, e transferir
-                entre carteiras da Hodle dentro da mesma rede não tem custo.
-              </p>
-            </div>
-
-            <div className="border-t border-gray-200">
-              {ASSET_GROUPS.map((group) => (
-                <div
-                  key={group.title}
-                  className="grid md:grid-cols-3 gap-5 md:gap-8 py-8 border-b border-gray-200"
-                >
-                  <div className="md:col-span-1">
-                    <h3
-                      className={`${heading} text-lg font-medium text-foreground mb-2`}
-                    >
-                      {group.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed max-w-[280px]">
-                      {group.desc}
-                    </p>
-                  </div>
-
-                  <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 md:items-start">
-                    {group.items.map((item) => (
-                      <div key={item.name} className="flex items-center gap-3">
-                        <Image
-                          src={item.icon}
-                          alt={item.name}
-                          width={32}
-                          height={32}
-                          className="w-8 h-8 rounded-full shrink-0"
-                        />
-                        <span className="text-sm font-medium text-foreground">
-                          {item.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
             </div>
           </AnimatedSection>
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {modules.map((module, index) => {
+              const Icon = module.icon
+              return (
+                <AnimatedSection key={module.title} delay={index * 0.04} direction="up">
+                  <a href={`#${module.id}`} className="group block h-full border-t border-gray-200 pt-6 transition-colors hover:border-[#009c3b]">
+                    <div className="flex items-start justify-between">
+                      <span className={`${heading} text-3xl font-light tracking-tight text-[#009c3b]`}>{module.number}</span>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 transition-colors group-hover:bg-gray-900 group-hover:text-white">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    </div>
+                    <h3 className={`${heading} mt-8 text-lg font-semibold text-foreground`}>{module.title}</h3>
+                    <p className="mt-2 max-w-[310px] text-sm leading-relaxed text-gray-500">{module.description}</p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400 transition-colors group-hover:text-foreground">
+                      Ver módulo <ChevronRight className="h-3.5 w-3.5" />
+                    </span>
+                  </a>
+                </AnimatedSection>
+              )
+            })}
+          </div>
         </div>
       </section>
 
-      {/* ═══════════════ FAQ ═══════════════ */}
-      <div className="border-t border-gray-200 py-20 lg:py-24">
-        <div className="max-w-[1200px] mx-auto px-6 flex justify-center">
-          <FAQSection />
-        </div>
-      </div>
-
-      {/* ═══════════════ FALE CONOSCO ═══════════════ */}
-      <section id="fale-conosco" className="border-t border-gray-200 bg-gray-50/50">
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
-          <AnimatedSection delay={0.1}>
-            <div className="text-center max-w-[680px] mx-auto">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500 mb-5">
-                <span className="h-1 w-1 rounded-full bg-foreground" />
-                Fale Conosco
-              </span>
-              <h2
-                className={`${heading} text-[clamp(2rem,4vw,3.2rem)] font-light text-foreground leading-[1.15] mb-6`}
-              >
-                Tire suas dúvidas pelo WhatsApp
+      {/* ARCHITECTURE */}
+      <section id="stack" className="border-b border-gray-200 bg-gray-50/50">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
+          <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-20">
+            <AnimatedSection direction="left">
+              <SectionEyebrow>Uma integração para toda a operação</SectionEyebrow>
+              <h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.04em]`}>
+                Seu produto na frente. A Hodle no meio. Os rails embaixo.
               </h2>
-              <p className="text-gray-500 leading-relaxed mb-10 text-pretty">
-                Fale direto com nosso time. Respondemos rápido para ajudar você
-                a começar a usar a Hodle ou abrir uma conta PJ. Se preferir
-                escrever, o e-mail é contato@hodle.com.br, e a página de contato
-                lista todos os canais oficiais — comercial, suporte técnico,
-                privacidade e segurança — com o que cada um resolve.
+              <p className="mt-5 text-sm leading-relaxed text-gray-500 lg:text-base">
+                Você desenha a experiência. A Hodle orquestra contas, saldos, conversões, pagamentos, compliance e liquidação nos trilhos certos.
               </p>
-              <Link
-                href="https://api.whatsapp.com/send?phone=5511960000445"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ButtonShadow
-                  as="span"
-                  faceClassName="border-foreground bg-foreground text-white hover:bg-foreground"
-                  shadowClassName="bg-gray-300"
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Conversar no WhatsApp
-                </ButtonShadow>
-              </Link>
-            </div>
-          </AnimatedSection>
+              <div className="mt-8 space-y-4">
+                {[
+                  { icon: Sparkles, label: 'Experiência white-label', text: 'Sua marca e sua jornada.' },
+                  { icon: Code2, label: 'API + painel operacional', text: 'Uma camada para produto e operações.' },
+                  { icon: Blocks, label: 'Rails conectados', text: 'Pix, fiat, stablecoins e Bitcoin.' },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200"><item.icon className="h-4 w-4" /></div>
+                    <div><p className="text-sm font-semibold">{item.label}</p><p className="text-xs text-gray-500">{item.text}</p></div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+            <AnimatedSection direction="right">
+              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.05)] sm:p-7">
+                <div className="grid gap-3 lg:grid-cols-[0.8fr_1.05fr_0.8fr] lg:items-center">
+                  <div className="rounded-xl border border-gray-200 p-4 text-center"><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400">Sua experiência</p><div className="mx-auto mt-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-900"><span className="h-5 w-5 rounded bg-white" /></div><p className="mt-3 text-xs font-semibold">Seu app</p><p className="mt-1 text-[10px] text-gray-400">conta • wallet • pagamentos</p></div>
+                  <div className="relative rounded-xl border-2 border-foreground bg-foreground p-5 text-white shadow-[4px_4px_0_0_#009c3b]"><span className="absolute right-4 top-4 text-[#009c3b]"><Code2 className="h-4 w-4" /></span><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">Camada Hodle</p><p className={`${heading} mt-7 text-2xl font-light leading-tight`}>A mesma lógica para todos os seus fluxos.</p><div className="mt-6 grid grid-cols-2 gap-2">{['Accounts', 'Balances', 'Payouts', 'Swaps', 'Webhooks', 'KYB'].map((item) => <span key={item} className="rounded-lg border border-white/15 px-2.5 py-2 text-center text-[10px] font-medium text-white/75">{item}</span>)}</div></div>
+                  <div className="rounded-xl border border-gray-200 p-4 text-center"><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400">Rails</p><div className="mx-auto mt-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100"><Blocks className="h-5 w-5" /></div><p className="mt-3 text-xs font-semibold">09 conectados</p><p className="mt-1 text-[10px] text-gray-400">rede certa por operação</p></div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* NETWORKS */}
+      <section id="redes" className="border-b border-gray-200 bg-white">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><SectionEyebrow>Redes</SectionEyebrow><h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.1] tracking-[-0.04em]`}>Uma conta. Muitos rails.</h2></div><p className="max-w-[390px] text-sm leading-relaxed text-gray-500">Escolha a rede que faz sentido para cada ativo, operação e usuário final.</p></div>
+          <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">{networks.map((network, index) => <AnimatedSection key={network.name} delay={index * 0.03}><div className="group flex items-center gap-3 border-t border-gray-200 pt-4 transition-colors hover:border-[#009c3b]"><span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${network.tint}`}><Image src={network.icon} alt={network.name} width={24} height={24} className="h-5 w-5 object-contain" /></span><span className="min-w-0"><strong className="block truncate text-sm font-semibold">{network.name}</strong><small className="mt-0.5 block truncate text-[10px] text-gray-400">{network.detail}</small></span></div></AnimatedSection>)}</div>
+          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-gray-200 pt-6 text-[11px] font-medium text-gray-500"><span>Ativos:</span><span>USDT</span><span>USDC</span><span>BRS</span><span>BRLA</span><span>BRL</span><span>USD</span><span>BTC</span></div>
+        </div>
+      </section>
+
+      {/* ACCOUNT + PIX */}
+      <section id="conta-pj" className="border-b border-gray-200 bg-gray-50/50">
+        <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:gap-20 lg:py-24">
+          <AnimatedSection direction="left"><SectionEyebrow>Conta nominal + Pix</SectionEyebrow><h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.04em]`}>O dinheiro tem nome. A operação tem contexto.</h2><p className="mt-5 text-base leading-relaxed text-gray-500">Abra uma conta empresarial no nome do seu cliente, receba via Pix e movimente o saldo a partir da mesma camada. Menos reconciliação manual. Mais produto.</p><ul className="mt-7 space-y-3">{['Conta empresarial nominal', 'Pix de entrada e saída 24/7', 'Extrato por ativo e operação', 'Experiência por API ou painel'].map((item) => <li key={item} className="flex items-center gap-3 text-sm text-gray-600"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-50"><Check className="h-3 w-3 text-green-600" /></span>{item}</li>)}</ul><div className="mt-8"><ArrowLink href={WHATSAPP_URL}>Falar sobre conta nominal</ArrowLink></div></AnimatedSection>
+          <AnimatedSection direction="right"><div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.05)]"><div className="flex items-center justify-between border-b border-gray-200 px-5 py-3.5"><div className="flex items-center gap-3"><div className="flex h-9 w-9 items-center justify-center rounded-xl bg-foreground text-white"><Landmark className="h-4 w-4" /></div><div><p className="text-sm font-semibold">Conta nominal</p><p className="text-[10px] text-gray-400">Sua Empresa Ltda.</p></div></div><span className="flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-2.5 py-1 text-[10px] font-semibold text-green-700"><span className="h-1.5 w-1.5 rounded-full bg-green-500" /> Ativa</span></div><div className="grid gap-5 p-5 sm:grid-cols-[1.1fr_0.9fr] sm:p-7"><div><p className="text-[10px] uppercase tracking-[0.16em] text-gray-400">Saldo disponível</p><p className={`${heading} mt-2 text-4xl font-light tracking-[-0.05em]`}>R$ 45.230<span className="text-gray-300">,00</span></p><div className="mt-7 grid grid-cols-2 gap-2"><div className="rounded-xl bg-gray-50 p-3"><p className="text-[10px] text-gray-400">Agência</p><p className="mt-1 font-mono text-xs">0001</p></div><div className="rounded-xl bg-gray-50 p-3"><p className="text-[10px] text-gray-400">Conta</p><p className="mt-1 font-mono text-xs">12345-6</p></div></div><div className="mt-5 flex gap-2"><span className="flex-1 rounded-lg bg-foreground py-2.5 text-center text-[11px] font-semibold text-white">Pix</span><span className="flex-1 rounded-lg border border-gray-200 py-2.5 text-center text-[11px] font-semibold text-gray-500">Extrato</span></div></div><div className="rounded-2xl border border-gray-200 bg-gray-50 p-4"><div className="flex items-center justify-between"><span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400">Pix hoje</span><Zap className="h-4 w-4 text-[#f7931a]" /></div><p className={`${heading} mt-4 text-2xl font-medium`}>R$ 8.420</p><div className="mt-5 space-y-3">{['Recebidos', 'Enviados', 'Pendentes'].map((item, index) => <div key={item} className="flex items-center justify-between text-[11px]"><span className="text-gray-500">{item}</span><span className="font-mono font-medium">{['12', '08', '02'][index]}</span></div>)}</div><div className="mt-6 h-1.5 overflow-hidden rounded-full bg-gray-200"><div className="h-full w-[78%] rounded-full bg-green-500" /></div></div></div><div className="flex items-center gap-3 border-t border-gray-200 px-5 py-3 text-[10px] text-gray-400 sm:px-7"><LockKeyhole className="h-3.5 w-3.5 text-green-600" /> Fluxo regulado por parceiros licenciados</div></div></AnimatedSection>
+        </div>
+      </section>
+
+      {/* WALLET */}
+      <section id="wallets" className="border-b border-gray-200 bg-white">
+        <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:py-24">
+          <AnimatedSection direction="left"><div className="mx-auto max-w-[540px] overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.05)]"><div className="flex items-center justify-between border-b border-gray-200 px-5 py-3.5"><div className="flex items-center gap-3"><div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gray-100"><Wallet className="h-4 w-4" /></div><div><p className="text-sm font-semibold">Wallet multi-rede</p><p className="text-[10px] text-gray-400">Auto-custodial por padrão</p></div></div><span className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.13em] text-green-600"><ShieldCheck className="h-3.5 w-3.5" /> Segura</span></div><div className="p-5 sm:p-7"><div className="rounded-2xl bg-foreground p-5 text-white"><div className="flex items-center justify-between"><span className="text-[10px] uppercase tracking-[0.15em] text-white/45">Portfolio</span><span className="font-mono text-[11px] text-green-400">+8,42%</span></div><p className={`${heading} mt-3 text-3xl font-light tracking-[-0.04em]`}>$ 15.260<span className="text-white/30">,34</span></p><div className="mt-5 flex items-center gap-2"><div className="h-1.5 flex-1 rounded-full bg-[#f7931a]" /><div className="h-1.5 w-[32%] rounded-full bg-blue-400" /><div className="h-1.5 w-[18%] rounded-full bg-green-400" /></div><div className="mt-3 flex justify-between text-[10px] text-white/45"><span>USDT 50%</span><span>USDC 32%</span><span>BTC 18%</span></div></div><div className="mt-6 grid gap-2 sm:grid-cols-3">{['Polygon', 'Solana', 'Spark'].map((network, index) => <div key={network} className="rounded-xl border border-gray-200 bg-gray-50 p-3"><div className="flex items-center justify-between"><span className="text-[10px] font-semibold">{network}</span><span className={`h-1.5 w-1.5 rounded-full ${index === 1 ? 'bg-green-500' : 'bg-[#f7931a]'}`} /></div><p className="mt-2 truncate font-mono text-[10px] text-gray-400">0x1F2C...A5F07d</p></div>)}</div></div><div className="flex items-center gap-3 border-t border-gray-200 px-5 py-3 text-[10px] text-gray-400 sm:px-7"><KeyRound className="h-3.5 w-3.5 text-blue-600" /> Chaves sob controle do usuário</div></div></AnimatedSection>
+          <AnimatedSection direction="right"><SectionEyebrow>Wallets</SectionEyebrow><h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.04em]`}>A wallet vira parte do seu produto.</h2><p className="mt-5 text-base leading-relaxed text-gray-500">Ofereça endereços, saldos e movimentações multi-rede sem abrir mão da auto-custódia. A experiência é sua; as chaves continuam com quem usa.</p><div className="mt-8 grid gap-4 sm:grid-cols-2"><div className="border-t border-gray-200 pt-4"><p className="text-sm font-semibold">Chaves sob controle</p><p className="mt-1 text-xs leading-relaxed text-gray-500">Sem custódia de terceiros no fluxo da wallet.</p></div><div className="border-t border-gray-200 pt-4"><p className="text-sm font-semibold">Multi-rede nativa</p><p className="mt-1 text-xs leading-relaxed text-gray-500">Um usuário, muitos rails e ativos.</p></div></div><div className="mt-8"><ArrowLink href="https://app.hodle.com.br">Conhecer as wallets</ArrowLink></div></AnimatedSection>
+        </div>
+      </section>
+
+      {/* ASSETS */}
+      <section className="border-b border-gray-200 bg-gray-50/50">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24"><div className="mx-auto max-w-[650px] text-center"><SectionEyebrow>Movimente valor</SectionEyebrow><h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.1] tracking-[-0.04em]`}>De real para cripto. De cripto para o mundo.</h2><p className="mt-4 text-sm leading-relaxed text-gray-500">A conversão, o roteamento e a liquidação acontecem dentro da mesma jornada.</p></div><div className="mt-14 grid gap-3 md:grid-cols-2"><div id="brs" className="rounded-2xl border border-gray-200 bg-white p-7 md:col-span-2 lg:p-9"><div className="grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-end"><div><div className="flex items-center gap-3"><div className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white"><Image src="/brs.svg" alt="BRS" width={30} height={30} /></div><span className="rounded-full border border-green-200 bg-green-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-green-700">Real on-chain</span></div><h3 className={`${heading} mt-7 text-3xl font-light tracking-[-0.04em]`}>Stablecoins de real, prontas para o produto.</h3><p className="mt-3 max-w-[520px] text-sm leading-relaxed text-gray-500">BRS e BRLA conectam o real a experiências on-chain para guardar, pagar, liquidar e criar novos casos de uso.</p></div><div className="rounded-2xl border border-gray-200 bg-gray-50 p-5"><div className="flex items-center justify-between"><span className="text-[10px] uppercase tracking-[0.16em] text-gray-400">Saldo em BRS</span><span className="text-[10px] font-semibold text-green-600">1:1 BRL</span></div><p className={`${heading} mt-4 text-3xl font-light`}>R$ 25.000<span className="text-gray-300">,00</span></p><div className="mt-5 flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 py-2 text-[11px]"><span className="font-mono text-gray-500">BRS • Solana</span><ArrowUpRight className="h-3.5 w-3.5 text-green-600" /></div></div></div></div><div id="swaps" className="rounded-2xl border border-gray-200 bg-white p-7"><div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gray-100"><RefreshCcw className="h-5 w-5" /></div><h3 className={`${heading} mt-7 text-2xl font-medium tracking-[-0.035em]`}>Swaps</h3><p className="mt-3 text-sm leading-relaxed text-gray-500">Troque BRL, stablecoins, BTC e USD dentro de uma jornada única.</p><div className="mt-7 flex items-center gap-2 text-[11px] font-mono"><span className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">BRL</span><ArrowRight className="h-3.5 w-3.5 text-[#f7931a]" /><span className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">USDC</span></div></div><div id="bitcoin" className="rounded-2xl border border-gray-800 bg-foreground p-7 text-white"><div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#f7931a] text-foreground"><Bitcoin className="h-5 w-5" /></div><h3 className={`${heading} mt-7 text-2xl font-medium tracking-[-0.035em]`}>Bitcoin</h3><p className="mt-3 text-sm leading-relaxed text-white/60">On-chain, Liquid e Lightning para pagamentos, liquidação e treasury.</p><div className="mt-7 flex flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/60"><span className="rounded-full border border-white/20 px-3 py-1.5">BTC</span><span className="rounded-full border border-white/20 px-3 py-1.5">Lightning</span><span className="rounded-full border border-white/20 px-3 py-1.5">Liquid</span></div></div><div id="usd-fiat" className="rounded-2xl border border-gray-200 bg-white p-7"><div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gray-100"><Banknote className="h-5 w-5" /></div><h3 className={`${heading} mt-7 text-2xl font-medium tracking-[-0.035em]`}>USD fiat</h3><p className="mt-3 text-sm leading-relaxed text-gray-500">Dólar para operações internacionais, treasury e fluxos cross-border.</p><div className="mt-7 flex items-center justify-between border-t border-gray-200 pt-4 text-[11px]"><span className="text-gray-500">Treasury balance</span><span className="font-mono font-medium">$ 84.230,12</span></div></div></div></div>
+      </section>
+
+      {/* OPERATIONS */}
+      <section id="operacao" className="border-b border-gray-200 bg-white">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><SectionEyebrow>Operação e confiança</SectionEyebrow><h2 className={`${heading} mt-5 max-w-[620px] text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.04em]`}>Infraestrutura boa também resolve o que dá errado.</h2></div><p className="max-w-[390px] text-sm leading-relaxed text-gray-500">Compliance, atendimento e operações no mesmo desenho — não como remendos depois do lançamento.</p></div><div className="mt-14 grid gap-3 md:grid-cols-3"><div id="kyb" className="border-t border-gray-200 pt-6"><div className="flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100"><BadgeCheck className="h-5 w-5" /></div><span className="font-mono text-[10px] text-gray-400">KYC / KYB</span></div><h3 className={`${heading} mt-8 text-xl font-medium`}>Onboarding empresarial</h3><p className="mt-3 text-sm leading-relaxed text-gray-500">Colete dados, acompanhe status e mantenha o ciclo de compliance conectado à abertura da conta.</p><div className="mt-7 flex items-center gap-2 text-[11px] font-semibold text-green-600"><span className="h-1.5 w-1.5 rounded-full bg-green-500" /> Verificação em andamento</div></div><div id="disputes" className="border-t border-gray-200 pt-6"><div className="flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100"><Scale className="h-5 w-5" /></div><span className="font-mono text-[10px] text-gray-400">OPS / DISPUTES</span></div><h3 className={`${heading} mt-8 text-xl font-medium`}>Disputes rastreáveis</h3><p className="mt-3 text-sm leading-relaxed text-gray-500">Investigue operações, organize evidências e dê ao time uma fila clara para resolver exceções.</p><div className="mt-7 flex items-center gap-2 text-[11px] font-semibold text-gray-600"><span className="h-1.5 w-1.5 rounded-full bg-gray-900" /> 03 casos aguardando análise</div></div><div className="border-t border-gray-200 pt-6"><div className="flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100"><ShieldCheck className="h-5 w-5" /></div><span className="font-mono text-[10px] text-gray-400">CONTROLES</span></div><h3 className={`${heading} mt-8 text-xl font-medium`}>Visibilidade operacional</h3><p className="mt-3 text-sm leading-relaxed text-gray-500">Webhooks, estados e extratos para o seu time saber o que aconteceu — e por quê.</p><div className="mt-7 flex items-center gap-2 text-[11px] font-semibold text-green-600"><Webhook className="h-3.5 w-3.5" /> Eventos assinados</div></div></div></div>
+      </section>
+
+      {/* API */}
+      <section id="api" className="border-b border-gray-200 bg-gray-50/50">
+        <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20 lg:py-24"><AnimatedSection direction="left"><SectionEyebrow>Para engenharia</SectionEyebrow><h2 className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.04em]`}>O dinheiro também é uma <span className="text-[#009c3b]">API.</span></h2><p className="mt-5 text-base leading-relaxed text-gray-500">REST, webhooks e operações tipadas para transformar contas e saldos em produto. Comece no sandbox, valide o fluxo e escale com a mesma interface.</p><div className="mt-7 space-y-3">{['API REST documentada', 'Webhooks em tempo real', 'Sandbox para testar sem dinheiro real', 'Autenticação por API key'].map((item) => <div key={item} className="flex items-center gap-3 text-sm text-gray-600"><Check className="h-4 w-4 text-green-600" />{item}</div>)}</div><div className="mt-8"><Link href="https://docs.hodle.com.br" target="_blank" rel="noreferrer"><ButtonShadow as="span" size="sm" faceClassName="border-foreground bg-foreground text-white hover:bg-foreground" shadowClassName="bg-[#009c3b]/35"><span>Ver documentação</span><ArrowUpRight className="ml-2 h-4 w-4" /></ButtonShadow></Link></div></AnimatedSection><AnimatedSection direction="right"><CodePanel /></AnimatedSection></div>
+      </section>
+
+      {/* FAQ + CTA */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24"><div className="grid gap-14 lg:grid-cols-[1fr_0.85fr] lg:items-start lg:gap-20"><AnimatedSection direction="left"><SectionEyebrow>Pronto para começar?</SectionEyebrow><h2 className={`${heading} mt-5 max-w-[620px] text-[clamp(2.5rem,5vw,4.4rem)] font-light leading-[1] tracking-[-0.05em]`}>Construa o neobank. <span className="text-[#009c3b]">Não os trilhos.</span></h2><p className="mt-5 max-w-[500px] text-base leading-relaxed text-gray-500">Conte o que você está lançando e desenhamos a combinação de módulos para o seu caso.</p><div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"><Link href={WHATSAPP_URL} target="_blank" rel="noreferrer"><ButtonShadow as="span" faceClassName="w-full border-foreground bg-foreground text-white hover:bg-foreground sm:w-auto" shadowClassName="bg-[#009c3b]/35"><MessageCircle className="mr-2 h-4 w-4" />Falar com vendas</ButtonShadow></Link><ArrowLink href="https://docs.hodle.com.br">Ler a documentação</ArrowLink></div></AnimatedSection><div className="border-t border-gray-200">{faqs.map((item, index) => <details key={item.question} className="group border-b border-gray-200 py-5 first:pt-5"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold"><span><span className="mr-3 font-mono text-[10px] text-gray-400">0{index + 1}</span>{item.question}</span><span className="text-xl font-light text-gray-400 transition-transform group-open:rotate-45">+</span></summary><p className="mt-4 pl-7 text-sm leading-relaxed text-gray-500">{item.answer}</p></details>)}</div></div></div>
+      </section>
+
+      <div className="border-t border-gray-200 bg-gray-50/50 px-6 py-5"><div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400"><span>Hodle / Infrastructure for neobanks</span><span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-green-500" /> Built for movement</span></div></div>
+    </main>
   )
 }
