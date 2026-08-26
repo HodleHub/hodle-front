@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import AnimatedSection from '../AnimatedSection'
 import TopicCodeBlock from './topicCodeBlock'
+import TopicPartnerLockup from './topicPartnerLockup'
 import { TopicPage } from '../../types/topic'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -22,6 +23,11 @@ function SectionBody({ body }: { body: string }) {
 function SectionProse({ section }: { section: TopicPage['sections'][number] }) {
   return (
     <>
+      {section.logo && (
+        <div className="mb-5">
+          <TopicPartnerLockup partner={section.logo} align="left" showKicker={false} size="md" />
+        </div>
+      )}
       <h2 className={`${heading} text-2xl lg:text-3xl font-light text-foreground leading-tight mb-4`}>
         {section.heading}
       </h2>

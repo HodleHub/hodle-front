@@ -4,6 +4,15 @@ export type TopicFaq = { question: string; answer: string }
 
 export type TopicCta = { label: string; href: string }
 
+export type TopicPartner = {
+  kicker: string
+  name: string
+  href: string
+  logoSrc: string
+  logoWidth: number
+  logoHeight: number
+}
+
 export type TopicImage = {
   src: string
   alt: string
@@ -34,6 +43,7 @@ export type TopicSection = {
   comparison: TopicComparison | null
   code: TopicCode | null
   image: TopicImage | null
+  logo?: TopicPartner | null
 }
 
 export type TopicPage = {
@@ -49,6 +59,7 @@ export type TopicPage = {
   kicker: string
   subhead: string
   heroIcons: TopicIcon[]
+  partner?: TopicPartner
   ctaSubhead: string
   ctaPrimary: TopicCta
   ctaSecondary: TopicCta
