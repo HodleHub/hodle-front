@@ -12,7 +12,7 @@ A Hodle é uma empresa de software que constrói infraestrutura de pagamento ent
 
 ## Compra e venda de ativos digitais
 
-Compre bitcoin e stablecoins em diversas redes com liquidação instantânea via Pix, e venda no caminho de volta com o Pix caindo na conta. On-ramp e off-ramp custam a mesma taxa de serviço nas duas direções.
+Compre stablecoins e bitcoin com Pix. Quando quiser, venda e receba em reais na sua conta.
 
 ## Contas PJ nominais
 
@@ -24,7 +24,7 @@ Chaves privadas 100% sob o controle do usuário, sem custódia de terceiros. A c
 
 ## Uma API. Pix, dólar e stablecoins.
 
-Integre pagamentos com Pix e stablecoin no seu produto em minutos: REST, SDK e webhooks assinados, pensados para times de produto e agentes de IA.
+Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, SDK e webhooks — pensados para times de produto e agentes de IA.
 
 - \`POST /api/wallet/payout\` — paga um Pix debitando saldo em USDT (Polygon, Tron) ou USDC (Base), com gas patrocinado.
 - \`POST /api/lightning/invoice\` — invoice BOLT11 que dispara um payout Pix automaticamente quando é pago.

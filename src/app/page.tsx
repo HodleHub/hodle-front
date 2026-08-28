@@ -514,12 +514,8 @@ export default function HomePage() {
                 Compra e venda de ativos digitais
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                Compre bitcoin e stablecoins com Pix e venda no caminho de
-                volta, com o real caindo na conta. A taxa de serviço é a mesma
-                nas duas direções, começa em 2% e cai por faixa de volume
-                mensal até o piso de 0,5% — sem preço diferente por rede ou por
-                ativo. A mesma operação está no painel, para o time de
-                operações, e na API, para o time de engenharia.
+                Compre stablecoins e bitcoin com Pix. Quando quiser, venda e
+                receba em reais na sua conta.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
@@ -718,17 +714,7 @@ export default function HomePage() {
               <p className="text-gray-500 mb-8 leading-relaxed">
                 Integre pagamentos com Pix e stablecoin no seu produto em
                 minutos. REST, SDK e webhooks — pensados para times de produto e
-                agentes de IA. Um POST em <code>/api/wallet/payout</code> paga
-                um Pix debitando saldo em USDT ou USDC, com o gas por nossa
-                conta; um POST em <code>/api/lightning/invoice</code> devolve um
-                invoice BOLT11 que dispara o payout Pix assim que for pago. O
-                contrato inteiro está publicado como especificação OpenAPI 3.1,
-                com operationId, parâmetros tipados e schema de resposta em
-                cada operação — o formato que ferramentas de function calling
-                consomem direto. Autenticação é por API key no header, os
-                webhooks são assinados com HMAC e existe um ambiente de sandbox
-                sem dinheiro real para você rodar o fluxo ponta a ponta antes de
-                ir para produção.
+                agentes de IA.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
