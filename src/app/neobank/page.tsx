@@ -28,7 +28,6 @@ import {
   Zap,
 } from 'lucide-react'
 import AnimatedSection from '../../components/AnimatedSection'
-import SectionNav from '../../components/neobank/SectionNav'
 import { ButtonShadow } from '../../components/ui/ButtonShadow'
 
 const siteUrl = 'https://hodle.com.br/neobank'
@@ -37,11 +36,11 @@ const DOCS_URL = 'https://docs.hodle.com.br'
 const CONTACT_EMAIL = 'contato@hodle.com.br'
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
-// The global Header is sticky and 64px tall; SectionNav adds another ~52px.
-// Anchor targets must clear both. globals.css sets `[id] { scroll-margin-top:
-// 5rem }` for the rest of the site, and an attribute selector outranks a plain
-// utility on source order, so this needs the important modifier to win.
-const anchorOffset = '!scroll-mt-32'
+// The global Header is sticky and 64px tall, so an anchor jump must clear it.
+// globals.css sets `[id] { scroll-margin-top: 5rem }` for the rest of the site,
+// and an attribute selector outranks a plain utility on source order, so this
+// needs the important modifier to win.
+const anchorOffset = '!scroll-mt-20'
 
 export const metadata: Metadata = {
   title: 'Infraestrutura para neobanks',
@@ -70,17 +69,6 @@ export const metadata: Metadata = {
 // Labels deliberately avoid the global Header's own items (Plataforma, API,
 // Wallets): the same word in two stacked bars pointing at different targets
 // reads as a broken link, not as two levels of navigation.
-const navItems = [
-  { id: 'plataforma', label: 'Módulos' },
-  { id: 'redes', label: 'Redes' },
-  { id: 'conta-pj', label: 'Conta nominal' },
-  { id: 'wallets', label: 'Carteiras' },
-  { id: 'ativos', label: 'Ativos' },
-  { id: 'operacao', label: 'Operação' },
-  { id: 'api', label: 'Para devs' },
-  { id: 'precos', label: 'Preços' },
-] as const
-
 const networks = [
   { name: 'Bitcoin', detail: 'On-chain', icon: '/btc.svg', tint: 'bg-orange-50' },
   { name: 'Lightning', detail: 'Instantâneo', icon: '/ln.svg', tint: 'bg-purple-50' },
@@ -504,11 +492,8 @@ const PixFlowStep = ({
 
 export default function NeobankPage() {
   return (
-    <>
-      <SectionNav items={navItems} />
-
-      <main className="overflow-hidden bg-white text-foreground">
-        {/* HERO */}
+    <main className="overflow-hidden bg-white text-foreground">
+      {/* HERO */}
       <section className="relative overflow-hidden bg-white">
         <div className="hero-grid pointer-events-none absolute inset-0 opacity-60" />
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-6 pb-20 pt-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:pb-24 lg:pt-24">
@@ -1500,8 +1485,7 @@ export default function NeobankPage() {
             </a>
           </div>
         </div>
-        </div>
-      </main>
-    </>
+      </div>
+    </main>
   )
 }
