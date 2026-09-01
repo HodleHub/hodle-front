@@ -92,6 +92,11 @@ export const glossaryTerms: GlossaryTerm[] = [
       'Código de autenticação de mensagem baseado em hash. É como o recebedor de um webhook confirma que o payload veio de quem diz ter vindo e não foi alterado.',
   },
   {
+    term: 'IN BCB 704',
+    definition:
+      'Instrução Normativa BCB nº 704, de 29/01/2026, que detalha documentos, modelos e prazos do pedido de autorização de prestadora de serviços de ativos virtuais. Separa a validação preliminar da avaliação completa, em duas fases.',
+  },
+  {
     term: 'Invoice Lightning',
     definition:
       'Cobrança emitida na Lightning Network, no formato BOLT11, com valor e prazo de validade.',
@@ -164,22 +169,27 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     term: 'Resolução BCB 519',
     definition:
-      'Resolução do Banco Central que designa o próprio BCB como autoridade responsável por regular e supervisionar prestadores de serviço de ativos virtuais no âmbito da Lei 14.478/2022.',
+      'Resolução do Banco Central, de 10/11/2025, que rege o processo de autorização das prestadoras de serviços de ativos virtuais: requisitos de controlador, origem do capital, governança, infraestrutura e sede física. Em vigor desde 02/02/2026.',
   },
   {
     term: 'Resolução BCB 520',
     definition:
-      'Resolução do Banco Central que estabelece requisitos de autorização, governança e obrigações operacionais para prestadores de serviço de ativos virtuais no Brasil.',
+      'Resolução do Banco Central, de 10/11/2025, sobre constituição e funcionamento das prestadoras de serviços de ativos virtuais: modalidades, segregação patrimonial do recurso do cliente, identificação de titularidade e transparência de preços.',
   },
   {
     term: 'Resolução BCB 521',
     definition:
-      'Resolução do Banco Central que define padrões de gestão de risco, controles internos e conformidade para prestadores de serviço de ativos virtuais.',
+      'Resolução do Banco Central, de 10/11/2025, que traz operações com ativos virtuais para o regramento do mercado de câmbio e dos capitais internacionais. Admite transferência para carteira auto-custodiada mediante identificação do titular.',
   },
   {
     term: 'Spark',
     definition:
       'Rede de pagamentos construída sobre o Bitcoin, usada para transferência de ativos.',
+  },
+  {
+    term: 'SPSAV',
+    definition:
+      'Sociedade Prestadora de Serviços de Ativos Virtuais. É como o Banco Central chama, na norma, a empresa autorizada a prestar serviços de ativos virtuais. Equivale a PSAV e ao termo internacional VASP.',
   },
   {
     term: 'Stablecoin',

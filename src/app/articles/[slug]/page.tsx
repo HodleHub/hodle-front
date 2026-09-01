@@ -9,6 +9,8 @@ import ArticleShareRail from '../../../components/article/articleShareRail'
 import ArticleBody from '../../../components/article/articleBody'
 import ArticleRelated from '../../../components/article/articleRelated'
 import ArticleJsonLd from '../../../components/article/articleJsonLd'
+import ArticleFaq from '../../../components/article/articleFaq'
+import ArticleFaqJsonLd from '../../../components/article/articleFaqJsonLd'
 
 const siteUrl = 'https://hodle.com.br'
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -34,7 +36,15 @@ export async function generateMetadata({
   }
 
   const url = `${siteUrl}/articles/${slug}`
-  const image = article.cover ? article.cover.src : '/og-image-v2.png'
+
+  // Without a `coverImage` the share card is the one `opengraph-image.tsx`
+  // renders for this slug. It is referenced by URL rather than left to Next's
+  // file convention, which does not inject into a `force-static` segment.
+  const shareImage = article.cover?.src ?? `${url}/opengraph-image`
+
+  const images = [
+    { url: shareImage, width: 1200, height: 630, alt: article.title },
+  ]
 
   return {
     title: article.title,
@@ -50,13 +60,13 @@ export async function generateMetadata({
       locale: 'pt_BR',
       publishedTime: article.date,
       section: article.category.label,
-      images: [{ url: image, width: 1200, height: 630, alt: article.title }],
+      images,
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
-      images: [image],
+      images,
     },
   }
 }
@@ -82,6 +92,7 @@ export default async function ArticlePage({
   return (
     <>
       <ArticleJsonLd article={article} />
+      <ArticleFaqJsonLd items={article.faq} />
 
       <article className="mx-auto max-w-[1160px] px-6 pt-10 lg:pt-14">
         <div className="lg:grid lg:grid-cols-[168px_minmax(0,1fr)] lg:gap-14">
@@ -126,6 +137,8 @@ export default async function ArticlePage({
             <ArticleBody>
               <ArticleContent />
             </ArticleBody>
+
+            <ArticleFaq items={article.faq} />
           </div>
         </div>
       </article>

@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles()
   const topics = getAllTopics()
 
+  const newestArticleDate = articles[0]?.date
+
   const articleEntries: MetadataRoute.Sitemap = articles.map(
     (article: { slug: string; date: string }) => ({
       url: `${siteUrl}/articles/${article.slug}`,
@@ -109,6 +111,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-08-05'),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/articles`,
+      lastModified: new Date(newestArticleDate || pageUpdatedAt.home),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/neobank`,
+      lastModified: new Date(pageUpdatedAt.neobank),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     ...articleEntries,
     ...topicEntries,
