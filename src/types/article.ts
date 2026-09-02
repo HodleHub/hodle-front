@@ -8,6 +8,11 @@ export type ArticleAuthor = {
   role: string
 }
 
+export type ArticleFaqItem = {
+  question: string
+  answer: string
+}
+
 export type ArticleCover = {
   src: string
   alt: string
@@ -23,6 +28,7 @@ export type ArticleMeta = {
   cover: ArticleCover | null
   coverKicker: string
   readingMinutes: number
+  faq: ArticleFaqItem[]
 }
 
 export type ArticleContent = React.ComponentType<{

@@ -3,6 +3,7 @@ import {
   defaultArticleCategory,
 } from '../content/articleCategories'
 import { getReadingMinutes } from './getReadingMinutes'
+import { toArticleFaq } from './toArticleFaq'
 import { ArticleCover, ArticleMeta } from '../types/article'
 
 const DEFAULT_AUTHOR_NAME = 'Hodle'
@@ -52,4 +53,5 @@ export const toArticleMeta = ({
   cover: toCover({ data, title: data.title }),
   coverKicker: data.coverKicker || data.title,
   readingMinutes: getReadingMinutes({ body }),
+  faq: toArticleFaq({ data }),
 })

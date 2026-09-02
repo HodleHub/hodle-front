@@ -2,6 +2,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import * as jsxDevRuntime from 'react/jsx-dev-runtime'
 import * as jsxRuntime from 'react/jsx-runtime'
 import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
 import { ArticleContent } from '../types/article'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -21,7 +22,7 @@ export const compileArticleContent = async ({
 }): Promise<ArticleContent> => {
   const { compiledSource, frontmatter, scope } = await serialize(
     source,
-    { mdxOptions: { remarkPlugins: [remarkGfm] } },
+    { mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
     true,
   )
 

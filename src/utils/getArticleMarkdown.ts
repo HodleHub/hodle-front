@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { articlesDirectory } from './getAllArticles'
+import { articleFaqToMarkdown } from './articleFaqToMarkdown'
+import { toArticleFaq } from './toArticleFaq'
 
 const siteUrl = 'https://hodle.com.br'
 
@@ -29,6 +31,7 @@ export const getArticleMarkdown = ({
     `Fonte canônica: ${siteUrl}/articles/${slug}${data.date ? ` — publicado em ${data.date}` : ''}.`,
     '',
     content.trim(),
+    ...articleFaqToMarkdown({ items: toArticleFaq({ data }) }),
     '',
   ].join('\n')
 }
