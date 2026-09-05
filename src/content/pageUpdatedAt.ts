@@ -12,4 +12,5 @@ export const pageUpdatedAt = {
   contato: '2026-08-22T00:00:00-03:00',
   desenvolvedores: '2026-08-22T00:00:00-03:00',
   neobank: '2026-09-01T00:00:00-03:00',
+  caas: '2026-09-05T00:00:00-03:00',
 }

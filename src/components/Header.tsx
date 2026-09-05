@@ -11,6 +11,7 @@ const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 
 const NAV_LINKS = {
   pt: [
+    { label: 'CaaS', href: '/caas' },
     { label: 'Plataforma', href: '#plataforma' },
     { label: 'API', href: '#api' },
     { label: 'Wallets', href: '#wallets' },
@@ -19,6 +20,7 @@ const NAV_LINKS = {
     { label: 'Offshore', href: '/offshore' },
   ],
   en: [
+    { label: 'CaaS', href: '/caas' },
     { label: 'Platform', href: '#plataforma' },
     { label: 'API', href: '#api' },
     { label: 'Wallets', href: '#wallets' },

@@ -5,11 +5,20 @@ import { pageUpdatedAt } from '../content/pageUpdatedAt'
 
 const siteUrl = 'https://hodle.com.br'
 
+const CAAS_SLUGS = ['caas'] as const
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles()
   const topics = getAllTopics()
 
   const newestArticleDate = articles[0]?.date
+
+  const caasEntries: MetadataRoute.Sitemap = CAAS_SLUGS.map((slug) => ({
+    url: `${siteUrl}/${slug}`,
+    lastModified: new Date(pageUpdatedAt.caas),
+    changeFrequency: slug === 'caas' ? ('weekly' as const) : ('monthly' as const),
+    priority: slug === 'caas' ? 0.9 : 0.8,
+  }))
 
   const articleEntries: MetadataRoute.Sitemap = articles.map(
     (article: { slug: string; date: string }) => ({
@@ -124,6 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    ...caasEntries,
     ...articleEntries,
     ...topicEntries,
   ]
