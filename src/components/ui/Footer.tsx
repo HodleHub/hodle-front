@@ -111,6 +111,7 @@ export function Footer() {
                 { label: isEnglish ? 'About' : 'Sobre a Hodle', href: '/sobre' },
                 { label: isEnglish ? 'Contact' : 'Contato', href: '/contato' },
                 { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
+                { label: 'Neobank', href: '/neobank' },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
                 { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },
