@@ -122,9 +122,24 @@ export const pagarPixComUsdt: TopicPage = {
     'Tire suas dúvidas sobre pagar Pix com saldo em stablecoin.',
   faq: [
     {
-      question: 'Como pagar um Pix com USDT?',
+      question: 'Como posso pagar com USDT?',
       answer:
-        'Você mantém saldo em USDT na carteira, informa a chave Pix e o valor, e dispara o pagamento pelo painel ou por um POST em /api/wallet/payout. A stablecoin é debitada e o Pix é liquidado em reais para quem recebe.',
+        'Você mantém saldo em USDT na carteira, informa a chave Pix e o valor, e dispara o pagamento pelo painel ou por um POST em /api/wallet/payout. A stablecoin é debitada e o Pix é liquidado em reais para quem recebe, sem etapa manual de venda antes.',
+    },
+    {
+      question: 'Como posso pagar boletos com USDT?',
+      answer:
+        'A maioria dos boletos hoje traz um QR code ou um código Pix copia-e-cola. Você lê esse código e paga do mesmo jeito que paga qualquer QR code Pix: debitando o saldo em USDT, com a conversão para reais dentro do próprio pagamento.',
+    },
+    {
+      question: 'Como usar USDT no Brasil?',
+      answer:
+        'Na Hodle, você compra USDT com Pix, guarda na carteira auto-custodial e usa esse saldo para pagar Pix, QR codes e boletos com código Pix, ou para converter de volta para reais quando precisar sacar.',
+    },
+    {
+      question: 'A USDT é confiável?',
+      answer:
+        'USDT é a stablecoin mais usada do mercado cripto, emitida pela Tether e com paridade declarada de 1 para 1 com o dólar. É um ativo privado: carrega o risco do emissor e do lastro declarado, não uma garantia soberana. Ainda assim, é o padrão de dólar digital aceito na Hodle e na maior parte das plataformas do setor.',
     },
     {
       question: 'Dá para pagar Pix com cripto sem converter antes?',
@@ -135,16 +150,6 @@ export const pagarPixComUsdt: TopicPage = {
       question: 'Quem recebe sabe que o pagamento veio de cripto?',
       answer:
         'Não. Do lado de quem recebe é um Pix comum, em reais, com o comprovante de sempre. Não é preciso ter carteira nem conhecer stablecoins.',
-    },
-    {
-      question: 'Preciso pagar taxa de rede (gas) para pagar um Pix?',
-      answer:
-        'Não nas redes EVM. O gas de Polygon e Base é patrocinado pela Hodle, então você não precisa manter saldo em moeda nativa da rede só para conseguir pagar.',
-    },
-    {
-      question: 'Quais stablecoins e redes posso usar como saldo?',
-      answer:
-        'USDT em Polygon e Tron, e USDC em Base. As duas também circulam em Arbitrum e Spark dentro da plataforma.',
     },
   ],
   related: [
