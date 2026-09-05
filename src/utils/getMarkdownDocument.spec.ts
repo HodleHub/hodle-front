@@ -90,6 +90,16 @@ it('points the home document at the discovery files an agent needs', () => {
   expect(document).toContain('https://hodle.com.br/desenvolvedores')
 })
 
+it('negotiates markdown for the three B2B pages', () => {
+  const crypto = getMarkdownDocument({ pathname: '/crypto-as-a-service' })
+  const neobank = getMarkdownDocument({ pathname: '/neobank' })
+  const brs = getMarkdownDocument({ pathname: '/brs' })
+
+  expect(crypto).toContain('# Crypto as a Service')
+  expect(neobank).toContain('# Infraestrutura para neobanks')
+  expect(brs).toContain('# BRS')
+})
+
 it('carries the article body, not just its metadata', () => {
   const document =
     getMarkdownDocument({

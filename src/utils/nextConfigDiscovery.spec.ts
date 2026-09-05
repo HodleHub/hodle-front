@@ -37,6 +37,14 @@ it('keeps every redirect permanent so the apex URL is the one indexed', async ()
   expect(list.every((redirect) => redirect.permanent === true)).toBe(true)
 })
 
+it('redirects the retired /caas slug to the crypto-as-a-service page', async () => {
+  const list = await redirects()
+  const caasRedirect = list.find((redirect) => redirect.source === '/caas')
+
+  expect(caasRedirect?.destination).toBe('/crypto-as-a-service')
+  expect(caasRedirect?.permanent).toBe(true)
+})
+
 it('keeps the legacy legal aliases working', async () => {
   const list = await redirects()
   const sources = list.map((redirect) => redirect.source)

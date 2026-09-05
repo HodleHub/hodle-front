@@ -112,7 +112,7 @@ export function Footer() {
                 { label: isEnglish ? 'Contact' : 'Contato', href: '/contato' },
                 { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
                 { label: 'Neobank', href: '/neobank' },
-                { label: 'CaaS', href: '/caas' },
+                { label: 'CaaS', href: '/crypto-as-a-service' },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
                 { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },

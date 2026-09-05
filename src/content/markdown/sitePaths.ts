@@ -14,6 +14,7 @@ export const staticSitePaths: string[] = [
   '/contato',
   '/cookies',
   '/create',
+  '/crypto-as-a-service',
   '/desenvolvedores',
   '/en/brs',
   '/faq',

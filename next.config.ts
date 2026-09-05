@@ -100,6 +100,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/caas',
+        destination: '/crypto-as-a-service',
+        permanent: true,
+      },
+      {
         source: '/articles/comecando-com-bitcoin',
         destination: '/comprar-bitcoin-com-pix',
         permanent: true,
