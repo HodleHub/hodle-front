@@ -110,8 +110,7 @@ Send `Accept: text/markdown` to any URL below and the response comes back as `te
 - https://hodle.com.br/faq — 14 answered questions
 - https://hodle.com.br/glossario — glossary of payment and crypto terms
 - https://hodle.com.br/articles — article index
-- https://hodle.com.br/articles/pagar-pix-com-saldo-em-stablecoin
-- https://hodle.com.br/articles/invoice-lightning-que-liquida-em-pix
+- https://hodle.com.br/articles/psav-regulacao-banco-central
 - https://hodle.com.br/articles/auto-custodia-nao-e-detalhe-de-implementacao
 - https://hodle.com.br/pagar-pix-com-usdt
 - https://hodle.com.br/lightning-para-pix

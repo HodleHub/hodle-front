@@ -93,7 +93,7 @@ it('points the home document at the discovery files an agent needs', () => {
 it('carries the article body, not just its metadata', () => {
   const document =
     getMarkdownDocument({
-      pathname: '/articles/pagar-pix-com-saldo-em-stablecoin',
+      pathname: '/articles/psav-regulacao-banco-central',
     }) ?? ''
 
   expect(document.length).toBeGreaterThan(2000)

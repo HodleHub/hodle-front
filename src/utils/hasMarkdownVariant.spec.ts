@@ -9,7 +9,7 @@ it('accepts the paths that have a markdown representation', () => {
   expect(hasMarkdownVariant('/contato')).toBe(true)
   expect(hasMarkdownVariant('/desenvolvedores')).toBe(true)
   expect(hasMarkdownVariant('/pagar-pix-com-usdt')).toBe(true)
-  expect(hasMarkdownVariant('/articles/pagar-pix-com-saldo-em-stablecoin')).toBe(
+  expect(hasMarkdownVariant('/articles/psav-regulacao-banco-central')).toBe(
     true,
   )
 })

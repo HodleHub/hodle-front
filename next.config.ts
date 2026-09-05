@@ -104,6 +104,16 @@ const nextConfig: NextConfig = {
         destination: '/comprar-bitcoin-com-pix',
         permanent: true,
       },
+      {
+        source: '/articles/invoice-lightning-que-liquida-em-pix',
+        destination: '/lightning-para-pix',
+        permanent: true,
+      },
+      {
+        source: '/articles/pagar-pix-com-saldo-em-stablecoin',
+        destination: '/pagar-pix-com-usdt',
+        permanent: true,
+      },
       ...legalAliases.map((alias) => ({ ...alias, permanent: true })),
       ...trustPageAliases.map((alias) => ({ ...alias, permanent: true })),
     ]
