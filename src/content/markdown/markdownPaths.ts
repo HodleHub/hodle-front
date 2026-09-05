@@ -32,8 +32,6 @@ export const topicMarkdownSlugs: string[] = [
 
 export const articleMarkdownSlugs: string[] = [
   'auto-custodia-nao-e-detalhe-de-implementacao',
-  'invoice-lightning-que-liquida-em-pix',
-  'pagar-pix-com-saldo-em-stablecoin',
   'psav-regulacao-banco-central',
 ]
 
