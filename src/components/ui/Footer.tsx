@@ -50,7 +50,6 @@ export function Footer() {
                 },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
                 { label: isEnglish ? 'Business account' : 'Conta PJ', href: '#conta-pj' },
-                { label: 'Neobank', href: '/neobank' },
                 { label: isEnglish ? 'QR payments' : 'Pagamentos QR', href: '#pagamentos' },
                 {
                   label: isEnglish ? 'Pay Pix with USDT' : 'Pagar Pix com USDT',
@@ -112,6 +111,7 @@ export function Footer() {
                 { label: isEnglish ? 'About' : 'Sobre a Hodle', href: '/sobre' },
                 { label: isEnglish ? 'Contact' : 'Contato', href: '/contato' },
                 { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
+                { label: 'Neobank', href: '/neobank' },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
                 { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },

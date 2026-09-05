@@ -1,46 +1,37 @@
 import Image from 'next/image'
 import { ArticleCover as Cover } from '../../types/article'
 
-const heading = 'font-[family-name:var(--font-space-grotesk)]'
-
 type ArticleCoverProps = {
   cover: Cover | null
-  kicker: string
+  fallbackSrc: string
+  fallbackAlt: string
   priority?: boolean
 }
 
 /**
- * Cover slab above the headline. Without a `coverImage` in frontmatter it falls
- * back to a near-black panel carrying the article kicker, so a new article never
- * needs an asset to look finished.
+ * Cover slab above the headline. Articles without a `coverImage` reuse their
+ * generated Open Graph image so the in-page cover and social preview cannot
+ * drift apart.
  */
 export default function ArticleCover({
   cover,
-  kicker,
+  fallbackSrc,
+  fallbackAlt,
   priority = false,
 }: ArticleCoverProps) {
-  if (!cover) {
-    return (
-      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-[#0a0a0a]">
-        <div className="dark-grid absolute inset-0" />
-        <div className="relative flex h-full items-center justify-center px-10">
-          <span
-            className={`${heading} text-center text-[clamp(1.5rem,3.4vw,2.6rem)] font-light leading-[1.1] tracking-[-0.035em] text-white text-balance`}
-          >
-            {kicker}
-          </span>
-        </div>
-      </div>
-    )
-  }
+  const image = cover ?? { src: fallbackSrc, alt: fallbackAlt }
+  const aspectRatio = cover ? 'aspect-[16/9]' : 'aspect-[40/21]'
 
   return (
-    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-[#0a0a0a]">
+    <div
+      className={`relative ${aspectRatio} w-full overflow-hidden rounded-xl bg-[#0a0a0a]`}
+    >
       <Image
-        src={cover.src}
-        alt={cover.alt}
+        src={image.src}
+        alt={image.alt}
         fill
         priority={priority}
+        unoptimized={!cover}
         sizes="(min-width: 1024px) 720px, 100vw"
         className="object-cover"
       />
