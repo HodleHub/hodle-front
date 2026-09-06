@@ -5,20 +5,11 @@ import { pageUpdatedAt } from '../content/pageUpdatedAt'
 
 const siteUrl = 'https://hodle.com.br'
 
-const CAAS_SLUGS = ['crypto-as-a-service'] as const
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles()
   const topics = getAllTopics()
 
   const newestArticleDate = articles[0]?.date
-
-  const caasEntries: MetadataRoute.Sitemap = CAAS_SLUGS.map((slug) => ({
-    url: `${siteUrl}/${slug}`,
-    lastModified: new Date(pageUpdatedAt.cryptoAsAService),
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }))
 
   const articleEntries: MetadataRoute.Sitemap = articles.map(
     (article: { slug: string; date: string }) => ({
@@ -133,7 +124,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    ...caasEntries,
+    {
+      url: `${siteUrl}/crypto-as-a-service`,
+      lastModified: new Date(pageUpdatedAt.cryptoAsAService),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     ...articleEntries,
     ...topicEntries,
   ]

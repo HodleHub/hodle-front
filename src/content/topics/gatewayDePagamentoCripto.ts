@@ -59,20 +59,28 @@ export const gatewayDePagamentoCripto: TopicPage = {
     {
       id: 'gateways-cripto',
       kind: 'COMPARISON',
-      heading: 'Gateways cripto e o trilho de liquidação',
-      body: 'O mercado de gateway de pagamento cripto é dominado por players estrangeiros, pensados para liquidação internacional ou para manter o saldo em cripto. Nenhum deles nasceu para o Pix.',
+      heading: 'Três formas de liquidar um pagamento cripto',
+      body: 'A pergunta que separa um gateway de pagamento cripto de outro não é qual moeda ele aceita, é o que acontece depois que o cliente paga. O mercado brasileiro é atendido em boa parte por gateways construídos fora do país, para os quais o Brasil é mais um destino internacional. O Pix não é o caminho padrão de nenhum deles.',
       bullets: [],
       icons: [],
       comparison: {
-        headers: ['Gateway', 'Onde nasceu', 'Liquidação padrão'],
+        headers: ['Modelo de liquidação', 'O que você recebe', 'O que sobra para você resolver'],
         rows: [
-          ['CoinGate', 'Europa', 'Cripto ou transferência internacional'],
-          ['Cryptomus', 'Europa do Leste', 'Cripto ou transferência internacional'],
-          ['NOWPayments', 'Europa do Leste', 'Cripto ou transferência internacional'],
-          ['Banxa', 'Austrália', 'Cripto ou transferência internacional'],
-          ['Passimpay', 'Europa do Leste', 'Cripto ou transferência internacional'],
-          ['Volet', 'Europa do Leste', 'Cripto ou transferência internacional'],
-          ['Hodle', 'Brasil', 'Pix, na conta do seu negócio, 24 horas por dia'],
+          [
+            'Saldo mantido em cripto',
+            'Stablecoin ou Bitcoin na carteira do gateway',
+            'Vender o ativo e trazer o valor para a conta da empresa',
+          ],
+          [
+            'Transferência internacional',
+            'Depósito em moeda estrangeira, em dias úteis',
+            'Câmbio, spread e o tempo do trilho bancário internacional',
+          ],
+          [
+            'Liquidação em Pix (Hodle)',
+            'Reais na conta do seu negócio, 24 horas por dia',
+            'Nada: a conversão acontece dentro do pagamento',
+          ],
         ],
       },
       code: null,
