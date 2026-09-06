@@ -66,6 +66,21 @@ export const metadata: Metadata = {
   },
 }
 
+const webpageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Infraestrutura para neobanks',
+  description:
+    'A infraestrutura da Hodle para neobanks: conta nominal, Pix liquidado em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin, USD fiat, disputes e KYB em uma única camada.',
+  url: siteUrl,
+  inLanguage: 'pt-BR',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Hodle',
+    url: 'https://hodle.com.br',
+  },
+}
+
 // Labels deliberately avoid the global Header's own items (Plataforma, API,
 // Wallets): the same word in two stacked bars pointing at different targets
 // reads as a broken link, not as two levels of navigation.
@@ -245,6 +260,16 @@ const faqs = [
       'Sim. A Hodle oferece API, webhooks assinados e documentação para times de produto e engenharia orquestrarem os fluxos dentro da própria experiência.',
   },
 ] as const
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+}
 
 type SectionEyebrowProps = {
   children: React.ReactNode
@@ -493,6 +518,14 @@ const PixFlowStep = ({
 export default function NeobankPage() {
   return (
     <main className="overflow-hidden bg-white text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* HERO */}
       <section className="relative overflow-hidden bg-white">
         <div className="hero-grid pointer-events-none absolute inset-0 opacity-60" />

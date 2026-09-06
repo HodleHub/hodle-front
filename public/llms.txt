@@ -122,6 +122,11 @@ Send `Accept: text/markdown` to any URL below and the response comes back as `te
 - https://hodle.com.br/para-agentes-de-ia
 - https://hodle.com.br/real-onchain
 - https://hodle.com.br/offshore
+- https://hodle.com.br/gateway-de-pagamento-cripto
+- https://hodle.com.br/como-aceitar-criptomoedas
+- https://hodle.com.br/crypto-as-a-service
+- https://hodle.com.br/neobank
+- https://hodle.com.br/brs
 
 ## Trust and Verification Pages
 

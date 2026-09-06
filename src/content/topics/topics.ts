@@ -9,6 +9,8 @@ import { comprarBitcoinComPix } from './comprarBitcoinComPix'
 import { comprarUsdtComPix } from './comprarUsdtComPix'
 import { receberPixEmStablecoin } from './receberPixEmStablecoin'
 import { offshore } from './offshore'
+import { gatewayDePagamentoCripto } from './gatewayDePagamentoCripto'
+import { comoAceitarCriptomoedas } from './comoAceitarCriptomoedas'
 
 export const topics: TopicPage[] = [
   realOnchain,
@@ -21,4 +23,6 @@ export const topics: TopicPage[] = [
   walletAutoCustodial,
   paraAgentesDeIa,
   offshore,
+  gatewayDePagamentoCripto,
+  comoAceitarCriptomoedas,
 ]

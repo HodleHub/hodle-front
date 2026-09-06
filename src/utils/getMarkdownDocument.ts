@@ -3,6 +3,9 @@ import {
   topicMarkdownSlugs,
 } from '../content/markdown/markdownPaths'
 import { homeMarkdown } from '../content/markdown/homeMarkdown'
+import { brsMarkdown } from '../content/markdown/brsMarkdown'
+import { cryptoAsAServiceMarkdown } from '../content/markdown/cryptoAsAServiceMarkdown'
+import { neobankMarkdown } from '../content/markdown/neobankMarkdown'
 import { sobre } from '../content/pages/sobre'
 import { contato } from '../content/pages/contato'
 import { desenvolvedores } from '../content/pages/desenvolvedores'
@@ -18,10 +21,13 @@ import { pricingToMarkdown } from './pricingToMarkdown'
 const staticDocuments: Record<string, () => string> = {
   '/': () => homeMarkdown,
   '/articles': articlesIndexToMarkdown,
+  '/brs': () => brsMarkdown,
   '/contato': () => infoPageToMarkdown({ page: contato }),
+  '/crypto-as-a-service': () => cryptoAsAServiceMarkdown,
   '/desenvolvedores': () => infoPageToMarkdown({ page: desenvolvedores }),
   '/faq': faqToMarkdown,
   '/glossario': glossaryToMarkdown,
+  '/neobank': () => neobankMarkdown,
   '/precos': pricingToMarkdown,
   '/sobre': () => infoPageToMarkdown({ page: sobre }),
 }

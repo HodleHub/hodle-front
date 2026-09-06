@@ -19,15 +19,18 @@ import AnimatedSection from '../../components/AnimatedSection'
 import CodeBlock from '../../components/CodeBlock'
 import { ButtonShadow } from '../../components/ui/ButtonShadow'
 
-const siteUrl = 'https://hodle.com.br/caas'
+const siteUrl = 'https://hodle.com.br/crypto-as-a-service'
 const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 const DOCS_URL = 'https://docs.hodle.com.br'
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+const title = 'Crypto as a Service para empresas'
+const description =
+  'Hodle CaaS: rampas de Pix para stablecoin, wallets auto-custodiais multi-rede, swaps entre ativos e redes e front whitelabel. Uma API para ligar cripto ao seu produto.'
+
 export const metadata: Metadata = {
-  title: 'Crypto as a Service para empresas',
-  description:
-    'Hodle CaaS: rampas de Pix para stablecoin, wallets auto-custodiais multi-rede, swaps entre ativos e redes e front whitelabel. Uma API para ligar cripto ao seu produto.',
+  title,
+  description,
   alternates: { canonical: siteUrl },
   openGraph: {
     title: 'Hodle CaaS — Crypto as a Service',
@@ -45,6 +48,20 @@ export const metadata: Metadata = {
     ],
     locale: 'pt_BR',
     type: 'website',
+  },
+}
+
+const webpageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: siteUrl,
+  inLanguage: 'pt-BR',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Hodle',
+    url: 'https://hodle.com.br',
   },
 }
 
@@ -204,6 +221,10 @@ const AssetPill = ({ icon, label }: { icon: string; label: string }) => (
 export default function CaasPage() {
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageJsonLd) }}
+      />
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative overflow-hidden">
         <div className="hero-grid absolute inset-0 pointer-events-none" />
