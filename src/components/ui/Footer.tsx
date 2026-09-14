@@ -45,7 +45,7 @@ export function Footer() {
               title: isEnglish ? 'Products' : 'Produtos',
               links: [
                 {
-                  label: isEnglish ? 'Buy & Sell' : 'Compra e Venda',
+                  label: isEnglish ? 'Buy Bitcoin with Pix' : 'Comprar Bitcoin com Pix',
                   href: '/comprar-bitcoin-com-pix',
                 },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
@@ -73,6 +73,10 @@ export function Footer() {
                     ? 'Receive Pix in stablecoin'
                     : 'Receber Pix em stablecoin',
                   href: '/receber-pix-em-stablecoin',
+                },
+                {
+                  label: isEnglish ? 'Pix to USDT gateway' : 'Gateway Pix para USDT',
+                  href: '/gateway-de-pagamento-cripto',
                 },
               ],
             },
@@ -114,6 +118,10 @@ export function Footer() {
                 { label: 'Neobank', href: '/neobank' },
                 { label: 'CaaS', href: '/crypto-as-a-service' },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
+                {
+                  label: isEnglish ? 'Accept crypto payments' : 'Como aceitar criptomoedas',
+                  href: '/como-aceitar-criptomoedas',
+                },
                 { label: isEnglish ? 'Pricing' : 'Preços', href: '/precos' },
                 { label: 'FAQ', href: '/faq' },
                 {

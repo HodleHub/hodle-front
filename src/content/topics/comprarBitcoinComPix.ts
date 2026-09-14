@@ -2,55 +2,55 @@ import { TopicPage } from '../../types/topic'
 
 export const comprarBitcoinComPix: TopicPage = {
   slug: 'comprar-bitcoin-com-pix',
-  primaryKeyword: 'comprar bitcoin com pix por api',
-  title: 'Comprar Bitcoin com Pix por API',
-  h1: 'Reais entram por Pix, sai bitcoin',
+  primaryKeyword: 'comprar bitcoin com pix',
+  title: 'Comprar Bitcoin com Pix: passo a passo e API',
+  h1: 'Comprar Bitcoin com Pix, na sua carteira',
   description:
-    'Converta reais em bitcoin por API e entregue em Lightning, on-chain ou Liquid, no endereço que você indicar. Disponível 24 horas por dia.',
+    'Saiba como comprar Bitcoin com Pix na Hodle, conferir cotação e taxas e receber na carteira. Veja o passo a passo pelo painel e a integração por API.',
   keywords: [
-    'comprar bitcoin com pix por api',
+    'comprar bitcoin',
     'comprar bitcoin com pix',
+    'como comprar bitcoin',
+    'compra de bitcoin',
+    'pix para bitcoin',
     'api para comprar bitcoin',
     'comprar bitcoin lightning',
-    'comprar bitcoin liquid',
-    'bitcoin via pix para empresas',
   ],
-  updatedAt: '2026-07-30T21:04:55-03:00',
+  updatedAt: '2026-09-14T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
   kicker: 'BITCOIN',
   subhead:
-    'Uma chamada converte reais em bitcoin e entrega na rede que você escolher. Lightning para pagamento imediato, on-chain para liquidação, Liquid para transferência de ativo. Sem saldo interno no meio.',
+    'Comprar Bitcoin com Pix é pagar em reais para receber BTC na carteira escolhida. Você pode comprar uma fração de bitcoin: confira o valor, as taxas e as opções disponíveis para sua conta antes de gerar o Pix.',
   faqSubhead:
-    'Tire suas dúvidas sobre comprar bitcoin com Pix por API.',
+    'Como começar, conferir o valor em reais e escolher o destino da compra de Bitcoin.',
   ctaSubhead:
-    'Comece pela documentação ou fale com o time da Hodle.',
+    'Acesse o painel para verificar sua conta e consultar as opções de compra de Bitcoin. A API atende quem quer integrar o fluxo ao próprio produto.',
   heroIcons: [
     { src: '/pix.svg', label: 'Pix' },
     { src: '/btc.svg', label: 'Bitcoin' },
     { src: '/ln.svg', label: 'Lightning' },
-    { src: '/liquid.svg', label: 'Liquid' },
   ],
   ctaPrimary: {
-    label: 'Ver a documentação',
-    href: 'https://docs.hodle.com.br/docs/deposit-asset',
+    label: 'Acessar o painel',
+    href: 'https://app.hodle.com.br',
   },
   ctaSecondary: {
-    label: 'Falar com vendas',
-    href: 'https://api.whatsapp.com/send?phone=5511960000445',
+    label: 'Integrar por API',
+    href: 'https://docs.hodle.com.br/docs/deposit-asset',
   },
   sections: [
     {
       id: 'o-que-e',
       kind: 'PROSE',
-      heading: 'Comprar bitcoin com Pix, por API',
-      body: 'É converter reais em bitcoin numa chamada e entregar o ativo direto num endereço. O Pix entra, a conversão acontece, e o bitcoin sai na rede que você escolheu para o destino que você indicou.\n\nA diferença em relação a comprar numa exchange é o destino. Aqui não existe saldo interno intermediário esperando saque: a entrega é o próprio passo final da operação.',
+      heading: 'Como comprar Bitcoin com reais',
+      body: 'Na compra de Bitcoin com Pix, você escolhe quanto quer pagar em reais e recebe a quantidade de BTC correspondente à cotação e às taxas da operação. Não precisa comprar um bitcoin inteiro.\n\nNa Hodle, a compra pode ser feita pelo painel ou integrada por API. A conta precisa estar aprovada e ter o ativo habilitado. As opções de destino devem ser conferidas na compra, antes de enviar dinheiro.',
       bullets: [
-        'Entrada em reais por Pix, disponível 24 horas por dia.',
-        'Entrega em Lightning, on-chain ou Liquid.',
-        'Destino é um endereço que você indica, não um saldo interno.',
-        'Sem depender de horário bancário.',
+        'Escolha o valor em reais e confira quanto BTC vai receber.',
+        'Use uma carteira compatível com a opção de entrega selecionada.',
+        'Confira as condições e a validade da cobrança antes de pagar.',
+        'Acompanhe o status até a entrega do ativo.',
       ],
       icons: [],
       comparison: null,
@@ -60,12 +60,13 @@ export const comprarBitcoinComPix: TopicPage = {
     {
       id: 'como-funciona',
       kind: 'STEPS',
-      heading: 'Do Pix ao bitcoin entregue',
-      body: 'Três etapas, e a única decisão sua é a rede de entrega.',
+      heading: 'Passo a passo da compra de Bitcoin com Pix',
+      body: 'Acesse a compra de ativos no painel da Hodle com a conta verificada.',
       bullets: [
-        'Escolher a rede. Lightning para pagamento imediato, on-chain para liquidação em bloco, Liquid para transferência de ativo.',
-        'Disparar a operação. O deposit-asset recebe o valor em reais e o endereço de destino.',
-        'Entrega e confirmação. O bitcoin chega no endereço indicado, e o webhook assinado com HMAC avisa a mudança de estado.',
+        'Selecione Bitcoin ou a opção Lightning disponível para sua conta e informe um destino compatível.',
+        'Digite o valor em reais e confira cotação, taxa e quantidade a receber.',
+        'Gere o QR Code e pague o Pix pelo banco, dentro da validade e com a titularidade exigida na cobrança.',
+        'Acompanhe a confirmação e a entrega na carteira. Um Pix pago ainda pode estar aguardando o processamento do envio.',
       ],
       icons: [],
       comparison: null,
@@ -73,15 +74,14 @@ export const comprarBitcoinComPix: TopicPage = {
       image: null,
     },
     {
-      id: 'tres-trilhos',
+      id: 'carteira-e-rede',
       kind: 'ASSETS',
-      heading: 'Três trilhos, uma integração',
-      body: 'Cada rede resolve um problema diferente, e a escolha é por operação, não por contrato. Lightning entrega em pagamento instantâneo e de baixo custo. On-chain entrega liquidação na rede base do Bitcoin. Liquid entrega transferência de ativo em sidechain.',
+      heading: 'Carteira Bitcoin e Lightning: confira o destino',
+      body: 'Um endereço de Bitcoin e uma invoice Lightning são formatos diferentes e não podem ser usados como se fossem iguais. Se escolher Lightning, use uma invoice ou um endereço Lightning aceito pelo fluxo. Para outras opções de BTC, confira a rede e o formato exigidos na compra.\n\nA disponibilidade varia conforme a conta e a operação. Nunca envie para uma rede apenas porque a carteira também exibe saldo em bitcoin.',
       bullets: [],
       icons: [
-        { src: '/btc.svg', label: 'Bitcoin on-chain' },
+        { src: '/btc.svg', label: 'Bitcoin' },
         { src: '/ln.svg', label: 'Lightning' },
-        { src: '/liquid.svg', label: 'Liquid' },
         { src: '/pix.svg', label: 'Pix' },
       ],
       comparison: null,
@@ -91,13 +91,13 @@ export const comprarBitcoinComPix: TopicPage = {
     {
       id: 'pela-api',
       kind: 'CODE',
-      heading: 'A chamada de entrada',
-      body: 'O mesmo endpoint que converte reais em bitcoin converte em USDT, USDC e USDCE. A rede e o ativo de destino são parâmetro, não integração separada.',
+      heading: 'Comprar Bitcoin com Pix por API',
+      body: 'O endpoint de depósito cria a compra a partir de um valor em reais. Para Lightning, informe o destino no formato aceito pela documentação. A geração da cobrança, a confirmação do Pix e a entrega são etapas que sua integração deve acompanhar.',
       bullets: [
-        'deposit-asset — converte reais e entrega no endereço indicado.',
-        'Ativos de destino: Lightning, USDT, USDC e USDCE.',
-        'Webhook assinado com HMAC em cada mudança de estado.',
-        'Guia em docs.hodle.com.br/docs/deposit-asset.',
+        'Consulte os ativos e destinos aceitos por POST /api/deposit/asset.',
+        'Concilie a operação pelo identificador do depósito e pelos webhooks.',
+        'A permissão de uma rede em outro endpoint não libera a compra nessa rede.',
+        'Teste a integração no sandbox antes de operar com valores reais.',
       ],
       icons: [],
       comparison: null,
@@ -107,12 +107,12 @@ export const comprarBitcoinComPix: TopicPage = {
     {
       id: 'kyc',
       kind: 'PROSE',
-      heading: 'KYC faz parte do trilho',
-      body: 'A verificação de identidade do usuário final é uma chamada da própria API, não um processo paralelo. Submeter e consultar o estado do KYC são operações documentadas, e a entrada e saída de valores dependem dele.\n\nIsso é escolha de produto. Um trilho que converte reais em ativo digital carrega obrigação de identificação, e resolver isso dentro da API é mais simples do que costurar um fornecedor separado.',
+      heading: 'Verificação da conta, taxas e limites',
+      body: 'A compra depende da verificação de identidade e da aprovação da conta. A tela informa as condições aplicáveis à operação; na integração, consulte também os limites e o estado do KYC.\n\nA cotação do Bitcoin muda. Confira o total em reais e a quantidade a receber antes de pagar, sem usar uma cotação antiga como promessa de entrega.',
       bullets: [
-        'Submissão e consulta de KYC pela mesma API.',
-        'Comprovante de endereço e de capacidade financeira documentados.',
-        'Entrada e saída de valores dependem do KYC do usuário.',
+        'Conta aprovada e ativo habilitado antes da compra.',
+        'Taxas e limites devem ser conferidos para cada operação.',
+        'Compra de Bitcoin não implica rendimento garantido.',
       ],
       icons: [],
       comparison: null,
@@ -122,24 +122,34 @@ export const comprarBitcoinComPix: TopicPage = {
   ],
   faq: [
     {
-      question: 'Como comprar Bitcoin com Pix por API?',
+      question: 'Como faço para comprar Bitcoin com Pix?',
       answer:
-        'Você dispara a operação de deposit-asset informando o valor em reais e o endereço de destino, e escolhe se a entrega é em Lightning, on-chain ou Liquid. O bitcoin chega no endereço indicado e o webhook assinado avisa a conclusão.',
+        'Acesse o painel da Hodle com sua conta aprovada, escolha a opção de Bitcoin disponível, informe valor e destino, confira as taxas e gere o Pix. Após pagar pelo banco, acompanhe o status da compra e a entrega. Para automatizar, use a API de depósito.',
+    },
+    {
+      question: 'Preciso comprar um Bitcoin inteiro?',
+      answer:
+        'Não. Bitcoin é divisível e você pode comprar uma fração. O valor mínimo e os limites dependem da operação disponível na sua conta; confira essas condições na tela de compra.',
+    },
+    {
+      question: 'Quanto dá R$ 100 em Bitcoin?',
+      answer:
+        'Depende da cotação e das taxas no momento da compra. Informe R$ 100 na simulação, se estiver dentro dos limites da sua conta, e confira a quantidade de BTC a receber. Esta página não exibe preço em tempo real.',
     },
     {
       question: 'Em qual rede o Bitcoin é entregue?',
       answer:
-        'Na que você escolher: Lightning, on-chain ou Liquid. A rede é parâmetro da operação, então dá para variar por caso de uso sem mudar a integração.',
+        'Use uma das opções disponíveis para sua conta e confira o formato de destino exigido. Lightning usa invoice ou endereço Lightning; outras opções de BTC usam o formato indicado no fluxo. A documentação do endpoint informa o que sua integração pode solicitar.',
     },
     {
       question: 'Dá para entregar no endereço do meu usuário final?',
       answer:
-        'Sim, e é o desenho pretendido. A entrega é num endereço que você indica, sem saldo interno intermediário esperando saque. As chaves do endereço de destino não ficam com a Hodle.',
+        'A integração permite informar o destino nos fluxos documentados, respeitando as permissões da conta e a identificação do pagador. Confira o ativo, a rede e o formato do endereço antes de criar a cobrança.',
     },
     {
-      question: 'Qual a taxa?',
+      question: 'Qual a taxa para comprar Bitcoin com Pix?',
       answer:
-        'A taxa de serviço está publicada na página de preços, que é a única fonte oficial. Qualquer valor citado fora dela deve ser conferido antes de ser considerado válido.',
+        'Consulte a página de preços e confira a taxa e a quantidade a receber na operação. O custo e os limites podem variar conforme a configuração da conta e a opção de entrega.',
     },
     {
       question: 'Precisa de KYC?',
@@ -148,9 +158,11 @@ export const comprarBitcoinComPix: TopicPage = {
     },
   ],
   related: [
+    { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'Lightning para Pix', href: '/lightning-para-pix' },
     { label: 'Preços e taxas', href: '/precos' },
     { label: 'Glossário', href: '/glossario' },
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
+    { label: 'Documentação de compra por API', href: 'https://docs.hodle.com.br/docs/deposit-asset' },
   ],
 }

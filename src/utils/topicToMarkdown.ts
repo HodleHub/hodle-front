@@ -61,6 +61,8 @@ export const topicToMarkdown = ({ topic }: { topic: TopicPage }): string =>
     ...(topic.faq.length > 0 ? ['## Perguntas frequentes', ''] : []),
     ...topic.faq.flatMap((item) => [`### ${item.question}`, '', item.answer, '']),
     ...(topic.related.length > 0 ? ['## Relacionados', ''] : []),
-    ...topic.related.map((link) => `- [${link.label}](${siteUrl}${link.href})`),
+    ...topic.related.map(
+      (link) => `- [${link.label}](${new URL(link.href, siteUrl).href})`,
+    ),
     '',
   ].join('\n')

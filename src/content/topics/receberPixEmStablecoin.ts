@@ -16,7 +16,7 @@ export const receberPixEmStablecoin: TopicPage = {
     'qr code estático pix',
     'receber pix em usdt',
   ],
-  updatedAt: '2026-07-30T21:04:55-03:00',
+  updatedAt: '2026-09-14T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
@@ -136,6 +136,11 @@ export const receberPixEmStablecoin: TopicPage = {
   ],
   faq: [
     {
+      question: 'Como receber Pix em USDT?',
+      answer:
+        'Para receber vendas em USDT, consulte o checkout e o link de pagamento com USDT habilitado na sua conta: o cliente paga o Pix da cobrança e você recebe o ativo configurado. O recebimento automático por chave Pix descrito nesta página entrega USDC na Base. São fluxos diferentes, com configurações próprias.',
+    },
+    {
       question: 'Como receber Pix em stablecoin?',
       answer:
         'Você cadastra a carteira externa que vai receber e continua divulgando a chave Pix ou o QR Code estático da sua conta. Cada Pix que chega é convertido e enviado em USDC para essa carteira, sem uma chamada de API por transação.',
@@ -162,6 +167,8 @@ export const receberPixEmStablecoin: TopicPage = {
     },
   ],
   related: [
+    { label: 'Gateway Pix para USDT e link de pagamento', href: '/gateway-de-pagamento-cripto' },
+    { label: 'Como receber pagamentos com Pix e cripto', href: '/como-aceitar-criptomoedas' },
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },

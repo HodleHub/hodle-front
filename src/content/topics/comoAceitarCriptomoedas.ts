@@ -5,7 +5,7 @@ export const comoAceitarCriptomoedas: TopicPage = {
   title: 'Como aceitar criptomoedas no seu negócio',
   h1: 'Como aceitar criptomoedas, na prática',
   description:
-    'As três formas reais de aceitar criptomoedas no seu negócio, os riscos de cada uma e como receber pagamento em cripto liquidado direto em Pix, sem guardar saldo volátil.',
+    'Entenda como aceitar criptomoedas no seu negócio, conferir carteira e rede e distinguir pagamento em cripto de checkout Pix com recebimento em stablecoin.',
   keywords: [
     'como aceitar criptomoedas',
     'como aceitar pagamento em criptomoedas',
@@ -13,12 +13,12 @@ export const comoAceitarCriptomoedas: TopicPage = {
     'receber pagamento em cripto',
   ],
   primaryKeyword: 'como aceitar criptomoedas',
-  updatedAt: '2026-09-05T00:00:00-03:00',
+  updatedAt: '2026-09-14T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'TUTORIAL',
   subhead:
-    'Aceitar criptomoedas não é só divulgar um endereço de carteira. Existem três caminhos reais, com riscos diferentes de custódia, volatilidade e conciliação — este guia explica os três e onde a Hodle entra.',
+    'Para aceitar criptomoedas, defina o ativo, a rede e a carteira que vai receber, além de como confirmar cada pedido. Se o cliente prefere pagar em reais, existe outro caminho: cobrar por Pix e receber a venda em stablecoin com o checkout da Hodle.',
   heroIcons: [
     { src: '/pix.svg', label: 'Pix' },
     { src: '/usdt.svg', label: 'USDT' },
@@ -26,7 +26,7 @@ export const comoAceitarCriptomoedas: TopicPage = {
     { src: '/btc.svg', label: 'Bitcoin' },
   ],
   ctaSubhead:
-    'Fale com o time da Hodle para aceitar cripto liquidando em Pix.',
+    'Fale com o time para escolher entre receber vendas via Pix em stablecoin e pagar Pix a partir de saldo em cripto.',
   ctaPrimary: {
     label: 'Falar com vendas',
     href: 'https://api.whatsapp.com/send?phone=5511960000445',
@@ -39,12 +39,12 @@ export const comoAceitarCriptomoedas: TopicPage = {
     {
       id: 'tres-formas',
       kind: 'PROSE',
-      heading: 'As três formas de aceitar criptomoedas',
-      body: 'A primeira é divulgar um endereço de carteira próprio e conferir manualmente cada pagamento. Funciona para volume baixo, mas você assume a custódia do ativo, a exposição à variação de preço entre o recebimento e a venda, e a conciliação manual contra pedidos. A segunda é usar uma exchange como intermediária: o cliente paga, você recebe na exchange e vende depois, o que reduz a operação mas não remove a janela de variação de preço nem o tempo de saque até a conta bancária. A terceira é usar uma infraestrutura de pagamento que recebe a cripto e já entrega o valor liquidado em reais, via Pix, sem que o seu negócio guarde saldo em ativo volátil em nenhum momento. É esta última que a Hodle resolve.',
+      heading: 'Receber cripto diretamente ou usar uma plataforma',
+      body: 'No recebimento direto, seu negócio informa a carteira, o ativo e a rede e confere o pagamento contra o pedido. Uma plataforma pode automatizar a cobrança e a conciliação, mas você precisa verificar quais ativos ela aceita, quem controla as chaves e como o dinheiro chega ao destino.\n\nO checkout da Hodle atende a outro ponto de partida: o cliente paga em reais por Pix e o vendedor recebe no ativo habilitado em sua conta. Receber cripto do cliente e converter o saldo para pagar um Pix são operações distintas desse checkout.',
       bullets: [
-        'Endereço próprio: você custodia o ativo e assume a variação de preço até vender.',
-        'Exchange manual: reduz a custódia, mas ainda expõe à variação de preço e ao tempo de saque.',
-        'Infraestrutura com liquidação em Pix: o valor chega em reais, sem passar por saldo em cripto do seu negócio.',
+        'Recebimento direto: seu negócio confere a transferência na rede escolhida.',
+        'Plataforma de pagamento: confira ativos, confirmação, custódia e forma de liquidação.',
+        'Checkout Hodle: cliente paga Pix em reais; vendedor recebe o ativo configurado.',
       ],
       icons: [],
       comparison: null,
@@ -54,13 +54,13 @@ export const comoAceitarCriptomoedas: TopicPage = {
     {
       id: 'passo-a-passo',
       kind: 'STEPS',
-      heading: 'Passo a passo para aceitar cripto liquidando em Pix',
-      body: 'É o mesmo tipo de integração de um checkout, trocando o meio de pagamento.',
+      heading: 'O que definir antes de aceitar um pagamento em cripto',
+      body: 'Registre as condições de pagamento junto do pedido para conseguir conferir o recebimento.',
       bullets: [
-        'Gere a cobrança com o valor em reais, pelo painel ou pela API. A cotação em cripto fica travada por um tempo definido.',
-        'O cliente paga em USDT, USDC ou Bitcoin, escaneando um QR code ou copiando um endereço.',
-        'A cripto recebida é convertida e o valor é liquidado em Pix, na conta do seu negócio.',
-        'Um webhook assinado avisa o pagamento, para você liberar o pedido sem consultar o estado em loop.',
+        'Escolha o ativo e a rede que a carteira do negócio aceita e informe ambos ao cliente.',
+        'Defina o valor, a validade da cotação e como tratar um pagamento com valor diferente.',
+        'Confira o recebimento e as confirmações necessárias na rede ou na plataforma, antes de liberar o pedido.',
+        'Registre a operação e concilie o valor recebido com a venda e suas obrigações contábeis.',
       ],
       icons: [],
       comparison: null,
@@ -70,16 +70,16 @@ export const comoAceitarCriptomoedas: TopicPage = {
     {
       id: 'comparativo',
       kind: 'COMPARISON',
-      heading: 'Endereço próprio, exchange manual ou infraestrutura com Pix',
-      body: 'As três formas resolvem "receber cripto". A diferença aparece na custódia, na exposição a preço e no tempo até o dinheiro virar reais na conta.',
+      heading: 'Pix para cripto e cripto para Pix: qual fluxo usar',
+      body: 'A primeira decisão é o que o pagador já tem e o que o destinatário quer receber. Os caminhos abaixo não são intercambiáveis.',
       bullets: [],
       icons: [],
       comparison: {
-        headers: ['Forma', 'Custódia do ativo', 'Exposição a preço', 'Chega em reais'],
+        headers: ['Necessidade', 'Origem', 'Destino', 'Caminho'],
         rows: [
-          ['Endereço próprio', 'Do seu negócio', 'Até você vender', 'Manual, quando você decidir vender'],
-          ['Exchange manual', 'Da exchange, até o saque', 'Até você vender na exchange', 'Depois do saque bancário da exchange'],
-          ['Infraestrutura com Pix (Hodle)', 'Não fica com o seu negócio', 'Cotação travada na cobrança', 'Direto na liquidação, via Pix'],
+          ['Aceitar cripto diretamente', 'Cripto do cliente', 'Carteira do negócio', 'Transferência no ativo e na rede combinados'],
+          ['Receber vendas em stablecoin', 'Pix em reais do cliente', 'Ativo configurado pelo vendedor', 'Checkout e link de pagamento da Hodle'],
+          ['Pagar uma chave Pix com cripto', 'Saldo em USDT ou USDC', 'Reais para o destinatário', 'Payout, conforme ativos e redes habilitados'],
         ],
       },
       code: null,
@@ -88,8 +88,8 @@ export const comoAceitarCriptomoedas: TopicPage = {
     {
       id: 'ativos',
       kind: 'ASSETS',
-      heading: 'Ativos aceitos na cobrança',
-      body: 'A cobrança aceita USDT e USDC em mais de uma rede, e Bitcoin on-chain ou por Lightning.',
+      heading: 'Ativo e rede precisam coincidir nas duas pontas',
+      body: 'USDT, USDC e Bitcoin são ativos diferentes. Mesmo quando duas carteiras exibem USDT, elas podem estar em redes distintas. No checkout da Hodle, o vendedor configura um par de ativo e rede habilitado; o cliente paga Pix, e não envia cripto para o QR Code.',
       bullets: [],
       icons: [
         { src: '/usdt.svg', label: 'USDT' },
@@ -106,13 +106,13 @@ export const comoAceitarCriptomoedas: TopicPage = {
     {
       id: 'api',
       kind: 'CODE',
-      heading: 'Aceitar cripto pela API',
-      body: 'A mesma cobrança do painel existe como chamada, para quem quer o checkout dentro do próprio produto.',
+      heading: 'Cada direção tem sua integração',
+      body: 'Para vender com Pix e receber stablecoin, consulte a API de checkout. Para converter reais em cripto, use depósito; para enviar reais a partir de saldo em stablecoin, consulte payout. Criar um depósito não cria uma cobrança para o cliente pagar em USDT.',
       bullets: [
-        'POST /api/deposit/asset — cria a cobrança e devolve o endereço ou QR code que recebe o pagamento.',
-        'POST /api/quote — cotação indicativa antes de fechar o valor da cobrança.',
-        'GET /api/account/statement — extrato paginado das cobranças recebidas, por ativo.',
-        'Webhook assinado com HMAC em cada transição de estado.',
+        'Checkout: cadastro de produto e link de pagamento Pix.',
+        'Depósito: entrada em reais por Pix e entrega de cripto.',
+        'Payout: saldo em stablecoin usado para enviar reais por Pix.',
+        'Conciliação: acompanhe o status da operação e os eventos documentados.',
       ],
       icons: [],
       comparison: null,
@@ -137,22 +137,22 @@ export const comoAceitarCriptomoedas: TopicPage = {
     {
       question: 'Como aceitar criptomoedas no meu negócio?',
       answer:
-        'Você pode divulgar um endereço de carteira e vender manualmente, usar uma exchange como intermediária, ou usar uma infraestrutura de pagamento que já liquida o valor em Pix. As três funcionam; a diferença é quem fica com a custódia e a variação de preço até o dinheiro virar reais.',
+        'Defina o ativo, a rede, a carteira de destino e como confirmar o pagamento contra o pedido. Você pode receber diretamente ou contratar uma plataforma compatível. Se quiser que o cliente pague Pix e o negócio receba stablecoin, consulte o checkout da Hodle.',
     },
     {
       question: 'Preciso ter carteira própria para aceitar pagamento em cripto?',
       answer:
-        'Não, se você usar uma infraestrutura de pagamento como a da Hodle: o cliente paga em cripto e o valor chega liquidado em Pix na sua conta, sem que o seu negócio precise guardar ou gerenciar carteira.',
+        'Para receber diretamente, é necessário um destino compatível com o ativo e a rede. Ao usar uma plataforma, confira quem controla a carteira. No checkout Pix da Hodle, a venda é liquidada no ativo e no destino configurados pelo vendedor.',
     },
     {
       question: 'Aceitar cripto expõe meu negócio à variação de preço?',
       answer:
-        'Só se você guardar o ativo recebido antes de vender. Com a cobrança da Hodle, a cotação fica travada no momento da cobrança e a liquidação chega em reais, então a exposição à variação de preço não fica com o seu negócio.',
+        'O preço do ativo e sua cotação em reais podem variar. Confira as regras de cotação, validade e liquidação do serviço escolhido. Stablecoins buscam acompanhar uma referência, mas continuam sujeitas a riscos e não garantem o valor em reais.',
     },
     {
       question: 'Quais criptomoedas dá para aceitar?',
       answer:
-        'USDT e USDC em mais de uma rede, e Bitcoin on-chain ou por Lightning.',
+        'Depende da carteira e da plataforma escolhidas. No checkout da Hodle, o cliente paga Pix; USDT e USDC são opções de recebimento quando habilitadas para o vendedor. Isso não equivale a aceitar um pagamento on-chain do cliente.',
     },
     {
       question: 'Precisa emitir nota fiscal recebendo em cripto?',
@@ -161,7 +161,9 @@ export const comoAceitarCriptomoedas: TopicPage = {
     },
   ],
   related: [
-    { label: 'Gateway de pagamento cripto', href: '/gateway-de-pagamento-cripto' },
+    { label: 'Gateway Pix para USDT', href: '/gateway-de-pagamento-cripto' },
+    { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
+    { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'Crypto as a Service', href: '/crypto-as-a-service' },
     { label: 'Receber Pix em stablecoin', href: '/receber-pix-em-stablecoin' },
     { label: 'Perguntas frequentes', href: '/faq' },

@@ -109,3 +109,17 @@ it('carries the article body, not just its metadata', () => {
   expect(document.length).toBeGreaterThan(2000)
   expect(document).not.toContain('---\ntitle:')
 })
+
+it.each([
+  ['/comprar-usdt-com-pix', 'https://docs.hodle.com.br/docs/assets'],
+  ['/comprar-bitcoin-com-pix', 'https://docs.hodle.com.br/docs/deposit-asset'],
+])(
+  'preserves internal and external related links in %s',
+  (pathname: string, documentationUrl: string): void => {
+    const document: string = getMarkdownDocument({ pathname }) ?? ''
+
+    expect(document).toContain('[Preços e taxas](https://hodle.com.br/precos)')
+    expect(document).toContain(`](${documentationUrl})`)
+    expect(document).not.toContain('https://hodle.com.brhttps://')
+  },
+)
