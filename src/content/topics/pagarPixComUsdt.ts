@@ -5,22 +5,24 @@ export const pagarPixComUsdt: TopicPage = {
   title: 'Pagar Pix com USDT: como funciona',
   h1: 'Pague um Pix com saldo em USDT',
   description:
-    'Pague qualquer Pix usando saldo em USDT ou USDC, sem converter antes. Veja o passo a passo, as redes aceitas e como fazer isso pela API da Hodle.',
+    'Veja como pagar Pix com cripto usando USDT ou USDC: confira o destino, a cotação, as taxas e as redes aceitas. Pelo painel ou pela API da Hodle.',
   keywords: [
     'pagar pix com usdt',
     'pagar pix com stablecoin',
     'pagar pix com cripto',
     'pagamento pix com saldo em usdt',
     'converter usdt em pix',
+    'usdt para pix',
+    'como fazer pix com cripto',
     'pagar pix com dólar digital',
   ],
   primaryKeyword: 'pagar pix com usdt',
-  updatedAt: '2026-07-30T21:04:55-03:00',
+  updatedAt: '2026-09-14T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'PAGAMENTOS',
   subhead:
-    'A Hodle liquida o Pix a partir do seu saldo em stablecoin. Você mantém dólar digital na carteira, dispara o pagamento e quem recebe cai em reais, como qualquer outro Pix.',
+    'Pagar Pix com cripto na Hodle é usar saldo em USDT ou USDC para enviar reais ao destinatário. Você informa os dados do pagamento, confere as condições e acompanha a liquidação. Quem recebe usa a conta bancária de sempre.',
   heroIcons: [
     { src: '/pix.svg', label: 'Pix' },
     { src: '/usdt.svg', label: 'USDT' },
@@ -30,7 +32,7 @@ export const pagarPixComUsdt: TopicPage = {
     { src: '/base.png', label: 'Base' },
   ],
   ctaSubhead:
-    'Receba em Pix, guarde em dólar, pague em stablecoin.',
+    'Use seu saldo em stablecoin para pagar Pix. Confira as condições disponíveis para sua conta.',
   ctaPrimary: {
     label: 'Falar com vendas',
     href: 'https://api.whatsapp.com/send?phone=5511960000445',
@@ -59,7 +61,7 @@ export const pagarPixComUsdt: TopicPage = {
     {
       id: 'como-funciona',
       kind: 'STEPS',
-      heading: 'Como funciona, do request à liquidação',
+      heading: 'Como fazer Pix com cripto',
       body: 'São quatro etapas. Na integração por API, as duas do meio são um POST e um GET.',
       bullets: [
         'Saldo na carteira. O usuário tem USDT em Polygon ou Tron, ou USDC em Base, na carteira auto-custodial dele.',
@@ -76,7 +78,7 @@ export const pagarPixComUsdt: TopicPage = {
       id: 'ativos-e-redes',
       kind: 'ASSETS',
       heading: 'Ativos e redes aceitos no pagamento',
-      body: 'O saldo que financia o Pix pode estar em USDT ou USDC, em mais de uma rede. USDT é aceito em Polygon e Tron; USDC em Base. As duas stablecoins também circulam em Arbitrum e Spark dentro da plataforma.',
+      body: 'O payout aceita USDT em Polygon e USDC em Base. Há também opções em Solana, e USDT em Tron depende de habilitação na conta. Consulte as redes aceitas pelo pagamento: ter um ativo disponível para compra ou transferência não significa que ele possa financiar um Pix em qualquer rede.',
       bullets: [],
       icons: [
         { src: '/usdt.svg', label: 'USDT' },
@@ -84,7 +86,7 @@ export const pagarPixComUsdt: TopicPage = {
         { src: '/polygon.svg', label: 'Polygon' },
         { src: '/tron.svg', label: 'Tron' },
         { src: '/base.png', label: 'Base' },
-        { src: '/arbitrum.svg', label: 'Arbitrum' },
+        { src: '/solana.svg', label: 'Solana' },
       ],
       comparison: null,
       code: null,
@@ -122,6 +124,11 @@ export const pagarPixComUsdt: TopicPage = {
     'Tire suas dúvidas sobre pagar Pix com saldo em stablecoin.',
   faq: [
     {
+      question: 'Tem como transformar criptomoeda em Pix?',
+      answer:
+        'Sim. No pagamento com USDT ou USDC, o saldo em cripto financia uma transferência em reais para a chave Pix informada. A conta, o ativo e a rede precisam estar habilitados para esse fluxo. Para comprar cripto usando reais, o caminho é a compra com Pix.',
+    },
+    {
       question: 'Como posso pagar com USDT?',
       answer:
         'Você mantém saldo em USDT na carteira, informa a chave Pix e o valor, e dispara o pagamento pelo painel ou por um POST em /api/wallet/payout. A stablecoin é debitada e o Pix é liquidado em reais para quem recebe, sem etapa manual de venda antes.',
@@ -129,7 +136,7 @@ export const pagarPixComUsdt: TopicPage = {
     {
       question: 'Como posso pagar boletos com USDT?',
       answer:
-        'A maioria dos boletos hoje traz um QR code ou um código Pix copia-e-cola. Você lê esse código e paga do mesmo jeito que paga qualquer QR code Pix: debitando o saldo em USDT, com a conversão para reais dentro do próprio pagamento.',
+        'Se o boleto oferecer QR Code Pix ou Pix copia-e-cola, use esse código no fluxo de pagamento Pix compatível. O código de barras tradicional de um boleto não é um código Pix e não é processado por este fluxo.',
     },
     {
       question: 'Como usar USDT no Brasil?',
@@ -159,10 +166,12 @@ export const pagarPixComUsdt: TopicPage = {
     {
       question: 'Quais stablecoins e redes posso usar como saldo?',
       answer:
-        'USDT em Polygon e Tron, e USDC em Base. As duas também circulam em Arbitrum e Spark dentro da plataforma.',
+        'O payout documenta USDT em Polygon e USDC em Base, além das opções em Solana. USDT em Tron exige habilitação específica. Confira as opções da conta e a documentação de payout antes de pagar.',
     },
   ],
   related: [
+    { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
+    { label: 'Receber Pix em stablecoin', href: '/receber-pix-em-stablecoin' },
     { label: 'API de Pix com stablecoin', href: '/api-pix-stablecoin' },
     { label: 'Carteiras auto-custodiais', href: '/wallet-auto-custodial' },
     { label: 'Preços e taxas', href: '/precos' },

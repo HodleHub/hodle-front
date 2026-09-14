@@ -125,6 +125,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animated-section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .animate-marquee {
     animation: none;
   }

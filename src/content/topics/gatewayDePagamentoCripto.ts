@@ -2,11 +2,14 @@ import { TopicPage } from '../../types/topic'
 
 export const gatewayDePagamentoCripto: TopicPage = {
   slug: 'gateway-de-pagamento-cripto',
-  title: 'Gateway de pagamento cripto com checkout e link de pagamento',
-  h1: 'Cobre em Pix, receba em stablecoin',
+  title: 'Gateway Pix para USDT: checkout e link de pagamento',
+  h1: 'Gateway Pix para USDT: receba vendas em stablecoin',
   description:
-    'Crie o produto, copie o link de pagamento e receba. Seu cliente paga um Pix comum em reais e a venda cai em Real digital ou Dólar digital na sua carteira.',
+    'Crie um link de pagamento Pix e receba vendas em USDT ou USDC na sua carteira, conforme os ativos habilitados. Checkout pelo painel ou por API.',
   keywords: [
+    'gateway pix para usdt',
+    'gateway de pagamento pix para usdt',
+    'receber pix em usdt',
     'gateway de pagamento cripto',
     'gateway pagamento cripto',
     'gateway de pagamento criptomoeda',
@@ -16,13 +19,13 @@ export const gatewayDePagamentoCripto: TopicPage = {
     'receber em stablecoin',
     'dolarizar faturamento',
   ],
-  primaryKeyword: 'gateway de pagamento cripto',
-  updatedAt: '2026-09-05T00:00:00-03:00',
+  primaryKeyword: 'gateway pix para usdt',
+  updatedAt: '2026-09-14T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'CHECKOUT E LINK DE PAGAMENTO',
   subhead:
-    'Crie o produto, copie o link de pagamento e venda. Seu cliente paga um Pix comum, em reais, e você escolhe em que ativo a venda cai: Real digital ou Dólar digital, direto na sua carteira.',
+    'O gateway Pix para USDT da Hodle permite cobrar em reais e receber em dólar digital. Crie o produto, configure um ativo e uma rede habilitados na sua conta e compartilhe o link de pagamento. Seu cliente paga um Pix comum.',
   heroIcons: [
     { src: '/pix.svg', label: 'Pix' },
     { src: '/brla.png', label: 'BRLA' },
@@ -39,7 +42,7 @@ export const gatewayDePagamentoCripto: TopicPage = {
   },
   ctaSecondary: {
     label: 'Ver a documentação',
-    href: 'https://docs.hodle.com.br',
+    href: 'https://docs.hodle.com.br/docs/checkout',
   },
   sections: [
     {
@@ -168,6 +171,11 @@ export const gatewayDePagamentoCripto: TopicPage = {
     'Tire suas dúvidas sobre o gateway de pagamento cripto da Hodle.',
   faq: [
     {
+      question: 'Como funciona um gateway Pix para USDT?',
+      answer:
+        'Você configura USDT e uma rede disponível no checkout, cadastra o produto em reais e compartilha o link. O cliente paga o Pix da cobrança e a venda segue para liquidação no ativo configurado. A conta precisa ter checkout e a opção de recebimento habilitados.',
+    },
+    {
       question: 'O que é um gateway de pagamento cripto?',
       answer:
         'É a camada que recebe o dinheiro de uma venda e entrega o valor a quem vendeu, usando cripto em alguma das pontas. No da Hodle, a cripto está do lado de quem recebe: o cliente paga um Pix em reais e a venda liquida em stablecoin na sua carteira.',
@@ -204,6 +212,7 @@ export const gatewayDePagamentoCripto: TopicPage = {
     },
   ],
   related: [
+    { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'Crypto as a Service', href: '/crypto-as-a-service' },
     { label: 'Como aceitar criptomoedas', href: '/como-aceitar-criptomoedas' },
     { label: 'Receber Pix em stablecoin', href: '/receber-pix-em-stablecoin' },

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { glossaryTerms } from '../../content/glossary/glossaryTerms'
+import { pageUpdatedAt } from '../../content/pageUpdatedAt'
 import { groupGlossaryByLetter } from '../../utils/groupGlossaryByLetter'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -32,7 +33,7 @@ const definedTermSetJsonLd = {
   name: 'Glossário de stablecoins e pagamentos',
   url: `${siteUrl}/glossario`,
   inLanguage: 'pt-BR',
-  dateModified: '2026-07-29',
+  dateModified: pageUpdatedAt.glossario,
   hasDefinedTerm: glossaryTerms.map((t) => ({
     '@type': 'DefinedTerm',
     name: t.term,
@@ -105,6 +106,18 @@ export default function GlossarioPage() {
 
         <div className="mt-16 border-t border-gray-200 pt-10">
           <nav className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+            <Link
+              href="/comprar-usdt-com-pix"
+              className="text-sm text-foreground underline underline-offset-2 hover:text-gray-600"
+            >
+              Comprar USDT com Pix
+            </Link>
+            <Link
+              href="/comprar-bitcoin-com-pix"
+              className="text-sm text-foreground underline underline-offset-2 hover:text-gray-600"
+            >
+              Comprar Bitcoin com Pix
+            </Link>
             <Link
               href="/api-pix-stablecoin"
               className="text-sm text-foreground underline underline-offset-2 hover:text-gray-600"

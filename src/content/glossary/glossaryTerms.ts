@@ -72,6 +72,11 @@ export const glossaryTerms: GlossaryTerm[] = [
       'Consulta que devolve saldo por ativo e a lista paginada de operações num intervalo.',
   },
   {
+    term: 'Dólar digital',
+    definition:
+      'Expressão usada para stablecoins que buscam acompanhar o dólar, como USDT e USDC. Comprar esses tokens é diferente de abrir uma conta bancária em dólares. O valor em reais varia com a cotação, e o ativo continua sujeito aos riscos do emissor e da rede.',
+  },
+  {
     term: 'Finalidade de liquidação',
     definition:
       'Momento em que a transferência se torna irreversível e o valor está disponível para quem recebe.',
@@ -157,6 +162,16 @@ export const glossaryTerms: GlossaryTerm[] = [
       'Rede compatível com EVM. É uma das redes em que a Hodle opera USDT.',
   },
   {
+    term: 'Pix para cripto',
+    definition:
+      'Compra de um criptoativo usando reais pagos por Pix, também chamada de on-ramp. Você informa o ativo, a rede e o destino, confere a cotação e paga a cobrança. A confirmação do Pix e a entrega do ativo são etapas distintas.',
+  },
+  {
+    term: 'Pagar Pix com cripto',
+    definition:
+      'Usar saldo em um criptoativo para financiar um pagamento que chega em reais ao destinatário. Na Hodle, o fluxo de payout atende stablecoins e redes habilitadas na conta; ele é diferente de comprar cripto com Pix.',
+  },
+  {
     term: 'protectedSymmetricKey',
     definition:
       'Chave do usuário final, obtida pela API, necessária para assinar payouts e transfers. Sem ela não há movimentação de fundos.',
@@ -194,7 +209,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     term: 'Stablecoin',
     definition:
-      'Criptoativo desenhado para manter valor estável em relação a uma referência, em geral uma moeda fiduciária, por meio de lastro ou de mecanismo de ajuste.',
+      'Criptoativo projetado para acompanhar uma referência de valor, como dólar ou real. USDT e USDC são exemplos ligados ao dólar. A estabilidade é um objetivo do mecanismo, não garantia: há riscos do emissor, da rede e de perda da paridade.',
   },
   {
     term: 'Tron',
@@ -214,7 +229,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     term: 'USDT',
     definition:
-      'Stablecoin lastreada em dólar emitida pela Tether. É a de maior circulação no Brasil.',
+      'Stablecoin emitida pela Tether que busca acompanhar o dólar americano. A sigla também aparece como USD₮. O valor em reais depende da cotação do dólar e das condições da operação.',
   },
   {
     term: 'VASP',
