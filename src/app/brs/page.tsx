@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   description,
   alternates: {
     canonical: pageUrl,
+    languages: {
+      'pt-BR': pageUrl,
+      en: `${siteUrl}/en/brs`,
+    },
   },
   openGraph: {
     title,
@@ -108,7 +112,13 @@ export default function BrsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <BrsHero />
+      <BrsHero
+        languageLink={{
+          href: '/en/brs',
+          hrefLang: 'en',
+          label: 'English',
+        }}
+      />
       <BrsValueProps />
       <BrsHowItWorks />
       <BrsUseCases />

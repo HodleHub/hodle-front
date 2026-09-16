@@ -88,7 +88,14 @@ export default function EnglishBrsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <BrsHero copy={copy} />
+      <BrsHero
+        copy={copy}
+        languageLink={{
+          href: '/brs',
+          hrefLang: 'pt-BR',
+          label: 'Português',
+        }}
+      />
       <BrsValueProps copy={copy} />
       <BrsHowItWorks copy={copy} />
       <BrsUseCases copy={copy} />
