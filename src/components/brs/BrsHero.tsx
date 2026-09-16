@@ -14,12 +14,28 @@ const REGISTER_URL = 'https://app.hodle.com.br/register'
 
 type BrsHeroProps = {
   copy?: BrsCopy
+  languageLink: {
+    href: string
+    hrefLang: string
+    label: string
+  }
 }
 
-export const BrsHero = ({ copy = brsCopy.pt }: BrsHeroProps) => {
+export const BrsHero = ({ copy = brsCopy.pt, languageLink }: BrsHeroProps) => {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="relative max-w-[1200px] mx-auto px-6 pt-20 pb-16 lg:pt-28 lg:pb-28">
+        <div className="mb-8 flex justify-center lg:justify-end">
+          <Link
+            href={languageLink.href}
+            hrefLang={languageLink.hrefLang}
+            className="inline-flex items-center gap-1.5 border-b border-gray-300 pb-1 text-xs font-medium text-gray-500 transition-colors hover:border-[#009c3b] hover:text-[#009c3b]"
+          >
+            {languageLink.label}
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
           <div className="text-center lg:text-left">
             <div className="mb-6 flex justify-center lg:justify-start">
