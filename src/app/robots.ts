@@ -25,17 +25,25 @@ const disallow: string[] = [
 // shorter Disallow for every crawler that implements the standard.
 const allow: string[] = ['/', '/.well-known/api-catalog']
 
-const aiUserAgents: string[] = [
+const aiCrawlerUserAgents: string[] = [
+  'Googlebot',
+  'bingbot',
+  'OAI-SearchBot',
   'GPTBot',
   'ChatGPT-User',
+  'Claude-SearchBot',
+  'Claude-User',
   'ClaudeBot',
   'anthropic-ai',
   'Google-Extended',
   'Bytespider',
   'CCBot',
   'PerplexityBot',
+  'Perplexity-User',
   'YouBot',
   'Applebot-Extended',
+  'Amazonbot',
+  'meta-externalagent',
 ]
 
 export default function robots(): MetadataRoute.Robots {
@@ -47,7 +55,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow,
       },
       {
-        userAgent: aiUserAgents,
+        userAgent: aiCrawlerUserAgents,
         allow,
         disallow,
       },

@@ -44,8 +44,8 @@ const markdownResponse = (body: string, status: number): NextResponse =>
  * The markdown variant is served by an internal rewrite to `/md`, which also
  * gives the two representations separate cache keys — Next owns the `Vary`
  * header of a page response and drops anything middleware appends to it, so the
- * rewrite is what keeps a cache from mixing the variants up. `Vary: Accept` is
- * declared by the `/md` route handler and by `next.config.ts`.
+ * rewrite is what keeps a cache from mixing the variants up. The `/md` route
+ * handler still declares `Vary: Accept` for clients that preserve it.
  */
 export const middleware = (request: NextRequest): NextResponse => {
   const { pathname } = request.nextUrl

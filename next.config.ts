@@ -27,18 +27,6 @@ const trustPageAliases = [
   { source: '/pricing', destination: '/precos' },
 ]
 
-// Every page is available as HTML and as markdown, so caches must key on
-// Accept. Next's own router values are repeated here because a custom header
-// replaces the framework one instead of merging with it.
-const varyHeader = [
-  'Accept',
-  'Accept-Encoding',
-  'RSC',
-  'Next-Router-State-Tree',
-  'Next-Router-Prefetch',
-  'Next-Router-Segment-Prefetch',
-].join(', ')
-
 // RFC 9727 (api-catalog) and RFC 8631 (service-desc) discovery, advertised on
 // every HTML response so an agent finds the API description without guessing.
 const discoveryLinkHeader = [
@@ -60,7 +48,6 @@ const nextConfig: NextConfig = {
         source: '/:path*',
         headers: [
           { key: 'Link', value: discoveryLinkHeader },
-          { key: 'Vary', value: varyHeader },
         ],
       },
       {

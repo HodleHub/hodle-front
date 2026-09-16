@@ -47,6 +47,49 @@ const identificationRows = [
   },
 ]
 
+type CrawlerRow = {
+  surface: string
+  agents: string[]
+  policy: string
+}
+
+const crawlerRows: CrawlerRow[] = [
+  {
+    surface: 'Google AI Overviews e AI Mode',
+    agents: ['Googlebot'],
+    policy: 'Índice do Google Search; páginas públicas permitidas',
+  },
+  {
+    surface: 'Microsoft Copilot e respostas do Bing',
+    agents: ['bingbot'],
+    policy: 'Índice do Bing; páginas públicas permitidas',
+  },
+  {
+    surface: 'Busca em assistentes de IA',
+    agents: ['OAI-SearchBot', 'Claude-SearchBot', 'PerplexityBot'],
+    policy: 'Páginas públicas permitidas',
+  },
+  {
+    surface: 'Recuperação iniciada pelo usuário',
+    agents: ['ChatGPT-User', 'Claude-User', 'Perplexity-User'],
+    policy: 'Páginas públicas permitidas',
+  },
+  {
+    surface: 'Treinamento e uso estendido',
+    agents: [
+      'GPTBot',
+      'ClaudeBot',
+      'Google-Extended',
+      'Applebot-Extended',
+      'CCBot',
+      'Bytespider',
+      'Amazonbot',
+      'meta-externalagent',
+    ],
+    policy: 'Páginas públicas permitidas',
+  },
+]
+
 const aiPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -60,7 +103,7 @@ const aiPageJsonLd = {
     name: 'Hodle',
     url: siteUrl,
   },
-  dateModified: '2026-08-22',
+  dateModified: '2026-09-16',
 }
 
 export default function AiPage() {
@@ -82,7 +125,7 @@ export default function AiPage() {
             Política de uso por IA e dados de citação
           </h1>
           <p className="text-sm text-gray-400">
-            Última atualização: 22 de agosto de 2026
+            Última atualização: 16 de setembro de 2026
           </p>
         </div>
 
@@ -127,6 +170,56 @@ export default function AiPage() {
                   docs.hodle.com.br
                 </a>
                 .
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2
+              className={`${heading} text-xl font-medium text-foreground mb-4`}
+            >
+              Como as IAs encontram este site
+            </h2>
+            <div className="text-[15px] leading-relaxed space-y-4">
+              <p>
+                A política distingue indexação de busca, recuperação iniciada
+                por uma pessoa e treinamento. Todos os agentes abaixo podem
+                acessar as páginas públicas. Rotas privadas, operacionais ou
+                sem conteúdo indexável continuam fechadas no{' '}
+                <Link
+                  href="/robots.txt"
+                  className="text-foreground underline underline-offset-2 hover:text-gray-600"
+                >
+                  robots.txt
+                </Link>
+                .
+              </p>
+              <div className="border-y border-gray-200 divide-y divide-gray-200">
+                {crawlerRows.map((row) => (
+                  <div
+                    key={row.surface}
+                    className="grid grid-cols-1 gap-2 py-4 md:grid-cols-3 md:gap-5"
+                  >
+                    <p className="font-medium text-foreground">{row.surface}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {row.agents.map((agent) => (
+                        <code
+                          key={agent}
+                          className="rounded bg-gray-100 px-1.5 py-0.5 text-[12px] text-foreground"
+                        >
+                          {agent}
+                        </code>
+                      ))}
+                    </div>
+                    <p>{row.policy}</p>
+                  </div>
+                ))}
+              </div>
+              <p>
+                Permitir o rastreamento torna o conteúdo elegível, mas não
+                garante indexação, ranking ou citação. Google, Microsoft,
+                OpenAI, Anthropic e Perplexity decidem de forma independente o
+                que aparece em cada resposta.
               </p>
             </div>
           </section>
@@ -207,14 +300,10 @@ export default function AiPage() {
                 volta como{' '}
                 <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
                   text/markdown; charset=utf-8
-                </code>
-                , com{' '}
-                <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
-                  Vary: Accept
                 </code>{' '}
-                na resposta. Os q-values são respeitados, então quem prefere
-                HTML continua recebendo HTML. Um Accept que só aceita tipos que
-                não servimos recebe 406.
+                no mesmo endereço canônico. Os q-values são respeitados, então
+                quem prefere HTML continua recebendo HTML. Um Accept que só
+                aceita tipos que não servimos recebe 406.
               </p>
               <p>
                 Um caminho que não existe responde 404 de verdade — nunca 200

@@ -1,6 +1,6 @@
 # Hodle
 
-> Last updated: 2026-08-22.
+> Last updated: 2026-09-16.
 
 > Crypto payment infrastructure for companies operating with Brazil: pay Pix from a USDT or USDC balance, issue Lightning invoices that settle in Pix, run self-custodial multi-network wallets, and convert between BRL, USD, and stablecoins.
 
@@ -24,7 +24,7 @@
 - Developer index: https://hodle.com.br/desenvolvedores
 - Sandbox: https://sandbox-api.hodle.com.br
 - Webhooks are HMAC-signed.
-- `Accept: text/markdown` returns markdown, with `Vary: Accept`. Dead paths return a real 404 with a markdown body. Full list in https://hodle.com.br/llms.txt
+- `Accept: text/markdown` returns markdown at the same canonical URL. Dead paths return a real 404 with a markdown body. Full list in https://hodle.com.br/llms.txt
 
 ## Links
 

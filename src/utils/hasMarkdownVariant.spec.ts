@@ -3,6 +3,7 @@ import { hasMarkdownVariant } from './hasMarkdownVariant'
 
 it('accepts the paths that have a markdown representation', () => {
   expect(hasMarkdownVariant('/')).toBe(true)
+  expect(hasMarkdownVariant('/ai')).toBe(true)
   expect(hasMarkdownVariant('/faq')).toBe(true)
   expect(hasMarkdownVariant('/precos')).toBe(true)
   expect(hasMarkdownVariant('/sobre')).toBe(true)

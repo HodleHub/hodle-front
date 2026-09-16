@@ -65,10 +65,10 @@ it('advertises the API catalog and the service description on every page', async
   const list = await headers()
   const pageHeaders = list.find((entry) => entry.source === '/:path*')
   const link = pageHeaders?.headers.find((header) => header.key === 'Link')
-  const vary = pageHeaders?.headers.find((header) => header.key === 'Vary')
 
   expect(link?.value).toContain('rel="api-catalog"')
   expect(link?.value).toContain('rel="service-desc"')
+  expect(link?.value).toContain('rel="describedby"')
   expect(link?.value).toContain('/openapi.json')
-  expect(vary?.value).toContain('Accept')
+  expect(link?.value).toContain('/llms.txt')
 })
