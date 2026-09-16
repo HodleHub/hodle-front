@@ -3,6 +3,7 @@ import {
   topicMarkdownSlugs,
 } from '../content/markdown/markdownPaths'
 import { homeMarkdown } from '../content/markdown/homeMarkdown'
+import { aiMarkdown } from '../content/markdown/aiMarkdown'
 import { brsMarkdown } from '../content/markdown/brsMarkdown'
 import { cryptoAsAServiceMarkdown } from '../content/markdown/cryptoAsAServiceMarkdown'
 import { neobankMarkdown } from '../content/markdown/neobankMarkdown'
@@ -20,6 +21,7 @@ import { pricingToMarkdown } from './pricingToMarkdown'
 
 const staticDocuments: Record<string, () => string> = {
   '/': () => homeMarkdown,
+  '/ai': () => aiMarkdown,
   '/articles': articlesIndexToMarkdown,
   '/brs': () => brsMarkdown,
   '/contato': () => infoPageToMarkdown({ page: contato }),

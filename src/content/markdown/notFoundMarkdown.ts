@@ -21,5 +21,5 @@ uma página vazia com status 200.
 ## Negociação de conteúdo
 
 Envie \`Accept: text/markdown\` em qualquer página listada no llms.txt para
-receber a versão markdown. As respostas declaram \`Vary: Accept\`.
+receber a versão markdown no mesmo endereço canônico.
 `

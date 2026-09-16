@@ -8,6 +8,7 @@
  */
 export const staticMarkdownPaths: string[] = [
   '/',
+  '/ai',
   '/articles',
   '/brs',
   '/contato',

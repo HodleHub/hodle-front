@@ -198,7 +198,7 @@ export const desenvolvedores: InfoPage = {
       kind: 'PROSE',
       heading: 'Para agentes e LLMs',
       body: [
-        'O site responde em markdown para quem pede. Envie Accept: text/markdown em qualquer página listada em /llms.txt e a resposta volta como text/markdown; a resposta declara Vary: Accept, então um cache intermediário não entrega a variante errada. Um tipo que não sabemos servir recebe 406.',
+        'O site responde em markdown para quem pede. Envie Accept: text/markdown em qualquer página listada em /llms.txt e a resposta volta como text/markdown no mesmo endereço canônico. Um tipo que não sabemos servir recebe 406.',
         'Caminhos inexistentes respondem 404 de verdade, com um corpo curto apontando para o sitemap, o llms.txt e a documentação — nunca 200 com o shell da aplicação.',
         'A especificação em /openapi.json tem operationId único, descrição e schema de resposta em cada operação, que é o formato esperado pelos conversores de OpenAPI para tool calling. Os limites de taxa declarados hoje estão nas respostas 429 das operações que os têm.',
       ],

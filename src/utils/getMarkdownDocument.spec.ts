@@ -90,6 +90,17 @@ it('points the home document at the discovery files an agent needs', () => {
   expect(document).toContain('https://hodle.com.br/desenvolvedores')
 })
 
+it('publishes the AI discovery policy as markdown', () => {
+  const document = getMarkdownDocument({ pathname: '/ai' }) ?? ''
+
+  expect(document).toContain('OAI-SearchBot')
+  expect(document).toContain('Claude-SearchBot')
+  expect(document).toContain('Perplexity-User')
+  expect(document).toContain('Googlebot')
+  expect(document).toContain('Bingbot')
+  expect(document).toContain('não garante indexação, ranking ou citação')
+})
+
 it('negotiates markdown for the three B2B pages', () => {
   const crypto = getMarkdownDocument({ pathname: '/crypto-as-a-service' })
   const neobank = getMarkdownDocument({ pathname: '/neobank' })
