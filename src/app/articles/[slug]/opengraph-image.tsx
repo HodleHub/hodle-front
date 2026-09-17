@@ -1,13 +1,24 @@
 import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { getArticleBySlug } from '../../../utils/getArticleBySlug'
+import { getAllArticles } from '../../../utils/getAllArticles'
 import { buildOgGridLines } from '../../../utils/buildOgGridLines'
 import { getOgKickerFontSize } from '../../../utils/getOgKickerFontSize'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 export const alt = 'Hodle'
+
+export const dynamic = 'force-static'
+export const dynamicParams = false
+
+/**
+ * The card is drawn at build time, like the article page itself. On a
+ * serverless runtime neither the vendored font nor the `.mdx` sources are part
+ * of the traced bundle, so a request-time render answers 500.
+ */
+export const generateStaticParams = () =>
+  getAllArticles().map((article) => ({ slug: article.slug }))
 
 const PANEL = '#0a0a0a'
 
@@ -23,7 +34,7 @@ export default async function Image({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const article = await getArticleBySlug({ slug })
+  const article = getAllArticles().find((item) => item.slug === slug)
 
   const kicker = article?.coverKicker || 'Hodle'
 
