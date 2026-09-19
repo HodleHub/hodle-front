@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { TopicPage } from '../../types/topic'
 
-export default function TopicRelated({ related }: { related: TopicPage['related'] }) {
+export default function TopicRelated({ related, language = 'pt-BR' }: { related: TopicPage['related']; language?: TopicPage['language'] }) {
   return (
     <section className="border-t border-gray-200">
       <div className="max-w-[700px] mx-auto px-6 py-16 lg:py-20">
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-space-grotesk)] text-lg font-medium text-foreground mb-6">
-            Continue explorando
+            {language === 'en' ? 'Explore the integration' : 'Continue explorando'}
           </h2>
           <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
             {related.map((item) => (

@@ -11,6 +11,7 @@ import { receberPixEmStablecoin } from './receberPixEmStablecoin'
 import { offshore } from './offshore'
 import { gatewayDePagamentoCripto } from './gatewayDePagamentoCripto'
 import { comoAceitarCriptomoedas } from './comoAceitarCriptomoedas'
+import { pagarFornecedoresComUsdc } from './pagarFornecedoresComUsdc'
 
 export const topics: TopicPage[] = [
   realOnchain,
@@ -25,4 +26,5 @@ export const topics: TopicPage[] = [
   offshore,
   gatewayDePagamentoCripto,
   comoAceitarCriptomoedas,
+  pagarFornecedoresComUsdc,
 ]

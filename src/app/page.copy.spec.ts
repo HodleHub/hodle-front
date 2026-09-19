@@ -34,7 +34,7 @@ const expectedPurchaseCopy =
 
 it('keeps the home page purchase copy concise in HTML and markdown', () => {
   const expectedApiCopy =
-    'Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, SDK e webhooks — pensados para times de produto e agentes de IA.'
+    'Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, OpenAPI e webhooks — pensados para times de produto e agentes de IA.'
 
   const pageText = collectText(HomePage())
 

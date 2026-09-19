@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import AnimatedSection from '../components/AnimatedSection'
+import { IntegrationPaths } from '../components/integrationPaths'
 import FAQSection from '../components/FAQSection'
-import CodeBlock from '../components/CodeBlock'
+import { CodeBlock } from '../components/CodeBlock'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ButtonShadow } from '../components/ui/ButtonShadow'
@@ -162,6 +163,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <IntegrationPaths />
 
       {/* ═══════════════ STATS STRIP ═══════════════ */}
       <section
@@ -713,14 +716,14 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
                 Integre pagamentos com Pix e stablecoin no seu produto em
-                minutos. REST, SDK e webhooks — pensados para times de produto e
+                minutos. REST, OpenAPI e webhooks — pensados para times de produto e
                 agentes de IA.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'API REST completa e documentada',
                   'Pagamentos crossborder com stablecoins',
-                  'SDK para automação com agentes de IA',
+                  'OpenAPI para automação com agentes de IA',
                   'Webhooks e callbacks em tempo real',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">

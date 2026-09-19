@@ -9,7 +9,7 @@ export default function TopicJsonLd({ topic }: { topic: TopicPage }) {
     name: topic.h1,
     description: topic.description,
     url: `${siteUrl}/${topic.slug}`,
-    inLanguage: 'pt-BR',
+    inLanguage: topic.language ?? 'pt-BR',
     dateModified: topic.updatedAt,
     isPartOf: {
       '@type': 'WebSite',

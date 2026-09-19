@@ -154,3 +154,8 @@ The public discovery paths are:
 Public pages are allowed for these agents. Private, operational, proxy, and non-indexable
 routes remain disallowed in https://hodle.com.br/robots.txt. This policy provides technical
 eligibility only; no provider is required to index, rank, include, or cite a page.
+
+## Integration guides
+
+- [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
+- [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.

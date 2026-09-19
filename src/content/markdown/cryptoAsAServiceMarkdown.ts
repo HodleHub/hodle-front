@@ -1,3 +1,6 @@
+import { platformFacts } from '../platformFacts'
+import { sectionsToMarkdown } from '../../utils/sectionsToMarkdown'
+
 /**
  * Markdown representation of the Crypto as a Service page, served under
  * `Accept: text/markdown`.
@@ -40,7 +43,7 @@ A Hodle entrega infraestrutura cripto para fintechs, PSPs, marketplaces, exchang
 
 ## API para desenvolvedores e agentes de IA
 
-- REST + SDK TypeScript.
+- REST + OpenAPI.
 - Webhooks e callbacks em tempo real.
 - Sandbox com as mesmas rotas da produção.
 - Feita também para agentes de IA integrarem sozinhos.
@@ -51,10 +54,12 @@ A Hodle entrega infraestrutura cripto para fintechs, PSPs, marketplaces, exchang
 | --- | --- |
 | Conta PJ e Pix | Instituição de pagamento autorizada pelo Banco Central do Brasil |
 | Câmbio e liquidação em real | Parceiro autorizado a operar câmbio |
-| Custódia dos ativos | Ninguém: a chave é derivada no dispositivo do seu usuário |
+| Custódia dos ativos | Usuário: controla as chaves da wallet auto-custodial |
 | Integração, API e suporte | Hodle |
 
 A Hodle é uma empresa de software: não é banco, não é instituição financeira, não emite moeda eletrônica, não emite stablecoin e não custodia fundos ou ativos de clientes. Os fluxos regulados são conduzidos por parceiros licenciados e/ou regulados.
+
+${sectionsToMarkdown({ sections: platformFacts })}
 
 ## Onde ir a seguir
 

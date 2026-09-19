@@ -2,8 +2,28 @@ import { MetadataRoute } from 'next'
 import { getAllArticles } from '../utils/getAllArticles'
 import { getAllTopics } from '../utils/getAllTopics'
 import { pageUpdatedAt } from '../content/pageUpdatedAt'
+import { englishPixStablecoin } from '../content/topics/englishPixStablecoin'
 
 const siteUrl = 'https://hodle.com.br'
+
+const getAlternates = ({
+  translations,
+}: {
+  translations?: Record<string, string>
+}): MetadataRoute.Sitemap[number]['alternates'] => {
+  if (!translations) {
+    return undefined
+  }
+
+  const languages = Object.fromEntries(
+    Object.entries(translations).map(([language, path]) => [
+      language,
+      `${siteUrl}${path}`,
+    ]),
+  )
+
+  return { languages }
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles()
@@ -25,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(topic.updatedAt),
     changeFrequency: topic.changeFrequency,
     priority: topic.priority,
+    alternates: getAlternates({ translations: topic.translations }),
   }))
 
   return [
@@ -131,6 +152,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...articleEntries,
+    {
+      url: `${siteUrl}/${englishPixStablecoin.slug}`,
+      lastModified: new Date(englishPixStablecoin.updatedAt),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          'pt-BR': `${siteUrl}/api-pix-stablecoin`,
+          en: `${siteUrl}/${englishPixStablecoin.slug}`,
+        },
+      },
+    },
     ...topicEntries,
   ]
 }

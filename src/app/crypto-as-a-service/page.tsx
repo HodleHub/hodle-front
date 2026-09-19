@@ -15,8 +15,10 @@ import {
   UserRoundCheck,
   Wallet,
 } from 'lucide-react'
+import TopicSections from '../../components/topic/topicSections'
+import { platformFacts } from '../../content/platformFacts'
 import AnimatedSection from '../../components/AnimatedSection'
-import CodeBlock from '../../components/CodeBlock'
+import { CodeBlock } from '../../components/CodeBlock'
 import { ButtonShadow } from '../../components/ui/ButtonShadow'
 
 const siteUrl = 'https://hodle.com.br/crypto-as-a-service'
@@ -150,7 +152,7 @@ const WHITELABEL_ITEMS = [
 ] as const
 
 const API_ITEMS = [
-  'REST + SDK TypeScript',
+  'REST + OpenAPI',
   'Webhooks e callbacks em tempo real',
   'Sandbox com as mesmas rotas da produção',
   'Feita também para agentes de IA integrarem sozinhos',
@@ -185,7 +187,7 @@ const RESPONSIBILITIES = [
   },
   {
     scope: 'Custódia dos ativos',
-    owner: 'Ninguém: a chave é derivada no dispositivo do seu usuário',
+    owner: 'Usuário: controla as chaves da wallet auto-custodial',
   },
   {
     scope: 'Integração, API e suporte',
@@ -489,7 +491,7 @@ export default function CaasPage() {
                 <div className="border-t border-[#F3F4F6] bg-gray-50 px-5 py-3 flex items-center gap-2">
                   <span className="font-mono text-[11px] text-gray-400">POST</span>
                   <span className="font-mono text-[11px] text-gray-600">
-                    /v1/payments
+                    /api/deposit/asset
                   </span>
                   <span className="grow" />
                   <span className="font-mono text-[11px] text-gray-400">
@@ -616,7 +618,7 @@ export default function CaasPage() {
 
                 <div className="border-t border-[#F3F4F6] bg-gray-50 px-5 py-3 flex items-center gap-2">
                   <span className="font-mono text-[11px] text-gray-400">POST</span>
-                  <span className="font-mono text-[11px] text-gray-600">/v1/wallets</span>
+                  <span className="font-mono text-[11px] text-gray-600">/api/wallet/create</span>
                   <span className="grow" />
                   <span className="font-mono text-[11px] text-gray-400">gas patrocinado</span>
                 </div>
@@ -719,9 +721,9 @@ export default function CaasPage() {
 
                 <div className="border-t border-[#F3F4F6] bg-gray-50 px-5 py-3 flex items-center gap-2">
                   <span className="font-mono text-[11px] text-gray-400">POST</span>
-                  <span className="font-mono text-[11px] text-gray-600">/v1/swaps/quote</span>
+                  <span className="font-mono text-[11px] text-gray-600">/api/quote</span>
                   <span className="grow" />
-                  <span className="font-mono text-[11px] text-gray-400">então /v1/swaps</span>
+                  <span className="font-mono text-[11px] text-gray-400">cotação indicativa</span>
                 </div>
               </div>
             </AnimatedSection>
@@ -842,6 +844,8 @@ export default function CaasPage() {
       </section>
 
       {/* ═══════════════ API ═══════════════ */}
+      <TopicSections topic={{ sections: platformFacts }} />
+
       <section id="api" className="border-t border-gray-200 bg-gray-50/50">
         <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
@@ -853,7 +857,7 @@ export default function CaasPage() {
                 Uma API para rampas, wallets e swaps.
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                REST documentada, SDK em TypeScript e webhooks assinados. A
+                REST documentada, especificação OpenAPI e webhooks assinados. A
                 mesma chave que cria uma cobrança cria a carteira do usuário e
                 executa o swap — sem quatro fornecedores, quatro contratos e
                 quatro conciliações.

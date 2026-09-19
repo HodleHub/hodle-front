@@ -152,3 +152,8 @@ Send `Accept: text/markdown` to any URL below and the response comes back as `te
 ## Language
 
 Primary language of the website: Brazilian Portuguese (pt-BR). API documentation is in English.
+
+## Integration guides
+
+- [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
+- [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.

@@ -27,6 +27,10 @@ import {
   Webhook,
   Zap,
 } from 'lucide-react'
+import { CodeBlock } from '../../components/CodeBlock'
+import TopicSections from '../../components/topic/topicSections'
+import { neobankDecision } from '../../content/neobankDecision'
+import { platformFacts } from '../../content/platformFacts'
 import AnimatedSection from '../../components/AnimatedSection'
 import { ButtonShadow } from '../../components/ui/ButtonShadow'
 
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
     siteName: 'Hodle',
     images: [
       {
-        url: `${siteUrl}/og-image-v2.png`,
+        url: 'https://hodle.com.br/og-image-v2.png',
         width: 1200,
         height: 630,
         alt: 'Hodle — infraestrutura para neobanks',
@@ -425,61 +429,6 @@ const WebhookPayload = () => (
   </div>
 )
 
-const CodePanel = () => (
-  <div className="overflow-hidden rounded-2xl border border-gray-800 bg-[#111] shadow-[0_10px_35px_rgba(0,0,0,0.12)]">
-    <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3.5">
-      <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-      <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-      <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-      <span className="ml-4 font-mono text-[10px] text-white/35">create-payment.ts</span>
-    </div>
-    <pre className="overflow-x-auto p-6 font-mono text-[12px] leading-7 sm:p-8 sm:text-[13px]">
-      <code>
-        <span className="text-purple-400">const</span>{' '}
-        <span className="text-blue-300">payment</span>{' '}
-        <span className="text-white/35">=</span>{' '}
-        <span className="text-purple-400">await</span>{' '}
-        <span className="text-blue-300">hodle</span>
-        <span className="text-white/55">.payments</span>
-        <span className="text-yellow-300">.create</span>
-        <span className="text-white/55">({'{'}</span>
-        {'\n'}
-        {'  '}<span className="text-blue-200">amount</span>
-        <span className="text-white/35">:</span>{' '}
-        <span className="text-orange-300">1000.00</span>
-        <span className="text-white/35">,</span>
-        {'\n'}
-        {'  '}<span className="text-blue-200">currency</span>
-        <span className="text-white/35">:</span>{' '}
-        <span className="text-green-300">&apos;BRL&apos;</span>
-        <span className="text-white/35">,</span>
-        {'\n'}
-        {'  '}<span className="text-blue-200">destination</span>
-        <span className="text-white/35">:</span>{' '}
-        <span className="text-green-300">&apos;USDT&apos;</span>
-        <span className="text-white/35">,</span>
-        {'\n'}
-        {'  '}<span className="text-blue-200">network</span>
-        <span className="text-white/35">:</span>{' '}
-        <span className="text-green-300">&apos;polygon&apos;</span>
-        <span className="text-white/35">,</span>
-        {'\n'}
-        {'  '}<span className="text-blue-200">reference</span>
-        <span className="text-white/35">:</span>{' '}
-        <span className="text-green-300">&apos;order_8472&apos;</span>
-        {'\n'}
-        <span className="text-white/55">{'});'}</span>
-      </code>
-    </pre>
-    <div className="flex items-center justify-between border-t border-white/10 px-6 py-4 font-mono text-[10px] text-white/35 sm:px-8">
-      <span>POST /v1/payments</span>
-      <span className="flex items-center gap-1.5 text-green-400">
-        <span className="h-1.5 w-1.5 rounded-full bg-green-400" /> 201 Created
-      </span>
-    </div>
-  </div>
-)
-
 type PixFlowStepProps = {
   icon: React.ElementType
   title: string
@@ -602,6 +551,8 @@ export default function NeobankPage() {
       </section>
 
       {/* MODULES */}
+      <TopicSections topic={{ sections: [neobankDecision] }} />
+
       <section id="plataforma" className={`border-b border-gray-200 bg-white ${anchorOffset}`}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <AnimatedSection>
@@ -1340,6 +1291,8 @@ export default function NeobankPage() {
       </section>
 
       {/* API */}
+      <TopicSections topic={{ sections: platformFacts }} />
+
       <section id="api" className={`border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`}>
         <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20 lg:py-24">
           <AnimatedSection direction="left">
@@ -1382,7 +1335,7 @@ export default function NeobankPage() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <CodePanel />
+            <CodeBlock />
           </AnimatedSection>
         </div>
       </section>
@@ -1463,7 +1416,7 @@ export default function NeobankPage() {
                 >
                   documentação
                 </Link>{' '}
-                e o sandbox ficam abertos, sem cadastro.
+                é aberta. O sandbox exige cadastro separado e chave de teste.
               </p>
             </AnimatedSection>
 

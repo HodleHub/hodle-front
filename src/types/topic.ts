@@ -44,9 +44,12 @@ export type TopicSection = {
   code: TopicCode | null
   image: TopicImage | null
   logo?: TopicPartner | null
+  links?: TopicCta[]
 }
 
 export type TopicPage = {
+  language?: 'pt-BR' | 'en'
+  translations?: Record<string, string>
   slug: string
   title: string
   h1: string

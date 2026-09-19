@@ -49,8 +49,8 @@ export function Footer() {
                   href: '/comprar-bitcoin-com-pix',
                 },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
-                { label: isEnglish ? 'Business account' : 'Conta PJ', href: '#conta-pj' },
-                { label: isEnglish ? 'QR payments' : 'Pagamentos QR', href: '#pagamentos' },
+                { label: isEnglish ? 'Business account' : 'Conta PJ', href: '/#conta-pj' },
+                { label: isEnglish ? 'QR payments' : 'Pagamentos QR', href: '/#pagamentos' },
                 {
                   label: isEnglish ? 'Pay Pix with USDT' : 'Pagar Pix com USDT',
                   href: '/pagar-pix-com-usdt',
@@ -91,7 +91,7 @@ export function Footer() {
                 },
                 {
                   label: isEnglish ? 'Stablecoin Pix API' : 'API Pix stablecoin',
-                  href: '/api-pix-stablecoin',
+                  href: isEnglish ? '/en/pix-stablecoin-api' : '/api-pix-stablecoin',
                 },
                 {
                   label: isEnglish ? 'For AI agents' : 'Para agentes de IA',

@@ -49,6 +49,8 @@ export async function generateMetadata({
     keywords: topic.keywords,
     alternates: {
       canonical: url,
+      languages: topic.translations,
+      types: { 'text/markdown': url },
     },
     openGraph: {
       title: topic.title,

@@ -16,7 +16,7 @@ export const receberPixEmStablecoin: TopicPage = {
     'qr code estático pix',
     'receber pix em usdt',
   ],
-  updatedAt: '2026-09-14T00:00:00-03:00',
+  updatedAt: '2026-09-19T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
@@ -36,8 +36,7 @@ export const receberPixEmStablecoin: TopicPage = {
     href: 'https://api.whatsapp.com/send?phone=5511960000445',
   },
   ctaSecondary: { label: 'Preços e taxas', href: '/precos' },
-  faqSubhead:
-    'As dúvidas mais comuns de quem quer receber Pix em stablecoin.',
+  faqSubhead: 'As dúvidas mais comuns de quem quer receber Pix em stablecoin.',
   sections: [
     {
       id: 'o-que-e',
@@ -133,6 +132,62 @@ export const receberPixEmStablecoin: TopicPage = {
       code: null,
       image: null,
     },
+    {
+      id: 'conferir-antes-de-receber',
+      kind: 'PROSE',
+      heading: 'Antes do primeiro Pix: destino, habilitação e custo',
+      body: 'O recebimento automático por chave Pix estática entrega USDC na Base para a carteira externa padrão aprovada. Disponível só em produção: o sandbox da API não reproduz esse recebimento bancário automático.',
+      bullets: [
+        'Confirme a verificação da conta e a habilitação comercial do recebimento automático.',
+        'Cadastre e confira a carteira externa na whitelist, a rede Base e a seleção como destino padrão.',
+        'Combine as condições comerciais do fluxo e confira a cotação e as taxas aplicáveis. A tabela geral não substitui uma condição específica contratada.',
+        'Confirme com o time o procedimento da primeira operação e a forma de acompanhar a entrega antes de divulgar a chave.',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+      links: [
+        {
+          label: 'Preços e condições',
+          href: '/precos',
+        },
+        {
+          label: 'Falar com o time',
+          href: '/contato',
+        },
+        {
+          label: 'Checkout para receber USDT',
+          href: '/gateway-de-pagamento-cripto',
+        },
+      ],
+    },
+    {
+      id: 'conciliacao-e-excecoes',
+      kind: 'PROSE',
+      heading: 'Pix recebido e USDC entregue são duas confirmações',
+      body: 'A conciliação precisa ligar o recebimento em reais à entrega de USDC na Base. Um Pix recebido não deve ser interpretado, sozinho, como confirmação on-chain.',
+      bullets: [
+        'Registre o recebimento, o valor convertido, a taxa e o destino aprovado. Acompanhe a entrega no histórico disponível para sua conta.',
+        'Sem carteira padrão cadastrada, o valor permanece retido na conta e o time é avisado; não há envio para um endereço escolhido automaticamente.',
+        'Se a entrega estiver pendente, confira o estado com o identificador da operação antes de repetir qualquer instrução. Não faça outro Pix para tentar corrigir a entrega.',
+        'Para uma cobrança com pedido, preço e status próprios, avalie o checkout dinâmico em vez de usar a chave estática como se fosse um link de pagamento.',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+      links: [
+        {
+          label: 'API e conciliação',
+          href: '/api-pix-stablecoin#conciliacao',
+        },
+        {
+          label: 'Canais de suporte',
+          href: '/contato',
+        },
+      ],
+    },
   ],
   faq: [
     {
@@ -167,8 +222,14 @@ export const receberPixEmStablecoin: TopicPage = {
     },
   ],
   related: [
-    { label: 'Gateway Pix para USDT e link de pagamento', href: '/gateway-de-pagamento-cripto' },
-    { label: 'Como receber pagamentos com Pix e cripto', href: '/como-aceitar-criptomoedas' },
+    {
+      label: 'Gateway Pix para USDT e link de pagamento',
+      href: '/gateway-de-pagamento-cripto',
+    },
+    {
+      label: 'Como receber pagamentos com Pix e cripto',
+      href: '/como-aceitar-criptomoedas',
+    },
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },

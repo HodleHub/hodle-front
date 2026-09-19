@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import AnimatedSection from '../AnimatedSection'
 import TopicCodeBlock from './topicCodeBlock'
 import TopicPartnerLockup from './topicPartnerLockup'
@@ -207,7 +208,7 @@ function renderSection(section: TopicPage['sections'][number]) {
   }
 }
 
-export default function TopicSections({ topic }: { topic: TopicPage }) {
+export default function TopicSections({ topic }: { topic: Pick<TopicPage, 'sections'> }) {
   return (
     <div className="max-w-[700px] mx-auto px-6 py-16 lg:py-20">
       <div className="space-y-16">
@@ -215,6 +216,17 @@ export default function TopicSections({ topic }: { topic: TopicPage }) {
           <AnimatedSection key={section.id} delay={i * 0.05} direction="up">
             <section id={section.id}>
               {renderSection(section)}
+              {section.links && (
+                <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-foreground underline underline-offset-4 hover:text-gray-600">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
           </AnimatedSection>
         ))}
