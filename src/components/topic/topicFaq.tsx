@@ -3,16 +3,18 @@ import { TopicPage } from '../../types/topic'
 export default function TopicFaq({
   faq,
   subhead,
+  language = 'pt-BR',
 }: {
   faq: TopicPage['faq']
   subhead: TopicPage['faqSubhead']
+  language?: TopicPage['language']
 }) {
   return (
     <section className="border-t border-gray-200">
       <div className="max-w-[700px] mx-auto px-6 py-16 lg:py-20">
         <div className="text-center mb-12">
           <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl lg:text-3xl font-light text-foreground leading-tight mb-3">
-            Perguntas frequentes
+            {language === 'en' ? 'Frequently asked questions' : 'Perguntas frequentes'}
           </h2>
           <p className="text-sm text-gray-500">
             {subhead}

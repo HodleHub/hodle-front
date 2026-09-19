@@ -1,3 +1,7 @@
+import { neobankDecision } from '../neobankDecision'
+import { platformFacts } from '../platformFacts'
+import { sectionsToMarkdown } from '../../utils/sectionsToMarkdown'
+
 /**
  * Markdown representation of the neobank infrastructure page, served under
  * `Accept: text/markdown`.
@@ -53,6 +57,8 @@ Bitcoin, Lightning, Liquid, Polygon, Base, Arbitrum, Solana, Tron e Spark. A dis
 ### A integração é por API?
 
 Sim. A Hodle oferece API, webhooks assinados e documentação para times de produto e engenharia orquestrarem os fluxos dentro da própria experiência.
+
+${sectionsToMarkdown({ sections: [neobankDecision, ...platformFacts] })}
 
 ## Onde ir a seguir
 

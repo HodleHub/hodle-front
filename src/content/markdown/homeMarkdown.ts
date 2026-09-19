@@ -1,3 +1,5 @@
+import { integrationPaths } from '../integrationPaths'
+
 /**
  * Markdown representation of the home page, served under
  * `Accept: text/markdown`.
@@ -22,9 +24,13 @@ Contas empresariais no nome da sua empresa, abertas junto a bancos parceiros reg
 
 Chaves privadas 100% sob o controle do usuário, sem custódia de terceiros. A chave é derivada no cliente e a Hodle guarda apenas um envelope cifrado que não consegue abrir, então nem um comprometimento da nossa infraestrutura move o saldo.
 
+## O que você quer construir?
+
+${integrationPaths.map((path) => `- [${path.title}](https://hodle.com.br${path.href}): ${path.description}`).join('\n')}
+
 ## Uma API. Pix, dólar e stablecoins.
 
-Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, SDK e webhooks — pensados para times de produto e agentes de IA.
+Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, OpenAPI e webhooks — pensados para times de produto e agentes de IA.
 
 - \`POST /api/wallet/payout\` — paga um Pix debitando saldo em USDT (Polygon, Tron) ou USDC (Base), com gas patrocinado.
 - \`POST /api/lightning/invoice\` — invoice BOLT11 que dispara um payout Pix automaticamente quando é pago.

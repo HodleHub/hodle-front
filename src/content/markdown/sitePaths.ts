@@ -17,6 +17,7 @@ export const staticSitePaths: string[] = [
   '/crypto-as-a-service',
   '/desenvolvedores',
   '/en/brs',
+  '/en/pix-stablecoin-api',
   '/faq',
   '/glossario',
   '/legal',

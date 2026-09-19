@@ -20,7 +20,7 @@ export const gatewayDePagamentoCripto: TopicPage = {
     'dolarizar faturamento',
   ],
   primaryKeyword: 'gateway pix para usdt',
-  updatedAt: '2026-09-14T00:00:00-03:00',
+  updatedAt: '2026-09-19T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'CHECKOUT E LINK DE PAGAMENTO',
@@ -166,9 +166,63 @@ export const gatewayDePagamentoCripto: TopicPage = {
       code: null,
       image: null,
     },
+    {
+      id: 'escolher-o-fluxo',
+      kind: 'PROSE',
+      heading: 'Checkout em USDT ou recebimento automático em USDC?',
+      body: 'Para vender um produto em reais e liquidar em USDT, use o checkout com cobrança Pix dinâmica e o par ativo/rede habilitado. Para converter recebimentos por chave Pix ou QR estático em USDC na Base, use o fluxo de recebimento automático, com habilitação e carteira externa padrão.',
+      bullets: [
+        'Checkout: o pedido tem preço e status próprios; o comprador paga o Pix gerado para aquela cobrança.',
+        'Pix estático: não exige criar um pedido por API a cada entrada; a configuração do destino externo é feita antes.',
+        'Não reutilize uma cobrança expirada nem associe um Pix avulso a um pedido sem confirmar como esse vínculo é feito.',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+      links: [
+        {
+          label: 'Receber automaticamente USDC na Base',
+          href: '/receber-pix-em-stablecoin',
+        },
+        {
+          label: 'Documentação do checkout',
+          href: 'https://docs.hodle.com.br/docs/checkout',
+        },
+      ],
+    },
+    {
+      id: 'custos-e-conciliacao',
+      kind: 'PROSE',
+      heading: 'Custos e conciliação antes de abrir o checkout',
+      body: 'Confira a tabela pública, o par ativo/rede configurado e as condições da sua conta antes de publicar o link. Valor da venda, taxa, conversão e quantidade entregue são informações diferentes.',
+      bullets: [
+        'Teste produto ativo, disponibilidade de estoque, dados exigidos do pagador e expiração da cobrança.',
+        'Mantenha o trackId do pedido junto ao seu pedido interno. Consulte GET /api/public/checkout/orders/:trackId para acompanhar seu estado.',
+        'Libere a compra após a confirmação esperada do pedido. Abrir o link ou gerar o QR Code não é pagamento concluído.',
+        'Em falha ou demora na entrega, concilie a mesma operação antes de criar outra cobrança para o cliente.',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+      links: [
+        {
+          label: 'Tabela pública de preços',
+          href: '/precos',
+        },
+        {
+          label: 'Referência do checkout',
+          href: 'https://docs.hodle.com.br/docs/checkout',
+        },
+        {
+          label: 'API, sandbox e webhooks',
+          href: '/desenvolvedores',
+        },
+      ],
+    },
   ],
-  faqSubhead:
-    'Tire suas dúvidas sobre o gateway de pagamento cripto da Hodle.',
+  faqSubhead: 'Tire suas dúvidas sobre o gateway de pagamento cripto da Hodle.',
   faq: [
     {
       question: 'Como funciona um gateway Pix para USDT?',

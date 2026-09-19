@@ -22,7 +22,7 @@ const NAV_LINKS = {
   en: [
     { label: 'CaaS', href: '/crypto-as-a-service' },
     { label: 'Platform', href: '#plataforma' },
-    { label: 'API', href: '#api' },
+    { label: 'API', href: '/en/pix-stablecoin-api' },
     { label: 'Wallets', href: '#wallets' },
     { label: 'Payments', href: '#pagamentos' },
     { label: 'Business account', href: '#conta-pj' },
@@ -57,7 +57,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href}
+                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
                 className="text-gray-500 hover:text-foreground text-sm font-medium transition-colors"
               >
                 {link.label}
@@ -101,7 +101,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href}
+                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-500 hover:text-foreground hover:bg-gray-50 transition-colors"
               >

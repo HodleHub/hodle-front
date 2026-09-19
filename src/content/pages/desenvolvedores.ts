@@ -14,7 +14,7 @@ export const desenvolvedores: InfoPage = {
   h1: 'API Hodle para desenvolvedores',
   description:
     'Recursos para desenvolvedores da API Hodle: especificação OpenAPI 3.1, autenticação por API key, webhooks assinados com HMAC, sandbox e a lista de operações com operationId.',
-  updatedAt: '2026-08-22T00:00:00-03:00',
+  updatedAt: '2026-09-19T00:00:00-03:00',
   intro: [
     'A API Hodle é uma API REST para mover dinheiro entre o real e o dólar digital: pagar Pix a partir de saldo em stablecoin, emitir invoice Lightning que liquida em Pix, rodar on-ramp e off-ramp, ler carteiras auto-custodiais e enviar KYC de usuário final. Autenticação é por API key no header, respostas são JSON e cada mudança de estado chega por webhook assinado.',
     'Esta página é o índice estável dos recursos de desenvolvimento da Hodle. Os endereços abaixo não mudam: se você é um agente ou um script procurando a especificação da API Hodle, comece por /openapi.json e por /.well-known/api-catalog.',
@@ -51,7 +51,7 @@ export const desenvolvedores: InfoPage = {
           label: 'Autenticação',
           href: 'https://docs.hodle.com.br/docs/authentication',
           description:
-            'Como emitir a API key e assinar as chamadas com Authorization: Bearer.',
+            'Authorization: Bearer é usado nos exemplos da API; X-API-Key também é aceito. Guarde a chave no backend, nunca em URLs ou no frontend.',
         },
         {
           label: 'Webhooks',
@@ -63,7 +63,7 @@ export const desenvolvedores: InfoPage = {
           label: 'Sandbox',
           href: 'https://docs.hodle.com.br/docs/sandbox',
           description:
-            'Ambiente em sandbox-api.hodle.com.br com USDB de teste na Base Sepolia e nenhum dinheiro real.',
+            'Ambiente em sandbox-api.hodle.com.br com tokens de teste na Base Sepolia e nenhum dinheiro real.',
         },
         {
           label: 'llms.txt',
@@ -122,7 +122,7 @@ export const desenvolvedores: InfoPage = {
         {
           label: 'POST /api/wallet/keys',
           value:
-            'walletKeys — devolve o protectedSymmetricKey necessário para assinar no cliente.',
+            'walletKeys — recupera a chave protegida da carteira selecionada para o fluxo de payout ou transferência, conforme o modelo de assinatura documentado.',
         },
         {
           label: 'POST /api/wallet/transfer',
@@ -176,11 +176,11 @@ export const desenvolvedores: InfoPage = {
         {
           label: 'Sandbox',
           value:
-            'https://sandbox-api.hodle.com.br — USDB de teste na Base Sepolia, sem dinheiro real',
+            'https://sandbox-api.hodle.com.br — tokens de teste na Base Sepolia, sem dinheiro real',
         },
         {
           label: 'Autenticação',
-          value: 'Authorization: Bearer SUA_API_KEY em toda requisição',
+          value: 'Authorization: Bearer SUA_API_KEY; o header X-API-Key também é aceito',
         },
         {
           label: 'Formato',
@@ -206,8 +206,11 @@ export const desenvolvedores: InfoPage = {
   ],
   cta: {
     heading: 'Começar a integrar',
-    body: 'Crie a chave no painel, aponte para o sandbox e rode o primeiro fluxo.',
+    body: 'Faça o cadastro separado no ambiente de sandbox, crie sua chave e rode primeiro uma cotação. Base Sepolia usa tokens de teste; Pix é simulado. Produção exige verificação e habilitação.',
     links: [
+      { label: 'Criar conta de sandbox', href: 'https://app-sandbox.hodle.com.br', description: 'Cadastro separado, sem dinheiro real.' },
+      { label: 'Infraestrutura para neobank', href: '/neobank', description: 'Módulos, responsabilidades e requisitos de operação.' },
+      { label: 'Preços e taxas', href: '/precos', description: 'Taxas públicas e condições por volume.' },
       {
         label: 'Documentação',
         href: 'https://docs.hodle.com.br',

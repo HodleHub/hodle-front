@@ -10,6 +10,7 @@ import { neobankMarkdown } from '../content/markdown/neobankMarkdown'
 import { sobre } from '../content/pages/sobre'
 import { contato } from '../content/pages/contato'
 import { desenvolvedores } from '../content/pages/desenvolvedores'
+import { englishPixStablecoin } from '../content/topics/englishPixStablecoin'
 import { getTopicBySlug } from './getTopicBySlug'
 import { getArticleMarkdown } from './getArticleMarkdown'
 import { articlesIndexToMarkdown } from './articlesIndexToMarkdown'
@@ -27,6 +28,7 @@ const staticDocuments: Record<string, () => string> = {
   '/contato': () => infoPageToMarkdown({ page: contato }),
   '/crypto-as-a-service': () => cryptoAsAServiceMarkdown,
   '/desenvolvedores': () => infoPageToMarkdown({ page: desenvolvedores }),
+  '/en/pix-stablecoin-api': () => topicToMarkdown({ topic: englishPixStablecoin }),
   '/faq': faqToMarkdown,
   '/glossario': glossaryToMarkdown,
   '/neobank': () => neobankMarkdown,

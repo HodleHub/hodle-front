@@ -8,7 +8,7 @@ export default function TopicCta({ topic }: { topic: TopicPage }) {
     <section className="border-t border-gray-200">
       <div className="max-w-[700px] mx-auto px-6 py-16 lg:py-20 text-center">
         <h2 className="font-[family-name:var(--font-space-grotesk)] text-lg font-medium text-foreground mb-3">
-          Pronto para começar?
+          {topic.language === 'en' ? 'Ready to integrate?' : 'Pronto para começar?'}
         </h2>
         <p className="text-sm text-gray-500 mb-6">
           {topic.ctaSubhead}

@@ -50,7 +50,7 @@ const markdownResponse = (body: string, status: number): NextResponse =>
 export const middleware = (request: NextRequest): NextResponse => {
   const { pathname } = request.nextUrl
 
-  if (isAsset(pathname) || isReactServerComponentRequest(request)) {
+  if (pathname === '/md' || isAsset(pathname) || isReactServerComponentRequest(request)) {
     return NextResponse.next()
   }
 
