@@ -169,3 +169,15 @@ eligibility only; no provider is required to index, rank, include, or cite a pag
 
 - [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
 - [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.
+
+## Practical Pix guides (Portuguese)
+
+Runnable Node.js examples and their limits are published at:
+- https://hodle.com.br/articles/integrar-api-pix-nodejs
+- https://hodle.com.br/articles/validar-webhook-pix-idempotencia
+- https://hodle.com.br/articles/conciliacao-pix-api
+- https://hodle.com.br/articles/criar-link-pagamento-pix-api
+
+The webhook and reconciliation guides include reproducible demonstrations using synthetic data and local tests. They are not customer case studies, production transaction results or measured business ROI. Checkout requires the documented production permissions. Sandbox coverage varies by operation.
+
+https://hodle.com.br/articles/comparar-api-pix-baas compares Woovi, Asaas, iugu, Celcoin and Hodle using dated official sources. It explains product fit, settlement currency, stablecoins, custody scope, testing and pricing criteria without declaring a universal winner or treating unconfirmed features as absent.

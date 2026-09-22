@@ -245,6 +245,41 @@ export default function PrecosPage() {
           </ul>
 
           <h2 className={`${heading} text-xl font-medium text-foreground mb-4`}>
+            Como calcular a taxa de serviço
+          </h2>
+
+          <p>
+            Exemplos ilustrativos da tabela, não cotações: na faixa de 2%, uma
+            operação de R$ 1.000 tem R$ 20 de taxa de serviço. Em uma operação de
+            R$ 20, o percentual seria R$ 0,40, mas o mínimo da tabela leva a taxa
+            a R$ 0,75. O mínimo substitui o resultado menor; não é somado a ele.
+            Esses exemplos não afirmam que qualquer fluxo aceite os tickets usados.
+          </p>
+
+          <p>
+            A taxa de serviço isolada não informa quanto USDT ou USDC será
+            entregue ou debitado. Confira a cotação e o resultado da operação.
+            Pela API, <code>/api/quote</code> é uma simulação indicativa, sem
+            reserva de câmbio. O payout possui uma cotação própria, vinculada ao
+            beneficiário, cujo <code>quoteId</code> pode ser usado na execução.
+            Verifique se a condição aplicada à sua conta corresponde ao contrato
+            antes de confirmar. Consulte a{' '}
+            <a
+              href="https://docs.hodle.com.br/docs/quote"
+              className="text-foreground underline underline-offset-2 hover:text-gray-600"
+            >
+              referência de cotação
+            </a>{' '}
+            e a{' '}
+            <a
+              href="https://docs.hodle.com.br/docs/wallet-payout-beneficiary"
+              className="text-foreground underline underline-offset-2 hover:text-gray-600"
+            >
+              confirmação de beneficiário do payout
+            </a>.
+          </p>
+
+          <h2 className={`${heading} text-xl font-medium text-foreground mb-4`}>
             Condição negociada
           </h2>
 
@@ -299,6 +334,13 @@ export default function PrecosPage() {
               </tbody>
             </table>
           </div>
+
+          <p>
+            Esta é a abrangência do catálogo, não uma matriz de suporte de cada
+            endpoint. Uma rede disponível para compra ou transferência pode não
+            estar disponível para payout. Confira o ativo, a rede e a operação
+            na documentação e nas opções habilitadas para a sua conta.
+          </p>
 
           <h2 className={`${heading} text-xl font-medium text-foreground mb-4`}>
             Transferência entre carteiras
@@ -387,19 +429,28 @@ export default function PrecosPage() {
           </h2>
 
           <p>
-            Nas redes EVM que a Hodle suporta — Polygon, Arbitrum e Base — o gas
-            necessário para movimentar USDT e USDC é patrocinado pela Hodle nos
-            transfers e nos payouts. Na prática, isso significa que o cliente não
-            precisa manter saldo da moeda nativa de cada rede apenas para pagar
-            taxa de rede nessas operações: a Hodle absorve esse custo operacional
-            como parte do serviço.
+            Nas combinações de ativo e rede suportadas pelos endpoints de
+            transferência e payout em Polygon, Base e Solana, a taxa de rede é
+            patrocinada pela Hodle. O cliente não precisa manter a moeda nativa
+            dessas redes apenas para pagar essa taxa. Esse benefício não elimina
+            a taxa de serviço nem amplia a cobertura de redes do endpoint.
           </p>
 
           <p>
-            Esse comportamento é o mesmo descrito na documentação técnica da
-            API, que trata transferências em redes EVM como operações com gas
-            patrocinado por padrão — não é uma condição promocional, é como o
-            produto funciona.
+            Confira as combinações aceitas nas referências de{' '}
+            <a
+              href="https://docs.hodle.com.br/docs/wallet-transfer"
+              className="text-foreground underline underline-offset-2 hover:text-gray-600"
+            >
+              transferência
+            </a>{' '}
+            e{' '}
+            <a
+              href="https://docs.hodle.com.br/docs/wallet-payout"
+              className="text-foreground underline underline-offset-2 hover:text-gray-600"
+            >
+              payout
+            </a>. A disponibilidade continua sujeita às permissões da conta.
           </p>
 
           <h2 className={`${heading} text-xl font-medium text-foreground mb-4`}>

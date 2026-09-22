@@ -1,5 +1,5 @@
 const typography = [
-  'text-[15px] leading-[1.75] text-gray-600',
+  'min-w-0 break-words text-[15px] leading-[1.75] text-gray-600',
 
   '[&_p]:mb-6',
 
@@ -26,7 +26,7 @@ const typography = [
   '[&_img]:my-8 [&_img]:w-full [&_img]:rounded-xl',
   '[&_hr]:my-10 [&_hr]:border-gray-200',
 
-  '[&_table]:my-8 [&_table]:w-full [&_table]:border-collapse [&_table]:text-[13.5px]',
+  '[&_table]:my-8 [&_table]:block [&_table]:overflow-x-auto [&_table]:w-full [&_table]:border-collapse [&_table]:text-[13.5px]',
   '[&_th]:border-b [&_th]:border-gray-200 [&_th]:py-2.5 [&_th]:pr-4 [&_th]:text-left [&_th]:font-medium [&_th]:text-foreground',
   '[&_td]:border-b [&_td]:border-gray-100 [&_td]:py-2.5 [&_td]:pr-4 [&_td]:align-top',
 

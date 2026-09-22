@@ -1,0 +1,158 @@
+---
+title: 'Como comparar API Pix e BaaS: Woovi, Asaas, iugu, Celcoin e Hodle'
+description: 'Compare finalidade, liquidação, stablecoins, custódia, testes e condições de API Pix e BaaS com fontes oficiais de cinco fornecedores.'
+date: '2026-09-22'
+category: 'mercado'
+author: 'Hodle'
+authorRole: 'Equipe Hodle'
+coverKicker: 'Critérios para escolher uma integração'
+faq:
+  - question: 'Qual é a melhor API Pix para uma empresa?'
+    answer: 'Depende do resultado que a empresa precisa: receber reais, dividir recebíveis, abrir contas ou converter para stablecoins. Compare a mesma operação, titularidade, moeda de liquidação, testes disponíveis e custo contratual. Este artigo não atribui um vencedor universal.'
+  - question: 'Todas as APIs Pix liquidam em USDT ou USDC?'
+    answer: 'Não se deve presumir isso. As fontes consultadas documentam operações com stablecoins na Woovi e na Hodle, com contratos diferentes. A presença de uma API Pix em outro fornecedor, por si só, não comprova conversão nem entrega on-chain.'
+  - question: 'Sandbox garante acesso ao mesmo produto em produção?'
+    answer: 'Não. Credenciais, cadastro, aprovação comercial, permissões e recursos disponíveis podem ser diferentes. Na Hodle, o Pix é simulado nos fluxos suportados e contas nominais não têm equivalente no sandbox. A iugu também documenta a criação de subcontas apenas em produção.'
+---
+
+Uma API Pix pode resolver uma cobrança pontual, uma rotina de repasses ou parte de
+uma operação de Banking as a Service. O primeiro passo para comparar fornecedores
+é escrever o resultado esperado: **quem paga, quem recebe, em qual moeda e em qual
+conta ou carteira o valor termina**.
+
+Este levantamento foi produzido pela equipe da Hodle, uma das empresas analisadas.
+Consultamos páginas oficiais de produto, documentação e preços em **22 de setembro
+de 2026**. Não é um teste de desempenho, auditoria regulatória ou ranking. Recursos
+não confirmados nas fontes consultadas são identificados como tal; isso não prova
+que o fornecedor não os ofereça por outro contrato.
+
+## Defina a operação antes de comparar o preço
+
+Três situações têm custos e integrações diferentes:
+
+1. **Cobrar em Pix e manter reais:** o recebimento termina em uma conta de pagamento
+   ou bancária, conforme o produto contratado.
+2. **Incorporar serviços financeiros:** contas, identificação dos titulares,
+   movimentações, conciliação e responsabilidades compõem o escopo de BaaS.
+3. **Conectar Pix a stablecoins:** a confirmação em reais e a entrega do ativo
+   digital são etapas separadas. É necessário definir token, rede, carteira,
+   cotação e forma de comprovar a entrega.
+
+Por isso, uma tarifa por Pix recebido não é diretamente comparável a uma operação
+que também converte moeda e entrega tokens. A proposta precisa cobrir o mesmo
+percurso do dinheiro.
+
+## Woovi: Pix, contas e operações com stablecoins
+
+A Woovi apresenta cobrança Pix, links de pagamento, conciliação e contas de
+pagamento. No fluxo Pix descrito em seu site, o recebimento fica disponível em
+reais na conta Woovi. Sua oferta BaaS permite incorporar contas e movimentação
+Pix ao produto da empresa. Fontes: [Pix na Woovi](https://woovi.com/pix/) e
+[BaaS Woovi](https://woovi.com/baas/).
+
+Há também **documentação de stablecoins**, não apenas uma referência comercial:
+ela descreve conversão de saldo BRL para stablecoin e payout de stablecoin para
+Pix. Os endpoints possuem escopos específicos; a habilitação desse módulo deve
+ser confirmada. A documentação menciona carteiras e saldo interno, mas não basta
+para classificar toda a oferta como auto-custodial. Confirme quem controla as
+chaves e o saldo em cada modalidade. Fontes:
+[visão geral de stablecoin](https://developers.woovi.com/docs/category/stablecoin)
+e [endpoints e permissões](https://developers.woovi.com/docs/stablecoin/stablecoin-endpoints).
+
+- **Testes:** a documentação oferece ambiente de teste; confirme a cobertura do
+  módulo que vai contratar. [Portal de desenvolvedores](https://developers.woovi.com/).
+- **Custos:** consulte [planos e preços](https://woovi.com/planos-e-precos/).
+  O preço do Pix não deve ser usado como preço presumido da conversão em stablecoin.
+
+## Asaas: cobrança e gestão de pagamentos
+
+O Asaas documenta cobranças, recebimentos e pagamentos por Pix, boleto e cartões,
+além de recursos como links, assinaturas, split e subcontas. É um escopo útil para
+avaliar a automação financeira de uma empresa ou plataforma. As transações Pix
+consultadas são operações em reais; essas páginas não confirmam entrega em USDT
+ou USDC, nem um modelo de custódia de chaves de cripto. Fontes:
+[introdução à API](https://docs.asaas.com/docs/visao-geral) e
+[consulta de transações Pix](https://docs.asaas.com/reference/listar-transacoes).
+
+- **Testes e requisitos:** o sandbox usa conta e chave próprias, com simulação de
+  cobranças. Para produção, use o cadastro, as credenciais e as permissões do
+  ambiente correspondente. A cobertura varia por recurso.
+  [API e sandbox Asaas](https://www.asaas.com/api-de-pagamentos).
+- **Custos:** [preços e taxas](https://www.asaas.com/precos-e-taxas) distingue
+  condições promocionais e contratuais. Compare a tarifa da operação específica
+  e o período em que ela vale.
+
+## iugu: cobrança, repasses e infraestrutura financeira
+
+O iugu BaaS apresenta cobrança, pagamentos, repasses, conciliação e, conforme o
+escopo, contas e subcontas. O material de produto descreve Pix e transferências;
+não confirma nesses mesmos documentos conversão para stablecoin ou entrega
+on-chain. O modelo de custódia de cripto também não foi estabelecido pelas fontes
+consultadas. Fontes: [BaaS iugu](https://www.iugu.com/banking-as-a-service) e
+[infraestrutura para plataformas](https://www.iugu.com/iugu-tecnologia).
+
+- **Testes:** tokens de teste e produção selecionam o ambiente. Há diferenças por
+  recurso: a criação de subcontas é documentada apenas em produção.
+  [Introdução à API](https://dev.iugu.com/reference/introdu%C3%A7%C3%A3o-a-api) e
+  [configuração de subcontas](https://dev.iugu.com/docs/configurar-subconta-por-api).
+- **Requisitos e custos:** contratação, cadastro e recursos disponíveis dependem
+  do plano e do projeto. Consulte [planos iugu](https://www.iugu.com/planos) e a
+  proposta específica de BaaS, em vez de presumir uma tarifa única.
+
+## Celcoin: contas e serviços financeiros incorporados
+
+O cel_banking apresenta contas digitais e operações financeiras por API. A oferta
+inclui gestão de contas, extratos e Pix de entrada e saída conforme a contratação.
+Esse escopo documenta movimentação em reais; as páginas aqui consultadas não
+confirmam um endpoint de conversão em stablecoin ou a custódia de chaves de
+cripto. Fonte: [Banking as a Service Celcoin](https://www.celcoin.com.br/cel_banking/banking-as-a-service/).
+
+- **Testes e requisitos:** existem operações de sandbox, como adicionar saldo
+  fictício. A liberação de produção passa pela homologação dos fluxos contratados
+  e pelas verificações contratuais.
+  [Saldo de teste](https://developers.celcoin.com.br/docs/gerar-lan%C3%A7amento) e
+  [instruções de homologação](https://developers.celcoin.com.br/docs/homologacao-celcoin).
+- **Custos:** a Celcoin descreve um modelo de mensalidade e condições relacionadas
+  ao volume. O escopo precisa ser orçado pelo comercial.
+  [Modelo de cobrança BaaS](https://suporte.celcoin.com.br/hc/pt-br/articles/10124162172571-Como-funciona-o-modelo-de-cobran%C3%A7a-do-BaaS).
+
+## Hodle: software para conectar Pix, stablecoins e parceiros
+
+A Hodle documenta cobrança Pix com entrega de ativos digitais, pagamento Pix
+financiado por saldo em stablecoin, checkout e conciliação. Na compra, o resultado
+é a entrega do ativo no destino habilitado; no payout, o destinatário recebe reais.
+Token e rede dependem do endpoint. Fontes:
+[depósito de ativos](https://docs.hodle.com.br/docs/deposit-asset) e
+[payout](https://docs.hodle.com.br/docs/wallet-payout).
+
+As wallets da Hodle são auto-custodiais: o usuário controla as chaves. A Hodle
+fornece software e não é banco, instituição financeira ou custodiante. Serviços
+financeiros e o fluxo regulado de fundos são conduzidos por parceiros. Uma conta
+nominal de parceiro não se confunde com uma carteira on-chain. Fonte:
+[termos da Hodle](/termos).
+
+- **Testes:** o [sandbox](https://docs.hodle.com.br/docs/sandbox) usa Pix simulado
+  e Base Sepolia nos fluxos suportados. Conta nominal e recebimento por chave Pix
+  estática para USDC são recursos de produção; não presuma paridade de todo o catálogo.
+- **Requisitos:** conta aprovada, KYC/KYB aplicável, permissões por operação e
+  habilitação para pagadores ou beneficiários terceiros quando necessária.
+- **Custos:** consulte a [tabela comercial](/precos) e a cotação efetiva do fluxo.
+  Valores de exemplo não são propostas ou garantia de quantidade líquida de tokens.
+
+## O que levar para a avaliação técnica e comercial
+
+Peça a cada fornecedor uma demonstração do **mesmo cenário**, com os mesmos
+valores e responsáveis. Registre:
+
+- O titular da conta, o dono da carteira e quem autoriza a movimentação.
+- A moeda recebida, o destino final e os identificadores que comprovam cada etapa.
+- Recursos contratados, permissões e restrições a operações de terceiros.
+- O que o sandbox efetivamente testa, o que ele simula e o que exige homologação.
+- Taxas fixas e percentuais, mínimo por operação, conversão, rede, mensalidade e setup.
+- Como consultar uma operação depois de timeout e como tratar um webhook repetido.
+
+Para experimentar os fluxos da Hodle, comece pelo guia de
+[API Pix em Node.js](/articles/integrar-api-pix-nodejs), implemente
+[verificação de webhooks](/articles/validar-webhook-pix-idempotencia) e confira a
+[conciliação por API](/articles/conciliacao-pix-api). Para vender com uma página
+hospedada, consulte [como criar um link Pix](/articles/criar-link-pagamento-pix-api).

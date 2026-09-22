@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "locale": "pt-BR",
+  "market": "BR",
+  "baselineDate": "2026-09-22",
+  "reviewDaysAfterRelease": [
+    14,
+    28,
+    56
+  ],
+  "conversion": {
+    "event": "conversion_click",
+    "destinations": [
+      "sales",
+      "docs",
+      "app",
+      "sandbox"
+    ],
+    "properties": [
+      "page",
+      "landing",
+      "source",
+      "medium",
+      "campaign",
+      "placement"
+    ],
+    "attribution": "First page in the mounted browser document, retained across client navigation; full reload begins a new context. Only fixed source/medium/campaign categories and known public paths are recorded. No cookies, persistent identifiers, arbitrary query values or contact data added. App links carry bounded acquisition parameters; the receiving app/CRM must record successful activations separately.",
+    "notMeasured": [
+      "qualified leads",
+      "completed signups",
+      "activated integrations",
+      "revenue"
+    ],
+    "dashboard": "Vercel project was verified as Hobby on 2026-09-22; custom event collection is disabled until a compatible plan and NEXT_PUBLIC_VERCEL_CUSTOM_EVENTS=true are configured. Existing pageview analytics and app attribution links remain available. GA4 measurement ID requested as an alternative; not yet supplied.",
+    "collectionStatus": "prepared_not_enabled"
+  },
+  "engines": [
+    "Google Search generative AI report",
+    "ChatGPT Search",
+    "Perplexity",
+    "Claude web search",
+    "Bing Copilot"
+  ],
+  "prompts": [
+    {
+      "id": "pix-01",
+      "intent": "category",
+      "prompt": "Quais APIs Pix atendem empresas no Brasil?",
+      "targetUrl": "https://hodle.com.br/api-pix"
+    },
+    {
+      "id": "pix-02",
+      "intent": "category",
+      "prompt": "Quais plataformas conectam Pix e stablecoins?",
+      "targetUrl": "https://hodle.com.br/api-pix-stablecoin"
+    },
+    {
+      "id": "pix-03",
+      "intent": "comparison",
+      "prompt": "Como comparar Woovi, Asaas, iugu, Celcoin e Hodle?",
+      "targetUrl": "https://hodle.com.br/articles/comparar-api-pix-baas"
+    },
+    {
+      "id": "pix-04",
+      "intent": "comparison",
+      "prompt": "API Pix e BaaS são a mesma coisa?",
+      "targetUrl": "https://hodle.com.br/baas"
+    },
+    {
+      "id": "pix-05",
+      "intent": "implementation",
+      "prompt": "Como integrar uma API Pix com Node.js?",
+      "targetUrl": "https://hodle.com.br/articles/integrar-api-pix-nodejs"
+    },
+    {
+      "id": "pix-06",
+      "intent": "implementation",
+      "prompt": "Como verificar a assinatura HMAC de um webhook Pix?",
+      "targetUrl": "https://hodle.com.br/articles/validar-webhook-pix-idempotencia"
+    },
+    {
+      "id": "pix-07",
+      "intent": "implementation",
+      "prompt": "Como impedir processamento duplicado de webhook Pix?",
+      "targetUrl": "https://hodle.com.br/articles/validar-webhook-pix-idempotencia"
+    },
+    {
+      "id": "pix-08",
+      "intent": "implementation",
+      "prompt": "Como conciliar Pix recebido com uma entrega de stablecoin?",
+      "targetUrl": "https://hodle.com.br/articles/conciliacao-pix-api"
+    },
+    {
+      "id": "pix-09",
+      "intent": "implementation",
+      "prompt": "Como criar link de pagamento Pix por API?",
+      "targetUrl": "https://hodle.com.br/articles/criar-link-pagamento-pix-api"
+    },
+    {
+      "id": "pix-10",
+      "intent": "implementation",
+      "prompt": "Como acompanhar um payout Pix pendente na API Hodle?",
+      "targetUrl": "https://hodle.com.br/pagar-pix-com-usdt"
+    },
+    {
+      "id": "pix-11",
+      "intent": "transactional",
+      "prompt": "Como pagar Pix com saldo em USDT?",
+      "targetUrl": "https://hodle.com.br/pagar-pix-com-usdt"
+    },
+    {
+      "id": "pix-12",
+      "intent": "transactional",
+      "prompt": "Como comprar USDT com Pix e receber na carteira?",
+      "targetUrl": "https://hodle.com.br/comprar-usdt-com-pix"
+    },
+    {
+      "id": "pix-13",
+      "intent": "transactional",
+      "prompt": "Como receber Pix em stablecoin na minha plataforma?",
+      "targetUrl": "https://hodle.com.br/receber-pix-em-stablecoin"
+    },
+    {
+      "id": "pix-14",
+      "intent": "commercial",
+      "prompt": "Quanto custa integrar Pix e stablecoins pela Hodle?",
+      "targetUrl": "https://hodle.com.br/precos"
+    },
+    {
+      "id": "pix-15",
+      "intent": "commercial",
+      "prompt": "Quais são os requisitos de uma conta PJ na Hodle?",
+      "targetUrl": "https://hodle.com.br/conta-digital-pj"
+    },
+    {
+      "id": "pix-16",
+      "intent": "trust",
+      "prompt": "A Hodle é um banco ou uma empresa de software?",
+      "targetUrl": "https://hodle.com.br/sobre"
+    },
+    {
+      "id": "pix-17",
+      "intent": "trust",
+      "prompt": "Quem controla as chaves das carteiras da Hodle?",
+      "targetUrl": "https://hodle.com.br/wallet-auto-custodial"
+    },
+    {
+      "id": "pix-18",
+      "intent": "limitations",
+      "prompt": "Quais redes a API Hodle suporta para pagar Pix com USDT?",
+      "targetUrl": "https://hodle.com.br/pagar-pix-com-usdt"
+    },
+    {
+      "id": "pix-19",
+      "intent": "limitations",
+      "prompt": "A API Hodle permite Pix de terceiros automaticamente?",
+      "targetUrl": "https://hodle.com.br/api-pix-stablecoin"
+    },
+    {
+      "id": "pix-20",
+      "intent": "limitations",
+      "prompt": "Como funciona o sandbox da API Hodle?",
+      "targetUrl": "https://hodle.com.br/desenvolvedores"
+    }
+  ],
+  "observationFields": [
+    "promptId",
+    "observedAt",
+    "engine",
+    "model",
+    "surface",
+    "locale",
+    "signedIn",
+    "brandMentioned",
+    "firstPartyCited",
+    "citedUrls",
+    "accuracy",
+    "competitors",
+    "evidencePath"
+  ],
+  "observations": [],
+  "interpretation": "GSC baseline is observed data before this release. Other engine prompt observations are not yet collected. A single answer is not a stable ranking. Review after recrawling, using the same prompts and matched periods. No automated monitor created.",
+  "caseStudies": {
+    "customerEvidence": "Pending customer permission and verifiable business outcomes. Do not invent or publish private account data.",
+    "publicAlternative": "Two explicitly labelled technical demonstrations in webhook and reconciliation tutorials, with reproducible local tests; not customer ROI or live financial results."
+  },
+  "authorityWork": {
+    "status": "Preparation only; no external messages sent.",
+    "assets": [
+      "/articles/comparar-api-pix-baas",
+      "/articles/integrar-api-pix-nodejs",
+      "/articles/validar-webhook-pix-idempotencia"
+    ],
+    "nextAction": "Confirm authorized partner contacts and accurate integration scope before requesting directory listings or editorial references. Use public technical evidence and disclose the relationship; no bought links or fabricated endorsements."
+  },
+  "baselineLocation": "Private Search Console audit retained outside this public repository; do not publish account analytics or customer data."
+}

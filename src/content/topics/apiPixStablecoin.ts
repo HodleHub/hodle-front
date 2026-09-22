@@ -57,10 +57,33 @@ export const apiPixStablecoin: TopicPage = {
   },
   sections: [
     {
+      "id": "fluxo-visual",
+      "kind": "SCREENSHOT",
+      "heading": "Explore as etapas antes de integrar",
+      "body": "O Flow Builder público da Hodle mostra a origem, o destino e as etapas de integração. A imagem abaixo é uma captura real dessa ferramenta, com dados de exemplo. Consulte os guias de cada endpoint para os requisitos de execução.",
+      "bullets": [],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": {
+        "src": "/screenshots/seo/flow-usdt-pix.jpg",
+        "alt": "Explore as etapas antes de integrar no Flow Builder público da Hodle",
+        "caption": "Flow Builder da documentação Hodle, capturado em 22/09/2026. Visualização de integração; não representa uma transação executada ou um caso de cliente.",
+        "width": 1280,
+        "height": 720
+      },
+      "links": [
+        {
+          "label": "Abrir o Flow Builder interativo",
+          "href": "https://docs.hodle.com.br/docs/flow-builder"
+        }
+      ]
+    },
+    {
       id: 'on-ramp-off-ramp',
       kind: 'COMPARISON',
       heading: 'On-ramp e off-ramp: qual fluxo integrar?',
-      body: 'On-ramp converte reais em ativos digitais. Off-ramp converte saldo em ativos digitais para pagar em reais via Pix. A rede disponível depende da operação; uma rede listada na plataforma não significa que todos os fluxos funcionem nela.',
+      body: 'On-ramp converte reais em ativos digitais. Off-ramp converte saldo em ativos digitais para pagar em reais via Pix. Confira o suporte no endpoint escolhido: uma rede do catálogo não habilita todas as operações. Depósitos e payouts de terceiros dependem de aprovação específica, além da verificação cadastral. Referências conferidas em 22 de setembro de 2026.',
       bullets: [],
       icons: [],
       comparison: {
@@ -68,11 +91,11 @@ export const apiPixStablecoin: TopicPage = {
         rows: [
           [
             'Cobrança Pix por API',
-            'POST /api/deposit/asset cria a operação de on-ramp. Escolha o ativo e a rede disponíveis para sua conta e acompanhe a entrega.',
+            'POST /api/deposit/asset. O depósito documenta USDT em Polygon/Arbitrum e USDC em Polygon/Base/Gnosis, sujeito à conta. A confirmação do Pix precede a conclusão da entrega do ativo.',
           ],
           [
             'Pagar Pix com saldo em stablecoin',
-            'POST /api/wallet/payout. Exemplos documentados: USDT em Polygon ou Tron e USDC em Base. Verificação, permissões e suporte por rede devem ser confirmados na referência do endpoint.',
+            'POST /api/wallet/payout. USDT em Polygon, Solana ou Tron; USDC em Polygon, Base ou Solana. Tron exige habilitação adicional. Confira o ativo efetivamente selecionado e a taxa no fluxo de confirmação.',
           ],
           [
             'Receber automaticamente em carteira externa',
@@ -100,7 +123,7 @@ export const apiPixStablecoin: TopicPage = {
           href: 'https://docs.hodle.com.br/docs/wallet-payout',
         },
         {
-          label: 'Pix automático em USDC',
+          label: 'Recebimento por chave Pix em USDC',
           href: '/receber-pix-em-stablecoin',
         },
         {
@@ -121,7 +144,7 @@ export const apiPixStablecoin: TopicPage = {
         'Faça POST /api/quote para obter uma cotação indicativa. A cotação não executa pagamento nem reserva câmbio.',
         'Para payouts, consulte POST /api/wallet/keys e use os dados da carteira selecionada conforme a documentação. Guarde o material protegido por carteira e respeite o PIN e o escopo da subconta.',
         'Antes de pagar, confirme o beneficiário e a cotação em POST /api/wallet/payout/beneficiary. Dispare POST /api/wallet/payout somente após a confirmação do usuário.',
-        'Guarde o transactionId, consulte GET /api/wallet/payout/{transactionId} e processe os webhooks com verificação de assinatura. Uma resposta de aceite não é confirmação de liquidação.',
+        'Defina um externalId por payout, guarde o transactionId e consulte GET /api/wallet/payout/{transactionId}. Verifique os webhooks e deduplique os efeitos. Uma resposta de aceite não confirma a liquidação.',
       ],
       icons: [],
       comparison: null,
@@ -171,7 +194,7 @@ export const apiPixStablecoin: TopicPage = {
       bullets: [],
       icons: [],
       comparison: {
-        headers: ['Fluxo', 'Ativo, rede e condição'],
+        headers: ['Situação', 'Tratamento na integração'],
         rows: [
           [
             'Operação pendente',
@@ -207,6 +230,43 @@ export const apiPixStablecoin: TopicPage = {
           href: 'https://docs.hodle.com.br/docs/flow-stable-pix',
         },
       ],
+    },
+    {
+      "id": "guias-praticos",
+      "kind": "PROSE",
+      "heading": "Guias para colocar a integração em operação",
+      "body": "A validação precisa cobrir a criação da cobrança, o processamento de eventos, a consulta do estado final e o fechamento da operação no seu sistema. Escolha o guia conforme a etapa que está implementando.",
+      "bullets": [
+        "Separe o pedido comercial, o pagamento Pix e a entrega do ativo no seu modelo de estados.",
+        "Compare custos com a mesma entrada, saída, moeda de liquidação e perfil de volume. Uma tarifa de recebimento Pix não equivale ao custo de uma conversão em stablecoin.",
+        "Os exemplos de taxa são ilustrativos. /api/quote é indicativo; o quoteId do beneficiário tem função específica no payout e não é o quoteToken genérico."
+      ],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": null,
+      "links": [
+        {
+          "label": "Integrar API Pix em Node.js",
+          "href": "/articles/integrar-api-pix-nodejs"
+        },
+        {
+          "label": "Validar assinatura e idempotência",
+          "href": "/articles/validar-webhook-pix-idempotencia"
+        },
+        {
+          "label": "Conciliação Pix por API",
+          "href": "/articles/conciliacao-pix-api"
+        },
+        {
+          "label": "Criar link de pagamento Pix por API",
+          "href": "/articles/criar-link-pagamento-pix-api"
+        },
+        {
+          "label": "Comparar API Pix e BaaS",
+          "href": "/articles/comparar-api-pix-baas"
+        }
+      ]
     },
   ],
   faqSubhead: 'Condições para escolher a infraestrutura e começar a integração.',

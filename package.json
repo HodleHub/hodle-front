@@ -9,8 +9,9 @@
     "lint": "next lint",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "postdeploy:indexnow": "node scripts/indexnow-ping.mjs",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "test": "vitest run && pnpm test:examples",
+    "test:watch": "vitest",
+    "test:examples": "node --test scripts/tests/pixExamples.test.mjs"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
