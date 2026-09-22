@@ -15,7 +15,7 @@ export const comprarUsdtComPix: TopicPage = {
     'converter reais em usdt',
     'comprar usdt com pix por api',
   ],
-  updatedAt: '2026-09-14T00:00:00-03:00',
+  updatedAt: '2026-09-22T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
@@ -42,6 +42,29 @@ export const comprarUsdtComPix: TopicPage = {
     href: 'https://docs.hodle.com.br/docs/deposit-asset',
   },
   sections: [
+    {
+      "id": "fluxo-visual",
+      "kind": "SCREENSHOT",
+      "heading": "Visualize o caminho do Pix até sua carteira",
+      "body": "O Flow Builder público da Hodle mostra a origem, o destino e as etapas de integração. A imagem abaixo é uma captura real dessa ferramenta, com dados de exemplo. Consulte os guias de cada endpoint para os requisitos de execução.",
+      "bullets": [],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": {
+        "src": "/screenshots/seo/flow-pix-usdt.jpg",
+        "alt": "Visualize o caminho do Pix até sua carteira no Flow Builder público da Hodle",
+        "caption": "Flow Builder da documentação Hodle, capturado em 22/09/2026. Visualização de integração; não representa uma transação executada ou um caso de cliente.",
+        "width": 1280,
+        "height": 720
+      },
+      "links": [
+        {
+          "label": "Abrir o Flow Builder interativo",
+          "href": "https://docs.hodle.com.br/docs/flow-builder"
+        }
+      ]
+    },
     {
       id: 'o-que-e',
       kind: 'PROSE',
@@ -115,13 +138,67 @@ export const comprarUsdtComPix: TopicPage = {
       bullets: [
         'Use o mesmo identificador para conciliar a cobrança e sua entrega.',
         'Acompanhe a operação pela consulta de depósito e pelos webhooks.',
-        'Pagamentos de terceiros dependem de habilitação específica na conta.',
-        'Valide a integração no sandbox antes de operar com valores reais.',
+        'Por padrão, o CPF/CNPJ pagador deve ser o titular da conta que recebe a operação. Informar taxId não libera outro pagador; receber de terceiros exige habilitação.',
+        'No sandbox, teste somente as combinações documentadas: o Pix é simulado e a cobertura não replica todas as redes de produção.',
       ],
       icons: [],
       comparison: null,
       code: null,
       image: null,
+    },
+    {
+      "id": "taxas-e-cotacao",
+      "kind": "PROSE",
+      "heading": "Quanto custa comprar USDT com Pix",
+      "body": "A tabela de serviço começa em 2% e chega a 0,5% conforme o volume liquidado no mês anterior, somando compra e venda. A taxa por operação é o maior valor entre o percentual da faixa e R$ 0,75. Consulte as faixas e a condição contratada antes de iniciar a compra.",
+      "bullets": [
+        "Exemplo ilustrativo, não uma cotação: numa compra de R$ 1.000 na faixa de 2%, a taxa de serviço é R$ 20.",
+        "Se considerarmos apenas essa taxa, restam R$ 980 para a conversão. A quantidade de USDT depende do preço e da composição final informados na operação; não é possível deduzi-la desta conta.",
+        "Para R$ 20 na mesma faixa, o percentual daria R$ 0,40, mas o mínimo da tabela resulta em R$ 0,75. O exemplo não afirma que todo fluxo aceite esse ticket."
+      ],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": null,
+      "links": [
+        {
+          "label": "Tabela de preços",
+          "href": "/precos"
+        },
+        {
+          "label": "Cotação indicativa e taxas",
+          "href": "https://docs.hodle.com.br/docs/quote"
+        }
+      ]
+    },
+    {
+      "id": "confirmacao-e-titularidade",
+      "kind": "PROSE",
+      "heading": "Quem pode pagar e quando a compra termina",
+      "body": "Na cobrança de depósito, a titularidade depende de como a conta e a subconta foram habilitadas. Por padrão, o banco recusa o pagamento feito por outro CPF/CNPJ e nenhum ativo é entregue. Solicite a habilitação apropriada antes de usar uma cobrança de depósito para receber de clientes.",
+      "bullets": [
+        "FIAT_PAID confirma o recebimento em reais, mas ainda não a entrega do USDT.",
+        "PROCESSING indica entrega em andamento; COMPLETED identifica a entrega concluída.",
+        "Concilie externalId, endToEndId e transactionHash quando disponíveis. Confira receivedAmount junto de receivedAmountDecimals para interpretar a quantidade entregue."
+      ],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": null,
+      "links": [
+        {
+          "label": "Regras de titularidade e estados do depósito",
+          "href": "https://docs.hodle.com.br/docs/deposit-asset"
+        },
+        {
+          "label": "Verificar webhooks e idempotência",
+          "href": "/articles/validar-webhook-pix-idempotencia"
+        },
+        {
+          "label": "Criar link de pagamento Pix pela API",
+          "href": "/articles/criar-link-pagamento-pix-api"
+        }
+      ]
     },
   ],
   faq: [
@@ -153,7 +230,7 @@ export const comprarUsdtComPix: TopicPage = {
     {
       question: 'Qual a taxa para comprar USDT com Pix?',
       answer:
-        'Consulte a página de preços para as condições de serviço e confira a cotação, a taxa e a quantidade a receber na compra. O custo pode variar conforme a operação e a configuração da conta.',
+        'A tabela de on-ramp publica taxa de serviço de 2% a 0,5%, conforme volume, com mínimo de R$ 0,75 por operação. Confira também a cotação e a quantidade final da compra; a taxa de serviço isolada não é a cotação do USDT. Condições negociadas dependem do contrato.',
     },
     {
       question: 'Precisa de KYC?',

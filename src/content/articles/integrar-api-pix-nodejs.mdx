@@ -1,0 +1,163 @@
+---
+title: 'Como integrar a API Pix com Node.js: cobrança e consulta'
+description: 'Crie uma cobrança Pix para USDC no sandbox da Hodle com Node.js, guarde o externalId e consulte pagamento e entrega sem repetir uma operação incerta.'
+date: '2026-09-22'
+category: 'engenharia'
+author: 'Equipe Hodle'
+authorRole: 'Produto e engenharia'
+coverKicker: 'Do pedido ao estado da cobrança'
+faq:
+  - question: 'O exemplo recebe Pix e mantém o saldo em reais?'
+    answer: 'Não. Ele usa o endpoint de depósito da Hodle: o Pix financia a entrega de USDC na rede configurada. Para conhecer outros fluxos, consulte a página API Pix e as condições da sua conta.'
+  - question: 'O QR Code do sandbox pode ser pago no banco?'
+    answer: 'Não. O sandbox devolve um BR Code impagável. A simulação de liquidação segue o procedimento autenticado da documentação e usa ativos de teste, sem Pix real.'
+  - question: 'Devo gerar outro externalId se a requisição der timeout?'
+    answer: 'Não imediatamente. O timeout não informa se a API criou o depósito. Consulte o externalId original e reconcilie o resultado antes de decidir por uma nova operação.'
+---
+
+Uma integração Pix precisa saber criar a cobrança, recuperar seu estado e lidar com
+uma resposta que não chegou. Neste tutorial, você executa esse caminho com Node.js
+e a [API Pix da Hodle](/api-pix). O exemplo é específico: um depósito em reais que
+entrega USDC. Ele não representa todas as modalidades de cobrança Pix.
+
+O código usa `fetch` nativo, sem SDK ou dependência adicional. Os arquivos publicados
+ao longo do texto são os mesmos exercitados pelos testes locais do site. Os testes
+substituem a resposta HTTP; eles verificam o cliente, não movimentam dinheiro nem
+comprovam a disponibilidade da sua conta.
+
+## 1. Prepare o ambiente de teste
+
+Use Node.js 20 ou superior, uma chave `hodle_test_` e um endereço EVM de uma carteira
+de teste sob seu controle. Crie a chave de sandbox no painel e mantenha-a no servidor.
+Não coloque a credencial em um componente React, aplicativo distribuído ou repositório.
+
+O host de teste é `https://sandbox-api.hodle.com.br`. Os exemplos dos endpoints
+usam `Authorization: Bearer` para autenticação. O host, o tipo de chave e a conta
+precisam pertencer ao mesmo ambiente.
+
+No sandbox, o Pix de entrada é simulado e o BR Code não pode ser pago em um banco.
+A entrega usa tokens de teste em Base Sepolia. Produção exige uma chave de produção,
+verificação cadastral aprovada e o ativo e a operação habilitados na conta.
+Consulte as condições atuais no [guia de sandbox](https://docs.hodle.com.br/docs/sandbox).
+
+## 2. Baixe o cliente e crie uma cobrança
+
+Salve os três arquivos na mesma pasta:
+
+- [requestHodle.mjs](/examples/pix/requestHodle.mjs): autenticação, prazo da chamada e tratamento de erro.
+- [createPixDeposit.mjs](/examples/pix/createPixDeposit.mjs): criação do depósito Pix para USDC em Base.
+- [getPixDeposit.mjs](/examples/pix/getPixDeposit.mjs): leitura do depósito pelo identificador original.
+
+Defina `HODLE_API_KEY` no gerenciador de segredos ou no ambiente do processo. Defina
+`HODLE_TEST_ADDRESS` com seu endereço de teste e `ORDER_ID` com um identificador
+persistido para esse pedido. O mesmo pedido deve continuar com o mesmo identificador
+durante a investigação de uma falha.
+
+Crie `create.mjs`:
+
+```js
+import { createPixDeposit } from './createPixDeposit.mjs'
+
+const apiKey = process.env.HODLE_API_KEY
+const address = process.env.HODLE_TEST_ADDRESS
+const externalId = process.env.ORDER_ID
+
+if (!apiKey?.startsWith('hodle_test_') || !address || !externalId) {
+  throw new Error('Configure HODLE_API_KEY, HODLE_TEST_ADDRESS e ORDER_ID')
+}
+
+const result = await createPixDeposit({
+  baseUrl: 'https://sandbox-api.hodle.com.br',
+  apiKey,
+  address,
+  externalId,
+  valueCents: 2500,
+})
+
+if (!result.success) {
+  throw new Error(`${result.error} (HTTP ${result.status})`)
+}
+
+console.log({ externalId: result.externalId, qrCode: result.qrCode })
+```
+
+Execute `node create.mjs`. Aqui, `2500` representa R$ 25,00. O módulo envia
+`POST /api/deposit/asset` com `value`, `address`, `asset: 'USDC'`, `network: 'base'`
+e `externalId`. A resposta de criação tem `externalId` e `qrCode` na raiz do JSON;
+ela não tem o mesmo formato da consulta.
+
+O helper envia a requisição uma vez. Ele não acrescenta um header de idempotência
+inventado nem repete um POST depois de timeout. Grave o identificador antes do
+envio e guarde a resposta no registro do pedido.
+
+## 3. Consulte o pagamento e a entrega separadamente
+
+Com as mesmas variáveis de ambiente, salve `status.mjs`:
+
+```js
+import { getPixDeposit } from './getPixDeposit.mjs'
+
+const apiKey = process.env.HODLE_API_KEY
+const externalId = process.env.ORDER_ID
+
+if (!apiKey?.startsWith('hodle_test_') || !externalId) {
+  throw new Error('Configure uma chave de sandbox e ORDER_ID')
+}
+
+const result = await getPixDeposit({
+  baseUrl: 'https://sandbox-api.hodle.com.br',
+  apiKey,
+  externalId,
+})
+
+if (!result.success) {
+  throw new Error(`${result.error} (HTTP ${result.status})`)
+}
+
+console.log({ status: result.data.status, transactionHash: result.data.transactionHash })
+```
+
+Execute `node status.mjs`. A leitura usa `GET /api/deposit/asset/:externalId` e
+retorna os campos em `data`. O exemplo atende a conta principal. Quando o depósito
+é criado com `subAccountId`, a consulta também precisa desse parâmetro; não use o
+helper sem adaptá-lo para esse escopo.
+
+| Estado | Decisão da aplicação |
+| --- | --- |
+| `PENDING` | A cobrança ainda aguarda pagamento. |
+| `FIAT_PAID` ou `PROCESSING` | O Pix entrou, mas a entrega do ativo ainda precisa ser acompanhada. |
+| `COMPLETED` | A entrega terminou; registre o comprovante disponível. |
+| `FAILED` | Investigue a falha de entrega; não presuma que o estorno aconteceu. |
+| `REFUNDED` | Reconcilie o estorno confirmado com o pedido. |
+| `EXPIRED` | A cobrança expirou. |
+
+Para avançar o depósito no sandbox, siga a simulação autenticada descrita no guia
+oficial. Não tente pagar o QR de teste. O exemplo acima não dispara a simulação
+automaticamente e não troca o host por produção.
+
+## 4. Trate o resultado incerto sem criar uma segunda compra
+
+Uma conexão pode cair depois de a API aceitar o pedido. Nessa situação, consulte
+o `externalId` original antes de criar outro depósito. A documentação também prevê
+conflito `409` para identificador já existente. Trate-o como motivo para recuperar
+o pedido, não para escolher outro identificador e repetir a cobrança.
+
+Se a consulta retornar `404`, confirme chave, ambiente e eventual subconta. Um
+`404` isolado não prova que uma requisição ainda em processamento nunca será
+concluída. Seu sistema deve manter a operação em investigação e limitar tentativas.
+
+Para cobranças pagas por terceiros, há outra condição: o depósito pode restringir
+o pagador ao titular da conta. A habilitação de recebimento de terceiros depende
+da configuração da conta. Enviar um CPF no corpo não concede essa capacidade.
+O [contrato de depósito](https://docs.hodle.com.br/docs/deposit-asset) detalha esse limite.
+
+## Do primeiro teste à integração do produto
+
+Antes de usar o cliente em uma operação real, persista pedidos e estados, proteja
+segredos e implemente o [recebimento de webhooks com deduplicação](/articles/validar-webhook-pix-idempotencia).
+Depois, feche a recuperação de eventos perdidos com
+[conciliação por API](/articles/conciliacao-pix-api).
+
+A [API Pix stablecoin](/api-pix-stablecoin) reúne os casos em que Pix e ativos
+digitais participam do mesmo fluxo. Para uma venda por página hospedada, use o
+[tutorial de link de pagamento](/articles/criar-link-pagamento-pix-api).

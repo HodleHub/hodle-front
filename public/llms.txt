@@ -167,3 +167,10 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 
 - [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
 - [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.
+
+## Guias práticos de Pix
+- [Integrar API Pix com Node.js](https://hodle.com.br/articles/integrar-api-pix-nodejs): criação e consulta com requisitos de ambiente.
+- [Webhook Pix e idempotência](https://hodle.com.br/articles/validar-webhook-pix-idempotencia): HMAC, corpo original e demonstração de duplicatas.
+- [Conciliação Pix por API](https://hodle.com.br/articles/conciliacao-pix-api): extrato, paginação e demonstração com dados sintéticos.
+- [Link de pagamento Pix por API](https://hodle.com.br/articles/criar-link-pagamento-pix-api): produto de checkout e página hospedada.
+- [Comparar API Pix e BaaS](https://hodle.com.br/articles/comparar-api-pix-baas): critérios e fontes oficiais de Woovi, Asaas, iugu, Celcoin e Hodle.

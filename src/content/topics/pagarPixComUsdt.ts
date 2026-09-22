@@ -17,7 +17,7 @@ export const pagarPixComUsdt: TopicPage = {
     'pagar pix com dólar digital',
   ],
   primaryKeyword: 'pagar pix com usdt',
-  updatedAt: '2026-09-14T00:00:00-03:00',
+  updatedAt: '2026-09-22T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'PAGAMENTOS',
@@ -43,6 +43,29 @@ export const pagarPixComUsdt: TopicPage = {
   },
   sections: [
     {
+      "id": "fluxo-visual",
+      "kind": "SCREENSHOT",
+      "heading": "Visualize o caminho de USDT até o Pix",
+      "body": "O Flow Builder público da Hodle mostra a origem, o destino e as etapas de integração. A imagem abaixo é uma captura real dessa ferramenta, com dados de exemplo. Consulte os guias de cada endpoint para os requisitos de execução.",
+      "bullets": [],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": {
+        "src": "/screenshots/seo/flow-usdt-pix.jpg",
+        "alt": "Visualize o caminho de USDT até o Pix no Flow Builder público da Hodle",
+        "caption": "Flow Builder da documentação Hodle, capturado em 22/09/2026. Visualização de integração; não representa uma transação executada ou um caso de cliente.",
+        "width": 1280,
+        "height": 720
+      },
+      "links": [
+        {
+          "label": "Abrir o Flow Builder interativo",
+          "href": "https://docs.hodle.com.br/docs/flow-builder"
+        }
+      ]
+    },
+    {
       id: 'o-que-e',
       kind: 'PROSE',
       heading: 'O que é pagar Pix com USDT',
@@ -62,12 +85,12 @@ export const pagarPixComUsdt: TopicPage = {
       id: 'como-funciona',
       kind: 'STEPS',
       heading: 'Como fazer Pix com cripto',
-      body: 'São quatro etapas. Na integração por API, as duas do meio são um POST e um GET.',
+      body: 'Comece com a conta e o fluxo aprovados. Confira o beneficiário, o ativo que será debitado e o custo total antes de confirmar; depois acompanhe a operação até o estado final.',
       bullets: [
-        'Saldo na carteira. O usuário tem USDT em Polygon ou Tron, ou USDC em Base, na carteira auto-custodial dele.',
-        'Chave do Pix e valor. Você informa o destino e o valor da cobrança em reais.',
-        'Disparo do payout. Um POST em /api/wallet/payout debita a stablecoin e inicia a liquidação. O gas da rede é patrocinado pela Hodle.',
-        'Confirmação. Um GET no mesmo recurso devolve o estado, e o webhook assinado avisa quando o Pix foi liquidado.',
+        'Selecione uma carteira compatível, com saldo suficiente para o pagamento e a taxa. Use o PIN e o material protegido da mesma carteira.',
+        'Informe o valor em reais e confira o beneficiário. Na API, /api/wallet/payout/beneficiary permite confirmar os dados e obter uma cotação vinculada ao destino.',
+        'Confirme o pagamento. Envie o quoteId aplicável em /api/wallet/payout e mantenha um externalId por operação para evitar um segundo pagamento em uma retentativa.',
+        'Guarde o transactionId. Consulte /api/wallet/payout/{transactionId} e os eventos assinados até COMPLETED ou FAILED. HTTP 202 significa que o pedido foi aceito, não que o Pix chegou.',
       ],
       icons: [],
       comparison: null,
@@ -78,7 +101,7 @@ export const pagarPixComUsdt: TopicPage = {
       id: 'ativos-e-redes',
       kind: 'ASSETS',
       heading: 'Ativos e redes aceitos no pagamento',
-      body: 'O payout aceita USDT em Polygon e USDC em Base. Há também opções em Solana, e USDT em Tron depende de habilitação na conta. Consulte as redes aceitas pelo pagamento: ter um ativo disponível para compra ou transferência não significa que ele possa financiar um Pix em qualquer rede.',
+      body: 'No payout, USDT é documentado em Polygon, Solana e Tron; USDC, em Polygon, Base e Solana. Tron exige habilitação adicional. Em Polygon e Base, o mecanismo pode priorizar saldo em BRLA quando disponível: confira o ativo efetivamente selecionado na cotação e na resposta. USDT em Base não é aceito por este endpoint. Referência conferida em 22 de setembro de 2026.',
       bullets: [],
       icons: [
         { src: '/usdt.svg', label: 'USDT' },
@@ -100,7 +123,7 @@ export const pagarPixComUsdt: TopicPage = {
       bullets: [
         'POST /api/wallet/payout para disparar o pagamento.',
         'GET no mesmo recurso para acompanhar o estado.',
-        'Webhook assinado com HMAC quando o estado muda.',
+        'Valide a assinatura do webhook e trate eventos repetidos sem pagar ou creditar duas vezes.',
         'API key com escopo por plataforma, documentada em docs.hodle.com.br.',
       ],
       icons: [],
@@ -118,6 +141,64 @@ export const pagarPixComUsdt: TopicPage = {
       comparison: null,
       code: null,
       image: null,
+    },
+    {
+      "id": "requisitos",
+      "kind": "PROSE",
+      "heading": "O que precisa estar habilitado antes de pagar",
+      "body": "A conta deve ter verificação cadastral, acesso ao payout e limites compatíveis. Pagar para CPF/CNPJ diferente do titular exige permissão de operações de terceiros. Uma chave de API válida não libera esse uso automaticamente. No sandbox, os fluxos suportados usam Base Sepolia e o Pix é simulado.",
+      "bullets": [
+        "Confirme o beneficiário antes da autorização do usuário.",
+        "Pagamento pendente ou timeout exige consulta da operação existente, antes de qualquer novo envio.",
+        "A conclusão deve ser comprovada pelo estado final e pelos identificadores disponíveis, como endToEndId e comprovante."
+      ],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": null,
+      "links": [
+        {
+          "label": "Beneficiário e cotação do payout",
+          "href": "https://docs.hodle.com.br/docs/wallet-payout-beneficiary"
+        },
+        {
+          "label": "Requisitos e redes do payout",
+          "href": "https://docs.hodle.com.br/docs/wallet-payout"
+        },
+        {
+          "label": "Conciliação Pix por API",
+          "href": "/articles/conciliacao-pix-api"
+        }
+      ]
+    },
+    {
+      "id": "custos",
+      "kind": "PROSE",
+      "heading": "Taxa de serviço e débito em stablecoin",
+      "body": "A tabela comercial de on-ramp e off-ramp publica taxas de 2% a 0,5% por volume, com mínimo de R$ 0,75 por operação. Ela serve como referência comercial. Para executar um payout, confira a taxa e o total de ativos da cotação do beneficiário: a precificação do endpoint e as condições da conta precisam corresponder ao contratado.",
+      "bullets": [
+        "Exemplo ilustrativo da tabela, não uma cotação: a 2%, R$ 1.000 × 0,02 = R$ 20 de taxa de serviço.",
+        "No mesmo exemplo de faixa, 2% de R$ 20 são R$ 0,40; o mínimo da tabela leva a taxa de serviço a R$ 0,75.",
+        "Essas contas não determinam o total debitado em USDT. Cotação, ativo escolhido e condições da operação definem esse total; confirme-o antes de autorizar."
+      ],
+      "icons": [],
+      "comparison": null,
+      "code": null,
+      "image": null,
+      "links": [
+        {
+          "label": "Tabela completa e condições",
+          "href": "/precos"
+        },
+        {
+          "label": "Como funciona a cotação",
+          "href": "https://docs.hodle.com.br/docs/quote"
+        },
+        {
+          "label": "Integrar a API Pix em Node.js",
+          "href": "/articles/integrar-api-pix-nodejs"
+        }
+      ]
     },
   ],
   faqSubhead:
@@ -146,7 +227,7 @@ export const pagarPixComUsdt: TopicPage = {
     {
       question: 'A USDT é confiável?',
       answer:
-        'USDT é a stablecoin mais usada do mercado cripto, emitida pela Tether e com paridade declarada de 1 para 1 com o dólar. É um ativo privado: carrega o risco do emissor e do lastro declarado, não uma garantia soberana. Ainda assim, é o padrão de dólar digital aceito na Hodle e na maior parte das plataformas do setor.',
+        'USDT é um ativo privado emitido pela Tether que busca acompanhar o dólar. Carrega riscos do emissor, do lastro, da rede e de perda da paridade. Usar USDT como saldo para um Pix não transforma o ativo em depósito bancário nem elimina esses riscos.',
     },
     {
       question: 'Dá para pagar Pix com cripto sem converter antes?',
@@ -156,7 +237,7 @@ export const pagarPixComUsdt: TopicPage = {
     {
       question: 'Quem recebe sabe que o pagamento veio de cripto?',
       answer:
-        'Não. Do lado de quem recebe é um Pix comum, em reais, com o comprovante de sempre. Não é preciso ter carteira nem conhecer stablecoins.',
+        'O destinatário recebe reais via Pix e não precisa ter carteira de cripto. Os dados exibidos no comprovante dependem da operação e das instituições envolvidas; este fluxo não promete ocultar a origem do pagamento.',
     },
     {
       question: 'Preciso pagar taxa de rede (gas) para pagar um Pix?',
@@ -166,7 +247,7 @@ export const pagarPixComUsdt: TopicPage = {
     {
       question: 'Quais stablecoins e redes posso usar como saldo?',
       answer:
-        'O payout documenta USDT em Polygon e USDC em Base, além das opções em Solana. USDT em Tron exige habilitação específica. Confira as opções da conta e a documentação de payout antes de pagar.',
+        'USDT: Polygon, Solana e Tron, com habilitação adicional para Tron. USDC: Polygon, Base e Solana. O ativo efetivamente debitado depende da carteira, do saldo e do mecanismo de seleção do payout; confira a cotação e a resposta da operação.',
     },
   ],
   related: [

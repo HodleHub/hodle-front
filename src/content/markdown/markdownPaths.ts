@@ -48,6 +48,11 @@ export const topicMarkdownSlugs: string[] = [
 export const articleMarkdownSlugs: string[] = [
   'auto-custodia-nao-e-detalhe-de-implementacao',
   'psav-regulacao-banco-central',
+  'integrar-api-pix-nodejs',
+  'validar-webhook-pix-idempotencia',
+  'conciliacao-pix-api',
+  'criar-link-pagamento-pix-api',
+  'comparar-api-pix-baas',
 ]
 
 export const markdownPaths: string[] = [

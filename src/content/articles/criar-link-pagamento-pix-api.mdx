@@ -1,0 +1,177 @@
+---
+title: 'Como criar um link de pagamento Pix pela API da Hodle'
+description: 'Publique um produto, obtenha o link de checkout Pix e acompanhe o pedido com Node.js, respeitando as configurações de liquidação da conta.'
+date: '2026-09-22'
+category: 'engenharia'
+author: 'Equipe Hodle'
+authorRole: 'Produto e engenharia'
+coverKicker: 'Produto, link e pedido são etapas diferentes'
+faq:
+  - question: 'Criar o produto já cria uma cobrança Pix?'
+    answer: 'Não. O produto fornece o link de pagamento. A cobrança nasce quando um pedido é criado no checkout, com a quantidade e os dados do pagador.'
+  - question: 'Posso escolher USDT ou uma rede no POST do produto?'
+    answer: 'Não. O ativo e a rede vêm das configurações efetivas do checkout da conta. O POST de produto não aceita esses campos como forma de sobrescrever a liquidação.'
+  - question: 'A API key aparece no link enviado ao cliente?'
+    answer: 'Não. A criação do produto é autenticada no servidor. O link hospedado e os endpoints públicos do pagador não recebem a chave de API do vendedor.'
+---
+
+Para criar um [link de pagamento Pix](/link-de-pagamento-pix), publique um produto
+pela API e use o `slug` retornado para montar a URL do checkout hospedado. Seu
+cliente abre a página e paga o pedido em reais. A liquidação segue o ativo e a
+rede habilitados na sua conta.
+
+O fluxo tem três registros diferentes: produto, pedido e cobrança. Criar o
+produto não significa que alguém pagou. O link pode receber mais de um pedido,
+enquanto cada pedido tem seu próprio identificador de acompanhamento.
+
+## Confira a habilitação antes de publicar
+
+O [contrato público de checkout](https://docs.hodle.com.br/docs/checkout) documenta
+os endpoints do vendedor com chave de produção, checkout habilitado e pelo menos
+um trilho de liquidação disponível. A aprovação cadastral e as condições do
+parceiro continuam sendo pré-requisitos da operação real.
+
+Não presuma que esse fluxo está disponível no sandbox só porque outro endpoint
+da API está. Os testes deste tutorial usam respostas HTTP sintéticas e não
+precisam de credenciais. A execução do script de criação abaixo, com chave real,
+publica um produto na sua conta de produção; ela não foi executada para produzir
+este tutorial.
+
+Use Node.js 20 ou superior. Baixe
+[requestHodle.mjs](/examples/pix/requestHodle.mjs) e
+[createPaymentLink.mjs](/examples/pix/createPaymentLink.mjs) para a mesma pasta.
+Guarde `HODLE_API_KEY` no ambiente do servidor ou em um gerenciador de segredos.
+
+## 1. Leia a configuração de recebimento
+
+Antes de criar o produto, consulte `GET /api/checkout/settings`. O retorno informa
+a configuração efetiva e `availableAssets`. O servidor define a rede correspondente
+ao ativo permitido. Este tutorial apenas lê as configurações; não as altera.
+
+Salve `settings.mjs`:
+
+```js
+import { requestHodle } from './requestHodle.mjs'
+
+const apiKey = process.env.HODLE_API_KEY
+
+if (!apiKey?.startsWith('hodle_live_')) {
+  throw new Error('Configure a chave de produção da conta habilitada')
+}
+
+const result = await requestHodle({
+  baseUrl: 'https://api.hodle.com.br',
+  apiKey,
+  path: '/api/checkout/settings',
+})
+
+if (!result.success) {
+  throw new Error(`${result.error} (HTTP ${result.status})`)
+}
+
+console.log(result.payload.data.settings)
+```
+
+Execute `node settings.mjs` no seu ambiente autorizado e confirme a configuração
+antes de continuar. Um `403` pode indicar checkout desabilitado ou indisponibilidade
+de liquidação. Trocar o corpo do POST não concede acesso a um ativo não habilitado.
+
+## 2. Publique o produto e guarde o resultado
+
+Salve `createLink.mjs`. O preço abaixo é fictício e representa o valor do produto,
+não uma tarifa da Hodle:
+
+```js
+import { createPaymentLink } from './createPaymentLink.mjs'
+
+const apiKey = process.env.HODLE_API_KEY
+
+if (!apiKey?.startsWith('hodle_live_')) {
+  throw new Error('Configure a chave de produção da conta habilitada')
+}
+
+const result = await createPaymentLink({
+  baseUrl: 'https://api.hodle.com.br',
+  apiKey,
+  name: 'Aula individual',
+  priceCents: 12500,
+})
+
+if (!result.success) {
+  throw new Error(`${result.error} (HTTP ${result.status})`)
+}
+
+console.log({ productId: result.productId, slug: result.slug, url: result.url })
+```
+
+`node createLink.mjs` publica um produto de R$ 125,00. O helper chama
+`POST /api/checkout/products` com nome, preço em centavos, estoque ilimitado,
+solicitação de CPF/CNPJ e nota desabilitada. Não envia ativo, rede ou endereço de
+destino. Essas escolhas vêm da conta e do produto no servidor.
+
+Na resposta `201`, o produto está em `data.product`. Grave o `id` e o `slug` no
+seu catálogo antes de disponibilizar o link. A URL hospedada tem o formato:
+
+```text
+https://checkout.hodle.com.br/pay/SLUG_RETORNADO_PELA_API
+```
+
+O cliente nunca precisa receber sua API key. Os endpoints autenticados de
+catálogo e configuração pertencem ao seu backend, mesmo quando o site de venda
+é uma aplicação de página única.
+
+## 3. Entenda quando o Pix é criado
+
+Na página hospedada, o comprador informa os dados solicitados e cria um pedido.
+Uma interface própria pode usar `POST /api/public/checkout/orders` com `slug`,
+`quantity`, `payerEmail`, `payerTaxId` e, quando aplicável, `payerNote`.
+O exemplo de produto exige documento do pagador; não remova esse campo de um
+pedido baseado nele.
+
+A resposta de criação do pedido inclui `data.order.trackId`, `brCode`,
+`totalCents`, `expiresAt` e `status`. Esses campos pertencem ao pedido, não à
+resposta de criação do produto. Guarde o `trackId` para consultar
+`GET /api/public/checkout/orders/:trackId`.
+
+| Estado do pedido | Como tratar na interface |
+| --- | --- |
+| `PENDING` | Exiba o QR ou Pix copia e cola e acompanhe a cobrança. |
+| `PAID` | A consulta confirma o pagamento segundo o contrato do checkout. |
+| `FAILED` | Mostre a falha e recupere o estado antes de iniciar outra tentativa. |
+| `EXPIRED` | Encerre a cobrança exibida; não reaproveite um QR expirado. |
+
+O navegador pode exibir esses estados, mas o backend da sua loja também deve
+consultar a API antes de liberar uma entrega. Uma mensagem enviada pelo próprio
+navegador não é comprovação de pagamento. Leia o estado correspondente ao pedido
+original e confira o valor esperado.
+
+Os endpoints públicos rejeitam campos como preço, ativo, rede, vendedor e destino.
+Não tente usá-los para mudar a liquidação: permitir essa mudança no lado do
+pagador redirecionaria o resultado de uma venda.
+
+## 4. Recupere erros sem publicar produtos duplicados
+
+O cliente disponibilizado não repete POST automaticamente. O contrato de criação
+de produto não publica um header genérico de idempotência. Se a conexão cair,
+consulte a lista de produtos da sua conta e investigue a publicação antes de
+repetir a chamada. Uma busca pelo nome pode ser ambígua; mantenha uma operação de
+publicação pendente no seu banco e evite duas tentativas concorrentes para o
+mesmo item do catálogo.
+
+Para pausar um link, o contrato disponibiliza `PATCH /api/checkout/products/:productId`
+com `status: 'PAUSED'`. Produtos pausados ou esgotados têm comportamento próprio
+no fluxo público. Uma resposta `429` exige controle de frequência; ela não deve
+disparar uma sequência de novas criações de pedido.
+
+## O que o teste comprova
+
+O teste local de `createPaymentLink.mjs` verifica o caminho da API, o corpo enviado,
+a leitura de `data.product` e a URL produzida. Usa uma resposta `201` simulada,
+sem chave real e sem publicação de produto. Ele também verifica que ativo e rede
+não são enviados no POST. Não é uma venda de cliente nem uma medição de conversão.
+
+No repositório do site, execute `node --test scripts/tests/pixExamples.test.mjs`.
+Para acompanhar as vendas depois da integração, veja
+[conciliação Pix por API](/articles/conciliacao-pix-api). Para definir se seu produto
+precisa de checkout hospedado ou de depósito programático, compare
+[link de pagamento Pix](/link-de-pagamento-pix) e [API Pix stablecoin](/api-pix-stablecoin).

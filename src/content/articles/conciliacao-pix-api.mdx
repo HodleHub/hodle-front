@@ -1,0 +1,163 @@
+---
+title: 'Conciliação Pix por API: extrato, identificadores e paginação'
+description: 'Leia o extrato paginado da Hodle com Node.js e reconcilie operações Pix sem misturar moedas, confundir pagamento com entrega ou perder páginas.'
+date: '2026-09-22'
+category: 'engenharia'
+author: 'Equipe Hodle'
+authorRole: 'Produto e engenharia'
+coverKicker: 'Do evento recebido ao registro conferido'
+faq:
+  - question: 'Posso somar amount para obter o total recebido em reais?'
+    answer: 'Não. amount está na unidade do ativo da operação. Uma linha pode representar USDC e outra BRL. Preserve as strings decimais, agrupe por ativo e rede e use o campo monetário adequado ao relatório.'
+  - question: 'O saldo atual prova quais pedidos foram pagos?'
+    answer: 'Não. O saldo é uma posição, enquanto as operações registram movimentos. A conciliação precisa cruzar cada operação com o pedido, o identificador e o estado correspondentes.'
+  - question: 'Como evitar perder operações na paginação?'
+    answer: 'Fixe from e to durante a leitura e siga nextCursor até não existir outra página. Se uma chamada falhar, não apresente o conjunto parcial como conciliação concluída.'
+---
+
+Conciliação Pix por API é o cruzamento entre os registros do seu produto e os
+registros de pagamento. Um webhook reduz o tempo até saber de uma mudança; o
+extrato permite conferir o conjunto e investigar uma notificação perdida.
+As duas fontes trabalham juntas.
+
+Na Hodle, esse cruzamento também precisa distinguir o Pix em reais da entrega
+de um ativo digital. O pagador pode ter concluído o Pix enquanto a entrega ainda
+está em processamento. A página de [conciliação Pix](/conciliacao-pix) apresenta
+os fluxos; aqui você implementa uma leitura paginada com Node.js.
+
+## Defina o que será conciliado
+
+Comece por uma janela fixa e uma pergunta verificável: quais operações do período
+têm correspondência no meu banco, e quais precisam de investigação? Guarde os
+identificadores devolvidos na criação, sem depender de nome, valor ou horário para
+adivinhar um vínculo depois.
+
+| Identificador | Uso na integração |
+| --- | --- |
+| `externalId` | Vínculo escolhido por você para um depósito; use-o para consultar esse depósito. |
+| `walletCharge` e `trackId` | Referências devolvidas pelo fluxo correspondente; preserve quando disponíveis. |
+| `operation.id` | Identidade da linha do extrato, útil para atualizar o mesmo registro sem duplicá-lo. |
+| `endToEndId` | Referência do Pix quando informada pelo trilho; pode estar ausente. |
+| `txHash` ou `transactionHash` | Referência da etapa on-chain; o nome do campo depende do endpoint. |
+
+Não presuma que todas essas chaves aparecem em toda linha. O extrato não publica
+um `externalId` obrigatório por operação. Seu sistema precisa preservar a relação
+entre pedido e resposta original, e consultar o endpoint específico quando o
+extrato não basta. Compare os contratos de
+[extrato](https://docs.hodle.com.br/docs/account-statement) e
+[consulta de depósito](https://docs.hodle.com.br/docs/deposit-asset).
+
+## Leia uma janela inteira, não apenas a primeira página
+
+O endpoint `GET /api/account/statement` aceita `from`, `to`, `limit` e `cursor`.
+O início é inclusivo e o fim é exclusivo. A documentação limita a janela a 90 dias
+e cada página a 200 operações. Escolher `to` uma vez evita mover o limite de busca
+durante a paginação.
+
+Baixe [requestHodle.mjs](/examples/pix/requestHodle.mjs) e
+[readStatement.mjs](/examples/pix/readStatement.mjs) para a mesma pasta. O leitor
+mantém a janela, acompanha `nextCursor` e falha se o cursor se repetir. Ele também
+limita a leitura a 100 páginas; para volumes maiores, divida a janela e persista
+páginas incrementalmente, em vez de acumular tudo na memória.
+
+Com Node.js 20 ou superior, salve `statement.mjs`:
+
+```js
+import { readStatement } from './readStatement.mjs'
+
+const apiKey = process.env.HODLE_API_KEY
+
+if (!apiKey?.startsWith('hodle_test_')) {
+  throw new Error('Configure uma chave hodle_test_ para este exemplo')
+}
+
+const result = await readStatement({
+  baseUrl: 'https://sandbox-api.hodle.com.br',
+  apiKey,
+  from: '2026-09-01T00:00:00Z',
+  to: '2026-09-02T00:00:00Z',
+})
+
+if (!result.success) {
+  throw new Error(`${result.error} (HTTP ${result.status})`)
+}
+
+console.log({ operationsRead: result.operations.length })
+```
+
+Execute `node statement.mjs`. Ajuste as datas para um intervalo em que sua conta
+de teste tenha operações. Uma lista vazia pode ser um resultado correto; ela não
+prova que a integração está quebrada. Este exemplo usa `Bearer` e não exibe o
+extrato completo no log.
+
+Os ambientes têm dados separados. A consulta de sandbox não retorna transações
+de produção. Para o uso real, configure o host e a chave de produção e confirme
+a aprovação cadastral e os recursos da conta. O teste local abaixo independe da
+disponibilidade do extrato no seu ambiente.
+
+## Demonstração técnica reproduzível: duas páginas e um cursor repetido
+
+**Esta é uma demonstração de software com dados sintéticos, não um caso de cliente.**
+O teste está em `scripts/tests/pixExamples.test.mjs` e executa o mesmo
+`readStatement.mjs` disponível para download.
+
+Na primeira chamada, a resposta de teste contém a operação `op-1`, ativo `BRL`,
+valor textual `25.00` e `nextCursor: 'page-2'`. Na segunda, contém `op-2`, ativo
+`USDC`, valor textual `0.10000000` e `nextCursor: null`. O servidor é substituído
+na fronteira HTTP; o código de paginação roda de verdade.
+
+| Verificação | Resultado esperado | Resultado observado no teste local |
+| --- | --- | --- |
+| Janela de consulta | Mesmo `from` e `to` nas duas chamadas | Preservada nas duas chamadas |
+| Continuação | Segunda chamada leva `cursor=page-2` | Cursor enviado corretamente |
+| Operações | Duas linhas, sem somar moedas distintas | Duas linhas retornadas |
+| Precisão textual | `0.10000000` permanece string | Valor preservado integralmente |
+| Cursor sempre igual | Interromper com erro, sem loop | Resultado de erro retornado |
+
+A metodologia verifica as URLs solicitadas e o resultado devolvido pelo módulo.
+Ela não mede latência de produção, completude do extrato de um cliente, retorno
+financeiro ou disponibilidade de parceiros. O teste não chama a API real.
+
+Para reproduzir no repositório do site:
+
+```bash
+node --test scripts/tests/pixExamples.test.mjs
+```
+
+## Compare valores na unidade correta
+
+`amount` usa a unidade do ativo, enquanto `valueInBrl`, quando disponível, descreve
+o valor em reais. O extrato traz quantias como strings decimais. Preserve essa
+representação até a camada de cálculo; converter tudo para `Number` pode introduzir
+arredondamento binário.
+
+Não some BRL, USDC e USDT na mesma coluna. Defina grupos por ativo e rede, trate
+taxas separadamente e escolha uma representação decimal exata para o relatório.
+`balances` é a posição atual devolvida pela consulta; não é o saldo histórico
+reconstruído no fim da janela.
+
+Também não trate todas as linhas do extrato como recebimento Pix: ele inclui
+depósitos, saídas, transferências e outras operações. Identifique o tipo, a direção
+e o provedor quando informado. Um hash on-chain comprova uma etapa diferente de
+um `endToEndId` do Pix.
+
+## Mantenha divergências abertas até ter evidência
+
+Uma rotina de produção pode atualizar operações pelo `id`, comparar o vínculo
+com o pedido e separar pendências. Pagamento sem pedido, pedido sem operação e
+valor divergente precisam de investigação, não de uma correção automática de saldo.
+Ao repetir uma janela, atualize o mesmo registro em vez de inserir outra cópia.
+
+O leitor de exemplo não promete um snapshot imutável enquanto operações mudam de
+estado. Faça novas leituras de uma janela com sobreposição e use atualização
+idempotente no armazenamento. Nunca marque a conciliação como concluída depois
+de ler apenas parte das páginas.
+
+Para depósitos, consulte o `externalId` quando precisar distinguir `FIAT_PAID`,
+`PROCESSING`, `COMPLETED` e estorno. Para checkout, consulte o pedido pelo `trackId`;
+o contrato público de checkout tem estados próprios. Não substitua um pelo outro.
+
+Complete esse caminho com o
+[tutorial de webhook e idempotência](/articles/validar-webhook-pix-idempotencia) e
+o [tutorial de integração Node.js](/articles/integrar-api-pix-nodejs).
+Para selecionar os recursos adequados ao produto, consulte a [API Pix](/api-pix).

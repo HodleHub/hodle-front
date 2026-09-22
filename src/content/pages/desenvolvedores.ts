@@ -14,12 +14,26 @@ export const desenvolvedores: InfoPage = {
   h1: 'API Hodle para desenvolvedores',
   description:
     'Recursos para desenvolvedores da API Hodle: especificação OpenAPI 3.1, autenticação por API key, webhooks assinados com HMAC, sandbox e a lista de operações com operationId.',
-  updatedAt: '2026-09-19T00:00:00-03:00',
+  updatedAt: '2026-09-22T00:00:00Z',
   intro: [
     'A API Hodle é uma API REST para mover dinheiro entre o real e o dólar digital: pagar Pix a partir de saldo em stablecoin, emitir invoice Lightning que liquida em Pix, rodar on-ramp e off-ramp, ler carteiras auto-custodiais e enviar KYC de usuário final. Autenticação é por API key no header, respostas são JSON e cada mudança de estado chega por webhook assinado.',
     'Esta página é o índice estável dos recursos de desenvolvimento da Hodle. Os endereços abaixo não mudam: se você é um agente ou um script procurando a especificação da API Hodle, comece por /openapi.json e por /.well-known/api-catalog.',
   ],
   sections: [
+    {
+      ...emptySection,
+      id: 'tutoriais-pix',
+      kind: 'LINKS',
+      heading: 'Tutoriais de API Pix em português',
+      body: ['Implemente um fluxo de cada vez. Os exemplos de Node.js incluem testes locais e deixam explícito o que exige habilitação ou liquidação real.'],
+      links: [
+        { label: 'Integrar API Pix com Node.js', href: '/articles/integrar-api-pix-nodejs', description: 'Autenticação, cobrança e consulta da operação.' },
+        { label: 'Validar webhook e tratar duplicatas', href: '/articles/validar-webhook-pix-idempotencia', description: 'Assinatura HMAC sobre o corpo original e processamento idempotente.' },
+        { label: 'Conciliar Pix pela API', href: '/articles/conciliacao-pix-api', description: 'Identificadores, consulta e estados finais da operação.' },
+        { label: 'Criar um link de pagamento Pix', href: '/articles/criar-link-pagamento-pix-api', description: 'Produto de checkout, página hospedada e confirmação de pagamento.' },
+        { label: 'Comparar APIs Pix e BaaS', href: '/articles/comparar-api-pix-baas', description: 'Critérios e fontes oficiais para avaliar cinco fornecedores.' },
+      ],
+    },
     {
       ...emptySection,
       id: 'recursos',

@@ -1,0 +1,170 @@
+---
+title: 'Webhook Pix: validar assinatura e tratar eventos duplicados'
+description: 'Valide o HMAC dos webhooks Hodle com Node.js, preserve o corpo original e deduplique eventos de falha e estorno com uma caixa de entrada persistente.'
+date: '2026-09-22'
+category: 'engenharia'
+author: 'Equipe Hodle'
+authorRole: 'Produto e engenharia'
+coverKicker: 'Assinatura, persistência e repetição'
+faq:
+  - question: 'Todos os webhooks da Hodle têm eventId?'
+    answer: 'Não assuma isso. Este tutorial usa eventId somente em DEPOSIT_ASSET_FAILED e DEPOSIT_ASSET_REFUNDED, eventos em que a documentação publica esse campo estável. Outros eventos exigem uma chave baseada no próprio contrato.'
+  - question: 'Um evento duplicado deve receber erro HTTP?'
+    answer: 'Se a assinatura é válida e o evento já está persistido, responda 2xx sem aplicar o efeito novamente. Se o banco falhar antes de aceitar o evento, não confirme o recebimento como concluído.'
+  - question: 'Um Set em memória resolve idempotência em produção?'
+    answer: 'Não. Ele perde o histórico ao reiniciar e não coordena vários processos. Use uma restrição única no armazenamento persistente e processe o efeito de negócio com controle transacional.'
+---
+
+Receber um webhook Pix não é suficiente para atualizar um pedido. Primeiro,
+comprove a origem; depois, grave a notificação de forma que uma repetição não
+gere outro efeito. A entrega HTTP e a operação financeira têm identidades
+diferentes, e misturá-las costuma aparecer como pedido duplicado ou estorno contado
+duas vezes.
+
+Este tutorial usa o contrato dos [webhooks Hodle](https://docs.hodle.com.br/docs/webhooks)
+para dois eventos: `DEPOSIT_ASSET_FAILED` e `DEPOSIT_ASSET_REFUNDED`. Ambos publicam
+`data.eventId`, estável entre reenvios. A mesma garantia não deve ser presumida para
+qualquer evento da [API Pix](/api-pix).
+
+## 1. Preserve os bytes que chegaram
+
+A assinatura é HMAC-SHA256, codificada em hexadecimal. O conteúdo assinado é a
+concatenação do header `X-Hodle-Timestamp`, um ponto e os bytes originais do corpo.
+O segredo é a string fornecida no cadastro do webhook; não decodifique essa string
+hexadecimal em bytes antes de usá-la como chave HMAC.
+
+O endpoint precisa capturar o corpo bruto antes de transformá-lo em objeto JSON.
+Fazer `JSON.stringify` depois do parse pode mudar espaços, ordem e representação
+dos valores. Um conteúdo semanticamente parecido deixa de ter a mesma assinatura.
+
+Baixe [verifyHodleWebhook.mjs](/examples/pix/verifyHodleWebhook.mjs). O módulo compara
+os hashes com `timingSafeEqual`, exige 64 caracteres hexadecimais na assinatura e
+rejeita diferença de horário superior a 300 segundos, para o passado ou o futuro.
+O relógio do servidor precisa estar sincronizado.
+
+Para verificar um corpo salvo sem modificações em `delivery.json`, crie
+`verify.mjs` na mesma pasta e use Node.js 20 ou superior:
+
+```js
+import { readFile } from 'node:fs/promises'
+import { verifyHodleWebhook } from './verifyHodleWebhook.mjs'
+
+const rawBody = await readFile('delivery.json')
+const result = verifyHodleWebhook({
+  rawBody,
+  signature: process.env.HODLE_SIGNATURE ?? '',
+  timestamp: process.env.HODLE_TIMESTAMP ?? '',
+  secret: process.env.HODLE_WEBHOOK_SECRET ?? '',
+})
+
+console.log({ verified: result.success })
+process.exitCode = result.success ? 0 : 1
+```
+
+Execute `node verify.mjs` com os headers e o segredo no ambiente do processo.
+Uma entrega antiga deve falhar por horário, mesmo quando a assinatura corresponde.
+Não desative essa checagem no endpoint para facilitar um teste. Os testes locais
+do exemplo injetam um relógio controlado, sem alterar a regra de produção.
+
+## 2. Trate o teste de cadastro sem efeitos de negócio
+
+Ao cadastrar a URL HTTPS no painel, a Hodle envia `WEBHOOK_TEST` antes de mostrar
+o segredo. Esse caso precisa responder `2xx` sem creditar, estornar, inserir pedido
+ou publicar uma tarefa financeira. Depois do cadastro, copie o segredo e valide
+todas as notificações reais.
+
+Uma pessoa pode enviar um JSON com o nome `WEBHOOK_TEST`. Por isso a exceção é
+somente uma confirmação vazia: ela nunca atravessa o caminho de negócio. Use
+um segredo por webhook, conforme o cadastro, e não confunda o segredo com a API key.
+
+## 3. Grave uma caixa de entrada com chave única
+
+Baixe também [acceptDepositWebhook.mjs](/examples/pix/acceptDepositWebhook.mjs).
+Ele chama o verificador, aceita somente os dois eventos deste tutorial e constrói
+uma chave com a conta configurada no seu servidor, o tipo de evento e `data.eventId`.
+A conta não vem de um campo escolhido pelo remetente.
+
+O módulo recebe uma função `acceptOnce` fornecida pela sua aplicação. Essa função
+precisa gravar o corpo em armazenamento durável, de forma atômica, e retornar
+`true` na primeira inserção ou `false` quando a chave já existe. Uma chamada só
+pode resolver depois do commit. Esse é o ponto de integração com seu banco, não
+uma garantia criada pelo helper JavaScript.
+
+Uma estrutura mínima de caixa de entrada pode ser:
+
+```sql
+CREATE TABLE hodle_webhook_inbox (
+  delivery_key text PRIMARY KEY,
+  payload jsonb NOT NULL,
+  received_at timestamptz NOT NULL DEFAULT now(),
+  processed_at timestamptz
+);
+```
+
+No PostgreSQL, o adaptador executa a instrução abaixo com parâmetros vinculados
+pelo driver, não interpolados em uma string:
+
+```sql
+INSERT INTO hodle_webhook_inbox (delivery_key, payload)
+VALUES ($1, $2::jsonb)
+ON CONFLICT (delivery_key) DO NOTHING
+RETURNING delivery_key;
+```
+
+Uma linha retornada significa primeira aceitação; nenhuma linha significa
+duplicata já persistida. O helper responde `200` nos dois casos. Se o adaptador
+lançar erro, responde com resultado `503` e não afirma que o evento foi aceito.
+Configure também um limite de corpo na entrada HTTP, antes de carregar o payload.
+
+Essa tabela não conclui o trabalho: um worker precisa buscar linhas pendentes,
+validar o evento e aplicar a mudança no pedido. Se o efeito é uma atualização no
+mesmo banco, faça a atualização e a marcação de processado na mesma transação.
+Para chamar outro serviço, use uma saída persistente e a idempotência documentada
+por esse destino. Uma restrição única na entrada não torna uma chamada externa
+automaticamente idempotente.
+
+## 4. Não transforme falha em estorno
+
+`DEPOSIT_ASSET_FAILED` informa falha na entrega do ativo. Não prova que o dinheiro
+foi devolvido. `DEPOSIT_ASSET_REFUNDED` identifica uma devolução confirmada e pode
+representar estorno parcial. Eventos podem chegar fora de ordem; o processador
+não deve exigir uma falha anterior para reconhecer um estorno.
+
+Use `externalId` para localizar seu pedido e `eventId` para deduplicar a notificação.
+Guarde os valores e identificadores publicados no contrato. Não some novamente
+um total acumulado de devoluções como se ele fosse o valor de uma nova parcela.
+No caso de dúvida, recupere o depósito pela API e mantenha a divergência aberta.
+
+## 5. Demonstração técnica reproduzível: assinatura e duplicata
+
+**Esta demonstração usa dados sintéticos; não é um caso de cliente nem uma medida
+de retorno financeiro.** A entrada é um JSON de `DEPOSIT_ASSET_FAILED` com
+`eventId: 'event-1'` e `externalId: 'order-1'`. O teste assina os bytes com um segredo
+fictício e injeta o instante correspondente ao timestamp, sem acessar a rede.
+
+| Caso executado | Resultado esperado | Resultado observado no teste local |
+| --- | --- | --- |
+| Corpo e assinatura originais | Verificação aceita | `success: true` |
+| Mesmo corpo com um espaço adicional | Verificação rejeitada | `success: false` |
+| Timestamp fora da janela de 300 segundos | Verificação rejeitada | `success: false` |
+| Duas entregas concorrentes da mesma notificação | Uma entrada; ambas confirmadas | `ACCEPTED` e `DUPLICATE`, ambos `200` |
+| Armazenamento indisponível | Sem confirmação de processamento | `503` |
+| `WEBHOOK_TEST` sem segredo conhecido | Confirmação sem efeito | `TEST_IGNORED`, nenhuma escrita |
+
+Os módulos publicados rodam de verdade. Somente a fronteira de armazenamento é
+substituída por um `Map` para observar as chaves recebidas. Isso não testa isolamento
+de um banco real, recuperação após reinício ou múltiplos servidores: sua aplicação
+precisa validar essas propriedades com a restrição única e o worker reais. O `Map`
+do teste não é uma implementação para produção.
+
+No repositório do site, rode:
+
+```bash
+node --test scripts/tests/pixExamples.test.mjs
+```
+
+Esses testes não precisam de chave real nem de evento financeiro. A cobertura do
+sandbox varia conforme o fluxo e o parceiro; não presuma que todo evento de estorno
+é emitido lá. Confirme a habilitação em produção, cadastre o endpoint e mantenha
+a [conciliação Pix](/conciliacao-pix) como caminho de recuperação. O próximo passo
+é [ler o extrato com paginação e reconciliar operações](/articles/conciliacao-pix-api).
