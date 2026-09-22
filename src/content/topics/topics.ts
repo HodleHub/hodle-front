@@ -13,7 +13,22 @@ import { gatewayDePagamentoCripto } from './gatewayDePagamentoCripto'
 import { comoAceitarCriptomoedas } from './comoAceitarCriptomoedas'
 import { pagarFornecedoresComUsdc } from './pagarFornecedoresComUsdc'
 
+import { pix } from './pix'
+import { apiPix } from './apiPix'
+import { cobrancaPix } from './cobrancaPix'
+import { linkDePagamentoPix } from './linkDePagamentoPix'
+import { conciliacaoPix } from './conciliacaoPix'
+import { baas } from './baas'
+import { contaDigitalPj } from './contaDigitalPj'
+
 export const topics: TopicPage[] = [
+  pix,
+  apiPix,
+  cobrancaPix,
+  linkDePagamentoPix,
+  conciliacaoPix,
+  baas,
+  contaDigitalPj,
   realOnchain,
   pagarPixComUsdt,
   lightningParaPix,

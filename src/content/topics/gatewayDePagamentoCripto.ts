@@ -20,7 +20,7 @@ export const gatewayDePagamentoCripto: TopicPage = {
     'dolarizar faturamento',
   ],
   primaryKeyword: 'gateway pix para usdt',
-  updatedAt: '2026-09-19T00:00:00-03:00',
+  updatedAt: '2026-09-22T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'CHECKOUT E LINK DE PAGAMENTO',
@@ -266,6 +266,9 @@ export const gatewayDePagamentoCripto: TopicPage = {
     },
   ],
   related: [
+    { label: 'Produtos Pix para empresas', href: '/pix' },
+    { label: 'Link de pagamento Pix', href: '/link-de-pagamento-pix' },
+    { label: 'Cobrança Pix com QR Code', href: '/cobranca-pix' },
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'Crypto as a Service', href: '/crypto-as-a-service' },
     { label: 'Como aceitar criptomoedas', href: '/como-aceitar-criptomoedas' },

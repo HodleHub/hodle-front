@@ -23,16 +23,23 @@ export const staticMarkdownPaths: string[] = [
 ]
 
 export const topicMarkdownSlugs: string[] = [
+  'api-pix',
   'api-pix-stablecoin',
+  'baas',
+  'cobranca-pix',
   'como-aceitar-criptomoedas',
   'comprar-bitcoin-com-pix',
   'comprar-usdt-com-pix',
+  'conciliacao-pix',
+  'conta-digital-pj',
   'gateway-de-pagamento-cripto',
   'lightning-para-pix',
+  'link-de-pagamento-pix',
   'offshore',
   'pagar-fornecedores-com-usdc',
   'pagar-pix-com-usdt',
   'para-agentes-de-ia',
+  'pix',
   'real-onchain',
   'receber-pix-em-stablecoin',
   'wallet-auto-custodial',
