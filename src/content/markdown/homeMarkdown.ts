@@ -18,7 +18,9 @@ Compre stablecoins e bitcoin com Pix. Quando quiser, venda e receba em reais na 
 
 ## Contas PJ nominais
 
-Contas empresariais no nome da sua empresa, abertas junto a bancos parceiros regulados pelo Banco Central, com Pix, TED e boleto, e KYC e compliance automatizados. O saldo da conta conversa com a mesa de conversão, então receber em real e guardar em dólar é uma operação e não duas.
+Uma conta nominal no nome da sua empresa, aberta por parceiro financeiro e conectada ao painel da Hodle. Acompanhe os dados da conta, as operações Pix e os recursos de conversão habilitados para o seu negócio. A abertura depende da análise cadastral e da aprovação do KYB.
+
+**Disponível só em produção.** [Conhecer a conta PJ](https://hodle.com.br/conta-digital-pj).
 
 ## Wallets 100% auto-custodiais
 
@@ -27,6 +29,19 @@ Chaves privadas 100% sob o controle do usuário, sem custódia de terceiros. A c
 ## O que você quer construir?
 
 ${integrationPaths.map((path) => `- [${path.title}](https://hodle.com.br${path.href}): ${path.description}`).join('\n')}
+
+## Pix para o dia a dia da sua empresa
+
+A Hodle reúne produtos Pix, stablecoins e uma camada de software para integrar serviços BaaS de parceiros licenciados.
+
+[Conheça os produtos Pix](https://hodle.com.br/pix).
+
+- [API Pix](https://hodle.com.br/api-pix) — integre cobranças, pagamentos e acompanhamento de operações no seu produto.
+- [Cobrança Pix](https://hodle.com.br/cobranca-pix) — receba por QR Code ou Pix copia e cola, com identificação do pedido.
+- [Link de pagamento Pix](https://hodle.com.br/link-de-pagamento-pix) — compartilhe um checkout hospedado e receba no ativo habilitado na sua conta.
+- [Conciliação Pix](https://hodle.com.br/conciliacao-pix) — acompanhe pedidos, extratos e eventos para conferir cada pagamento.
+- [BaaS](https://hodle.com.br/baas) — conecte seu software a serviços financeiros conduzidos por parceiros licenciados.
+- [Conta digital PJ](https://hodle.com.br/conta-digital-pj) — conta nominal por parceiro, disponível em produção após análise e aprovação do KYB.
 
 ## Uma API. Pix, dólar e stablecoins.
 

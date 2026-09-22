@@ -16,7 +16,7 @@ export const receberPixEmStablecoin: TopicPage = {
     'qr code estático pix',
     'receber pix em usdt',
   ],
-  updatedAt: '2026-09-19T00:00:00-03:00',
+  updatedAt: '2026-09-22T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
@@ -222,14 +222,11 @@ export const receberPixEmStablecoin: TopicPage = {
     },
   ],
   related: [
-    {
-      label: 'Gateway Pix para USDT e link de pagamento',
-      href: '/gateway-de-pagamento-cripto',
-    },
-    {
-      label: 'Como receber pagamentos com Pix e cripto',
-      href: '/como-aceitar-criptomoedas',
-    },
+    { label: 'Produtos Pix para empresas', href: '/pix' },
+    { label: 'Conta digital PJ por parceiro', href: '/conta-digital-pj' },
+    { label: 'Conciliação Pix', href: '/conciliacao-pix' },
+    { label: 'Gateway Pix para USDT e link de pagamento', href: '/gateway-de-pagamento-cripto' },
+    { label: 'Como receber pagamentos com Pix e cripto', href: '/como-aceitar-criptomoedas' },
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },

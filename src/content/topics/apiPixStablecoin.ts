@@ -21,7 +21,7 @@ export const apiPixStablecoin: TopicPage = {
     'webhook pix cripto',
   ],
   primaryKeyword: 'api pix stablecoin',
-  updatedAt: '2026-09-19T00:00:00-03:00',
+  updatedAt: '2026-09-22T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'DESENVOLVEDORES',
@@ -243,6 +243,9 @@ export const apiPixStablecoin: TopicPage = {
     },
   ],
   related: [
+    { label: 'API Pix: integração e operações', href: '/api-pix' },
+    { label: 'Conciliação Pix', href: '/conciliacao-pix' },
+    { label: 'BaaS e infraestrutura financeira', href: '/baas' },
     {
       label: 'Recursos para desenvolvedores',
       href: '/desenvolvedores',

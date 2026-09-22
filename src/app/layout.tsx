@@ -27,11 +27,11 @@ const siteUrl = 'https://hodle.com.br'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Hodle - Infraestrutura cripto para empresas',
+    default: 'Hodle - Pix, stablecoins e infraestrutura financeira',
     template: '%s | Hodle',
   },
   description:
-    'Hodle: infraestrutura cripto para empresas no Brasil. API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede e conversão entre reais, dólar e stablecoins.',
+    'Hodle conecta Pix, stablecoins e contas PJ via parceiros. Conheça cobrança, link de pagamento, API e infraestrutura de software para projetos BaaS.',
   applicationName: 'Hodle',
   keywords: [
     'API Pix stablecoin',
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   category: 'tecnologia financeira',
   classification: 'Fintech, Crypto Infrastructure, Payments',
   openGraph: {
-    title: 'Hodle - Infraestrutura cripto para empresas',
+    title: 'Hodle - Pix, stablecoins e infraestrutura financeira',
     description:
-      'Hodle: infraestrutura cripto para empresas no Brasil. API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede.',
+      'Hodle conecta Pix, stablecoins e contas PJ via parceiros. Conheça cobrança, link de pagamento, API e infraestrutura de software para projetos BaaS.',
     url: siteUrl,
     siteName: 'Hodle',
     images: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         secureUrl: `${siteUrl}/og-image-v2.png`,
         width: 1200,
         height: 630,
-        alt: 'Hodle - Infraestrutura cripto para empresas',
+        alt: 'Hodle - Pix, stablecoins e infraestrutura financeira',
       },
     ],
     locale: 'pt_BR',
@@ -72,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hodle - Infraestrutura cripto para empresas',
+    title: 'Hodle - Pix, stablecoins e infraestrutura financeira',
     description:
-      'Hodle: infraestrutura cripto para empresas no Brasil. API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede.',
+      'Hodle conecta Pix, stablecoins e contas PJ via parceiros. Conheça cobrança, link de pagamento, API e infraestrutura de software para projetos BaaS.',
     images: [`${siteUrl}/og-image-v2.png`],
   },
   robots: {

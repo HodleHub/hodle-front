@@ -1,8 +1,8 @@
 # Hodle
 
-> Last updated: 2026-09-16. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
+> Last updated: 2026-09-22. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
 
-> Hodle is crypto payment infrastructure for companies operating with Brazil. It provides a REST API to pay Pix from a stablecoin balance, issue Lightning invoices that settle in Pix, run self-custodial multi-network wallets, and convert between BRL, USD, and stablecoins.
+> Hodle provides Pix and stablecoin payment software for companies operating with Brazil. Its API and dashboard connect Pix payment links, payment tracking, self-custodial wallets, and conversions between BRL and digital assets. In a BaaS architecture, Hodle provides the software orchestration layer; licensed and/or regulated partners provide the financial services.
 
 ## Citation Information
 
@@ -36,6 +36,9 @@
 
 ## What Hodle Does
 
+- **Pix collection and payment links**: a hosted checkout lets customers pay in BRL through a Pix QR Code or copy-and-paste code. Settlement uses the asset and network enabled for the merchant account.
+- **Pix reconciliation**: follow order status, account statements, and supported events to match payments to operations. The integration must distinguish payment confirmation from completion of asset settlement.
+- **BaaS integration and nominal business accounts**: software connects onboarding, partner accounts, Pix operations, and digital assets. Nominal accounts are available only in production, subject to KYB approval and partner eligibility. Hodle does not supply a banking license or hold customer funds.
 - **Pay Pix from a stablecoin balance**: `POST /api/wallet/payout` settles a Pix payment funded by the user's USDT (Polygon, Tron) or USDC (Base) balance. Gas is sponsored. One POST plus one GET.
 - **Lightning to Pix**: `POST /api/lightning/invoice` issues a BOLT11 invoice; once it is paid, a Pix payout is triggered automatically. Payer anywhere in the world, recipient in Brazil.
 - **On-ramp and off-ramp**: convert BRL to Lightning, USDT, USDC, or USDCE and deliver to an address.
@@ -100,6 +103,13 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 | Surface | URL | What it is |
 |---|---|---|
 | Landing | https://hodle.com.br/ | Product overview |
+| Pix for businesses | https://hodle.com.br/pix | Pix products and their availability conditions |
+| Pix API | https://hodle.com.br/api-pix | Integration of Pix operations with Hodle APIs |
+| Pix collection | https://hodle.com.br/cobranca-pix | QR Code and copy-and-paste payment collection |
+| Pix payment links | https://hodle.com.br/link-de-pagamento-pix | Hosted checkout and payment links with account-specific settlement options |
+| Pix reconciliation | https://hodle.com.br/conciliacao-pix | Order status, statements, and events for payment reconciliation |
+| BaaS | https://hodle.com.br/baas | Software orchestration alongside licensed financial partners |
+| Nominal business accounts | https://hodle.com.br/conta-digital-pj | Partner-provided accounts, production-only and subject to KYB approval |
 | About | https://hodle.com.br/sobre | Entities, registration data, what Hodle is and is not |
 | Contact | https://hodle.com.br/contato | Every official contact channel and the postal address |
 | Developers | https://hodle.com.br/desenvolvedores | OpenAPI, auth, webhooks, sandbox, operation list |

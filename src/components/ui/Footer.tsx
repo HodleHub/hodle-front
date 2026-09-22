@@ -25,8 +25,8 @@ export function Footer() {
             </Link>
             <p className="text-xs text-gray-500 mb-4 leading-relaxed">
               {isEnglish
-                ? 'Crypto infrastructure for businesses.'
-                : 'Infraestrutura cripto para empresas.'}
+                ? 'Pix and crypto infrastructure for businesses.'
+                : 'Infraestrutura Pix e cripto para empresas.'}
             </p>
             <div className="flex space-x-3">
               <a
@@ -44,12 +44,18 @@ export function Footer() {
             {
               title: isEnglish ? 'Products' : 'Produtos',
               links: [
+                { label: isEnglish ? 'Pix for businesses' : 'Pix para empresas', href: '/pix' },
+                { label: isEnglish ? 'Pix collection' : 'Cobrança Pix', href: '/cobranca-pix' },
+                {
+                  label: isEnglish ? 'Pix payment link' : 'Link de pagamento Pix',
+                  href: '/link-de-pagamento-pix',
+                },
                 {
                   label: isEnglish ? 'Buy Bitcoin with Pix' : 'Comprar Bitcoin com Pix',
                   href: '/comprar-bitcoin-com-pix',
                 },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
-                { label: isEnglish ? 'Business account' : 'Conta PJ', href: '/#conta-pj' },
+                { label: isEnglish ? 'Business account' : 'Conta digital PJ', href: '/conta-digital-pj' },
                 { label: isEnglish ? 'QR payments' : 'Pagamentos QR', href: '/#pagamentos' },
                 {
                   label: isEnglish ? 'Pay Pix with USDT' : 'Pagar Pix com USDT',
@@ -83,6 +89,7 @@ export function Footer() {
             {
               title: isEnglish ? 'Developers' : 'Desenvolvedores',
               links: [
+                { label: isEnglish ? 'Pix API' : 'API Pix', href: '/api-pix' },
                 {
                   label: isEnglish
                     ? 'Developer resources'
@@ -116,7 +123,12 @@ export function Footer() {
                 { label: isEnglish ? 'Contact' : 'Contato', href: '/contato' },
                 { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
                 { label: 'Neobank', href: '/neobank' },
+                { label: 'BaaS', href: '/baas' },
                 { label: 'CaaS', href: '/crypto-as-a-service' },
+                {
+                  label: isEnglish ? 'Pix reconciliation' : 'Conciliação Pix',
+                  href: '/conciliacao-pix',
+                },
                 { label: isEnglish ? 'Glossary' : 'Glossário', href: '/glossario' },
                 {
                   label: isEnglish ? 'Accept crypto payments' : 'Como aceitar criptomoedas',

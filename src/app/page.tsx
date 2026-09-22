@@ -34,6 +34,45 @@ export const metadata: Metadata = {
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+type PixProduct = {
+  title: string
+  description: string
+  href: string
+}
+
+const PIX_PRODUCTS: PixProduct[] = [
+  {
+    title: 'API Pix',
+    description: 'Integre cobranças, pagamentos e acompanhamento de operações no seu produto.',
+    href: '/api-pix',
+  },
+  {
+    title: 'Cobrança Pix',
+    description: 'Receba por QR Code ou Pix copia e cola, com identificação do pedido.',
+    href: '/cobranca-pix',
+  },
+  {
+    title: 'Link de pagamento Pix',
+    description: 'Compartilhe um checkout hospedado e receba no ativo habilitado na sua conta.',
+    href: '/link-de-pagamento-pix',
+  },
+  {
+    title: 'Conciliação Pix',
+    description: 'Acompanhe pedidos, extratos e eventos para conferir cada pagamento.',
+    href: '/conciliacao-pix',
+  },
+  {
+    title: 'BaaS',
+    description: 'Conecte seu software a serviços financeiros conduzidos por parceiros licenciados.',
+    href: '/baas',
+  },
+  {
+    title: 'Conta digital PJ',
+    description: 'Conta nominal por parceiro, disponível em produção após análise e aprovação do KYB.',
+    href: '/conta-digital-pj',
+  },
+]
+
 const RAILS = [
   { icon: '/arbitrum.svg', name: 'Arbitrum' },
   { icon: '/polygon.svg', name: 'Polygon' },
@@ -274,6 +313,51 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
           ))}
+        </div>
+      </section>
+
+      <section
+        id="produtos-pix"
+        aria-labelledby="produtos-pix-heading"
+        className="border-t border-gray-200"
+      >
+        <div className="max-w-[1200px] mx-auto px-6 py-16 lg:py-20">
+          <div className="max-w-[720px] mb-10">
+            <h2
+              id="produtos-pix-heading"
+              className={`${heading} text-3xl lg:text-4xl font-light text-foreground leading-tight tracking-tight mb-5`}
+            >
+              Pix para o dia a dia da sua empresa
+            </h2>
+            <p className="text-gray-500 leading-relaxed mb-5">
+              A Hodle reúne produtos Pix, stablecoins e uma camada de software
+              para integrar serviços BaaS de parceiros licenciados.
+            </p>
+            <Link
+              href="/pix"
+              className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline underline-offset-4"
+            >
+              Conheça os produtos Pix
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+            {PIX_PRODUCTS.map((product: PixProduct) => (
+              <Link
+                key={product.href}
+                href={product.href}
+                className="group border-t border-gray-200 pt-5"
+              >
+                <h3 className={`${heading} flex items-center justify-between gap-3 text-lg font-medium text-foreground mb-3`}>
+                  {product.title}
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-gray-400 group-hover:text-foreground" aria-hidden="true" />
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {product.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -918,20 +1002,22 @@ export default function HomePage() {
                 Conta PJ nominal com bancos parceiros
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                Uma conta empresarial no nome da sua empresa, aberta junto a
-                bancos parceiros regulados pelo Banco Central, com Pix, TED e
-                boleto. O saldo dessa conta conversa com a mesa de conversão,
-                então receber em real e guardar em dólar digital é uma operação
-                e não duas — e a conciliação sai pelo mesmo extrato, com saldo
-                por ativo e operações paginadas.
+                Uma conta nominal no nome da sua empresa, aberta por parceiro
+                financeiro e conectada ao painel da Hodle. Acompanhe os dados
+                da conta, as operações Pix e os recursos de conversão
+                habilitados para o seu negócio. A abertura depende da análise
+                cadastral e da aprovação do KYB.
+              </p>
+              <p className="inline-block border border-gray-200 bg-white px-3 py-2 text-xs font-medium text-foreground mb-6">
+                Disponível só em produção
               </p>
               <ul className="space-y-4 mb-10">
                 {[
                   'Conta empresarial no nome da sua empresa',
                   'Bancos parceiros regulados pelo Banco Central',
-                  'Pix com integração direta',
-                  'Compliance e KYC automatizados',
-                  'Produtos financeiros para sua empresa (pix automático, splits de pagamentos)',
+                  'Operações Pix conforme os recursos habilitados',
+                  'Onboarding com verificação da empresa e dos responsáveis',
+                  'Disponibilidade sujeita à aprovação e às condições do parceiro',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
@@ -939,9 +1025,9 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank">
+              <Link href="/conta-digital-pj">
                 <ButtonShadow as="span" size="sm">
-                  Abrir conta PJ
+                  Conhecer a conta PJ
                   <ChevronRight className="w-3.5 h-3.5 ml-1" />
                 </ButtonShadow>
               </Link>
@@ -1006,10 +1092,7 @@ export default function HomePage() {
                     Pix
                   </div>
                   <div className="flex-1 bg-gray-100 text-gray-500 text-center py-2 rounded-lg text-[10px] font-semibold border border-gray-200">
-                    TED
-                  </div>
-                  <div className="flex-1 bg-gray-100 text-gray-500 text-center py-2 rounded-lg text-[10px] font-semibold border border-gray-200">
-                    Boleto
+                    Extrato
                   </div>
                 </div>
               </div>

@@ -1,0 +1,108 @@
+{
+  "checkedAt": "2026-09-22T00:23:03.368Z",
+  "base": "http://127.0.0.1:3117",
+  "results": [
+    {
+      "route": "/pix",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    },
+    {
+      "route": "/api-pix",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    },
+    {
+      "route": "/cobranca-pix",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    },
+    {
+      "route": "/link-de-pagamento-pix",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    },
+    {
+      "route": "/conciliacao-pix",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    },
+    {
+      "route": "/baas",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    },
+    {
+      "route": "/conta-digital-pj",
+      "status": 200,
+      "canonical": true,
+      "serverRendered": true,
+      "sitemap": true,
+      "metadata": true,
+      "jsonLd": true,
+      "faqParity": true,
+      "markdown": true,
+      "desktop": true,
+      "mobile": true
+    }
+  ],
+  "homeLinks": true,
+  "footerLinks": true,
+  "existingRoutes": true,
+  "unknown404": true,
+  "noJavaScript": true,
+  "consoleErrors": [],
+  "localWarnings": [
+    "404 http://127.0.0.1:3117/_vercel/insights/script.js",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "localWarningsExplanation": "Vercel serves its analytics script only on hosted deployments; the local production server returns 404 for that external service. No production code was changed to hide this."
+}
