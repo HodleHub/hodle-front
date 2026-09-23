@@ -3,138 +3,77 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hodle — Pitch Deck</title>
+<title>Hodle — Pitch</title>
+<meta name="description" content="Hodle: infraestrutura que conecta Pix, dólar e stablecoins — via API ou plataforma." />
+<meta name="robots" content="noindex" />
+<meta property="og:title" content="Hodle — Pitch" />
+<meta property="og:description" content="Receba em Pix, guarde em dólar, pague em stablecoin." />
+<meta property="og:image" content="https://hodle.com.br/og-image-v2.png" />
+<link rel="icon" href="/h-logo.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
   rel="stylesheet"
 />
 <style>
-  /* ─── Tokens (exact match with hodle-front: tailwind + globals.css) ─── */
   :root {
-    --background: #FFFFFF;
-    --foreground: #0A0A0F;          /* hsl(240 10% 3.9%) */
-    --muted-foreground: #717179;    /* hsl(240 3.8% 46.1%) */
-    --gray-50:  #F9FAFB;
+    --bg: #FFFFFF;
+    --fg: #0A0A0F;
+    --ink: #0A0A0A;
+    --gray-50: #F9FAFB;
     --gray-100: #F3F4F6;
     --gray-200: #E5E7EB;
     --gray-300: #D1D5DB;
     --gray-400: #9CA3AF;
     --gray-500: #6B7280;
     --gray-600: #4B5563;
-    --base: #F7931A;                /* brand orange */
-    --green-50: #F0FDF4;
-    --green-100: #DCFCE7;
     --green-600: #16A34A;
-    --green-700: #15803D;
+    --red-400: #F87171;
     --yellow-500: #EAB308;
-    --radius: 0.5rem;
+    --header-h: 64px;
+    --serif: Georgia, 'Times New Roman', serif;
+    --display: 'Space Grotesk', 'Geist', system-ui, sans-serif;
+    --sans: 'Geist', system-ui, -apple-system, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow: hidden;
   }
-  html { scroll-behavior: smooth; }
 
-  .heading {
-    font-family: 'Space Grotesk', 'Geist', sans-serif;
-    letter-spacing: -0.02em;
-  }
+  a { color: inherit; }
 
-  /* hero-grid background pattern (from hodle-front globals.css) */
-  .hero-grid {
+  .grid-bg {
     background-image:
-      linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+  }
+  .dark-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
     background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, #000 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, #000 30%, transparent 80%);
   }
 
-  /* ─── Deck shell ─── */
-  .deck { width: 100vw; height: 100vh; position: relative; }
-
-  .slide {
-    position: absolute;
-    inset: 0;
-    display: none;
-    overflow-y: auto;
-    animation: fadeIn 320ms ease;
-  }
-  .slide.active { display: block; }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .slide-inner {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 96px 24px 96px;
-  }
-
-  /* ─── Typography (matches hodle-front exactly) ─── */
-  h1.hero {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 300;
-    color: var(--foreground);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
-  }
-
-  h2.section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 300;
-    color: var(--foreground);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-
-  .eyebrow {
-    display: inline-block;
-    color: var(--base);
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 20px;
-  }
-
-  .lead {
-    color: var(--gray-400);
-    font-size: 18px;
-    line-height: 1.65;
-    max-width: 600px;
-  }
-  .body-md {
-    color: var(--gray-500);
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  /* ─── Header (matches hodle-front Header component) ─── */
+  /* Header */
   .header {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-h);
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -143,862 +82,988 @@
   }
   .header-inner {
     max-width: 1200px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    gap: 16px;
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-  .brand img { width: 36px; height: 36px; margin-right: -5px; }
-  .brand .wordmark {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-  }
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-  .nav a {
-    color: var(--gray-500);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 200ms;
-  }
-  .nav a:hover { color: var(--foreground); }
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .header-actions .contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--gray-600);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 200ms;
-  }
-  .header-actions .contact-link:hover { color: var(--foreground); }
-  .header-actions .contact-link svg { width: 16px; height: 16px; }
-  .badge-deck {
+  .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 32px; height: 32px; display: block; }
+  .brand .tag {
     font-size: 11px;
     font-weight: 600;
-    color: var(--gray-400);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--gray-400);
+    padding-left: 12px;
+    border-left: 1px solid var(--gray-200);
   }
-  @media (max-width: 768px) {
-    .nav, .header-actions .contact-link { display: none; }
+  .header-actions { display: flex; align-items: center; gap: 20px; }
+  .header-actions .link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 200ms;
   }
+  .header-actions .link:hover { color: var(--fg); }
 
-  /* ─── ButtonShadow (matches hodle-front ButtonShadow) ─── */
-  .btn-shadow {
+  /* Buttons (ButtonShadow) */
+  .btn {
     position: relative;
     display: inline-flex;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    padding: 0;
+    text-decoration: none;
   }
-  .btn-shadow .shadow-bg {
+  .btn .shadow {
     position: absolute;
     inset: 0;
     border-radius: 14px;
-    background: var(--base);
+    background: var(--gray-300);
     opacity: 0;
     transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .btn-shadow .face {
+  .btn .face {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
     border-radius: 14px;
-    border: 2px solid var(--foreground);
-    background: var(--background);
-    color: var(--foreground);
-    font-family: 'Geist', sans-serif;
+    border: 2px solid var(--fg);
+    background: var(--bg);
+    color: var(--fg);
     font-weight: 600;
+    font-size: 15px;
     letter-spacing: -0.02em;
-    padding: 10px 24px;
-    font-size: 14px;
+    padding: 12px 24px;
+    white-space: nowrap;
     transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .btn-shadow:hover .shadow-bg {
-    opacity: 1;
-    transform: translate(-2px, -2px);
-  }
-  .btn-shadow:hover .face {
-    transform: translate(2px, 2px);
-  }
-  .btn-shadow .face .icon { margin-left: 6px; }
+  .btn:hover .shadow { opacity: 1; transform: translate(-2px, -2px); }
+  .btn:hover .face { transform: translate(2px, 2px); }
+  .btn.solid .face { background: var(--fg); color: #fff; }
+  .btn.ghost .face { border-color: var(--gray-300); color: var(--gray-600); }
+  .btn.sm .face { padding: 7px 16px; font-size: 13px; border-radius: 12px; }
+  .btn.sm .shadow { border-radius: 12px; }
+  .on-dark .btn .face { border-color: #fff; background: #fff; color: var(--fg); }
+  .on-dark .btn .shadow { background: var(--gray-500); }
+  .on-dark .btn.ghost .face { background: transparent; color: var(--gray-300); border-color: var(--gray-600); }
 
-  /* ─── Cards (matches hodle-front pattern) ─── */
-  .card {
-    background: var(--background);
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--gray-200);
-    overflow: hidden;
+  /* Deck shell */
+  .deck { position: fixed; inset: var(--header-h) 0 0 0; }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .slide.active { display: block; animation: fadeIn 320ms ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active { animation: none; }
+  }
+  .slide.dark { background: var(--ink); color: #fff; }
+  .slide .bg { position: absolute; inset: 0; pointer-events: none; }
+  .slide-inner {
+    position: relative;
+    max-width: 1200px;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* Section feature dividers */
-  .features-3 {
-    border-top: 1px solid var(--gray-200);
-    border-bottom: 1px solid var(--gray-200);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 56px;
-  }
-  .features-3 > div {
-    padding: 48px 32px;
-    text-align: center;
-    border-right: 1px solid var(--gray-200);
-  }
-  .features-3 > div:last-child { border-right: 0; }
-  .features-3 .icon-circle {
-    width: 48px; height: 48px;
-    border-radius: 16px;
-    background: var(--gray-100);
+  /* Type */
+  .eyebrow {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  .features-3 h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--foreground);
-    margin-bottom: 10px;
-    letter-spacing: -0.02em;
-  }
-  .features-3 p {
-    font-size: 13px;
-    color: var(--gray-400);
-    line-height: 1.6;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-
-  /* Two-col layout (problem/solution sections) */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-  @media (max-width: 900px) {
-    .two-col { grid-template-columns: 1fr; gap: 32px; }
-  }
-
-  /* Lucide-style check list */
-  .check-list { list-style: none; margin-top: 24px; }
-  .check-list li {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 8px 0;
-    color: var(--gray-500);
-    font-size: 15px;
-    line-height: 1.5;
-  }
-  .check-list li svg { color: var(--base); flex-shrink: 0; margin-top: 3px; }
-
-  /* Mock dashboard table (matches plataforma showcase) */
-  .mock-table { width: 100%; font-size: 11px; border-collapse: collapse; }
-  .mock-table th {
-    text-align: left;
-    color: var(--gray-400);
-    border-bottom: 1px solid var(--gray-100);
-    padding: 10px 12px;
-    font-weight: 500;
-  }
-  .mock-table td {
-    padding: 12px;
-    border-bottom: 1px solid var(--gray-50);
-  }
-  .mock-table .id { font-family: 'Geist Mono', monospace; color: var(--gray-400); }
-  .mock-table .pos { color: var(--green-600); font-weight: 500; }
-  .mock-table .neg { color: #F87171; font-weight: 500; }
-  .mock-table .pill {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-  }
-  .mock-table .pill.completed { color: var(--green-600); }
-  .mock-table .pill.pending   { color: var(--yellow-500); }
-  .mock-table img.tx-icon { width: 16px; height: 16px; border-radius: 999px; vertical-align: middle; margin-right: 6px; }
-  .mock-table .from-to { display: inline-flex; align-items: center; color: var(--gray-500); }
-
-  .mock-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--gray-200);
-  }
-  .mock-header h4 {
-    font-size: 13px; font-weight: 600;
-    font-family: 'Geist', sans-serif;
-    color: var(--foreground);
-  }
-  .mock-header p { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
-  .pill-cta {
-    background: var(--foreground);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
+    gap: 10px;
     font-size: 11px;
     font-weight: 600;
-  }
-
-  /* Pillar quote */
-  .pillar {
-    border-left: 3px solid var(--base);
-    padding: 8px 0 8px 24px;
-    margin-top: 16px;
-    max-width: 880px;
-  }
-  .pillar p {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.6rem, 2.6vw, 2.4rem);
-    font-weight: 300;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-  }
-  .pillar p .accent { color: var(--base); font-weight: 400; }
-
-  /* Stats row */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-  .stat {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-100);
-    border-radius: 16px;
-    padding: 24px;
-  }
-  .stat .num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 3.2vw, 3rem);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-    margin-bottom: 8px;
-  }
-  .stat .num em { font-style: normal; color: var(--base); }
-  .stat .label {
-    font-size: 13px;
-    color: var(--gray-400);
-    line-height: 1.5;
-  }
-
-  /* Tier cards (onboarding) */
-  .tiers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 40px;
-  }
-  .tier {
-    background: var(--background);
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  }
-  .tier .level {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--gray-400);
-    margin-bottom: 14px;
+    margin-bottom: 20px;
   }
-  .tier .limit {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-    margin-bottom: 10px;
+  .eyebrow .n { font-family: var(--mono); letter-spacing: 0.04em; color: var(--gray-300); }
+  .dark .eyebrow { color: var(--gray-500); }
+  .dark .eyebrow .n { color: var(--gray-600); }
+  h1.hero, h2.title {
+    font-family: var(--display);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
   }
-  .tier .req {
-    font-size: 13px;
-    color: var(--gray-500);
-    line-height: 1.55;
-  }
-  .tier.featured {
-    background: var(--foreground);
-    border-color: var(--foreground);
-  }
-  .tier.featured .level { color: rgba(255,255,255,0.6); }
-  .tier.featured .limit { color: white; }
-  .tier.featured .req { color: rgba(255,255,255,0.8); }
+  h1.hero { font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: 1.02; margin-bottom: 28px; }
+  h2.title { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.08; margin-bottom: 20px; max-width: 900px; }
+  .serif { font-family: var(--serif); font-style: italic; font-weight: 400; opacity: 0.85; }
+  .lead { font-size: clamp(16px, 1.6vw, 20px); line-height: 1.6; color: var(--gray-500); max-width: 680px; text-wrap: pretty; }
+  .dark .lead { color: var(--gray-400); }
+  .center { text-align: center; align-items: center; }
+  .center .lead, .center h2.title { margin-left: auto; margin-right: auto; }
 
-  /* Building blocks grid */
-  .blocks-grid {
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
+  .chips .label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gray-400); margin-right: 4px;
+  }
+  .chip {
+    font-size: 13px; color: var(--gray-600);
+    border: 1px solid var(--gray-200); border-radius: 999px; padding: 5px 12px; background: var(--bg);
+  }
+
+  .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .center .row { justify-content: center; }
+
+  /* Problem: manual stack */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .stack { display: grid; gap: 10px; }
+  .stack-item {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 40px;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    background: var(--bg);
   }
-  @media (min-width: 1100px) {
-    .blocks-grid { grid-template-columns: repeat(4, 1fr); }
+  .stack-item .i {
+    width: 36px; height: 36px; border-radius: 10px; background: var(--gray-100);
+    display: grid; place-items: center; color: var(--gray-600);
   }
-  .block-card {
-    background: var(--background);
+  .stack-item strong { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .stack-item span { font-size: 13px; color: var(--gray-500); }
+  .stack-item .tool { font-family: var(--mono); font-size: 11px; color: var(--gray-400); }
+  .stack-foot { font-size: 13px; color: var(--gray-400); margin-top: 6px; padding-left: 4px; }
+
+  /* Flow */
+  .flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1.2fr auto 1fr;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 48px;
+  }
+  .node {
     border: 1px solid var(--gray-200);
     border-radius: 16px;
     padding: 24px;
+    background: var(--bg);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   }
-  .block-card .icon-circle {
-    width: 40px; height: 40px;
-    border-radius: 12px;
-    background: var(--gray-100);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--foreground);
-    margin-bottom: 16px;
+  .node.core { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .node .k { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 14px; }
+  .node.core .k { color: var(--gray-500); }
+  .node h3 { font-family: var(--display); font-weight: 400; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .node p { font-size: 13px; line-height: 1.55; color: var(--gray-500); }
+  .node.core p { color: var(--gray-400); }
+  .node ul { list-style: none; display: grid; gap: 8px; margin-top: 4px; }
+  .node li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--gray-600); }
+  .node li img { width: 18px; height: 18px; border-radius: 999px; }
+  .node .assets { display: flex; gap: 6px; margin-top: 16px; }
+  .node .assets img { width: 26px; height: 26px; border-radius: 999px; background: #fff; padding: 2px; }
+  .arrow { display: grid; place-items: center; padding: 0 14px; color: var(--gray-300); }
+  .flow-foot {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--gray-200);
   }
-  .block-card.featured .icon-circle {
-    background: var(--base);
-    color: white;
-  }
-  .block-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
-  .block-card p {
-    font-size: 13px;
-    color: var(--gray-400);
-    line-height: 1.55;
-  }
+  .flow-foot div { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+  .flow-foot b { color: var(--fg); font-weight: 600; }
 
-  /* CTA section */
-  .cta-section {
-    background: var(--foreground);
-    color: white;
-    padding: 96px 24px;
-    text-align: center;
-    border-radius: 24px;
-    margin-top: 56px;
+  /* Product grid */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .card {
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   }
-  .cta-section h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+  .card .ic {
+    width: 40px; height: 40px; border-radius: 12px; background: var(--gray-100);
+    display: grid; place-items: center; margin-bottom: 18px; color: var(--fg);
+  }
+  .card.featured { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .card.featured .ic { background: rgba(255, 255, 255, 0.1); color: #fff; }
+  .card.featured p { color: var(--gray-400); }
+  .card h3 { font-family: var(--display); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .card p { font-size: 13px; line-height: 1.55; color: var(--gray-500); }
+
+  /* Custody */
+  .custody { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .keys { display: grid; gap: 12px; }
+  .key-row {
+    display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline;
+    padding: 18px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .key-row:last-child { border-bottom: 0; }
+  .key-row .who { font-family: var(--mono); font-size: 12px; color: var(--gray-500); }
+  .key-row .what { font-size: 16px; color: var(--gray-300); line-height: 1.5; }
+  .key-row .what b { color: #fff; font-weight: 500; }
+  .quote {
+    border-left: 2px solid #fff;
+    padding: 4px 0 4px 24px;
+    margin-top: 36px;
+    font-family: var(--display);
     font-weight: 300;
-    line-height: 1.15;
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    line-height: 1.25;
     letter-spacing: -0.02em;
-    color: white;
-    margin-bottom: 20px;
+    max-width: 560px;
   }
-  .cta-section p {
-    color: var(--gray-400);
-    max-width: 520px;
-    margin: 0 auto 36px;
-    line-height: 1.6;
-  }
-  .cta-section .btn-shadow .face {
-    border-color: white;
-    background: white;
-    color: var(--foreground);
-  }
-  .cta-section .btn-shadow .shadow-bg { background: var(--base); }
 
-  /* ─── Footer / nav ─── */
+  /* Platform */
+  .platform { display: grid; grid-template-columns: 1.35fr 1fr; gap: 20px; margin-top: 40px; align-items: stretch; }
+  .panel {
+    border: 1px solid var(--gray-200); border-radius: 16px; background: var(--bg);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08); overflow: hidden; min-width: 0;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 14px 20px; border-bottom: 1px solid var(--gray-200);
+  }
+  .panel-head h4 { font-size: 13px; font-weight: 600; }
+  .panel-head p { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+  .panel-head .pill { background: var(--fg); color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .panel-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; color: var(--gray-400); font-weight: 500; padding: 10px 14px; border-bottom: 1px solid var(--gray-100); white-space: nowrap; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--gray-50); white-space: nowrap; }
+  td.id { font-family: var(--mono); color: var(--gray-400); }
+  td.pos { color: var(--green-600); font-weight: 500; }
+  td.neg { color: var(--red-400); font-weight: 500; }
+  .st { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; }
+  .st.ok { color: var(--green-600); }
+  .st.wait { color: var(--yellow-500); }
+  .rail { display: inline-flex; align-items: center; gap: 6px; color: var(--gray-500); }
+  .rail img { width: 16px; height: 16px; border-radius: 999px; }
+  .code {
+    background: var(--ink); color: #E5E7EB; border-radius: 16px; overflow: hidden;
+    display: flex; flex-direction: column; min-width: 0;
+  }
+  .code .panel-head { border-bottom-color: rgba(255, 255, 255, 0.08); }
+  .code .panel-head h4 { color: #fff; }
+  .code pre {
+    padding: 18px 20px; font-family: var(--mono); font-size: 12px; line-height: 1.7;
+    overflow-x: auto; flex: 1;
+  }
+  .code .c { color: var(--gray-500); }
+  .code .s { color: #A7F3D0; }
+  .code .m { color: #fff; font-weight: 500; }
+
+  /* Rails */
+  .rails { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+  .rail-group { border: 1px solid var(--gray-200); border-radius: 16px; padding: 22px; }
+  .rail-group .k { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 6px; }
+  .rail-group p { font-size: 13px; color: var(--gray-500); line-height: 1.5; margin-bottom: 18px; min-height: 40px; }
+  .rail-group ul { list-style: none; display: grid; gap: 10px; }
+  .rail-group li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; }
+  .rail-group li img { width: 22px; height: 22px; border-radius: 999px; }
+
+  /* Pricing */
+  .pricing { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-top: 40px; align-items: start; }
+  .tiers { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .tiers th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 0; border-bottom: 1px solid var(--gray-200); }
+  .tiers td { padding: 13px 0; border-bottom: 1px solid var(--gray-100); color: var(--gray-600); }
+  .tiers td:last-child { text-align: right; font-family: var(--display); font-size: 18px; color: var(--fg); }
+  .tiers th:last-child { text-align: right; }
+  .tiers tr:first-child td:last-child, .tiers tr:last-child td:last-child { font-weight: 500; }
+  .facts { display: grid; gap: 12px; }
+  .fact { background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 16px; padding: 20px 22px; }
+  .fact .num { font-family: var(--display); font-weight: 300; font-size: 30px; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+  .fact .lbl { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
+  .fine { font-size: 12px; color: var(--gray-400); margin-top: 16px; }
+  .fine a { color: var(--gray-600); }
+
+  /* Audience */
+  .audience { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 48px; border-top: 1px solid var(--gray-200); }
+  .aud { padding: 28px 28px 28px 0; border-bottom: 1px solid var(--gray-200); }
+  .aud + .aud { padding-left: 28px; border-left: 1px solid var(--gray-200); }
+  .aud:nth-child(4) { padding-left: 0; border-left: 0; }
+  .aud .k { font-family: var(--mono); font-size: 11px; color: var(--gray-400); margin-bottom: 12px; }
+  .aud h3 { font-family: var(--display); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .aud p { font-size: 14px; color: var(--gray-500); line-height: 1.55; }
+
+  /* Company */
+  .company { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 40px; }
+  .dl { display: grid; }
+  .dl div { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--gray-100); font-size: 14px; }
+  .dl dt { color: var(--gray-400); }
+  .dl dd { color: var(--fg); }
+  .principles { list-style: none; display: grid; gap: 18px; }
+  .principles li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 15px; line-height: 1.55; color: var(--gray-600); }
+  .principles li svg { margin-top: 3px; color: var(--fg); }
+  .principles b { color: var(--fg); font-weight: 600; }
+
+  /* CTA */
+  .contacts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255, 255, 255, 0.1); border-radius: 16px; overflow: hidden; margin-top: 56px; width: 100%; max-width: 880px; }
+  .contacts a { background: var(--ink); padding: 22px; text-decoration: none; text-align: left; transition: background 200ms; }
+  .contacts a:hover { background: #151515; }
+  .contacts .k { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 8px; }
+  .contacts .v { font-size: 15px; color: #fff; }
+
+  /* Chrome */
+  .progress { position: fixed; top: var(--header-h); left: 0; right: 0; height: 2px; z-index: 55; }
+  .progress > div { height: 100%; width: 0; background: var(--fg); transition: width 280ms ease, background 200ms; }
+  body.on-dark-slide .progress > div { background: #fff; }
   .deck-footer {
-    position: fixed;
-    bottom: 18px;
-    right: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 60;
+    position: fixed; bottom: 18px; right: 24px; z-index: 60;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255, 255, 255, 0.92); border: 1px solid var(--gray-200);
+    border-radius: 12px; padding: 4px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   }
-  .deck-footer .counter {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 12px;
-    font-variant-numeric: tabular-nums;
-    color: var(--gray-400);
-    letter-spacing: 0.08em;
-    margin: 0 4px;
-  }
+  .counter { font-family: var(--mono); font-size: 12px; color: var(--gray-500); min-width: 56px; text-align: center; }
   .nav-btn {
-    width: 32px; height: 32px;
-    border: 1px solid var(--gray-200);
-    background: var(--background);
-    border-radius: 8px;
-    cursor: pointer;
-    color: var(--foreground);
-    display: grid; place-items: center;
-    transition: border-color 120ms ease;
+    width: 32px; height: 32px; border: 0; border-radius: 8px; background: transparent;
+    color: var(--fg); cursor: pointer; display: grid; place-items: center;
   }
-  .nav-btn:hover { border-color: var(--foreground); }
-
-  .progress {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    z-index: 70;
-    background: transparent;
-  }
-  .progress > div {
-    height: 100%;
-    background: var(--base);
-    transition: width 280ms ease;
-    width: 0%;
-  }
-
-  .hint {
-    position: fixed;
-    bottom: 18px;
-    left: 24px;
-    font-size: 11px;
-    color: var(--gray-400);
-    z-index: 60;
-  }
+  .nav-btn:hover { background: var(--gray-100); }
+  .nav-btn:disabled { color: var(--gray-300); cursor: default; background: transparent; }
+  .hint { position: fixed; bottom: 26px; left: 24px; z-index: 60; font-size: 11px; color: var(--gray-400); }
+  body.on-dark-slide .hint { color: var(--gray-600); }
+  body.on-dark-slide .kbd { background: transparent; border-color: var(--gray-600); color: var(--gray-500); }
   .kbd {
-    display: inline-block;
-    border: 1px solid var(--gray-200);
-    background: var(--background);
-    border-radius: 4px;
-    padding: 1px 6px;
-    font-family: 'Geist', monospace;
-    font-size: 10px;
-    color: var(--gray-500);
-    margin: 0 1px;
+    display: inline-block; border: 1px solid var(--gray-200); border-radius: 4px; padding: 0 5px;
+    font-family: var(--mono); font-size: 10px; color: var(--gray-500); background: var(--bg); margin: 0 1px;
+  }
+
+  @media (max-width: 1000px) {
+    .two-col, .custody, .platform, .pricing, .company { grid-template-columns: 1fr; gap: 32px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .rails { grid-template-columns: repeat(2, 1fr); }
+    .flow { grid-template-columns: 1fr; }
+    .arrow { padding: 10px 0; transform: rotate(90deg); }
+    .audience { grid-template-columns: 1fr 1fr; }
+    .aud, .aud + .aud { padding: 24px 20px 24px 0; border-left: 0; }
+    .aud:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--gray-200); }
+  }
+  @media (max-width: 640px) {
+    .header-actions .link, .brand .tag, .hint { display: none; }
+    .slide-inner { padding: 40px 16px 96px; justify-content: flex-start; }
+    .cards, .rails, .audience, .flow-foot, .contacts { grid-template-columns: 1fr; }
+    .aud, .aud + .aud, .aud:nth-child(even) { padding: 20px 0; border-left: 0; }
+    .stack-item { grid-template-columns: 36px 1fr; }
+    .stack-item .tool { display: none; }
+    .dl div { grid-template-columns: 1fr; gap: 2px; }
+    .key-row { grid-template-columns: 1fr; gap: 4px; }
+    .deck-footer { right: 16px; bottom: 16px; }
   }
 
   @media print {
-    .deck-footer, .hint, .progress, .header { display: none; }
+    @page { size: 1280px 800px; margin: 0; }
     html, body { overflow: visible; height: auto; }
-    .slide { display: block !important; page-break-after: always; }
-    .slide-inner { min-height: auto; padding: 48px 24px; }
+    .header, .deck-footer, .hint, .progress { display: none; }
+    .deck { position: static; }
+    .slide { position: relative; display: block !important; height: 800px; overflow: hidden; page-break-after: always; break-after: page; animation: none; }
+    .slide.dark { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .slide-inner { min-height: 800px; padding: 56px 48px; }
   }
 </style>
 </head>
 <body>
 
-<div class="progress"><div id="progress-bar"></div></div>
-
 <header class="header">
   <div class="header-inner">
-    <a class="brand" href="/">
-      <img src="/h-logo.svg" alt="Hodle logo" />
-      <span class="wordmark">ODLE</span>
+    <a class="brand" href="/" aria-label="Hodle">
+      <img src="/h-logo.svg" alt="Hodle" width="32" height="32" />
+      <span class="tag">Pitch</span>
     </a>
-    <nav class="nav">
-      <a href="/#compra-venda">Produtos</a>
-      <a href="/#api">API</a>
-      <a href="/#plataforma">Plataforma</a>
-      <a href="/#parceiros">Parceiros</a>
-    </nav>
     <div class="header-actions">
-      <a class="contact-link" href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        Fale conosco
-      </a>
-      <a class="btn-shadow" href="https://app.hodle.com.br" target="_blank" rel="noreferrer">
-        <span class="shadow-bg"></span>
-        <span class="face">Abrir App</span>
+      <a class="link" href="/precos">Preços</a>
+      <a class="link" href="https://docs.hodle.com.br" target="_blank" rel="noreferrer">Docs</a>
+      <a class="btn solid sm" href="/contato">
+        <span class="shadow"></span>
+        <span class="face">Falar com vendas</span>
       </a>
     </div>
   </div>
 </header>
 
-<div class="deck" id="deck">
+<div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
 
-  <!-- ═══════════════ 1. HERO ═══════════════ -->
-  <section class="slide active" data-slide="1">
-    <div class="hero-grid">
-      <div class="slide-inner container" style="text-align:center; align-items:center;">
-        <div style="max-width:800px; margin:0 auto;">
-          <span class="eyebrow">On / Off Ramp · Self-Custody</span>
-          <h1 class="hero">Cripto que funciona como Pix</h1>
-          <p class="lead" style="margin: 0 auto 40px; text-align:center;">
-            On/off ramp self-custodial. Onboarding sem fricção, limites bem definidos, e suas chaves sempre sob seu controle.
+<main class="deck" id="deck">
+
+  <!-- 1. Capa -->
+  <section class="slide active" aria-label="Capa">
+    <div class="bg grid-bg"></div>
+    <div class="slide-inner center">
+      <span class="eyebrow">Infraestrutura Pix · dólar · stablecoin</span>
+      <h1 class="hero">Receba em Pix, guarde em dólar, <span class="serif">pague em stablecoin.</span></h1>
+      <p class="lead" style="margin-bottom:40px;">
+        A infraestrutura que conecta Pix, dólar e stablecoins — via API ou plataforma.
+        Feita para empresas que movem dinheiro na América Latina.
+      </p>
+      <div class="row" style="margin-bottom:40px;">
+        <a class="btn solid" href="/contato">
+          <span class="shadow"></span>
+          <span class="face">Falar com vendas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a class="btn ghost" href="/desenvolvedores">
+          <span class="shadow"></span>
+          <span class="face">Ver a API</span>
+        </a>
+      </div>
+      <div class="chips">
+        <span class="label">Feita para</span>
+        <span class="chip">Fintechs</span>
+        <span class="chip">Marketplaces</span>
+        <span class="chip">PSPs</span>
+        <span class="chip">Plataformas SaaS</span>
+        <span class="chip">Exchanges</span>
+        <span class="chip">Agentes de IA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Problema -->
+  <section class="slide" aria-label="O problema">
+    <div class="slide-inner">
+      <div class="two-col">
+        <div>
+          <span class="eyebrow"><span class="n">02</span> O problema</span>
+          <h2 class="title">Mover dinheiro entre o real e o dólar ainda é <span class="serif">trabalho manual.</span></h2>
+          <p class="lead">
+            A empresa brasileira que fatura em dólar — ou a estrangeira que paga no Brasil —
+            opera em quatro ferramentas que não conversam. Cada passo é um custo, um atraso e um risco.
           </p>
-          <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-            <button class="btn-shadow">
-              <span class="shadow-bg"></span>
-              <span class="face">
-                Começar agora
-                <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </span>
-            </button>
-            <button class="btn-shadow">
-              <span class="shadow-bg" style="background:var(--gray-300);"></span>
-              <span class="face" style="border-color:var(--gray-300); color:var(--gray-500);">Agendar demo</span>
-            </button>
+        </div>
+        <div>
+          <div class="stack">
+            <div class="stack-item">
+              <div class="i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+              <div><strong>Câmbio</strong><span>cotação e fechamento na mão</span></div>
+              <div class="tool">planilha</div>
+            </div>
+            <div class="stack-item">
+              <div class="i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+              <div><strong>Custódia</strong><span>saldo parado em exchange de terceiro</span></div>
+              <div class="tool">exchange</div>
+            </div>
+            <div class="stack-item">
+              <div class="i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <div><strong>Pagamento</strong><span>transferência para outra conta antes do Pix</span></div>
+              <div class="tool">banco</div>
+            </div>
+            <div class="stack-item">
+              <div class="i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></div>
+              <div><strong>Conciliação</strong><span>extratos cruzados no fim do mês</span></div>
+              <div class="tool">ERP</div>
+            </div>
+          </div>
+          <p class="stack-foot">E o saldo em custódia de terceiro pode ser congelado sem aviso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Solução -->
+  <section class="slide" aria-label="A solução">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">03</span> A solução</span>
+      <h2 class="title">Uma API. Um saldo em dólar. <span class="serif">Pix nas duas pontas.</span></h2>
+      <p class="lead">
+        A Hodle junta câmbio, saldo, pagamento e conciliação em um só fluxo — com painel
+        para o time de operações e API REST para o time de engenharia.
+      </p>
+
+      <div class="flow">
+        <div class="node">
+          <div class="k">Entrada</div>
+          <h3>Recebe</h3>
+          <ul>
+            <li><img src="/pix.svg" alt="" />Cobrança Pix</li>
+            <li><img src="/ln.svg" alt="" />Invoice Lightning</li>
+            <li><img src="/usdt.svg" alt="" />Stablecoin on-chain</li>
+          </ul>
+        </div>
+        <div class="arrow" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+        <div class="node core">
+          <div class="k">Saldo</div>
+          <h3>Guarda em dólar digital</h3>
+          <p>USDT, USDC ou Bitcoin em carteira auto-custodial. A chave é do cliente, não da Hodle.</p>
+          <div class="assets">
+            <img src="/usdt.svg" alt="USDT" />
+            <img src="/usdc.svg" alt="USDC" />
+            <img src="/btc.svg" alt="Bitcoin" />
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+        <div class="node">
+          <div class="k">Saída</div>
+          <h3>Paga</h3>
+          <ul>
+            <li><img src="/pix.svg" alt="" />Pix para qualquer chave</li>
+            <li><img src="/polygon.svg" alt="" />Envio on-chain</li>
+            <li><img src="/ln.svg" alt="" />Lightning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-foot">
+        <div><b>Um POST</b> debita a stablecoin e liquida o Pix no destino.</div>
+        <div><b>Gas patrocinado</b> pela Hodle em Polygon, Base e Solana.</div>
+        <div><b>Webhooks assinados</b> em cada mudança de estado, para conciliação automática.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Produtos -->
+  <section class="slide" aria-label="Produtos">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">04</span> Produtos</span>
+      <h2 class="title">Blocos que você liga no seu produto.</h2>
+      <p class="lead">Todos disponíveis no painel e na API, com o mesmo modelo de dados.</p>
+
+      <div class="cards">
+        <div class="card featured">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg></div>
+          <h3>On-ramp e off-ramp</h3>
+          <p>Real para USDT, USDC ou Bitcoin e de volta, com entrega no endereço ou na chave Pix informada.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+          <h3>Pagar Pix com stablecoin</h3>
+          <p>Debita USDT (Polygon, Tron) ou USDC (Base) e liquida um Pix comum no destino.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+          <h3>Lightning que vira Pix</h3>
+          <p>O pagador liquida um invoice BOLT11 de qualquer lugar do mundo; o recebedor no Brasil recebe Pix.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3z"/><path d="M20 14v7h-6"/></svg></div>
+          <h3>Cobrança e checkout Pix</h3>
+          <p>QR Code, copia e cola e link de pagamento hospedado, com identificação do pedido.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></div>
+          <h3>Wallets auto-custodiais</h3>
+          <p>Endereços e saldos por rede, com a chave privada sob controle exclusivo do usuário final.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div>
+          <h3>Conta PJ e KYC</h3>
+          <p>Conta nominal em bancos parceiros e KYC dos seus usuários por embed pronto ou pela API.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Autocustódia -->
+  <section class="slide dark" aria-label="Autocustódia">
+    <div class="bg dark-grid"></div>
+    <div class="slide-inner">
+      <div class="custody">
+        <div>
+          <span class="eyebrow"><span class="n">05</span> Autocustódia</span>
+          <h2 class="title">A Hodle não consegue mover o saldo do cliente. <span class="serif">Por design.</span></h2>
+          <p class="lead">
+            Autocustódia é padrão, não opção. Sem custódia de terceiro, o risco de saldo
+            congelado deixa de existir na nossa ponta.
+          </p>
+          <p class="quote">Um comprometimento da nossa infraestrutura não move saldo de cliente.</p>
+        </div>
+        <div class="keys">
+          <div class="key-row">
+            <div class="who">chave</div>
+            <div class="what"><b>Derivada no dispositivo</b> do cliente, nunca no servidor.</div>
+          </div>
+          <div class="key-row">
+            <div class="who">hodle guarda</div>
+            <div class="what">Só um <b>envelope cifrado</b> que ela mesma não consegue abrir.</div>
+          </div>
+          <div class="key-row">
+            <div class="who">assinatura</div>
+            <div class="what">Cada transação é <b>autorizada pelo cliente</b> — PIN ou passkey.</div>
+          </div>
+          <div class="key-row">
+            <div class="who">fundos</div>
+            <div class="what">Fluxo regulado conduzido por <b>parceiros licenciados</b>.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 2. PROBLEMA ═══════════════ -->
-  <section class="slide" data-slide="2">
-    <div class="slide-inner container">
-      <div class="two-col">
-        <div>
-          <span class="eyebrow">O Problema</span>
-          <h2 class="section-title">Cripto era pra ser desburocratizado.</h2>
-          <p class="body-md">
-            O que o usuário enfrenta hoje é o oposto: KYC pesado antes de qualquer ação,
-            contas bloqueadas sem aviso e custódia opaca. A promessa do cripto morre
-            no onboarding.
-          </p>
+  <!-- 6. Plataforma + API -->
+  <section class="slide" aria-label="Plataforma e API">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">06</span> Plataforma + API</span>
+      <h2 class="title">Painel para operações. <span class="serif">API para engenharia.</span></h2>
+      <p class="lead">A mesma operação, vista pelos dois times. OpenAPI 3.1 pública e sandbox para integrar antes de ir para produção.</p>
+
+      <div class="platform">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-tag">Painel</div>
+              <h4>Operações</h4>
+            </div>
+            <div class="pill">+ Nova operação</div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Entrada</th><th>Saída</th><th>Valor</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="id">op_9f2a</td>
+                  <td><span class="rail"><img src="/pix.svg" alt="" />Pix</span></td>
+                  <td><span class="rail"><img src="/usdt.svg" alt="" />USDT · Polygon</span></td>
+                  <td class="pos">+ R$ 12.400,00</td>
+                  <td><span class="st ok">COMPLETED</span></td>
+                </tr>
+                <tr>
+                  <td class="id">op_9e71</td>
+                  <td><span class="rail"><img src="/usdc.svg" alt="" />USDC · Base</span></td>
+                  <td><span class="rail"><img src="/pix.svg" alt="" />Pix</span></td>
+                  <td class="neg">- R$ 3.850,00</td>
+                  <td><span class="st ok">COMPLETED</span></td>
+                </tr>
+                <tr>
+                  <td class="id">op_9e0c</td>
+                  <td><span class="rail"><img src="/ln.svg" alt="" />Lightning</span></td>
+                  <td><span class="rail"><img src="/pix.svg" alt="" />Pix</span></td>
+                  <td class="neg">- R$ 640,00</td>
+                  <td><span class="st ok">COMPLETED</span></td>
+                </tr>
+                <tr>
+                  <td class="id">op_9d88</td>
+                  <td><span class="rail"><img src="/pix.svg" alt="" />Pix</span></td>
+                  <td><span class="rail"><img src="/btc.svg" alt="" />Bitcoin</span></td>
+                  <td class="pos">+ R$ 2.000,00</td>
+                  <td><span class="st wait">PENDING</span></td>
+                </tr>
+                <tr>
+                  <td class="id">op_9d31</td>
+                  <td><span class="rail"><img src="/usdt.svg" alt="" />USDT · Tron</span></td>
+                  <td><span class="rail"><img src="/pix.svg" alt="" />Pix</span></td>
+                  <td class="neg">- R$ 980,00</td>
+                  <td><span class="st ok">COMPLETED</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div>
-          <ul class="check-list">
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              <span><strong style="color:var(--foreground);">Onboarding que trava.</strong> Documentos, selfies e dias de espera só para começar a usar.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              <span><strong style="color:var(--foreground);">Contas bloqueadas.</strong> Exchanges custodiantes congelam saldo sem aviso e sem recurso.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              <span><strong style="color:var(--foreground);">Custódia opaca.</strong> "Not your keys, not your coins." Mas a maioria das plataformas guarda seus fundos.</span>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              <span><strong style="color:var(--foreground);">Limites pouco claros.</strong> O usuário não sabe o que pode movimentar até ser barrado.</span>
-            </li>
+        <div class="code">
+          <div class="panel-head">
+            <div>
+              <div class="panel-tag">API</div>
+              <h4>Pagar Pix com USDC</h4>
+            </div>
+          </div>
+<pre><span class="c"># um POST: debita USDC, liquida o Pix</span>
+<span class="m">POST</span> /api/wallet/payout
+{
+  <span class="s">"value"</span>: 385000,
+  <span class="s">"network"</span>: <span class="s">"base"</span>,
+  <span class="s">"asset"</span>: <span class="s">"USDC"</span>,
+  <span class="s">"pixKey"</span>: <span class="s">"fornecedor@empresa.com"</span>,
+  <span class="s">"pixKeyType"</span>: <span class="s">"EMAIL"</span>,
+  <span class="s">"walletPin"</span>: <span class="s">"••••"</span>,
+  <span class="s">"protectedSymmetricKey"</span>: <span class="s">"Aoof…"</span>
+}
+
+<span class="c"># webhook assinado</span>
+{ <span class="s">"status"</span>: <span class="s">"COMPLETED"</span>, <span class="s">"endToEndId"</span>: <span class="s">"E1234…"</span> }</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Redes -->
+  <section class="slide" aria-label="Redes e rails">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">07</span> Redes e rails</span>
+      <h2 class="title">Uma integração, <span class="serif">todas as redes que importam.</span></h2>
+
+      <div class="rails">
+        <div class="rail-group">
+          <div class="k">Real</div>
+          <p>Entrada e saída em reais via Pix, 24/7.</p>
+          <ul><li><img src="/pix.svg" alt="" />Pix</li></ul>
+        </div>
+        <div class="rail-group">
+          <div class="k">Dólar digital</div>
+          <p>Stablecoins que circulam na plataforma e pagam QR codes.</p>
+          <ul>
+            <li><img src="/usdt.svg" alt="" />USDT</li>
+            <li><img src="/usdc.svg" alt="" />USDC</li>
+          </ul>
+        </div>
+        <div class="rail-group">
+          <div class="k">Bitcoin</div>
+          <p>BTC on-chain e liquidação instantânea por Lightning.</p>
+          <ul>
+            <li><img src="/btc.svg" alt="" />Bitcoin</li>
+            <li><img src="/ln.svg" alt="" />Lightning</li>
+            <li><img src="/spark.svg" alt="" />Spark</li>
+          </ul>
+        </div>
+        <div class="rail-group">
+          <div class="k">Redes</div>
+          <p>Onde o cliente recebe, guarda e envia.</p>
+          <ul>
+            <li><img src="/polygon.svg" alt="" />Polygon</li>
+            <li><img src="/base.png" alt="" />Base</li>
+            <li><img src="/solana.svg" alt="" />Solana</li>
+            <li><img src="/tron.svg" alt="" />Tron</li>
+            <li><img src="/arbitrum.svg" alt="" />Arbitrum</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 3. SOLUÇÃO: ONBOARDING ═══════════════ -->
-  <section class="slide" data-slide="3">
-    <div class="slide-inner container">
-      <div style="max-width: 880px;">
-        <span class="eyebrow">Solução · Onboarding</span>
-        <h2 class="section-title">Comece a usar antes de terminar o KYC.</h2>
-        <p class="body-md">
-          Limites bem definidos por nível. O usuário usa a plataforma na hora — e quando
-          precisa de mais limite, o KYC já está validado com as informações que ele mesmo
-          preencheu. Sem repetir formulário.
-        </p>
-      </div>
+  <!-- 8. Para quem -->
+  <section class="slide" aria-label="Para quem">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">08</span> Para quem</span>
+      <h2 class="title">Para quem move dinheiro <span class="serif">entre o real e o dólar.</span></h2>
 
-      <div class="tiers">
-        <div class="tier">
-          <div class="level">Nível 1 · Imediato</div>
-          <div class="limit">Usa agora</div>
-          <div class="req">E-mail e dados básicos. Limite inicial liberado para começar a movimentar.</div>
+      <div class="audience">
+        <div class="aud">
+          <div class="k">01</div>
+          <h3>Fintechs e neobanks</h3>
+          <p>Oferecem conta em dólar e cripto sem montar a infraestrutura do zero.</p>
         </div>
-        <div class="tier featured">
-          <div class="level">Nível 2 · Progressivo</div>
-          <div class="limit">Mais limite</div>
-          <div class="req">CPF e dados que o usuário já preencheu são reaproveitados. Sem repetir formulário.</div>
+        <div class="aud">
+          <div class="k">02</div>
+          <h3>PSPs e marketplaces</h3>
+          <p>Recebem em Pix e liquidam o vendedor em stablecoin — ou o contrário.</p>
         </div>
-        <div class="tier">
-          <div class="level">Nível 3 · Completo</div>
-          <div class="limit">Sem trava</div>
-          <div class="req">Documento e biometria. Liberado sob demanda, só quando o usuário precisa.</div>
+        <div class="aud">
+          <div class="k">03</div>
+          <h3>Plataformas SaaS</h3>
+          <p>Embutem pagamentos e conta PJ no próprio produto, com KYC por embed.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ 4. AUTOCUSTÓDIA (PILAR) ═══════════════ -->
-  <section class="slide" data-slide="4">
-    <div class="slide-inner container">
-      <div style="max-width: 920px;">
-        <span class="eyebrow">Pilar · Autocustódia</span>
-        <h2 class="section-title">A Hodle não tem acesso aos fundos do usuário.</h2>
-
-        <div class="pillar">
-          <p>
-            Contas bloqueadas viraram epidemia em exchanges custodiantes.
-            Como a Hodle não custodia, esse risco é
-            <span class="accent">drasticamente reduzido</span> — a chave é do usuário, sempre.
-          </p>
+        <div class="aud">
+          <div class="k">04</div>
+          <h3>Exportadores</h3>
+          <p>Faturam em dólar, guardam em stablecoin e pagam fornecedor em Pix.</p>
         </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="num">0</div>
-          <div class="label">Acesso da Hodle aos fundos do usuário.</div>
+        <div class="aud">
+          <div class="k">05</div>
+          <h3>Empresas estrangeiras</h3>
+          <p>Pagam no Brasil a partir de saldo em USDT ou USDC, sem conta local.</p>
         </div>
-        <div class="stat">
-          <div class="num"><em>Client-side</em></div>
-          <div class="label">Mnemônico criptografado no dispositivo, com PIN do usuário.</div>
-        </div>
-        <div class="stat">
-          <div class="num">Multi-rail</div>
-          <div class="label">Bitcoin, Lightning, Liquid e EVM — todos não-custodiais.</div>
+        <div class="aud">
+          <div class="k">06</div>
+          <h3>Agentes de IA</h3>
+          <p>Documentação legível por máquina: OpenAPI completa e respostas em markdown.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 5. BUILDING BLOCKS ═══════════════ -->
-  <section class="slide" data-slide="5">
-    <div class="slide-inner container">
-      <div style="max-width: 880px;">
-        <span class="eyebrow">Building Blocks · B2B</span>
-        <h2 class="section-title">Hodle também é infraestrutura.</h2>
-        <p class="body-md">
-          A mesma stack que roda o app é exposta como building blocks para fintechs,
-          exchanges e empresas que precisam de cripto sem reinventar a roda.
-        </p>
-      </div>
+  <!-- 9. Preço -->
+  <section class="slide" aria-label="Preço">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">09</span> Preço</span>
+      <h2 class="title">Preço público. <span class="serif">Cai com o volume.</span></h2>
+      <p class="lead">Uma única taxa de serviço para compra e venda, igual em todos os ativos e redes.</p>
 
-      <div class="blocks-grid">
-        <div class="block-card featured">
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
-          </div>
-          <h3>On / Off Ramp</h3>
-          <p>Pix in, Pix out, conversão para BTC, USDT e stablecoins via API.</p>
-        </div>
-
-        <div class="block-card">
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-          </div>
-          <h3>API de Pagamentos</h3>
-          <p>Lightning, Liquid e EVM em uma integração. Recebimento e envio programáveis.</p>
-        </div>
-
-        <div class="block-card">
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
-          </div>
-          <h3>Contas PJ em Parceiros</h3>
-          <p>Conta empresarial via parceiros bancários, integrada à infraestrutura cripto.</p>
-        </div>
-
-        <div class="block-card">
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18.5A1.5 1.5 0 0 1 4 17h16a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M19 10V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v4"/><path d="M12 12h.01"/></svg>
-          </div>
-          <h3>Wallet &amp; Autocustódia</h3>
-          <p>Infra de carteira não-custodial white-label: chaves do usuário, UX da sua marca.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ 6. PLATAFORMA (mock dashboard) ═══════════════ -->
-  <section class="slide" data-slide="6">
-    <div class="slide-inner container">
-      <div style="max-width: 880px; margin-bottom: 40px;">
-        <span class="eyebrow">Plataforma</span>
-        <h2 class="section-title">Tudo em uma plataforma.</h2>
-        <p class="body-md">
-          Compra, venda, pagamentos, wallets multi-rail e contas PJ —
-          em uma interface que o usuário entende.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="mock-header">
-          <div>
-            <h4>Venda e pagamento de QR code</h4>
-            <p>Gerenciar pagamentos realizados</p>
-          </div>
-          <div class="pill-cta">+ Nova compra</div>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="mock-table">
-            <thead>
-              <tr><th>ID</th><th>Data</th><th>Pago com</th><th>Enviado para</th><th>Valor</th><th>Status</th></tr>
-            </thead>
+      <div class="pricing">
+        <div>
+          <table class="tiers">
+            <thead><tr><th>Volume mensal (on + off-ramp)</th><th>Taxa</th></tr></thead>
             <tbody>
-              <tr>
-                <td class="id">VHJ...TA5</td>
-                <td style="color:var(--gray-400);">14/02/2026, 14:07</td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/pix.svg" alt="PIX">PIX</span></td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/liquid.svg" alt="Liquid">Liquid</span></td>
-                <td class="pos">+ R$ 50,00</td>
-                <td><span class="pill completed">COMPLETED</span></td>
-              </tr>
-              <tr>
-                <td class="id">VHJ...TVk</td>
-                <td style="color:var(--gray-400);">07/02/2026, 17:50</td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/ln.svg" alt="Lightning">Lightning</span></td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/polygon.svg" alt="Polygon">Polygon</span></td>
-                <td class="neg">- R$ 0,10</td>
-                <td><span class="pill completed">COMPLETED</span></td>
-              </tr>
-              <tr>
-                <td class="id">VHJ...TM5</td>
-                <td style="color:var(--gray-400);">07/02/2026, 17:46</td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/ln.svg" alt="Lightning">Lightning</span></td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/pix.svg" alt="PIX">PIX</span></td>
-                <td class="neg">- R$ 0,10</td>
-                <td><span class="pill completed">COMPLETED</span></td>
-              </tr>
-              <tr>
-                <td class="id">VHJ...TNi</td>
-                <td style="color:var(--gray-400);">07/02/2026, 17:09</td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/pix.svg" alt="PIX">PIX</span></td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/polygon.svg" alt="Polygon">Polygon</span></td>
-                <td class="neg">- R$ 0,10</td>
-                <td><span class="pill pending">PENDING</span></td>
-              </tr>
-              <tr>
-                <td class="id">VHJ...GQx</td>
-                <td style="color:var(--gray-400);">05/02/2026, 12:38</td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/pix.svg" alt="PIX">PIX</span></td>
-                <td><span class="from-to"><img class="tx-icon" src="public/assets/liquid.svg" alt="Liquid">Liquid</span></td>
-                <td class="pos">+ R$ 100,00</td>
-                <td><span class="pill completed">COMPLETED</span></td>
-              </tr>
+              <tr><td>Até R$ 100 mil</td><td>2,00%</td></tr>
+              <tr><td>R$ 100 mil a R$ 300 mil</td><td>1,60%</td></tr>
+              <tr><td>R$ 300 mil a R$ 800 mil</td><td>1,25%</td></tr>
+              <tr><td>R$ 800 mil a R$ 2 milhões</td><td>0,95%</td></tr>
+              <tr><td>R$ 2 milhões a R$ 5 milhões</td><td>0,70%</td></tr>
+              <tr><td>Acima de R$ 5 milhões</td><td>0,50%</td></tr>
             </tbody>
           </table>
+          <p class="fine">Mínimo de R$ 0,75 por operação. Tabela oficial e regras completas em <a href="/precos">hodle.com.br/precos</a>.</p>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <div class="num">R$ 0</div>
+            <div class="lbl">Transferência entre carteiras na mesma rede.</div>
+          </div>
+          <div class="fact">
+            <div class="num">R$ 0,75</div>
+            <div class="lbl">Real on-chain, tarifa fixa em tickets de até R$ 5.000.</div>
+          </div>
+          <div class="fact">
+            <div class="num">Gas pago</div>
+            <div class="lbl">Taxa de rede patrocinada em Polygon, Base e Solana.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ 7. PILARES (3-COL) ═══════════════ -->
-  <section class="slide" data-slide="7">
-    <div class="slide-inner container">
-      <div style="max-width: 880px;">
-        <span class="eyebrow">Pilares</span>
-        <h2 class="section-title">Três pilares, uma plataforma.</h2>
-      </div>
+  <!-- 10. Empresa -->
+  <section class="slide" aria-label="A empresa">
+    <div class="slide-inner">
+      <span class="eyebrow"><span class="n">10</span> A empresa</span>
+      <h2 class="title">Software e API. <span class="serif">Parceiros licenciados no fluxo regulado.</span></h2>
 
-      <div class="features-3">
-        <div>
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
-          </div>
-          <h3>Compra e venda de ativos</h3>
-          <p>Bitcoin e stablecoins em diversas redes com liquidação instantânea via PIX.</p>
-        </div>
-        <div>
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
-          </div>
-          <h3>Contas PJ nominais</h3>
-          <p>Contas empresariais com bancos parceiros regulados pelo Banco Central.</p>
-        </div>
-        <div>
-          <div class="icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18.5A1.5 1.5 0 0 1 4 17h16a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M19 10V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v4"/><path d="M12 12h.01"/></svg>
-          </div>
-          <h3>Wallets auto-custodiais</h3>
-          <p>Chaves privadas 100% sob controle do usuário. Sem custódia de terceiros.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ 8. CTA ═══════════════ -->
-  <section class="slide" data-slide="8">
-    <div class="slide-inner container">
-      <div class="cta-section">
-        <h2>Pronto para começar?</h2>
-        <p>Cripto sem fricção, com autocustódia de verdade. On/off ramp, building blocks e infraestrutura para empresas — em uma plataforma.</p>
-        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-          <button class="btn-shadow">
-            <span class="shadow-bg"></span>
-            <span class="face">
-              hodle.com.br
-              <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
-          </button>
-          <button class="btn-shadow">
-            <span class="shadow-bg" style="background:var(--gray-600);"></span>
-            <span class="face" style="border-color:var(--gray-600); color:var(--gray-300); background:transparent;">contato@hodle.com.br</span>
-          </button>
-        </div>
+      <div class="company">
+        <dl class="dl">
+          <div><dt>Hodle LLC</dt><dd>Wyoming, EUA · filing 2026-001968203</dd></div>
+          <div><dt>Operação no Brasil</dt><dd>HODLE TECNOLOGIA LTDA · CNPJ 63.673.264/0001-26</dd></div>
+          <div><dt>Documentação</dt><dd><a href="https://docs.hodle.com.br" target="_blank" rel="noreferrer">docs.hodle.com.br</a></dd></div>
+          <div><dt>Marco legal</dt><dd>Lei nº 14.478/2022 (Marco Legal das Criptomoedas)</dd></div>
+        </dl>
+        <ul class="principles">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><b>Preço é público.</b> Uma página de taxas, que prevalece sobre qualquer outro número.</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><b>Autocustódia é padrão.</b> A Hodle não é banco e não custodia fundos de clientes.</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><b>Sandbox primeiro.</b> Integre de ponta a ponta antes do KYB liberar produção.</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><b>Docs para máquina.</b> OpenAPI 3.1 pública, com schema em cada operação.</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
+  <!-- 11. CTA -->
+  <section class="slide dark on-dark" aria-label="Contato">
+    <div class="bg dark-grid"></div>
+    <div class="slide-inner center">
+      <img src="/h-logo.svg" alt="" width="56" height="56" style="filter:invert(1); margin-bottom:32px;" />
+      <h2 class="title">Vamos mover o seu dinheiro <span class="serif">do jeito certo.</span></h2>
+      <p class="lead" style="margin-bottom:40px;">Comece no sandbox hoje. Produção liberada após o KYB.</p>
+      <div class="row">
+        <a class="btn" href="/contato">
+          <span class="shadow"></span>
+          <span class="face">Falar com vendas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a class="btn ghost" href="https://app.hodle.com.br" target="_blank" rel="noreferrer">
+          <span class="shadow"></span>
+          <span class="face">Abrir o app</span>
+        </a>
+      </div>
+      <div class="contacts">
+        <a href="mailto:contato@hodle.com.br"><div class="k">E-mail</div><div class="v">contato@hodle.com.br</div></a>
+        <a href="https://api.whatsapp.com/send?phone=5511960000445" target="_blank" rel="noreferrer"><div class="k">WhatsApp</div><div class="v">+55 11 96000-0445</div></a>
+        <a href="https://docs.hodle.com.br" target="_blank" rel="noreferrer"><div class="k">Docs</div><div class="v">docs.hodle.com.br</div></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="hint" aria-hidden="true">
+  <span class="kbd">←</span><span class="kbd">→</span> navegar · <span class="kbd">F</span> tela cheia · <span class="kbd">P</span> PDF
 </div>
 
-<div class="hint">
-  <span class="kbd">←</span><span class="kbd">→</span> navegar
-  &nbsp;·&nbsp;
-  <span class="kbd">F</span> fullscreen
-  &nbsp;·&nbsp;
-  <span class="kbd">P</span> imprimir
-</div>
-
-<div class="deck-footer">
-  <button class="nav-btn" id="prev" aria-label="Anterior">
+<nav class="deck-footer" aria-label="Navegação do pitch">
+  <button class="nav-btn" id="prev" aria-label="Slide anterior">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
   </button>
-  <span class="counter" id="counter">01 / 08</span>
-  <button class="nav-btn" id="next" aria-label="Próximo">
+  <span class="counter" id="counter" aria-live="polite">01 / 11</span>
+  <button class="nav-btn" id="next" aria-label="Próximo slide">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
   </button>
-</div>
+</nav>
 
 <script>
-  const slides = document.querySelectorAll('.slide');
+  const slides = Array.from(document.querySelectorAll('.slide'));
   const total = slides.length;
   const counter = document.getElementById('counter');
   const bar = document.getElementById('progress-bar');
-  let current = 0;
-
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const SWIPE_MIN = 60;
   const pad = (n) => String(n).padStart(2, '0');
+  const state = { current: 0, touchX: null, touchY: null };
+
+  const render = () => {
+    slides.forEach((s, i) => s.classList.toggle('active', i === state.current));
+    slides[state.current].scrollTop = 0;
+    counter.textContent = `${pad(state.current + 1)} / ${pad(total)}`;
+    bar.style.width = `${((state.current + 1) / total) * 100}%`;
+    prevBtn.disabled = state.current === 0;
+    nextBtn.disabled = state.current === total - 1;
+    document.body.classList.toggle('on-dark-slide', slides[state.current].classList.contains('dark'));
+    history.replaceState(null, '', `#${state.current + 1}`);
+  };
 
   const go = (idx) => {
     const next = Math.max(0, Math.min(total - 1, idx));
-    if (next === current) return;
-    slides[current].classList.remove('active');
-    slides[next].classList.add('active');
-    slides[next].scrollTop = 0;
-    current = next;
-    counter.textContent = `${pad(current + 1)} / ${pad(total)}`;
-    bar.style.width = `${((current + 1) / total) * 100}%`;
+    if (next === state.current) return;
+    state.current = next;
+    render();
   };
 
-  document.getElementById('prev').addEventListener('click', () => go(current - 1));
-  document.getElementById('next').addEventListener('click', () => go(current + 1));
+  prevBtn.addEventListener('click', () => go(state.current - 1));
+  nextBtn.addEventListener('click', () => go(state.current + 1));
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
-    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
-    else if (e.key === 'Home') go(0);
-    else if (e.key === 'End') go(total - 1);
-    else if (e.key === 'f' || e.key === 'F') {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-      else document.exitFullscreen();
-    } else if (e.key === 'p' || e.key === 'P') {
-      window.print();
-    }
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const actions = {
+      ArrowRight: () => go(state.current + 1),
+      PageDown: () => go(state.current + 1),
+      ' ': () => go(state.current + 1),
+      ArrowLeft: () => go(state.current - 1),
+      PageUp: () => go(state.current - 1),
+      Home: () => go(0),
+      End: () => go(total - 1),
+      f: () => (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()),
+      p: () => window.print(),
+    };
+    const action = actions[e.key.length === 1 ? e.key.toLowerCase() : e.key];
+    if (!action) return;
+    e.preventDefault();
+    action();
   });
 
-  bar.style.width = `${(1 / total) * 100}%`;
-  counter.textContent = `${pad(1)} / ${pad(total)}`;
+  document.addEventListener('touchstart', (e) => {
+    state.touchX = e.touches[0].clientX;
+    state.touchY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    if (state.touchX === null) return;
+    const dx = e.changedTouches[0].clientX - state.touchX;
+    const dy = e.changedTouches[0].clientY - state.touchY;
+    state.touchX = null;
+    if (Math.abs(dx) < SWIPE_MIN || Math.abs(dx) < Math.abs(dy)) return;
+    go(dx < 0 ? state.current + 1 : state.current - 1);
+  }, { passive: true });
+
+  const slideFromHash = () => {
+    const n = parseInt(location.hash.slice(1), 10);
+
+    if (!Number.isInteger(n)) return 0;
+
+    return Math.max(0, Math.min(total - 1, n - 1));
+  };
+
+  window.addEventListener('hashchange', () => go(slideFromHash()));
+
+  state.current = slideFromHash();
+  render();
 </script>
 
 </body>
