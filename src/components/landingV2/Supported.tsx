@@ -6,34 +6,35 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const ORBIT_SIZE = 420
 const ORBIT_RADIUS = 180
-const ORBIT_ICON = 56
 
-const orbitPosition = (index: number, total: number): { left: number; top: number } => {
+const toPercent = (value: number): string => `${((value / ORBIT_SIZE) * 100).toFixed(3)}%`
+
+const orbitPosition = (index: number, total: number): { left: string; top: string } => {
   const angle = (index / total) * Math.PI * 2 - Math.PI / 2
   const center = ORBIT_SIZE / 2
 
   return {
-    left: Math.round(center + ORBIT_RADIUS * Math.cos(angle) - ORBIT_ICON / 2),
-    top: Math.round(center + ORBIT_RADIUS * Math.sin(angle) - ORBIT_ICON / 2),
+    left: toPercent(center + ORBIT_RADIUS * Math.cos(angle)),
+    top: toPercent(center + ORBIT_RADIUS * Math.sin(angle)),
   }
 }
 
 const Orbit = () => (
-  <div className="relative w-[420px] h-[420px] scale-[0.72] sm:scale-100 -my-14 sm:my-0">
-    <div aria-hidden="true" className="absolute inset-[30px] rounded-full border border-[#EDEDED]" />
+  <div className="relative w-full max-w-[420px] aspect-square shrink-0">
+    <div aria-hidden="true" className="absolute inset-[7.143%] rounded-full border border-[#EDEDED]" />
     <div className="lv2-orbit absolute inset-0">
       {RAILS.map((rail, index) => (
         <div
           key={rail.name}
-          className="lv2-counter absolute w-14 h-14 rounded-2xl bg-white border border-[#E5E5E5] shadow-[0_8px_20px_rgba(0,0,0,0.06)] flex items-center justify-center"
+          className="lv2-counter absolute w-12 h-12 -ml-6 -mt-6 sm:w-14 sm:h-14 sm:-ml-7 sm:-mt-7 rounded-2xl bg-white border border-[#E5E5E5] shadow-[0_8px_20px_rgba(0,0,0,0.06)] flex items-center justify-center"
           style={orbitPosition(index, RAILS.length)}
         >
-          <Image src={rail.icon} alt={rail.name} width={30} height={30} loading="eager" className="w-[30px] h-[30px] object-contain" />
+          <Image src={rail.icon} alt={rail.name} width={30} height={30} loading="eager" className="w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] object-contain" />
         </div>
       ))}
     </div>
-    <div className="absolute left-[165px] top-[165px] w-[90px] h-[90px] rounded-3xl bg-white border border-[#E5E5E5] flex items-center justify-center">
-      <Image src={ICONS.hodleMark} alt="Hodle" width={56} height={56} />
+    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[76px] h-[76px] sm:w-[90px] sm:h-[90px] rounded-3xl bg-white border border-[#E5E5E5] flex items-center justify-center">
+      <Image src={ICONS.hodleMark} alt="Hodle" width={56} height={56} className="w-12 h-12 sm:w-14 sm:h-14" />
     </div>
   </div>
 )
@@ -45,7 +46,7 @@ export const Supported = () => (
   <section id="redes" aria-labelledby="lv2-redes-h" className="lv2-sec">
     <SectionMarks />
     <div className="lv2-rail lv2-cells grid-cols-1 lg:grid-cols-[520px_1fr]">
-      <div className="lv2-dots !bg-[#FCFCFC] p-8 lg:p-12 flex items-center justify-center overflow-hidden">
+      <div className="lv2-dots !bg-[#FCFCFC] p-6 sm:p-8 lg:p-12 flex items-center justify-center overflow-hidden">
         <Orbit />
       </div>
       <div className="flex flex-col">
