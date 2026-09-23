@@ -27,6 +27,7 @@ export const staticSitePaths: string[] = [
   '/privacidade',
   '/sobre',
   '/termos',
+  '/v2',
 ]
 
 export const sitePathPrefixes: string[] = ['/create/']
