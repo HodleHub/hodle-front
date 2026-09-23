@@ -6,7 +6,7 @@ import { integrationPaths } from '../integrationPaths'
  */
 export const homeMarkdown = `# Receba em Pix, guarde em dólar, pague em stablecoin.
 
-> A infraestrutura que conecta Pix, dólar e stablecoins — via API ou plataforma. Feita para empresas que movem dinheiro na América Latina.
+> A infraestrutura que conecta Pix, dólar e stablecoins, via API ou plataforma. Feita para empresas que movem dinheiro na América Latina.
 
 Fonte canônica: https://hodle.com.br
 
