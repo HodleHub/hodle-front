@@ -16,6 +16,7 @@ const NAV_LINKS = {
     { label: 'API', href: '#api' },
     { label: 'Wallets', href: '#wallets' },
     { label: 'Pagamentos', href: '#pagamentos' },
+    { label: 'Conta USD', href: '/usd' },
     { label: 'Conta PJ', href: '#conta-pj' },
     { label: 'Offshore', href: '/offshore' },
   ],

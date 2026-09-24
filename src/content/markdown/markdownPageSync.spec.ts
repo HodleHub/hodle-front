@@ -4,6 +4,7 @@ import { expect, it } from 'vitest'
 import { brsMarkdown } from './brsMarkdown'
 import { cryptoAsAServiceMarkdown } from './cryptoAsAServiceMarkdown'
 import { neobankMarkdown } from './neobankMarkdown'
+import { usdMarkdown } from './usdMarkdown'
 
 type MarkdownPage = {
   markdown: string
@@ -17,6 +18,7 @@ const pages: MarkdownPage[] = [
     pageFile: 'src/app/crypto-as-a-service/page.tsx',
   },
   { markdown: neobankMarkdown, pageFile: 'src/app/neobank/page.tsx' },
+  { markdown: usdMarkdown, pageFile: 'src/components/usd/usdData.ts' },
 ]
 
 const readPageSource = ({ pageFile }: { pageFile: string }): string =>

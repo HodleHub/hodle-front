@@ -20,6 +20,7 @@ export const staticMarkdownPaths: string[] = [
   '/neobank',
   '/precos',
   '/sobre',
+  '/usd',
 ]
 
 export const topicMarkdownSlugs: string[] = [

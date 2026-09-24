@@ -70,6 +70,7 @@ export function Footer() {
                   href: '/comprar-usdt-com-pix',
                 },
                 { label: isEnglish ? 'Real on-chain' : 'Real onchain', href: '/real-onchain' },
+                { label: isEnglish ? 'USD account' : 'Conta USD', href: '/usd' },
                 {
                   label: 'BRS stablecoin',
                   href: isEnglish ? '/en/brs' : '/brs',
