@@ -128,6 +128,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/usd`,
+      lastModified: new Date('2026-09-24'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/en/brs`,
       lastModified: new Date('2026-08-05'),
       changeFrequency: 'monthly',

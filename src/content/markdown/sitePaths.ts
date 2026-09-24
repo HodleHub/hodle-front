@@ -27,6 +27,7 @@ export const staticSitePaths: string[] = [
   '/privacidade',
   '/sobre',
   '/termos',
+  '/usd',
   '/v2',
 ]
 

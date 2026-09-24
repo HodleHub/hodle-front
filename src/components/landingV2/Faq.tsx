@@ -2,17 +2,21 @@
 
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
-import { FAQ_ITEMS } from './landingV2Data'
+import { FAQ_ITEMS, type FaqItem } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const CLOSED = -1
 
+type FaqProps = {
+  items?: FaqItem[]
+}
+
 /**
- * FAQ accordion, one question open at a time.
+ * FAQ accordion, one question open at a time. Defaults to the home questions.
  */
-export const Faq = () => {
+export const Faq = ({ items = FAQ_ITEMS }: FaqProps) => {
   const [openIndex, setOpenIndex] = useState<number>(0)
 
   const toggle = (index: number): void => {
@@ -37,7 +41,7 @@ export const Faq = () => {
           </p>
         </div>
         <div className="flex flex-col">
-          {FAQ_ITEMS.map((item, index) => {
+          {items.map((item, index) => {
             const open = index === openIndex
             const panelId = `lv2-faq-panel-${index}`
 

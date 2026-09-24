@@ -7,6 +7,7 @@ import { aiMarkdown } from '../content/markdown/aiMarkdown'
 import { brsMarkdown } from '../content/markdown/brsMarkdown'
 import { cryptoAsAServiceMarkdown } from '../content/markdown/cryptoAsAServiceMarkdown'
 import { neobankMarkdown } from '../content/markdown/neobankMarkdown'
+import { usdMarkdown } from '../content/markdown/usdMarkdown'
 import { sobre } from '../content/pages/sobre'
 import { contato } from '../content/pages/contato'
 import { desenvolvedores } from '../content/pages/desenvolvedores'
@@ -34,6 +35,7 @@ const staticDocuments: Record<string, () => string> = {
   '/neobank': () => neobankMarkdown,
   '/precos': pricingToMarkdown,
   '/sobre': () => infoPageToMarkdown({ page: sobre }),
+  '/usd': () => usdMarkdown,
 }
 
 const articlePrefix = '/articles/'
