@@ -12,6 +12,8 @@ export const ICONS = {
   spark: '/spark.svg',
   base: '/base.png',
   tron: '/tron.svg',
+  brla: '/brla.png',
+  brs: '/brs.svg',
   polygon: '/polygon.svg',
   solana: '/solana.svg',
   arbitrum: '/arbitrum.svg',
@@ -33,6 +35,22 @@ export const RAILS: IconItem[] = [
   { name: 'Arbitrum', icon: ICONS.arbitrum },
   { name: 'Lightning', icon: ICONS.lightning },
   { name: 'Spark', icon: ICONS.spark },
+]
+
+export const PILE_TILES: IconItem[] = [
+  { name: 'USDT', icon: ICONS.usdt },
+  { name: 'USDC', icon: ICONS.usdc },
+  { name: 'Bitcoin', icon: ICONS.btc },
+  { name: 'Pix', icon: ICONS.pix },
+  { name: 'BRLA', icon: ICONS.brla },
+  { name: 'BRS', icon: ICONS.brs },
+  { name: 'Lightning', icon: ICONS.lightning },
+  { name: 'Spark', icon: ICONS.spark },
+  { name: 'Polygon', icon: ICONS.polygon },
+  { name: 'Base', icon: ICONS.base },
+  { name: 'Solana', icon: ICONS.solana },
+  { name: 'Tron', icon: ICONS.tron },
+  { name: 'Arbitrum', icon: ICONS.arbitrum },
 ]
 
 export type SupportedAsset = {
