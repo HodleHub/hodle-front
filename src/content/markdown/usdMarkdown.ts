@@ -1,58 +1,39 @@
-/**
- * Markdown representation of the /usd page, served under
- * `Accept: text/markdown`.
- */
-export const usdMarkdown = `# Conta USD: pague em Pix, chegue em dólar nos EUA
+import { USD_AUDIENCES, USD_FAQ_ITEMS, USD_PAGE_DESCRIPTION, USD_PAGE_TITLE, USD_PAGE_URL, USD_RAILS, USD_STEPS, type UsdAudience, type UsdRail, type UsdStep } from '../../components/usd/usdData'
+import type { FaqItem } from '../../components/landingV2/landingV2Data'
+import { pageUpdatedAt } from '../pageUpdatedAt'
 
-> Envie dólares para qualquer conta bancária nos Estados Unidos a partir de um Pix, por ACH ou wire, sem abrir conta lá fora. Cotação na tela antes de pagar.
+const steps: string = USD_STEPS.map((step: UsdStep, index: number): string => `${index + 1}. ${step.title}: ${step.description}`).join('\n')
+const rails: string = USD_RAILS.map((rail: UsdRail): string => `- **${rail.label} (${rail.eta.toLowerCase()})**: ${rail.description} ${rail.requirement}.`).join('\n')
+const audiences: string = USD_AUDIENCES.map((audience: UsdAudience): string => `## ${audience.title}\n\n${audience.description}`).join('\n\n')
+const faq: string = USD_FAQ_ITEMS.map((item: FaqItem): string => `### ${item.question}\n\n${item.answer}`).join('\n\n')
 
-Fonte canônica: https://hodle.com.br/usd
+/** Serves the same USD facts and FAQ answers as the public page under Accept: text/markdown. */
+export const usdMarkdown: string = `# ${USD_PAGE_TITLE}
 
-## Como funciona
+> ${USD_PAGE_DESCRIPTION}
 
-1. Verifique a conta: KYC para pessoa física, KYB para empresa. A Conta USD é liberada depois da análise.
-2. Cadastre quem recebe: banco, routing number e conta nos EUA. A sua, a de um fornecedor ou a de um prestador.
-3. Veja a cotação e pague: a tela mostra quanto sai em reais, com a taxa incluída, antes de você gerar o Pix.
-4. O dólar chega: sai por ACH ou wire, e o app mostra cada etapa até cair na conta.
+Fonte canônica: ${USD_PAGE_URL}
+Atualizado em: ${pageUpdatedAt.usd}
 
-## Trilhos
+## Como enviar dólares com Pix
 
-- ACH: 1 a 3 dias úteis. Pede routing number e conta.
-- Wire: 1 a 2 dias úteis. Pede routing number, conta e endereço do banco.
+${steps}
 
-## Para quem
+## ACH ou wire: como escolher?
 
-- Empresas que pagam software, agência ou fornecedor nos Estados Unidos.
-- Quem abastece a própria conta americana, pessoal ou da LLC.
-- Plataformas que querem oferecer envio para os EUA aos seus clientes.
+Use o trilho indicado pelo destinatário. Confira os dados bancários, o prazo informado e a cotação antes de gerar o Pix. A transferência termina em dólares na conta bancária, sem exigir uma carteira cripto de quem recebe.
 
-## API
+${rails}
 
-Os endpoints de USD estão chegando à API da Hodle: cadastrar o destinatário, cotar, criar a transferência e acompanhar o status, com webhooks a cada etapa. Fale com o time para entrar no acesso antecipado.
+${audiences}
 
 ## Perguntas frequentes
 
-### Preciso ter conta fora do Brasil?
+${faq}
 
-Não. Você paga um Pix na Hodle e o dólar é enviado para a conta do destinatário nos Estados Unidos. Quem recebe precisa de conta num banco americano.
+## Continue explorando
 
-### Quanto custa?
-
-A cotação aparece antes de você gerar o Pix, com a taxa da Hodle já incluída. O valor em dólar que você vê é o que sai para o destinatário.
-
-### ACH ou wire: qual escolher?
-
-ACH chega em 1 a 3 dias úteis e pede routing number e conta. Wire chega em 1 a 2 dias úteis e também pede o endereço do banco. Use o que o destinatário indicar na fatura.
-
-### O que preciso para começar?
-
-Uma conta na Hodle com a verificação completa: identidade para pessoa física, dados da empresa para pessoa jurídica. A Conta USD é liberada depois da análise do time.
-
-### Posso oferecer isso aos meus clientes pela API?
-
-Os endpoints de USD estão chegando à API da Hodle. Fale com o time para entrar no acesso antecipado e desenhar a integração.
-
-### E se a transferência não chegar?
-
-Cada etapa aparece no app. Se o banco de destino recusar, por exemplo por dados de conta errados, o suporte da Hodle acompanha a devolução com você.
+- [Comprar USDT com Pix](https://hodle.com.br/comprar-usdt-com-pix): entrega em carteira de ativos digitais.
+- [Receber Pix em stablecoin](https://hodle.com.br/receber-pix-em-stablecoin): recebimento automático sujeito a habilitação.
+- [Termos da Hodle](https://hodle.com.br/termos): papel da plataforma e dos parceiros financeiros.
 `

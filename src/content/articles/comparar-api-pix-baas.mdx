@@ -1,12 +1,19 @@
 ---
-title: 'Como comparar API Pix e BaaS: Woovi, Asaas, iugu, Celcoin e Hodle'
-description: 'Compare finalidade, liquidação, stablecoins, custódia, testes e condições de API Pix e BaaS com fontes oficiais de cinco fornecedores.'
+title: 'Qual o melhor gateway Pix? Como escolher API e BaaS'
+description: 'Escolha gateway de pagamento e API Pix pelo seu fluxo: checkout, recebimento em reais ou stablecoin, conciliação e BaaS. Compare requisitos, custos e fontes oficiais.'
 date: '2026-09-22'
+updatedAt: '2026-09-29'
 category: 'mercado'
 author: 'Hodle'
 authorRole: 'Equipe Hodle'
 coverKicker: 'Critérios para escolher uma integração'
 faq:
+  - question: 'Qual o melhor gateway Pix para minha empresa?'
+    answer: 'O melhor gateway Pix depende de onde o dinheiro precisa chegar e de como você vende. Para vender por mensagem, avalie um link de pagamento; para automatizar pedidos, API e conciliação; para receber em stablecoin, confira ativo, rede, custódia e custo da conversão. Teste o mesmo cenário em cada fornecedor antes de escolher.'
+  - question: 'Preciso de gateway para começar a receber Pix?'
+    answer: 'Para um recebimento manual, uma chave ou QR Code na sua instituição pode atender. Um checkout ou uma API passam a fazer sentido quando você precisa relacionar pagamentos a pedidos, compartilhar links de venda, automatizar confirmações ou escolher outro ativo de liquidação.'
+  - question: 'API Pix grátis significa receber pagamentos sem taxa?'
+    answer: 'Não. Acesso à documentação ou a um ambiente de testes não define o custo da operação real. Compare tarifa por transação, mínimo, mensalidade, conversão e eventuais custos de rede ou repasse. Na Hodle, consulte a página de preços e as condições do fluxo habilitado para sua conta.'
   - question: 'Qual é a melhor API Pix para uma empresa?'
     answer: 'Depende do resultado que a empresa precisa: receber reais, dividir recebíveis, abrir contas ou converter para stablecoins. Compare a mesma operação, titularidade, moeda de liquidação, testes disponíveis e custo contratual. Este artigo não atribui um vencedor universal.'
   - question: 'Todas as APIs Pix liquidam em USDT ou USDC?'
@@ -14,6 +21,11 @@ faq:
   - question: 'Sandbox garante acesso ao mesmo produto em produção?'
     answer: 'Não. Credenciais, cadastro, aprovação comercial, permissões e recursos disponíveis podem ser diferentes. Na Hodle, o Pix é simulado nos fluxos suportados e contas nominais não têm equivalente no sandbox. A iugu também documenta a criação de subcontas apenas em produção.'
 ---
+
+**O melhor gateway Pix é o que atende ao percurso do seu pagamento, com custos e
+requisitos que sua empresa consegue operar.** Comece pelo canal de venda, pela
+moeda em que precisa receber e pela forma de confirmar o pagamento. Depois compare
+os fornecedores usando o mesmo cenário.
 
 Uma API Pix pode resolver uma cobrança pontual, uma rotina de repasses ou parte de
 uma operação de Banking as a Service. O primeiro passo para comparar fornecedores
@@ -25,6 +37,55 @@ Consultamos páginas oficiais de produto, documentação e preços em **22 de se
 de 2026**. Não é um teste de desempenho, auditoria regulatória ou ranking. Recursos
 não confirmados nas fontes consultadas são identificados como tal; isso não prova
 que o fornecedor não os ofereça por outro contrato.
+
+## Quero usar Pix: preciso de chave, link de pagamento ou API?
+
+Uma chave ou QR Code da sua instituição pode atender ao recebimento manual. Um
+gateway, checkout ou API passa a ser útil quando você precisa ligar o pagamento
+a um pedido e automatizar o que acontece depois. Escolha pelo trabalho a resolver:
+
+| Sua necessidade | O que avaliar | O que demonstrar antes de contratar |
+| --- | --- | --- |
+| Vender pelo WhatsApp ou por mensagem | Link de pagamento com checkout hospedado | Criação do produto, expiração da cobrança e confirmação do pedido |
+| Receber Pix no site ou no SaaS | API, consulta de status e webhooks | Assinatura do evento, repetição de notificações e recuperação após falha |
+| Receber em reais | Conta e regras de recebimento do fornecedor | Titularidade, prazo de disponibilidade, tarifa e retirada |
+| Receber em USDT ou USDC | Conversão, ativo, rede e carteira de destino | Aprovação da conta, custo total e confirmação da entrega do ativo |
+| Incorporar contas PJ ao produto | Contrato de BaaS, onboarding e parceiro financeiro | Elegibilidade, responsabilidades, permissões e cobertura de testes |
+
+Na Hodle, o [link de pagamento Pix](/link-de-pagamento-pix) atende à venda com
+checkout hospedado, sujeito à habilitação e ao ativo de liquidação da conta.
+A [API Pix](/api-pix) documenta os fluxos de integração. Para receber em dólar
+digital, confira o [gateway Pix para USDT](/gateway-de-pagamento-cripto).
+Esses caminhos não concedem automaticamente conta nominal, recebimento de
+terceiros ou cobrança recorrente.
+
+## Como comparar o custo total de um gateway de pagamento
+
+Compare o custo até o dinheiro chegar ao destino de que sua empresa precisa.
+Uma taxa de recebimento em reais e uma operação que inclui conversão e entrega
+de stablecoin cobrem percursos diferentes.
+
+Peça uma simulação com o seu número de cobranças, ticket médio e volume mensal.
+Separe mensalidade e setup, tarifa por operação, mínimo cobrado, conversão,
+custos de rede ou repasse e tratamento de devoluções. Confira também quanto chega
+ao destinatário e quais itens já estão incluídos, para não contar uma taxa duas vezes.
+
+**API Pix grátis não significa operação financeira gratuita.** Documentação e
+sandbox permitem avaliar uma integração; a cobrança em produção segue a tabela
+ou o contrato do fluxo. Na Hodle, a referência é a [página de preços](/precos),
+com as condições da conta e a cotação da operação.
+
+## Um teste de integração antes de escolher
+
+Crie um pedido de teste, gere a cobrança e consulte o estado após a confirmação.
+Repita a notificação para verificar se o pedido é concluído uma única vez. Teste
+também cobrança expirada e recuperação após uma consulta falhar. Quando houver
+conversão, confirme separadamente o Pix e a entrega do ativo.
+
+Os exemplos de [verificação de webhook](/articles/validar-webhook-pix-idempotencia)
+e [conciliação Pix](/articles/conciliacao-pix-api) mostram essas verificações com
+dados sintéticos e código reproduzível. Eles demonstram o tratamento dos eventos;
+não são medições de prazo de liquidação nem resultados de clientes.
 
 ## Defina a operação antes de comparar o preço
 

@@ -11,7 +11,7 @@ export default function ArticleJsonLd({ article }: { article: ArticleMeta }) {
     headline: article.title,
     description: article.description,
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: article.updatedAt ?? article.date,
     inLanguage: 'pt-BR',
     articleSection: article.category.label,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },

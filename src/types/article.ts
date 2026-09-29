@@ -23,6 +23,7 @@ export type ArticleMeta = {
   title: string
   description: string
   date: string
+  updatedAt?: string
   category: ArticleCategory
   author: ArticleAuthor
   cover: ArticleCover | null

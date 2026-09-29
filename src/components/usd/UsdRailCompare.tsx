@@ -67,9 +67,9 @@ export const UsdRailCompare = () => (
       <div className="px-6 lg:px-11 py-12 lg:py-14 flex flex-col gap-4">
         <div className={`${mono} text-[13px] tracking-[0.14em] text-[#A16207]`}>TRILHOS</div>
         <h2 id="usd-trilhos-h" className={`${heading} text-4xl lg:text-[44px] font-medium tracking-[-0.04em] leading-[1.08]`}>
-          Escolha como o dólar viaja.
+          ACH ou wire: como escolher?
         </h2>
-        <p className="text-lg leading-relaxed text-[#525252]">Os dois chegam em qualquer banco americano. Muda o prazo e o que o outro lado pede.</p>
+        <p className="text-lg leading-relaxed text-[#525252]">Use o trilho indicado pelo destinatário. Confira os dados bancários, o prazo informado e a cotação antes de gerar o Pix. A transferência termina em dólares na conta bancária, sem exigir uma carteira cripto de quem recebe.</p>
       </div>
       {USD_RAILS.map((rail, index) => (
         <RailCard key={rail.key} rail={rail} index={index} />

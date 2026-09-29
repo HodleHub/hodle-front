@@ -20,7 +20,7 @@ export const gatewayDePagamentoCripto: TopicPage = {
     'dolarizar faturamento',
   ],
   primaryKeyword: 'gateway pix para usdt',
-  updatedAt: '2026-09-22T00:00:00Z',
+  updatedAt: '2026-09-29T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'CHECKOUT E LINK DE PAGAMENTO',
@@ -45,6 +45,26 @@ export const gatewayDePagamentoCripto: TopicPage = {
     href: 'https://docs.hodle.com.br/docs/checkout',
   },
   sections: [
+    {
+      id: 'escolher-gateway',
+      kind: 'PROSE',
+      heading: 'Como escolher um gateway Pix para receber em stablecoin',
+      body: 'Comece pelo destino do pagamento: reais em conta e stablecoin na carteira são resultados diferentes. O gateway da Hodle atende à venda com pagamento em Pix e liquidação no ativo habilitado para o vendedor. Compare custo total, titularidade, moeda de liquidação e confirmação do pedido antes de escolher.',
+      bullets: [
+        'Para vender por mensagem, use o link de pagamento do checkout hospedado.',
+        'Para integrar o seu sistema, confira o contrato da API e como consultar cada pedido.',
+        'Para receber USDT ou USDC, confirme ativo, rede e habilitação da conta.',
+        'Pix confirmado e ativo entregue são etapas distintas; acompanhe as duas.',
+      ],
+      icons: [],
+      comparison: null,
+      code: null,
+      image: null,
+      links: [
+        { label: 'Qual o melhor gateway Pix para sua empresa?', href: '/articles/comparar-api-pix-baas' },
+        { label: 'Link de pagamento Pix', href: '/link-de-pagamento-pix' },
+      ],
+    },
     {
       id: 'o-que-e',
       kind: 'PROSE',
@@ -82,7 +102,7 @@ export const gatewayDePagamentoCripto: TopicPage = {
       id: 'dolarizacao',
       kind: 'COMPARISON',
       heading: 'Em que moeda o seu faturamento fica',
-      body: 'A escolha do ativo de liquidação é uma decisão de caixa, não de tecnologia. Vender em reais e receber em dólar digital protege a margem de quem tem custo em dólar ou simplesmente não quer carregar o real. Vender em reais e receber em real digital mantém o caixa na mesma moeda, mas on-chain e disponível 24 horas por dia.',
+      body: 'Escolha o ativo de liquidação pelo destino do seu caixa. Receber em dólar digital pode atender a quem tem despesas nessa moeda, mas muda a exposição cambial e envolve os riscos do ativo e da rede. Receber em real digital mantém a referência em reais, com entrega on-chain. Compare o valor líquido e as condições do mesmo percurso do pagamento.',
       bullets: [],
       icons: [],
       comparison: {
@@ -93,19 +113,19 @@ export const gatewayDePagamentoCripto: TopicPage = {
         ],
         rows: [
           [
-            'Gateway tradicional',
-            'Reais na conta bancária, no prazo do adquirente',
-            'Acompanha o real, e o caixa espera o repasse',
+            'Recebimento em reais',
+            'Reais em conta bancária ou de pagamento',
+            'Disponibilidade e tarifas conforme a instituição e o contrato',
           ],
           [
             'Hodle — Real digital',
-            'BRLA ou BRS na sua carteira, quando o Pix confirma',
-            'Acompanha o real, disponível 24 horas por dia',
+            'BRLA ou BRS na carteira, conforme o par habilitado',
+            'Referência em reais; confirme a conclusão da entrega on-chain',
           ],
           [
             'Hodle — Dólar digital',
-            'USDT ou USDC na sua carteira, quando o Pix confirma',
-            'Acompanha o dólar, sem passar por operação de câmbio manual',
+            'USDT ou USDC na carteira, conforme o par habilitado',
+            'Referência em dólar; confira conversão, taxas e entrega on-chain',
           ],
         ],
       },

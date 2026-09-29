@@ -34,6 +34,11 @@ export const UsdAudiences = () => (
           </div>
         ))}
       </div>
+      <nav aria-label="Outros fluxos de dólar e stablecoin" className="flex flex-wrap gap-x-6 gap-y-3 px-6 lg:px-10 py-6 text-sm border-t border-[#E5E5E5]">
+        <a href="/comprar-usdt-com-pix" className="underline underline-offset-4">Comprar USDT com Pix</a>
+        <a href="/receber-pix-em-stablecoin" className="underline underline-offset-4">Receber Pix em stablecoin</a>
+        <a href="/termos" className="underline underline-offset-4">Termos da Hodle</a>
+      </nav>
     </div>
   </section>
 )

@@ -5,12 +5,14 @@ import { ArticleAuthor } from '../../types/article'
 type ArticleBylineProps = {
   author: ArticleAuthor
   date: string
+  updatedAt?: string
   readingMinutes: number
 }
 
 export default function ArticleByline({
   author,
   date,
+  updatedAt,
   readingMinutes,
 }: ArticleBylineProps) {
   return (
@@ -29,6 +31,8 @@ export default function ArticleByline({
       </span>
 
       <time dateTime={date}>{formatArticleDate({ date })}</time>
+
+      {updatedAt && <span>Atualizado em <time dateTime={updatedAt}>{formatArticleDate({ date: updatedAt })}</time></span>}
 
       <span>{readingMinutes} min de leitura</span>
     </div>

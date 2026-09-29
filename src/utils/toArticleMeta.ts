@@ -45,6 +45,7 @@ export const toArticleMeta = ({
   title: data.title,
   description: data.description,
   date: data.date,
+  updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : undefined,
   category: articleCategories[data.category] || defaultArticleCategory,
   author: {
     name: data.author || DEFAULT_AUTHOR_NAME,

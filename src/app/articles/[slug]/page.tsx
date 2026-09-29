@@ -59,6 +59,7 @@ export async function generateMetadata({
       type: 'article',
       locale: 'pt_BR',
       publishedTime: article.date,
+      modifiedTime: article.updatedAt ?? article.date,
       section: article.category.label,
       images,
     },
@@ -118,6 +119,7 @@ export default async function ArticlePage({
               <ArticleByline
                 author={article.author}
                 date={article.date}
+                updatedAt={article.updatedAt}
                 readingMinutes={article.readingMinutes}
               />
             </div>

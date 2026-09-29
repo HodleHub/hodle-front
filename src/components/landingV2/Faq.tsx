@@ -1,28 +1,18 @@
-'use client'
-
-import { useState } from 'react'
+import type { ReactElement } from 'react'
 import { Plus } from 'lucide-react'
 import { FAQ_ITEMS, type FaqItem } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
-const CLOSED = -1
-
 type FaqProps = {
   items?: FaqItem[]
 }
 
 /**
- * FAQ accordion, one question open at a time. Defaults to the home questions.
+ * Renders every answer in HTML with a native accordion that also works without JavaScript.
  */
-export const Faq = ({ items = FAQ_ITEMS }: FaqProps) => {
-  const [openIndex, setOpenIndex] = useState<number>(0)
-
-  const toggle = (index: number): void => {
-    setOpenIndex((current) => (current === index ? CLOSED : index))
-  }
-
+export const Faq = ({ items = FAQ_ITEMS }: FaqProps): ReactElement => {
   return (
     <section id="faq" aria-labelledby="lv2-faq-h" className="lv2-sec">
       <SectionMarks />
@@ -41,34 +31,23 @@ export const Faq = ({ items = FAQ_ITEMS }: FaqProps) => {
           </p>
         </div>
         <div className="flex flex-col">
-          {items.map((item, index) => {
-            const open = index === openIndex
-            const panelId = `lv2-faq-panel-${index}`
-
-            return (
-              <div key={item.question} className="border-b border-[#E5E5E5] last:border-b-0">
-                <button
-                  type="button"
-                  onClick={() => toggle(index)}
-                  aria-expanded={open}
-                  aria-controls={panelId}
-                  className={`w-full flex justify-between items-center gap-5 px-6 lg:px-9 py-5 text-left text-lg font-medium transition-colors ${open ? 'bg-[#FFFDF5]' : 'bg-white hover:bg-[#FAFAFA]'}`}
+          {items.map((item: FaqItem, index: number): ReactElement => (
+            <details key={item.question} name="landing-faq" open={index === 0} className="group border-b border-[#E5E5E5] last:border-b-0">
+              <summary
+                className="w-full flex justify-between items-center gap-5 px-6 lg:px-9 py-5 text-left text-lg font-medium transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden bg-white hover:bg-[#FAFAFA] group-open:bg-[#FFFDF5]"
+              >
+                <span>{item.question}</span>
+                <span
+                  className="w-[30px] h-[30px] shrink-0 rounded-lg flex items-center justify-center transition-colors bg-[#F5F5F5] group-open:bg-[#EAB308]"
                 >
-                  <span>{item.question}</span>
-                  <span
-                    className={`w-[30px] h-[30px] shrink-0 rounded-lg flex items-center justify-center transition-colors ${open ? 'bg-[#EAB308]' : 'bg-[#F5F5F5]'}`}
-                  >
-                    <Plus className={`w-4 h-4 transition-transform duration-300 ${open ? 'rotate-45' : ''}`} aria-hidden="true" />
-                  </span>
-                </button>
-                {open && (
-                  <p id={panelId} className="lv2-fade-up px-6 lg:px-9 pr-16 lg:pr-24 pb-6 text-base leading-relaxed text-[#525252] bg-[#FFFDF5]">
-                    {item.answer}
-                  </p>
-                )}
-              </div>
-            )
-          })}
+                  <Plus className="w-4 h-4 transition-transform duration-300 group-open:rotate-45" aria-hidden="true" />
+                </span>
+              </summary>
+              <p className="lv2-fade-up px-6 lg:px-9 pr-16 lg:pr-24 pb-6 text-base leading-relaxed text-[#525252] bg-[#FFFDF5]">
+                {item.answer}
+              </p>
+            </details>
+          ))}
         </div>
       </div>
     </section>

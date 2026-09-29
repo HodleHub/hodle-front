@@ -58,3 +58,21 @@ it('does not accept inherited object keys as campaign sources', () => {
     expect(getAcquisition({ url: `https://hodle.com.br/?utm_source=${source}`, referrer: '' })).toMatchObject({ source: 'direct', medium: 'none' })
   }
 })
+
+it.each(['gemini', 'copilot', 'chatgpt', 'perplexity', 'claude'])('preserves the %s source and USD landing on the app handoff', (source: string): void => {
+  const acquisition: ReturnType<typeof getAcquisition> = getAcquisition({ url: `https://hodle.com.br/usd?utm_source=${source}&utm_campaign=seo-usd`, referrer: '' })
+
+  expect(acquisition).toMatchObject({ success: true, source, campaign: 'seo-usd', landing: '/usd' })
+
+  if (!acquisition.success) throw new Error(acquisition.error)
+
+  const result: ReturnType<typeof buildAppAttributionUrl> = buildAppAttributionUrl({ url: new URL('https://app.hodle.com.br/'), ...acquisition })
+
+  if (!result.success) throw new Error(result.error)
+
+  const destination: URL = new URL(result.href)
+
+  expect(destination.searchParams.get('utm_source')).toBe(source)
+  expect(destination.searchParams.get('hodle_landing')).toBe('/usd')
+  expect(destination.searchParams.get('utm_campaign')).toBe('seo-usd')
+})

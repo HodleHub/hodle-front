@@ -14,7 +14,7 @@ export const pix: TopicPage = {
     "gateway pix"
   ],
   "primaryKeyword": "pix para empresas",
-  "updatedAt": "2026-09-22T00:00:00Z",
+  "updatedAt": "2026-09-29T00:00:00Z",
   "changeFrequency": "monthly",
   "priority": 0.8,
   "kicker": "PIX PARA EMPRESAS",
@@ -46,7 +46,7 @@ export const pix: TopicPage = {
     {
       "id": "produtos-pix",
       "kind": "COMPARISON",
-      "heading": "Produtos Pix para cada etapa da operação",
+      "heading": "Quero usar Pix na empresa: qual solução escolher?",
       "body": "Uma empresa que vende por link tem uma necessidade diferente de uma fintech que integra pagamentos. A Hodle reúne esses caminhos: checkout com QR Code, API para entrada e saída via Pix e contas nominais PJ por meio de instituição parceira.\n\nO ponto de partida é decidir quem paga, quem recebe e em qual moeda o valor será entregue. A mesma palavra “Pix” pode descrever uma venda, uma transferência ou a compra de um ativo digital; cada operação tem condições próprias.",
       "bullets": [],
       "icons": [],
@@ -76,11 +76,26 @@ export const pix: TopicPage = {
             "Oferecer conta PJ nominal",
             "Abertura no parceiro via integração Hodle",
             "Disponível só em produção; aprovação e KYB"
+          ],
+          [
+            "Pagar fornecedor nos Estados Unidos",
+            "Conta USD: Pix no Brasil, ACH ou wire nos EUA",
+            "Cadastro aprovado e destinatário elegível; API em preparação"
           ]
         ]
       },
       "code": null,
-      "image": null
+      "image": null,
+      "links": [
+        {
+          "label": "Escolher gateway, API Pix ou BaaS",
+          "href": "/articles/comparar-api-pix-baas"
+        },
+        {
+          "label": "Enviar dólares para os EUA com Pix",
+          "href": "/usd"
+        }
+      ]
     },
     {
       "id": "receber-pix",
@@ -139,6 +154,10 @@ export const pix: TopicPage = {
   "faqSubhead": "Respostas para avaliar a solução e preparar sua operação.",
   "faq": [
     {
+      "question": "Preciso de uma API para começar a usar Pix na empresa?",
+      "answer": "Não necessariamente. Se precisa cobrar uma venda por mensagem, um link de pagamento com checkout hospedado pode atender, conforme a habilitação da conta. A API serve para automatizar operações dentro do seu sistema. Para recebimentos manuais em reais, avalie também a chave ou QR Code da sua instituição."
+    },
+    {
       "question": "Como receber Pix na empresa com a Hodle?",
       "answer": "Use o checkout para criar um link com QR Code ou integre o fluxo de depósito por API. No checkout, a liquidação segue o ativo habilitado na conta. Recebimentos por chave com conversão automática são um produto específico e dependem de liberação."
     },
@@ -183,6 +202,14 @@ export const pix: TopicPage = {
     {
       "label": "Preços e taxas",
       "href": "/precos"
+    },
+    {
+      "label": "Como escolher gateway e API Pix",
+      "href": "/articles/comparar-api-pix-baas"
+    },
+    {
+      "label": "Enviar dólares com Pix",
+      "href": "/usd"
     }
   ],
   "ogImage": "/og-image-v2.png"

@@ -11,6 +11,7 @@ import { UsdRailGrid } from '../../components/usd/UsdRailGrid'
 import { UsdStats } from '../../components/usd/UsdStats'
 import { UsdSteps } from '../../components/usd/UsdSteps'
 import { USD_FAQ_ITEMS, USD_PAGE_DESCRIPTION, USD_PAGE_TITLE, USD_PAGE_URL } from '../../components/usd/usdData'
+import { pageUpdatedAt } from '../../content/pageUpdatedAt'
 
 const title = USD_PAGE_TITLE
 const description = USD_PAGE_DESCRIPTION
@@ -51,6 +52,7 @@ const webpageJsonLd = {
   name: title,
   description,
   url: USD_PAGE_URL,
+  dateModified: pageUpdatedAt.usd,
   inLanguage: 'pt-BR',
   isPartOf: {
     '@type': 'WebSite',
