@@ -39,7 +39,12 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     term: 'BRLA',
     definition:
-      'Stablecoin lastreada em real, de emissão privada. É o real onchain que circula em redes públicas.',
+      'Stablecoin de referência em reais emitida pela Avenia. Na Hodle, os fluxos documentados usam Polygon ou Base, conforme a operação e a habilitação da conta.',
+  },
+  {
+    term: 'BRS',
+    definition:
+      'Stablecoin de referência em reais do ecossistema Nora Finance. Na Hodle, a compra com Pix entrega na carteira Solana da própria conta, com BRS habilitado e apenas em produção.',
   },
   {
     term: 'Carteira custodial',

@@ -17,7 +17,7 @@ export const BrsDeveloperSection = ({
   return (
     <section
       id="developer"
-      className="border-t border-gray-200 bg-gray-50/50"
+      className="overflow-x-clip border-t border-gray-200 bg-gray-50/50"
     >
       <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
         <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
@@ -42,7 +42,7 @@ export const BrsDeveloperSection = ({
                 </li>
               ))}
             </ul>
-            <Link href="https://docs.hodle.com.br" target="_blank">
+            <Link href="https://docs.hodle.com.br/docs/asset-brs" target="_blank">
               <ButtonShadow
                 as="span"
                 size="sm"
@@ -58,7 +58,7 @@ export const BrsDeveloperSection = ({
           <AnimatedSection
             delay={0.2}
             direction="right"
-            className="flex-1 w-full"
+            className="flex-1 w-full min-w-0"
           >
             <BrsCodeBlock comment={copy.codeComment} />
           </AnimatedSection>

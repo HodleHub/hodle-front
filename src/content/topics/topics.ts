@@ -1,4 +1,5 @@
 import { TopicPage } from '../../types/topic'
+import { brla } from './brla'
 import { realOnchain } from './realOnchain'
 import { pagarPixComUsdt } from './pagarPixComUsdt'
 import { apiPixStablecoin } from './apiPixStablecoin'
@@ -30,6 +31,7 @@ export const topics: TopicPage[] = [
   baas,
   contaDigitalPj,
   realOnchain,
+  brla,
   pagarPixComUsdt,
   lightningParaPix,
   comprarBitcoinComPix,

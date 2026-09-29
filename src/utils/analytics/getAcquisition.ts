@@ -27,7 +27,7 @@ const paths: Set<string> = new Set([
   ...articleMarkdownSlugs.map((slug: string): string => `/articles/${slug}`),
 ])
 const mediums: string[] = ['organic', 'referral', 'social', 'email', 'cpc', 'paid-social']
-const campaigns: string[] = ['pix', 'api-pix', 'baas', 'stablecoins', 'seo-pix-baas', 'usd', 'seo-usd', 'gateway-pix']
+const campaigns: string[] = ['pix', 'api-pix', 'baas', 'stablecoins', 'seo-pix-baas', 'usd', 'seo-usd', 'gateway-pix', 'brs', 'brla']
 
 /** Reduces acquisition data to a fixed vocabulary; URLs and arbitrary query values never become event properties. */
 export const getAcquisition = ({ url, referrer }: GetAcquisitionArgs): GetAcquisitionResult => {

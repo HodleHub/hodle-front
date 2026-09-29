@@ -1,7 +1,9 @@
 export type BrsCopy = {
   hero: {
     eyebrow: string
-    titleSuffix: string
+    title: string
+    metadataTitle: string
+    availability: string
     description: string
     issuer: string
     buyCta: string
@@ -11,17 +13,17 @@ export type BrsCopy = {
   valueProps: {
     eyebrow: string
     title: string
-    items: readonly { title: string; desc: string }[]
+    items: { title: string; desc: string }[]
   }
   howItWorks: {
     eyebrow: string
     title: string
-    steps: readonly { number: string; title: string; desc: string }[]
+    steps: { number: string; title: string; desc: string }[]
   }
   useCases: {
     eyebrow: string
     title: string
-    items: readonly { title: string; desc: string }[]
+    items: { title: string; desc: string }[]
     closingLead: string
     closingHighlight: string
   }
@@ -29,13 +31,13 @@ export type BrsCopy = {
     eyebrow: string
     title: string
     description: string
-    items: readonly string[]
+    items: string[]
     docsCta: string
   }
   faq: {
     eyebrow: string
     title: string
-    items: readonly { question: string; answer: string }[]
+    items: { question: string; answer: string }[]
   }
   finalCta: {
     eyebrow: string
@@ -43,294 +45,379 @@ export type BrsCopy = {
     description: string
     buyCta: string
   }
+  resources: {
+    title: string
+    reviewed: string
+    links: { label: string; href: string }[]
+  }
   codeComment: string
 }
 
 export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
-  pt: {
-    hero: {
-      eyebrow: 'BRS na Hodle',
-      titleSuffix: 'do Real',
-      description:
-        'BRS é o Real digital 1:1, emitido pela Nora Finance e disponível na Hodle. Entra e sai em Pix, 24 horas por dia, e circula on-chain na velocidade da internet.',
-      issuer: 'Emitido pela Nora Finance',
-      buyCta: 'Comprar BRS',
-      apiCta: 'Ver a API',
-      mapLabel: 'São Paulo',
+  "pt": {
+    "hero": {
+      "eyebrow": "BRS na Hodle",
+      "title": "BRS: compre com Pix na Hodle",
+      "metadataTitle": "BRS: comprar com Pix e pagar em reais",
+      "description": "BRS é a stablecoin vinculada ao real do ecossistema Nora Finance. Na Hodle, compre BRS com Pix, receba na sua carteira Solana e use o saldo nos fluxos de transferência e pagamento habilitados para sua conta.",
+      "availability": "Disponível só em produção, após aprovação cadastral e habilitação de BRS na conta.",
+      "issuer": "BRS · Nora Finance",
+      "buyCta": "Comprar BRS na Hodle",
+      "apiCta": "Integrar BRS por API",
+      "mapLabel": "São Paulo"
     },
-    valueProps: {
-      eyebrow: 'Por que BRS',
-      title: 'O Real que nunca dorme',
-      items: [
+    "valueProps": {
+      "eyebrow": "BRS e Hodle",
+      "title": "O ativo em reais. A operação na Hodle.",
+      "items": [
         {
-          title: '1:1 lastreado em Real',
-          desc: 'Cada BRS em circulação é respaldado por reais em reserva, sem surpresas de paridade.',
+          "title": "Referência de 1 BRS para R$ 1",
+          "desc": "A Nora apresenta o BRS como um ativo lastreado com paridade de referência em reais. Consulte as informações de reservas na fonte oficial."
         },
         {
-          title: 'Liquidação instantânea via Pix',
-          desc: 'Entrada e saída em Pix, 24 horas por dia, todos os dias — sem esperar horário bancário.',
+          "title": "Compra com Pix",
+          "desc": "Gere a cobrança na Hodle e acompanhe a entrega. A confirmação do Pix e a chegada do BRS à carteira são etapas diferentes."
         },
         {
-          title: 'On-chain, na Solana',
-          desc: 'BRS circula na rede Solana. Envie e receba direto na carteira, sem fronteiras.',
+          "title": "Sua carteira Solana",
+          "desc": "Na compra pela Hodle, o BRS é entregue na carteira Solana da própria conta. Uma transferência posterior pode enviar o token a outro endereço compatível."
         },
         {
-          title: 'Nora Finance, disponível na Hodle',
-          desc: 'BRS é emitido pela Nora Finance. Na Hodle, você compra, guarda e movimenta com Pix.',
+          "title": "Plataforma e API da Hodle",
+          "desc": "A Hodle conecta a compra, a carteira e os pagamentos. A emissão do ativo segue o ecossistema Nora; a Hodle não emite a stablecoin."
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Passo a passo",
+      "title": "Como comprar BRS com Pix na Hodle",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Prepare a conta",
+          "desc": "Conclua a verificação cadastral, confirme a habilitação de BRS e tenha uma carteira Solana na Hodle."
         },
+        {
+          "number": "02",
+          "title": "Confira e pague o Pix",
+          "desc": "Escolha BRS, confira o valor líquido, as condições e o mínimo aplicável antes de pagar a cobrança."
+        },
+        {
+          "number": "03",
+          "title": "Acompanhe a entrega",
+          "desc": "O BRS chega à carteira Solana da própria conta após a conclusão da operação. Não use a confirmação do Pix como confirmação de entrega."
+        },
+        {
+          "number": "04",
+          "title": "Transfira ou pague",
+          "desc": "Com saldo disponível, use a transferência on-chain ou o pagamento Pix habilitado e acompanhe o status até a conclusão."
+        }
+      ]
+    },
+    "useCases": {
+      "eyebrow": "Usos na plataforma",
+      "title": "O que fazer com BRS na Hodle",
+      "items": [
+        {
+          "title": "Comprar BRS com reais",
+          "desc": "Entre por Pix em uma conta habilitada e receba o token na sua própria carteira Solana."
+        },
+        {
+          "title": "Consultar saldo da carteira",
+          "desc": "Acompanhe o saldo BRS e as operações na Hodle. Consulte a carteira após a confirmação de entrega."
+        },
+        {
+          "title": "Transferir BRS on-chain",
+          "desc": "Envie um saldo já disponível para um endereço compatível. Transferir tokens é um fluxo diferente de pagar Pix."
+        },
+        {
+          "title": "Pagar uma chave ou QR Code Pix",
+          "desc": "Use BRS para financiar um pagamento em reais, com o destinatário conferido e a funcionalidade liberada."
+        },
+        {
+          "title": "Integrar o produto por API",
+          "desc": "Conecte cadastro, compra, consulta e pagamentos ao seu sistema, respeitando as permissões de cada conta."
+        },
+        {
+          "title": "Conciliar cada etapa",
+          "desc": "Associe a cobrança ao pedido e acompanhe consulta de status e eventos. Uma operação pendente ainda não é uma operação concluída."
+        }
       ],
+      "closingLead": "Escolha o fluxo pelo destino do dinheiro.",
+      "closingHighlight": "BRS na carteira ou reais via Pix."
     },
-    howItWorks: {
-      eyebrow: 'Como funciona',
-      title: 'Do Pix ao on-chain, e de volta',
-      steps: [
-        {
-          number: '01',
-          title: 'Pix in',
-          desc: 'Você paga um Pix na Hodle, do valor que quiser.',
-        },
-        {
-          number: '02',
-          title: 'BRS na carteira',
-          desc: 'O Real vira BRS e cai na sua carteira auto-custodial.',
-        },
-        {
-          number: '03',
-          title: 'Envia e recebe on-chain',
-          desc: 'Movimente BRS entre carteiras na rede Solana.',
-        },
-        {
-          number: '04',
-          title: 'Pix out',
-          desc: 'Converta de volta para reais e saque via Pix quando quiser.',
-        },
+    "developer": {
+      "eyebrow": "Para desenvolvedores",
+      "title": "API da Hodle para BRS e Pix",
+      "description": "A compra usa POST /api/deposit/asset com BRS e solana. O valor é informado em centavos; o destino é a carteira Solana da própria conta. O exemplo cria uma cobrança: a entrega é assíncrona e deve ser acompanhada conforme a documentação.",
+      "items": [
+        "Conta de produção aprovada, BRS habilitado e carteira Solana criada",
+        "Compra sem campo de endereço; transferência posterior em /api/wallet/transfer",
+        "Pagamento Pix do saldo em /api/wallet/payout, sujeito à habilitação"
       ],
+      "docsCta": "Ver o guia BRS da Hodle"
     },
-    useCases: {
-      eyebrow: 'Real programável',
-      title: 'O que dá para construir com o Real programável',
-      items: [
+    "faq": {
+      "eyebrow": "Perguntas sobre BRS",
+      "title": "BRS, Pix e Hodle: respostas diretas",
+      "items": [
         {
-          title: 'Contas em BRL com liquidação on-chain instantânea',
-          desc: 'Saldo em Real que se move na velocidade da blockchain, sem D+1.',
+          "question": "O que é BRS e qual a relação com a Hodle?",
+          "answer": "BRS é uma stablecoin de referência em reais do ecossistema Nora Finance. A Hodle oferece acesso à compra com Pix, carteira e integração de pagamentos para contas habilitadas. A Hodle não é a emissora do BRS."
         },
         {
-          title: 'Contas com rendimento automático',
-          desc: 'O saldo em BRS parado rende sozinho, sem produto financeiro à parte.',
+          "question": "Onde comprar BRS com Pix?",
+          "answer": "Na Hodle, uma conta aprovada e habilitada para BRS pode gerar uma compra com Pix. Prepare sua carteira Solana, confira as condições e acompanhe o status até a entrega do BRS na carteira da própria conta."
         },
         {
-          title: 'Folha de pagamento e pagamentos recorrentes',
-          desc: 'Salários e assinaturas liquidados automaticamente, no dia certo.',
+          "question": "Posso comprar BRS para uma carteira de terceiros?",
+          "answer": "A compra de BRS pela Hodle entrega na carteira Solana da própria conta. Para enviar a outro endereço compatível, primeiro conclua a compra e depois use o fluxo de transferência on-chain."
         },
         {
-          title: 'Escrow programável e pagamentos por marcos',
-          desc: 'Fundos retidos por contrato até a entrega ser confirmada.',
+          "question": "Como transformar BRS em Pix ou pagar um QR Code?",
+          "answer": "Na Hodle, o saldo BRS pode financiar um pagamento para chave Pix ou QR Code, com a função de pagamento habilitada. Confirme o beneficiário, o valor e o status final. A solicitação pode ficar pendente enquanto a liquidação é processada."
         },
         {
-          title: 'Tesouraria em BRS para empresas globais',
-          desc: 'Caixa em Real acessível de qualquer lugar, 24 horas por dia.',
+          "question": "Em qual rede a Hodle opera a compra de BRS?",
+          "answer": "A compra documentada de BRS na Hodle usa Solana. Confirme o ativo e a rede indicados na operação; suporte do ecossistema Nora a outras redes não implica disponibilidade do mesmo fluxo na Hodle."
         },
         {
-          title: 'FX automatizado entre BRS, USDC e USDT',
-          desc: 'Câmbio programático entre moedas digitais, liquidado em segundos.',
+          "question": "Qual a diferença entre BRS e BRLA na Hodle?",
+          "answer": "São ativos distintos com referência no real. BRS pertence ao ecossistema Nora e a compra na Hodle entrega na sua carteira Solana. BRLA é emitido pela Avenia e os fluxos documentados da Hodle usam Polygon ou Base, conforme a operação e a habilitação da conta."
         },
-      ],
-      closingLead: 'Não é só colocar o Real on-chain.',
-      closingHighlight: 'É transformar dinheiro em software.',
+        {
+          "question": "Qual o custo para comprar BRS?",
+          "answer": "Confira o valor líquido mostrado na operação e as condições da sua conta. O tratamento de custos pode variar por configuração; a paridade de referência com o real não garante que toda operação tenha custo zero."
+        },
+        {
+          "question": "BRS rende automaticamente na Hodle?",
+          "answer": "Manter BRS na carteira não significa contratar um produto de rendimento na Hodle. Uso em um protocolo de terceiros é uma operação separada, com condições e riscos próprios; esta página descreve compra, transferência e pagamentos."
+        },
+        {
+          "question": "BRS funciona no sandbox da Hodle?",
+          "answer": "Não. BRS está disponível só em produção na Hodle, com aprovação cadastral e habilitação por conta. O sandbox não reproduz a operação real de BRS em Solana."
+        }
+      ]
     },
-    developer: {
-      eyebrow: 'Developer',
-      title: 'Uma API para mover BRS',
-      description:
-        'Envie um payout em BRS direto para uma carteira on-chain, ou receba via Pix e converta automaticamente. Tudo pela mesma API que já move Pix, dólar e stablecoins na Hodle.',
-      items: [
-        'API REST para enviar e receber BRS via Pix ou on-chain',
-        'Webhooks em tempo real para cada movimentação',
-        'Liquidação on-chain na rede Solana',
-      ],
-      docsCta: 'Ver documentação',
+    "finalCta": {
+      "eyebrow": "Comece pela sua conta",
+      "title": "Compre e movimente BRS na Hodle",
+      "description": "Confira a habilitação de BRS, prepare sua carteira e veja as condições antes de gerar o Pix.",
+      "buyCta": "Abrir conta na Hodle"
     },
-    faq: {
-      eyebrow: 'FAQ',
-      title: 'Perguntas frequentes',
-      items: [
+    "resources": {
+      "title": "Fontes e próximos passos",
+      "reviewed": "Conteúdo revisado em 29 de setembro de 2026.",
+      "links": [
         {
-          question: 'O que é o BRS?',
-          answer:
-            'BRS é uma stablecoin de Real, emitida pela Nora Finance. Cada BRS é lastreado 1:1 em reais mantidos em reserva, e você pode comprar, guardar e movimentar BRS na Hodle.',
+          "label": "BRS: guia de compra e pagamento da Hodle",
+          "href": "https://docs.hodle.com.br/docs/asset-brs"
         },
         {
-          question: 'A Hodle emite o BRS?',
-          answer:
-            'Não. O BRS é emitido pela Nora Finance. A Hodle é a plataforma onde você compra, guarda em carteira auto-custodial e movimenta BRS via Pix ou on-chain.',
+          "label": "BRS no ecossistema Nora Finance",
+          "href": "https://www.nora.finance/"
         },
         {
-          question: 'Como eu compro e saco BRS?',
-          answer:
-            'Você paga um Pix na Hodle e recebe BRS na sua carteira. Para sacar, converte o BRS de volta para reais e recebe via Pix, 24 horas por dia.',
+          "label": "BRLA com Pix na Hodle",
+          "href": "/brla"
         },
         {
-          question: 'Em quais redes o BRS existe?',
-          answer:
-            'BRS circula on-chain na rede Solana, onde você recebe e envia direto da sua carteira.',
+          "label": "Entenda o real onchain",
+          "href": "/real-onchain"
         },
         {
-          question: 'Quanto tempo leva a liquidação?',
-          answer:
-            'A entrada e a saída via Pix são praticamente instantâneas. Movimentações on-chain seguem o tempo de confirmação da rede escolhida.',
+          "label": "Preços e condições",
+          "href": "/precos"
         },
-      ],
+        {
+          "label": "Papel da Hodle e dos parceiros",
+          "href": "/termos"
+        }
+      ]
     },
-    finalCta: {
-      eyebrow: 'Comece agora',
-      title: 'O Real, do jeito que sempre devia ter sido',
-      description:
-        'Compre BRS em segundos com Pix, guarde em uma carteira auto-custodial e movimente on-chain sem fronteiras.',
-      buyCta: 'Comprar BRS',
-    },
-    codeComment: '// Payout: BRS da sua conta -> carteira on-chain',
+    "codeComment": "Compra BRS: valor em centavos; entrega na sua carteira Solana."
   },
-  en: {
-    hero: {
-      eyebrow: 'BRS at Hodle',
-      titleSuffix: 'for the Real',
-      description:
-        'BRS is the 1:1 digital Real, issued by Nora Finance and available on Hodle. Move in and out via Pix, 24 hours a day, and circulate on-chain at internet speed.',
-      issuer: 'Issued by Nora Finance',
-      buyCta: 'Buy BRS',
-      apiCta: 'View the API',
-      mapLabel: 'São Paulo',
+  "en": {
+    "hero": {
+      "eyebrow": "BRS at Hodle",
+      "title": "BRS: buy with Pix on Hodle",
+      "metadataTitle": "BRS: buy with Pix and pay in Brazilian reais",
+      "description": "BRS is the Brazilian Real stablecoin in the Nora Finance ecosystem. On Hodle, buy BRS with Pix, receive it in your Solana wallet and use the transfer and payment flows enabled for your account.",
+      "availability": "Available only in production, after account approval and BRS enablement.",
+      "issuer": "BRS · Nora Finance",
+      "buyCta": "Buy BRS on Hodle",
+      "apiCta": "Integrate the BRS API",
+      "mapLabel": "São Paulo"
     },
-    valueProps: {
-      eyebrow: 'Why BRS',
-      title: 'The Real that never sleeps',
-      items: [
+    "valueProps": {
+      "eyebrow": "BRS and Hodle",
+      "title": "The BRL asset. Your workflow on Hodle.",
+      "items": [
         {
-          title: '1:1 backed by the Real',
-          desc: 'Every BRS in circulation is backed by reais held in reserve, with no parity surprises.',
+          "title": "A reference peg of 1 BRS to R$ 1",
+          "desc": "Nora describes BRS as a reserve-backed asset pegged to the Brazilian Real. Consult the official reserve information."
         },
         {
-          title: 'Instant settlement via Pix',
-          desc: 'On-ramp and off-ramp via Pix, 24 hours a day, every day — no banking hours required.',
+          "title": "Buy with Pix",
+          "desc": "Create a payment request on Hodle and follow delivery. Pix payment confirmation and BRS arrival in the wallet are separate steps."
         },
         {
-          title: 'On-chain on Solana',
-          desc: 'BRS circulates on Solana. Send and receive directly from your wallet, without borders.',
+          "title": "Your Solana wallet",
+          "desc": "A Hodle BRS purchase delivers to the account’s own Solana wallet. A later transfer can send the token to another compatible address."
         },
         {
-          title: 'Nora Finance, available on Hodle',
-          desc: 'BRS is issued by Nora Finance. On Hodle, buy, hold, and move it via Pix.',
+          "title": "Hodle platform and API",
+          "desc": "Hodle connects purchases, wallets and payments. Asset issuance belongs to the Nora ecosystem; Hodle does not issue the stablecoin."
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Step by step",
+      "title": "How to buy BRS with Pix on Hodle",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Prepare your account",
+          "desc": "Complete identity verification, confirm BRS enablement and create a Solana wallet on Hodle."
         },
+        {
+          "number": "02",
+          "title": "Review and pay with Pix",
+          "desc": "Select BRS and check the net amount, conditions and applicable minimum before paying."
+        },
+        {
+          "number": "03",
+          "title": "Follow delivery",
+          "desc": "BRS arrives in the account’s own Solana wallet when the operation completes. Pix confirmation alone does not confirm token delivery."
+        },
+        {
+          "number": "04",
+          "title": "Transfer or pay",
+          "desc": "Use an available balance for an enabled on-chain transfer or Pix payment and follow its status through completion."
+        }
+      ]
+    },
+    "useCases": {
+      "eyebrow": "Platform use cases",
+      "title": "What you can do with BRS on Hodle",
+      "items": [
+        {
+          "title": "Buy BRS with reais",
+          "desc": "Pay with Pix through an enabled account and receive the token in your own Solana wallet."
+        },
+        {
+          "title": "Check wallet balances",
+          "desc": "Follow your BRS balance and operations on Hodle. Check the wallet after delivery confirmation."
+        },
+        {
+          "title": "Transfer BRS on-chain",
+          "desc": "Send an available balance to a compatible address. A token transfer is a different flow from a Pix payment."
+        },
+        {
+          "title": "Pay a Pix key or QR code",
+          "desc": "Use BRS to fund a payment in reais after verifying the beneficiary and enabling the payment feature."
+        },
+        {
+          "title": "Integrate through the API",
+          "desc": "Connect onboarding, purchases, queries and payments to your product, subject to each account’s permissions."
+        },
+        {
+          "title": "Reconcile each step",
+          "desc": "Match the payment request to your order and follow status queries and events. A pending operation is not a completed operation."
+        }
       ],
+      "closingLead": "Choose the flow by its destination.",
+      "closingHighlight": "BRS in a wallet or reais through Pix."
     },
-    howItWorks: {
-      eyebrow: 'How it works',
-      title: 'From Pix to on-chain and back',
-      steps: [
-        {
-          number: '01',
-          title: 'Pix in',
-          desc: 'Pay a Pix through Hodle for any amount.',
-        },
-        {
-          number: '02',
-          title: 'BRS in your wallet',
-          desc: 'Your Real becomes BRS and lands in your self-custodial wallet.',
-        },
-        {
-          number: '03',
-          title: 'Send and receive on-chain',
-          desc: 'Move BRS between wallets on Solana.',
-        },
-        {
-          number: '04',
-          title: 'Pix out',
-          desc: 'Convert back to reais and cash out via Pix whenever you want.',
-        },
+    "developer": {
+      "eyebrow": "For developers",
+      "title": "Hodle API for BRS and Pix",
+      "description": "Purchases use POST /api/deposit/asset with BRS and solana. The value is in BRL cents and delivery goes to the account’s own Solana wallet. This example creates a payment request: delivery is asynchronous and must be tracked as documented.",
+      "items": [
+        "Approved production account, BRS enabled and a Solana wallet created",
+        "Purchases omit the address field; subsequent transfers use /api/wallet/transfer",
+        "Pix payments from the balance use /api/wallet/payout, subject to enablement"
       ],
+      "docsCta": "Read the Hodle BRS guide"
     },
-    useCases: {
-      eyebrow: 'Programmable Real',
-      title: 'What you can build with a programmable Real',
-      items: [
+    "faq": {
+      "eyebrow": "BRS questions",
+      "title": "BRS, Pix and Hodle: direct answers",
+      "items": [
         {
-          title: 'BRL accounts with instant on-chain settlement',
-          desc: 'A Real balance that moves at blockchain speed, with no D+1.',
+          "question": "What is BRS and how is it related to Hodle?",
+          "answer": "BRS is a Brazilian Real stablecoin in the Nora Finance ecosystem. Hodle provides Pix purchases, wallets and payment integrations for enabled accounts. Hodle does not issue BRS."
         },
         {
-          title: 'Accounts with automatic yield',
-          desc: 'Idle BRS balances earn automatically, with no separate financial product.',
+          "question": "Where can I buy BRS with Pix?",
+          "answer": "On Hodle, an approved account with BRS enabled can create a Pix purchase. Prepare your Solana wallet, review the conditions and track the operation until BRS reaches the account’s own wallet."
         },
         {
-          title: 'Payroll and recurring payments',
-          desc: 'Salaries and subscriptions settled automatically, on the right day.',
+          "question": "Can I buy BRS for a third-party wallet?",
+          "answer": "A BRS purchase through Hodle delivers to the account’s own Solana wallet. To send BRS to another compatible address, complete the purchase and then use an on-chain transfer."
         },
         {
-          title: 'Programmable escrow and milestone payments',
-          desc: 'Funds held by contract until delivery is confirmed.',
+          "question": "How can I convert BRS to Pix or pay a QR code?",
+          "answer": "On Hodle, a BRS balance can fund a payment to a Pix key or QR code when the payment feature is enabled. Confirm the beneficiary, amount and final status. A request can remain pending while settlement is processed."
         },
         {
-          title: 'BRS treasury for global companies',
-          desc: 'Real-denominated cash accessible from anywhere, 24 hours a day.',
+          "question": "Which network does Hodle use for BRS purchases?",
+          "answer": "The documented BRS purchase flow on Hodle uses Solana. Check the asset and network shown for your operation; Nora ecosystem support for other networks does not imply that the same flow is available on Hodle."
         },
         {
-          title: 'Automated FX between BRS, USDC, and USDT',
-          desc: 'Programmatic currency conversion between digital assets, settled in seconds.',
+          "question": "How do BRS and BRLA differ on Hodle?",
+          "answer": "They are distinct BRL-pegged assets. BRS belongs to the Nora ecosystem and a Hodle purchase delivers to your Solana wallet. BRLA is issued by Avenia and documented Hodle flows use Polygon or Base, depending on the operation and account enablement."
         },
-      ],
-      closingLead: 'Putting the Real on-chain is only the beginning.',
-      closingHighlight: "It's turning money into software.",
+        {
+          "question": "What does buying BRS cost?",
+          "answer": "Check the net amount shown for the operation and your account conditions. Cost treatment can vary by configuration; a peg to the real does not mean every operation has zero cost."
+        },
+        {
+          "question": "Does BRS earn automatically on Hodle?",
+          "answer": "Holding BRS in a wallet does not mean you have subscribed to a yield product on Hodle. Using a third-party protocol is a separate operation with its own conditions and risks; this page describes purchases, transfers and payments."
+        },
+        {
+          "question": "Does BRS work in the Hodle sandbox?",
+          "answer": "No. BRS is available only in production on Hodle, after account approval and enablement. The sandbox does not reproduce a real BRS operation on Solana."
+        }
+      ]
     },
-    developer: {
-      eyebrow: 'Developer',
-      title: 'An API to move BRS',
-      description:
-        'Send a BRS payout directly to an on-chain wallet, or receive via Pix and convert automatically. All through the same API that already moves Pix, dollars, and stablecoins on Hodle.',
-      items: [
-        'REST API to send and receive BRS via Pix or on-chain',
-        'Real-time webhooks for every movement',
-        'On-chain settlement on Solana',
-      ],
-      docsCta: 'View documentation',
+    "finalCta": {
+      "eyebrow": "Start with your account",
+      "title": "Buy and move BRS on Hodle",
+      "description": "Confirm BRS enablement, prepare your wallet and review the conditions before creating a Pix payment request.",
+      "buyCta": "Open a Hodle account"
     },
-    faq: {
-      eyebrow: 'FAQ',
-      title: 'Frequently asked questions',
-      items: [
+    "resources": {
+      "title": "Sources and next steps",
+      "reviewed": "Content reviewed on September 29, 2026.",
+      "links": [
         {
-          question: "What's BRS?",
-          answer:
-            'BRS is a Real-denominated stablecoin issued by Nora Finance. Each BRS is backed 1:1 by reais held in reserve, and you can buy, hold, and move BRS on Hodle.',
+          "label": "Hodle BRS purchase and payment guide",
+          "href": "https://docs.hodle.com.br/docs/asset-brs"
         },
         {
-          question: 'Does Hodle issue BRS?',
-          answer:
-            'No. BRS is issued by Nora Finance. Hodle is the platform where you buy, hold BRS in a self-custodial wallet, and move it via Pix or on-chain.',
+          "label": "BRS in the Nora Finance ecosystem",
+          "href": "https://www.nora.finance/"
         },
         {
-          question: 'How do I buy and cash out BRS?',
-          answer:
-            'Pay a Pix on Hodle and receive BRS in your wallet. To cash out, convert BRS back to reais and receive them via Pix, 24/7.',
+          "label": "BRLA with Pix on Hodle (Português)",
+          "href": "/brla"
         },
         {
-          question: 'Which networks is BRS available on?',
-          answer:
-            'BRS circulates on-chain on Solana, where you can send and receive directly from your wallet.',
+          "label": "Real onchain explained (Português)",
+          "href": "/real-onchain"
         },
         {
-          question: 'How long does settlement take?',
-          answer:
-            'Pix deposits and withdrawals are practically instant. On-chain transfers follow the confirmation time of the selected network.',
+          "label": "Pricing and conditions (Português)",
+          "href": "/precos"
         },
-      ],
+        {
+          "label": "Hodle and its partners (Português)",
+          "href": "/termos"
+        }
+      ]
     },
-    finalCta: {
-      eyebrow: 'Start now',
-      title: 'The Real, the way it should have always been',
-      description:
-        'Buy BRS in seconds with Pix, hold it in a self-custodial wallet, and move it on-chain without borders.',
-      buyCta: 'Buy BRS',
-    },
-    codeComment: '// Payout: BRS from your account -> on-chain wallet',
-  },
+    "codeComment": "BRS purchase: value in BRL cents; delivery to your Solana wallet."
+  }
 }

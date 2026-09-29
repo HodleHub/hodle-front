@@ -75,6 +75,7 @@ export function Footer() {
                   label: 'BRS stablecoin',
                   href: isEnglish ? '/en/brs' : '/brs',
                 },
+                { label: isEnglish ? 'BRLA with Pix (Português)' : 'BRLA com Pix', href: '/brla' },
                 {
                   label: isEnglish
                     ? 'Receive Pix in stablecoin'

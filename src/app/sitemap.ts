@@ -128,7 +128,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/brs`,
-      lastModified: new Date('2026-08-03'),
+      alternates: { languages: { 'pt-BR': `${siteUrl}/brs`, en: `${siteUrl}/en/brs` } },
+      lastModified: new Date(pageUpdatedAt.brs),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -140,7 +141,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/en/brs`,
-      lastModified: new Date('2026-08-05'),
+      alternates: { languages: { 'pt-BR': `${siteUrl}/brs`, en: `${siteUrl}/en/brs` } },
+      lastModified: new Date(pageUpdatedAt.brs),
       changeFrequency: 'monthly',
       priority: 0.8,
     },

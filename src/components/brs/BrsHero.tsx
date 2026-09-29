@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { ButtonShadow } from '../ui/ButtonShadow'
 import { LatamDotMap } from './LatamDotMap'
 import { SaoPauloMarker } from './SaoPauloMarker'
-import { GlobalToLocal } from './GlobalToLocal'
 import { NoraBadge } from './NoraBadge'
 import { brsCopy, type BrsCopy } from './brsCopy'
 
@@ -59,15 +58,15 @@ export const BrsHero = ({ copy = brsCopy.pt, languageLink }: BrsHeroProps) => {
             <h1
               className={`${heading} text-[clamp(2.6rem,6.6vw,5.2rem)] font-light text-foreground leading-[1.05] mb-7 tracking-[-0.03em] text-balance`}
             >
-              A stablecoin{' '}
-              <span className="block sm:inline">
-                <GlobalToLocal />
-              </span>{' '}
-              {copy.hero.titleSuffix}
+              {copy.hero.title}
             </h1>
 
             <p className="text-lg lg:text-xl text-gray-500 max-w-[560px] mx-auto lg:mx-0 mb-6 leading-relaxed text-pretty">
               {copy.hero.description}
+            </p>
+
+            <p className="mb-6 rounded-xl border border-[#009c3b]/20 bg-[#009c3b]/5 px-4 py-3 text-sm text-gray-600">
+              {copy.hero.availability}
             </p>
 
             <div className="flex justify-center lg:justify-start mb-9">

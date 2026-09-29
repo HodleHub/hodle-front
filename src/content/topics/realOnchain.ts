@@ -5,29 +5,29 @@ export const realOnchain: TopicPage = {
   title: 'Real tokenizado: stablecoin de real com Pix',
   h1: 'Receba em Pix, guarde em real onchain',
   description:
-    'Como funciona o real tokenizado na prática: entra Pix, sai BRLA na rede Polygon, converte em dólar digital e volta em Pix — por API ou pela plataforma.',
+    'Entenda BRS e BRLA na Hodle: real tokenizado, compra com Pix, redes, carteiras e pagamentos. Compare os ativos e escolha o fluxo disponível para sua conta.',
   keywords: [
     'real tokenizado',
     'real onchain',
     'stablecoin de real',
     'stablecoin brasileira',
     'BRLA',
-    'BRZ',
-    'BRL1',
+    'BRS',
     'Drex',
     'Pix',
     'Polygon',
   ],
   primaryKeyword: 'real tokenizado',
-  updatedAt: '2026-07-30T21:22:16-03:00',
+  updatedAt: '2026-09-29T00:00:00Z',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'Real onchain',
   subhead:
-    'O real tokenizado é o real que circula em blockchain. Na Hodle você entra por Pix, recebe BRLA na rede Polygon e converte para dólar digital quando quiser.',
+    'Real onchain é um ativo digital com referência no real brasileiro. Na Hodle, conheça BRS e BRLA, os fluxos de compra com Pix e as redes disponíveis para cada operação.',
   heroIcons: [
     { src: '/pix.svg', label: 'Pix' },
     { src: '/brla.png', label: 'BRLA' },
+    { src: '/brs.svg', label: 'BRS' },
     { src: '/polygon.svg', label: 'Polygon' },
     { src: '/usdt.svg', label: 'USDT' },
     { src: '/usdc.svg', label: 'USDC' },
@@ -44,12 +44,12 @@ export const realOnchain: TopicPage = {
       id: 'o-que-e',
       kind: 'PROSE',
       heading: 'O que é real tokenizado',
-      body: 'Real tokenizado é um token emitido em blockchain com paridade de 1 para 1 com o real: cada unidade equivale a R$ 1 e é lastreada em reais mantidos fora da rede. O termo real onchain descreve o mesmo ativo pelo lado da operação — o real que você movimenta em rede pública, 24 horas por dia, sem depender do horário bancário. Na Hodle, o real onchain é o BRLA, emitido pela Avenia.',
+      body: 'Real tokenizado, ou real onchain, é uma expressão para ativos digitais privados que buscam acompanhar o real brasileiro. BRS e BRLA são exemplos distintos: BRS pertence ao ecossistema Nora Finance e BRLA é emitido pela Avenia. A Hodle oferece acesso aos fluxos habilitados de compra, carteira e pagamento; não emite esses ativos.',
       bullets: [
-        'Paridade de 1 para 1 com o real, com lastro mantido fora da rede',
-        'Liquidação em segundos, 24 horas por dia, inclusive no fim de semana',
+        'Referência de 1 para 1 com o real; consulte o lastro na fonte de cada ativo',
+        'Pix confirmado e token entregue são etapas diferentes da operação',
         'Emissão privada: não é o Drex e não é moeda do Banco Central',
-        'Na Hodle, circula na rede Polygon',
+        'Na Hodle, confira ativo, rede e habilitação antes de iniciar',
       ],
       icons: [],
       comparison: null,
@@ -62,10 +62,10 @@ export const realOnchain: TopicPage = {
       heading: 'Como funciona na prática: do Pix ao real onchain',
       body: 'O caminho é o mesmo que a sua operação já faz em reais. A diferença é que, no meio do trajeto, o dinheiro passa a circular em rede pública.',
       bullets: [
-        'Você envia um Pix para a sua conta na Hodle.',
-        'O valor vira BRLA na rede Polygon, com paridade de 1 para 1 com o real.',
-        'Com saldo em real onchain você transfere para endereços e parceiros ou converte para dólar digital em USDT e USDC.',
-        'Quando precisar de reais na conta bancária, a saída também é Pix.',
+        'Com a conta aprovada, escolha o ativo e confira as condições antes de pagar a cobrança Pix.',
+        'A compra de BRLA usa um endereço na rede habilitada; a compra de BRS entrega na carteira Solana da própria conta.',
+        'Aguarde a entrega do ativo; depois use a transferência ou o pagamento permitido para seu saldo.',
+        'Para receber reais via Pix, confira o destinatário e acompanhe a operação de pagamento até a conclusão.',
       ],
       icons: [],
       comparison: null,
@@ -76,15 +76,16 @@ export const realOnchain: TopicPage = {
       id: 'onde-circula',
       kind: 'ASSETS',
       heading: 'Onde o real onchain circula na Hodle',
-      body: 'A Hodle opera o BRLA na rede Polygon, ao lado do dólar digital e do Pix. É a combinação que permite receber em real, guardar em dólar e pagar em stablecoin sem trocar de plataforma.',
+      body: 'Nos fluxos documentados da Hodle, BRLA opera em Polygon e Base, enquanto a compra de BRS entrega na carteira Solana da própria conta. Cada combinação de ativo, rede e operação tem condições de disponibilidade.',
       bullets: [
-        'BRLA: real onchain na rede Polygon',
-        'USDT e USDC: dólar digital para proteger poder de compra',
+        'BRLA: fluxos documentados em Polygon e Base',
+        'BRS: compra documentada em Solana, na carteira da própria conta',
         'Pix: entrada e saída em reais, 24 horas por dia',
-        'Compra e recebimento de BRLA disponíveis para contas com KYC completo',
+        'Verificação cadastral e habilitação conforme o ativo e o fluxo',
       ],
       icons: [
         { src: '/brla.png', label: 'BRLA' },
+        { src: '/brs.svg', label: 'BRS' },
         { src: '/polygon.svg', label: 'Polygon' },
         { src: '/pix.svg', label: 'Pix' },
         { src: '/usdt.svg', label: 'USDT' },
@@ -95,49 +96,63 @@ export const realOnchain: TopicPage = {
       image: null,
     },
     {
-      id: 'brla-brz-brl1',
-      kind: 'COMPARISON',
-      heading: 'BRLA, BRZ e BRL1: qual é a diferença?',
-      body: 'Existem mais de dez stablecoins de real em circulação. Todas prometem paridade com o real; o que muda é quem emite, o que dá lastro e onde o token circula.',
-      bullets: [],
-      icons: [],
-      comparison: {
-        headers: ['Token', 'Quem emite', 'Lastro', 'Na Hodle'],
-        rows: [
-          [
-            'BRLA',
-            'Avenia, empresa privada brasileira',
-            'Reais em reserva, 1 para 1',
-            'Sim: compra, recebimento e transferência por API na Polygon',
-          ],
-          [
-            'BRZ',
-            'Transfero, empresa privada',
-            'Reais em reserva, 1 para 1',
-            'Não',
-          ],
-          [
-            'BRL1',
-            'Consórcio de Foxbit, Bitso, Mercado Bitcoin e Cainvest',
-            'Reais em reserva, 1 para 1',
-            'Não',
-          ],
-          [
-            'Drex',
-            'Banco Central do Brasil',
-            'Emissão soberana',
-            'Não: é infraestrutura do Banco Central, não uma stablecoin',
-          ],
+      "id": "brla-brz-brl1",
+      "kind": "COMPARISON",
+      "heading": "BRS e BRLA: qual real onchain usar na Hodle?",
+      "body": "Escolha pelo destino e pela rede de sua operação. Os ativos têm referência no real, mas não compartilham os mesmos emissores, contratos ou condições de entrega.",
+      "bullets": [],
+      "icons": [],
+      "comparison": {
+        "headers": [
+          "Critério",
+          "BRS",
+          "BRLA"
         ],
+        "rows": [
+          [
+            "Ecossistema",
+            "Nora Finance",
+            "Avenia"
+          ],
+          [
+            "Compra documentada na Hodle",
+            "Solana",
+            "Polygon e Base, conforme habilitação"
+          ],
+          [
+            "Destino da compra",
+            "Carteira Solana da própria conta",
+            "Endereço informado na rede selecionada"
+          ],
+          [
+            "Acesso",
+            "Produção e BRS habilitado na conta",
+            "Verificação e habilitação do fluxo"
+          ]
+        ]
       },
-      code: null,
-      image: null,
+      "code": null,
+      "image": null,
+      "links": [
+        {
+          "label": "BRS: comprar com Pix na Hodle",
+          "href": "/brs"
+        },
+        {
+          "label": "BRLA: comprar com Pix na Hodle",
+          "href": "/brla"
+        },
+        {
+          "label": "Ativos e redes na API Hodle",
+          "href": "https://docs.hodle.com.br/docs/assets"
+        }
+      ]
     },
     {
       id: 'vs-drex',
       kind: 'PROSE',
       heading: 'Real onchain e Drex não são a mesma coisa',
-      body: 'O Drex é o projeto de moeda digital do Banco Central: emissão soberana, infraestrutura própria e acesso intermediado por instituições autorizadas. O real tokenizado é emissão privada, com lastro em reais custodiados, e já circula em redes públicas. Um não substitui o outro — enquanto o Drex avança, o real onchain já liquida pagamentos em segundos.',
+      body: 'O Drex é o projeto de moeda digital do Banco Central: emissão soberana, infraestrutura própria e acesso intermediado por instituições autorizadas. O real tokenizado é emissão privada, com lastro em reais custodiados, e já circula em redes públicas. Consulte as condições de cada infraestrutura; a disponibilidade e a conclusão dos pagamentos dependem do fluxo utilizado.',
       bullets: [
         'Drex: moeda digital do Banco Central, com emissão soberana',
         'Real tokenizado: emissão privada com lastro em reais',
@@ -152,12 +167,12 @@ export const realOnchain: TopicPage = {
       id: 'rendimento',
       kind: 'PROSE',
       heading: 'Real onchain rende?',
-      body: 'Depende do token. Algumas stablecoins de real são lastreadas em títulos públicos e repassam parte do rendimento das reservas para quem carrega o token. Outras, como o BRLA, são lastreadas em reais e não distribuem rendimento por si. Existe ainda rendimento oferecido por protocolos onchain, que carrega o risco do protocolo, não do emissor. A Hodle não oferece produto de rendimento em real hoje.',
+      body: 'Comprar e manter uma stablecoin na carteira não significa contratar um produto de rendimento na Hodle. O lastro informado pelo emissor e uma aplicação em protocolo de terceiros são coisas diferentes. Avalie as condições de cada operação separadamente.',
       bullets: [
-        'Stablecoin lastreada em títulos públicos pode repassar o rendimento das reservas',
-        'BRLA é lastreado em reais e não distribui rendimento',
+        'Consulte como o ativo é lastreado nas fontes oficiais',
+        'Não deduza rendimento do saldo pela composição das reservas',
         'Rendimento em protocolo onchain é risco do protocolo, não do emissor',
-        'A Hodle não oferece produto de rendimento em real hoje',
+        'Esta página descreve compra, transferência e pagamentos',
       ],
       icons: [],
       comparison: null,
@@ -168,7 +183,7 @@ export const realOnchain: TopicPage = {
       id: 'api',
       kind: 'CODE',
       heading: 'Real onchain no seu produto, por API',
-      body: 'A mesma operação existe como API: sua aplicação recebe por Pix, movimenta BRLA na rede Polygon e converte para dólar digital sem passar por tela. A transferência on-chain é assinada e submetida pelo servidor, com gas patrocinado, então seu time não gerencia carteira nem taxa de rede. O acesso à API de transferência é liberado por conta.',
+      body: 'A API da Hodle separa compra, transferência de saldo e pagamento Pix. O exemplo mostra uma transferência de BRLA já disponível na carteira em Polygon; não cria uma compra. Valide as credenciais, a carteira de origem, o endereço e a habilitação na documentação antes de integrar.',
       bullets: [
         'Transferência de BRLA, USDT e USDC na Polygon em um endpoint',
         'Gas patrocinado: sem gerenciar saldo de rede',
@@ -185,6 +200,7 @@ export const realOnchain: TopicPage = {
   -H "Content-Type: application/json" \\
   -d '{
     "asset": "BRLA",
+    "network": "polygon",
     "amount": "50",
     "recipientAddress": "0x520ec4aD3BdC629D13a49dB558D7F6813f3696aD",
     "reference": "pedido-9f3c1a",
@@ -203,7 +219,7 @@ export const realOnchain: TopicPage = {
     {
       question: 'O que é real tokenizado?',
       answer:
-        'Real tokenizado é um token em blockchain com paridade de 1 para 1 com o real, lastreado em reais mantidos fora da rede. Ele permite transferir reais em segundos, 24 horas por dia, sem depender do horário bancário. Na Hodle, o real tokenizado é o BRLA, emitido pela Avenia e operado na rede Polygon.',
+        'Real tokenizado é um ativo digital privado com referência no real brasileiro. Na Hodle, BRS e BRLA permitem operar essa referência em redes e fluxos distintos, conforme a disponibilidade da conta. A compra e a transferência de tokens são diferentes de manter um saldo bancário em reais.',
     },
     {
       question: 'Qual a diferença entre real onchain e Drex (real digital)?',
@@ -213,20 +229,24 @@ export const realOnchain: TopicPage = {
     {
       question: 'Como comprar BRLA com Pix?',
       answer:
-        'Você envia um Pix para a sua conta na Hodle e escolhe BRLA como ativo; o valor é creditado na rede Polygon. A compra de BRLA está disponível para contas com KYC completo.',
+        'Na Hodle, conclua a verificação exigida, selecione BRLA e confira a rede e o endereço disponíveis na operação. Revise o valor líquido e as taxas, pague a cobrança Pix e acompanhe a entrega. Os fluxos documentados de BRLA incluem Polygon e Base.',
     },
     {
       question: 'Quem emite o BRLA e o que dá lastro ao token?',
       answer:
-        'O BRLA é emitido pela Avenia, empresa privada brasileira, com lastro em reais mantidos em reserva na proporção de 1 para 1. Não é moeda do Banco Central e não tem garantia soberana.',
+        'BRLA é emitido pela Avenia, que publica informações sobre a paridade de referência com o real e as reservas. A Hodle oferece os fluxos de operação do ativo e não é sua emissora. Consulte a composição e os relatórios na fonte do ativo.',
     },
     {
       question: 'Real onchain rende?',
       answer:
-        'O BRLA não distribui rendimento, porque é lastreado em reais. Existem stablecoins de real lastreadas em títulos públicos que repassam parte do rendimento das reservas, e existe rendimento oferecido por protocolos onchain, que carrega o risco do protocolo. A Hodle não oferece produto de rendimento em real hoje.',
+        'Manter BRLA ou BRS na carteira não significa contratar rendimento na Hodle. O uso de um token em protocolos de terceiros é uma operação separada, com condições e riscos próprios.',
     },
   ],
   related: [
+    { label: 'Comprar BRS com Pix', href: '/brs' },
+    { label: 'Comprar BRLA com Pix', href: '/brla' },
+    { label: 'BRS no ecossistema Nora', href: 'https://www.nora.finance/' },
+    { label: 'BRLA e reservas na Avenia', href: 'https://avenia.io/brla' },
     { label: 'Perguntas frequentes', href: '/faq' },
     { label: 'Preços e taxas', href: '/precos' },
     { label: 'Artigos', href: '/articles' },
