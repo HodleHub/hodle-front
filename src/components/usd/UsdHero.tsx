@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { APP_URL, WHATSAPP_URL } from '../landingV2/landingV2Data'
 import { UsdDashboardMock } from './UsdDashboardMock'
+import { USD_PAGE_DESCRIPTION } from './usdData'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -34,14 +35,14 @@ export const UsdHero = () => (
         <h1
           className={`${heading} mt-8 text-[clamp(2.6rem,6.4vw,5.25rem)] leading-[1.02] font-medium tracking-[-0.045em] max-w-[1060px] text-balance`}
         >
-          <span className="lv2-up lv2-u2 inline-block">Pague em Pix,</span>{' '}
+          <span className="lv2-up lv2-u2 inline-block">Envie dólares para os EUA</span>{' '}
           <span className="lv2-up lv2-u3 inline-block">
-            chegue em <span className="lv2-gtext">dólar.</span>
+            pagando com <span className="lv2-gtext">Pix.</span>
           </span>
         </h1>
 
         <p className="lv2-up lv2-u4 mt-7 text-lg lg:text-xl leading-relaxed text-[#525252] max-w-[660px]">
-          Envie dólares para qualquer conta bancária nos Estados Unidos a partir de um Pix. Por ACH ou wire, sem abrir conta lá fora e com a cotação na tela antes de pagar.
+          {USD_PAGE_DESCRIPTION}
         </p>
 
         <div className="lv2-up lv2-u5 mt-9 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">

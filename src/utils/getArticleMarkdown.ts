@@ -29,6 +29,7 @@ export const getArticleMarkdown = ({
     '',
     ...(data.description ? [`> ${data.description}`, ''] : []),
     `Fonte canônica: ${siteUrl}/articles/${slug}${data.date ? ` — publicado em ${data.date}` : ''}.`,
+    ...(typeof data.updatedAt === 'string' ? [`Atualizado em ${data.updatedAt}.`] : []),
     '',
     content.trim(),
     ...articleFaqToMarkdown({ items: toArticleFaq({ data }) }),

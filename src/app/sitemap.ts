@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllArticles } from '../utils/getAllArticles'
 import { getAllTopics } from '../utils/getAllTopics'
 import { pageUpdatedAt } from '../content/pageUpdatedAt'
+import type { ArticleMeta } from '../types/article'
 import { englishPixStablecoin } from '../content/topics/englishPixStablecoin'
 
 const siteUrl = 'https://hodle.com.br'
@@ -29,12 +30,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles()
   const topics = getAllTopics()
 
-  const newestArticleDate = articles[0]?.date
+  const newestArticleDate: string = articles.reduce((latestDate: string, article: ArticleMeta): string => {
+    const modifiedDate: string = article.updatedAt ?? article.date
+
+    return modifiedDate > latestDate ? modifiedDate : latestDate
+  }, '')
 
   const articleEntries: MetadataRoute.Sitemap = articles.map(
-    (article: { slug: string; date: string }) => ({
+    (article: ArticleMeta) => ({
       url: `${siteUrl}/articles/${article.slug}`,
-      lastModified: new Date(article.date),
+      lastModified: new Date(article.updatedAt ?? article.date),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }),
@@ -129,7 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/usd`,
-      lastModified: new Date('2026-09-24'),
+      lastModified: new Date(pageUpdatedAt.usd),
       changeFrequency: 'monthly',
       priority: 0.8,
     },

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "locale": "pt-BR",
   "market": "BR",
   "baselineDate": "2026-09-22",
@@ -31,7 +31,7 @@
       "activated integrations",
       "revenue"
     ],
-    "dashboard": "Vercel project was verified as Hobby on 2026-09-22; custom event collection is disabled until a compatible plan and NEXT_PUBLIC_VERCEL_CUSTOM_EVENTS=true are configured. Existing pageview analytics and app attribution links remain available. GA4 measurement ID requested as an alternative; not yet supplied.",
+    "dashboard": "Vercel Hobby does not expose custom events. Collection remains disabled until a compatible plan and NEXT_PUBLIC_VERCEL_CUSTOM_EVENTS=true are configured. Pageview analytics and bounded app attribution links work without that flag. No plan upgrade or analytics vendor was activated by this release.",
     "collectionStatus": "prepared_not_enabled"
   },
   "engines": [
@@ -39,7 +39,8 @@
     "ChatGPT Search",
     "Perplexity",
     "Claude web search",
-    "Bing Copilot"
+    "Bing Copilot",
+    "Gemini"
   ],
   "prompts": [
     {
@@ -161,6 +162,66 @@
       "intent": "limitations",
       "prompt": "Como funciona o sandbox da API Hodle?",
       "targetUrl": "https://hodle.com.br/desenvolvedores"
+    },
+    {
+      "id": "usd-01",
+      "intent": "transactional",
+      "prompt": "Como enviar dinheiro para os Estados Unidos pagando Pix?",
+      "targetUrl": "https://hodle.com.br/usd"
+    },
+    {
+      "id": "usd-02",
+      "intent": "transactional",
+      "prompt": "Como pagar um fornecedor americano a partir do Brasil?",
+      "targetUrl": "https://hodle.com.br/usd"
+    },
+    {
+      "id": "usd-03",
+      "intent": "transactional",
+      "prompt": "Posso enviar reais por Pix para minha própria conta nos EUA?",
+      "targetUrl": "https://hodle.com.br/usd"
+    },
+    {
+      "id": "usd-04",
+      "intent": "comparison",
+      "prompt": "ACH ou wire: qual escolher para enviar dólares?",
+      "targetUrl": "https://hodle.com.br/usd"
+    },
+    {
+      "id": "usd-05",
+      "intent": "comparison",
+      "prompt": "Enviar USD para um banco é igual a comprar USDT?",
+      "targetUrl": "https://hodle.com.br/usd"
+    },
+    {
+      "id": "usd-06",
+      "intent": "limitations",
+      "prompt": "A API USD da Hodle já está disponível?",
+      "targetUrl": "https://hodle.com.br/usd"
+    },
+    {
+      "id": "gateway-01",
+      "intent": "comparison",
+      "prompt": "Qual o melhor gateway Pix para minha empresa?",
+      "targetUrl": "https://hodle.com.br/articles/comparar-api-pix-baas"
+    },
+    {
+      "id": "gateway-02",
+      "intent": "commercial",
+      "prompt": "API Pix grátis significa receber pagamentos sem taxa?",
+      "targetUrl": "https://hodle.com.br/articles/comparar-api-pix-baas"
+    },
+    {
+      "id": "gateway-03",
+      "intent": "category",
+      "prompt": "Quero usar Pix na empresa: preciso de link de pagamento ou API?",
+      "targetUrl": "https://hodle.com.br/pix"
+    },
+    {
+      "id": "gateway-04",
+      "intent": "transactional",
+      "prompt": "Como receber vendas em USDT com um gateway Pix?",
+      "targetUrl": "https://hodle.com.br/gateway-de-pagamento-cripto"
     }
   ],
   "observationFields": [
@@ -193,5 +254,6 @@
     ],
     "nextAction": "Confirm authorized partner contacts and accurate integration scope before requesting directory listings or editorial references. Use public technical evidence and disclose the relationship; no bought links or fabricated endorsements."
   },
-  "baselineLocation": "Private Search Console audit retained outside this public repository; do not publish account analytics or customer data."
+  "baselineLocation": "Private Search Console audit retained outside this public repository; do not publish account analytics or customer data.",
+  "updatedAt": "2026-09-29"
 }

@@ -1,6 +1,6 @@
 # Hodle
 
-> Last updated: 2026-09-22. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
+> Last updated: 2026-09-29. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
 
 > Hodle provides Pix and stablecoin payment software for companies operating with Brazil. Its API and dashboard connect Pix payment links, payment tracking, self-custodial wallets, and conversions between BRL and digital assets. In a BaaS architecture, Hodle provides the software orchestration layer; licensed and/or regulated partners provide the financial services.
 
@@ -35,6 +35,8 @@
 - For the extended version of this file, see https://hodle.com.br/llms-full.txt
 
 ## What Hodle Does
+
+- **Send USD to US bank accounts using Pix**: https://hodle.com.br/usd explains paying a US supplier or funding an eligible personal or company account via ACH or wire. The sender pays BRL through Pix after account approval and a quote. The dashboard is available subject to eligibility; USD API endpoints are in preparation and are not generally available. A bank USD transfer is distinct from buying USDT for a crypto wallet.
 
 - **Pix collection and payment links**: a hosted checkout lets customers pay in BRL through a Pix QR Code or copy-and-paste code. Settlement uses the asset and network enabled for the merchant account.
 - **Pix reconciliation**: follow order status, account statements, and supported events to match payments to operations. The integration must distinguish payment confirmation from completion of asset settlement.

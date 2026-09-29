@@ -2,10 +2,10 @@ import type { FaqItem } from '../landingV2/landingV2Data'
 
 export const USD_PAGE_URL = 'https://hodle.com.br/usd'
 
-export const USD_PAGE_TITLE = 'Conta USD: pague em Pix, chegue em dólar nos EUA'
+export const USD_PAGE_TITLE = 'Enviar dinheiro para os EUA com Pix | Conta USD'
 
 export const USD_PAGE_DESCRIPTION =
-  'Envie dólares para qualquer conta bancária nos Estados Unidos a partir de um Pix, por ACH ou wire, sem abrir conta lá fora. Cotação na tela antes de pagar.'
+  'Envie dólares para uma conta nos Estados Unidos pagando Pix. Pague fornecedores ou transfira para sua conta por ACH ou wire, com cotação antes de confirmar.'
 
 export type UsdRail = {
   key: string
@@ -54,36 +54,56 @@ export type UsdAudience = {
 export const USD_AUDIENCES: UsdAudience[] = [
   {
     tag: '01 · EMPRESAS',
-    title: 'Fornecedor lá fora.',
-    description: 'Pague software, agência ou fornecedor americano da conta da empresa, com a verificação feita uma vez.',
+    title: 'Pagar fornecedor nos EUA.',
+    description: 'Cadastre o fornecedor como destinatário, confira os dados bancários da fatura e escolha ACH ou wire conforme a instrução de recebimento. Depois de aprovada a conta da sua empresa, consulte a cotação, pague o Pix e acompanhe a transferência pelo painel.',
   },
   {
     tag: '02 · CONTA PRÓPRIA',
-    title: 'A sua conta nos EUA.',
-    description: 'Abasteça a sua conta americana, pessoal ou da sua LLC, pagando um Pix aqui no Brasil.',
+    title: 'Enviar para sua conta americana.',
+    description: 'Cadastre sua conta nos Estados Unidos como destinatária, com o nome do titular, routing number e número da conta. O fluxo atende conta pessoal ou da sua LLC, sujeito à análise cadastral. Você paga em reais por Pix e acompanha o envio em dólares.',
   },
   {
     tag: '03 · PLATAFORMAS',
-    title: 'Dólar dentro do seu produto.',
-    description: 'Ofereça envio para os EUA aos seus clientes, com a sua marca na frente.',
+    title: 'Integrar envios por API.',
+    description: 'Os endpoints de USD estão em preparação. O envio pelo painel e a futura integração por API têm disponibilidades diferentes. Fale com o time sobre acesso antecipado, requisitos dos seus clientes e o fluxo que deseja incorporar ao produto.',
   },
 ]
 
 export const USD_FAQ_ITEMS: FaqItem[] = [
+  {
+    question: 'Como enviar dinheiro para os Estados Unidos com Pix?',
+    answer:
+      'Na Conta USD da Hodle, você verifica seu cadastro, cadastra a conta bancária americana do destinatário e consulta a cotação. Depois, paga em reais por Pix e acompanha o envio em dólares por ACH ou wire. A disponibilidade depende da aprovação da conta e da operação.',
+  },
   {
     question: 'Preciso ter conta fora do Brasil?',
     answer:
       'Não. Você paga um Pix na Hodle e o dólar é enviado para a conta do destinatário nos Estados Unidos. Quem recebe precisa de conta num banco americano.',
   },
   {
-    question: 'Quanto custa?',
+    question: 'Quanto custa enviar dólares com Pix?',
     answer:
       'A cotação aparece antes de você gerar o Pix, com a taxa da Hodle já incluída. O valor em dólar que você vê é o que sai para o destinatário.',
   },
   {
-    question: 'ACH ou wire: qual escolher?',
+    question: 'Qual a diferença entre ACH e wire na Conta USD?',
     answer:
       'ACH chega em 1 a 3 dias úteis e pede routing number e conta. Wire chega em 1 a 2 dias úteis e também pede o endereço do banco. Use o que o destinatário indicar na fatura.',
+  },
+  {
+    question: 'Como pagar um fornecedor americano a partir do Brasil?',
+    answer:
+      'Com a conta da empresa aprovada, cadastre os dados bancários do fornecedor nos EUA e confira se a fatura pede ACH ou wire. Consulte a cotação, pague o Pix gerado e acompanhe a transferência no painel. Confirme os dados do beneficiário antes de pagar.',
+  },
+  {
+    question: 'Posso transferir para minha própria conta nos EUA?',
+    answer:
+      'Sim. Cadastre sua conta americana, pessoal ou da sua LLC, como destinatária. Informe a titularidade e os dados exigidos para ACH ou wire, conclua a análise cadastral e confira a cotação antes de gerar o Pix.',
+  },
+  {
+    question: 'Enviar USD para um banco é igual a comprar USDT?',
+    answer:
+      'Não. Na transferência por ACH ou wire, o destino é uma conta bancária nos Estados Unidos e o recebimento é em dólares. Na compra de USDT, o destino é uma carteira de ativos digitais em uma rede compatível. Escolha o fluxo pelo que o destinatário precisa receber.',
   },
   {
     question: 'O que preciso para começar?',

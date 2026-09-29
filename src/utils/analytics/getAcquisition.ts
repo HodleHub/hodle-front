@@ -17,8 +17,8 @@ const sources: Map<string, string> = new Map(Object.entries({
   'bing.com': 'bing', 'www.bing.com': 'bing', bing: 'bing',
   'chatgpt.com': 'chatgpt', 'chat.openai.com': 'chatgpt', chatgpt: 'chatgpt',
   'perplexity.ai': 'perplexity', 'www.perplexity.ai': 'perplexity', perplexity: 'perplexity',
-  'claude.ai': 'claude', claude: 'claude', 'gemini.google.com': 'gemini',
-  'copilot.microsoft.com': 'copilot', 'duckduckgo.com': 'duckduckgo',
+  'claude.ai': 'claude', claude: 'claude', 'gemini.google.com': 'gemini', gemini: 'gemini',
+  'copilot.microsoft.com': 'copilot', copilot: 'copilot', 'duckduckgo.com': 'duckduckgo', duckduckgo: 'duckduckgo',
   'x.com': 'x', 't.co': 'x', 'linkedin.com': 'linkedin', 'www.linkedin.com': 'linkedin',
 }))
 const paths: Set<string> = new Set([
@@ -27,7 +27,7 @@ const paths: Set<string> = new Set([
   ...articleMarkdownSlugs.map((slug: string): string => `/articles/${slug}`),
 ])
 const mediums: string[] = ['organic', 'referral', 'social', 'email', 'cpc', 'paid-social']
-const campaigns: string[] = ['pix', 'api-pix', 'baas', 'stablecoins', 'seo-pix-baas']
+const campaigns: string[] = ['pix', 'api-pix', 'baas', 'stablecoins', 'seo-pix-baas', 'usd', 'seo-usd', 'gateway-pix']
 
 /** Reduces acquisition data to a fixed vocabulary; URLs and arbitrary query values never become event properties. */
 export const getAcquisition = ({ url, referrer }: GetAcquisitionArgs): GetAcquisitionResult => {
