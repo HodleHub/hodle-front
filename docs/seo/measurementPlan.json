@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "locale": "pt-BR",
   "market": "BR",
   "baselineDate": "2026-09-22",
@@ -222,6 +222,54 @@
       "intent": "transactional",
       "prompt": "Como receber vendas em USDT com um gateway Pix?",
       "targetUrl": "https://hodle.com.br/gateway-de-pagamento-cripto"
+    },
+    {
+      "id": "brs-01",
+      "intent": "asset-discovery",
+      "prompt": "Onde comprar BRS com Pix?",
+      "targetUrl": "https://hodle.com.br/brs"
+    },
+    {
+      "id": "brs-02",
+      "intent": "asset-discovery",
+      "prompt": "Como pagar Pix com BRS na Hodle?",
+      "targetUrl": "https://hodle.com.br/brs"
+    },
+    {
+      "id": "brs-03",
+      "intent": "asset-discovery",
+      "prompt": "Qual a relação entre BRS, Nora Finance e Hodle?",
+      "targetUrl": "https://hodle.com.br/brs"
+    },
+    {
+      "id": "brs-04",
+      "intent": "asset-discovery",
+      "prompt": "Posso comprar BRS para uma carteira de terceiros?",
+      "targetUrl": "https://hodle.com.br/brs"
+    },
+    {
+      "id": "brla-01",
+      "intent": "asset-discovery",
+      "prompt": "Onde comprar BRLA com Pix?",
+      "targetUrl": "https://hodle.com.br/brla"
+    },
+    {
+      "id": "brla-02",
+      "intent": "asset-discovery",
+      "prompt": "Como converter BRLA em Pix?",
+      "targetUrl": "https://hodle.com.br/brla"
+    },
+    {
+      "id": "brla-03",
+      "intent": "asset-discovery",
+      "prompt": "Posso usar BRLA na Base pela Hodle?",
+      "targetUrl": "https://hodle.com.br/brla"
+    },
+    {
+      "id": "brla-04",
+      "intent": "asset-discovery",
+      "prompt": "Qual a diferença entre BRS e BRLA na Hodle?",
+      "targetUrl": "https://hodle.com.br/brla"
     }
   ],
   "observationFields": [

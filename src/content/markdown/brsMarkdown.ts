@@ -1,60 +1,52 @@
-/**
- * Markdown representation of the BRS page, served under
- * `Accept: text/markdown`.
- */
-export const brsMarkdown = `# BRS: a stablecoin local do Real, na Hodle
+import { brsCopy, type BrsCopy } from '../../components/brs/brsCopy'
 
-> BRS é a stablecoin de Real da Nora Finance, disponível na Hodle. Lastreada 1:1 em reais, entra e sai via Pix 24/7, e circula on-chain na rede Solana.
+type BrsLanguage = 'pt' | 'en'
 
-Fonte canônica: https://hodle.com.br/brs
+const languages: BrsLanguage[] = ['pt', 'en']
+const siteUrl: string = 'https://hodle.com.br'
 
-BRS é emitido pela Nora Finance, não pela Hodle. Na Hodle você compra, guarda em carteira auto-custodial e movimenta BRS via Pix ou on-chain.
+/** Localized Markdown generated from the same BRS content as the visible pages. */
+export const brsMarkdown: Record<BrsLanguage, string> = languages.reduce((documents: Record<BrsLanguage, string>, language: BrsLanguage): Record<BrsLanguage, string> => {
+  const copy: BrsCopy = brsCopy[language]
+  const pathname: string = language === 'pt' ? '/brs' : '/en/brs'
+  const facts: string = copy.valueProps.items.map((item: BrsCopy['valueProps']['items'][number]): string => `- **${item.title}**: ${item.desc}`).join('\n')
+  const steps: string = copy.howItWorks.steps.map((step: BrsCopy['howItWorks']['steps'][number], index: number): string => `${index + 1}. ${step.title}: ${step.desc}`).join('\n')
+  const uses: string = copy.useCases.items.map((item: BrsCopy['useCases']['items'][number]): string => `- **${item.title}**: ${item.desc}`).join('\n')
+  const faq: string = copy.faq.items.map((item: BrsCopy['faq']['items'][number]): string => `### ${item.question}\n\n${item.answer}`).join('\n\n')
+  const links: string = copy.resources.links.map((link: BrsCopy['resources']['links'][number]): string => `- [${link.label}](${link.href.startsWith('/') ? `${siteUrl}${link.href}` : link.href})`).join('\n')
+  const markdown: string = `# ${copy.hero.title}
 
-## Por que BRS
+> ${copy.hero.description}
 
-- 1:1 lastreado em Real: cada BRS em circulação é respaldado por reais em reserva.
-- Liquidação instantânea via Pix, 24 horas por dia, todos os dias.
-- On-chain na Solana: envie e receba direto na carteira, sem fronteiras.
-- Emitido pela Nora Finance, disponível para compra, guarda e movimentação na Hodle.
+${siteUrl}${pathname}
+${copy.resources.reviewed}
 
-## Do Pix ao on-chain, e de volta
+${copy.hero.availability}
 
-1. Pix in: você paga um Pix na Hodle, do valor que quiser.
-2. BRS na carteira: o real vira BRS e cai na sua carteira auto-custodial.
-3. Envia e recebe on-chain: movimente BRS entre carteiras na rede Solana.
-4. Pix out: converta de volta para reais e saque via Pix quando quiser.
+## ${copy.valueProps.title}
 
-## O que dá para construir com o Real programável
+${facts}
 
-- Contas em BRL com liquidação on-chain instantânea, sem D+1.
-- Contas com rendimento automático sobre o saldo em BRS.
-- Folha de pagamento e pagamentos recorrentes liquidados no dia certo.
-- Escrow programável e pagamentos por marcos, com fundos retidos por contrato.
-- Tesouraria em BRS para empresas globais, com caixa em Real acessível 24 horas por dia.
-- FX automatizado entre BRS, USDC e USDT, liquidado em segundos.
+## ${copy.howItWorks.title}
 
-## Perguntas frequentes
+${steps}
 
-### O que é o BRS?
+## ${copy.useCases.title}
 
-BRS é uma stablecoin de Real, emitida pela Nora Finance. Cada BRS é lastreado 1:1 em reais mantidos em reserva, e você pode comprar, guardar e movimentar BRS na Hodle.
+${uses}
 
-### A Hodle emite o BRS?
+## ${copy.developer.title}
 
-Não. O BRS é emitido pela Nora Finance. A Hodle é a plataforma onde você compra, guarda em carteira auto-custodial e movimenta BRS via Pix ou on-chain.
+${copy.developer.description}
 
-### Como eu compro e saco BRS?
+## ${copy.faq.title}
 
-Você paga um Pix na Hodle e recebe BRS na sua carteira. Para sacar, converte o BRS de volta para reais e recebe via Pix, 24 horas por dia.
+${faq}
 
-### Em quais redes o BRS existe?
+## ${copy.resources.title}
 
-BRS circula on-chain na rede Solana, onde você recebe e envia direto da sua carteira.
-
-## Onde ir a seguir
-
-- [Página completa do BRS](https://hodle.com.br/brs)
-- [Real onchain](https://hodle.com.br/real-onchain) — o mesmo conceito aplicado ao BRLA
-- [Preços e taxas](https://hodle.com.br/precos)
-- [Perguntas frequentes](https://hodle.com.br/faq)
+${links}
 `
+
+  return { ...documents, [language]: markdown }
+}, { pt: '', en: '' })

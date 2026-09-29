@@ -22,3 +22,8 @@ it('publishes reciprocal language alternates for both BRS pages', () => {
   expect(brsMetadata.alternates?.languages).toEqual(languages)
   expect(englishBrsMetadata.alternates?.languages).toEqual(languages)
 })
+
+it('lets the site title template add the brand only once', (): void => {
+  expect(brsMetadata.title).not.toMatch(/Hodle/i)
+  expect(englishBrsMetadata.title).not.toMatch(/Hodle/i)
+})

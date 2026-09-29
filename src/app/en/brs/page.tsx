@@ -7,14 +7,15 @@ import { BrsDeveloperSection } from '../../../components/brs/BrsDeveloperSection
 import { BrsFaq } from '../../../components/brs/BrsFaq'
 import { BrsFinalCta } from '../../../components/brs/BrsFinalCta'
 import { brsCopy } from '../../../components/brs/brsCopy'
+import { BrsResources } from '../../../components/brs/BrsResources'
+import { pageUpdatedAt } from '../../../content/pageUpdatedAt'
 
 const siteUrl = 'https://hodle.com.br'
 const pageUrl = `${siteUrl}/en/brs`
 const copy = brsCopy.en
 
-const title = 'BRS: the local Real stablecoin at Hodle'
-const description =
-  'BRS is Nora Finance\'s 1:1 Real stablecoin, available on Hodle. Move in and out via Pix 24/7 and circulate on-chain on Solana.'
+const title = copy.hero.metadataTitle
+const description = copy.hero.description
 
 export const metadata: Metadata = {
   title,
@@ -56,6 +57,7 @@ const webpageJsonLd = {
   name: title,
   description,
   url: pageUrl,
+  dateModified: pageUpdatedAt.brs,
   inLanguage: 'en',
   isPartOf: {
     '@type': 'WebSite',
@@ -101,6 +103,7 @@ export default function EnglishBrsPage() {
       <BrsUseCases copy={copy} />
       <BrsDeveloperSection copy={copy} />
       <BrsFaq copy={copy} />
+      <BrsResources copy={copy} />
       <BrsFinalCta copy={copy} />
     </div>
   )

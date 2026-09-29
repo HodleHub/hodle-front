@@ -6,13 +6,16 @@ import { BrsUseCases } from '../../components/brs/BrsUseCases'
 import { BrsDeveloperSection } from '../../components/brs/BrsDeveloperSection'
 import { BrsFaq } from '../../components/brs/BrsFaq'
 import { BrsFinalCta } from '../../components/brs/BrsFinalCta'
+import { brsCopy } from '../../components/brs/brsCopy'
+import { BrsResources } from '../../components/brs/BrsResources'
+import { pageUpdatedAt } from '../../content/pageUpdatedAt'
 
+const copy = brsCopy.pt
 const siteUrl = 'https://hodle.com.br'
 const pageUrl = `${siteUrl}/brs`
 
-const title = 'BRS: a stablecoin local do Real, na Hodle'
-const description =
-  'BRS é a stablecoin de Real da Nora Finance, disponível na Hodle. Lastreada 1:1 em reais, entra e sai via Pix 24/7, e circula on-chain na rede Solana.'
+const title = copy.hero.metadataTitle
+const description = copy.hero.description
 
 export const metadata: Metadata = {
   title,
@@ -54,6 +57,7 @@ const webpageJsonLd = {
   name: title,
   description,
   url: pageUrl,
+  dateModified: pageUpdatedAt.brs,
   inLanguage: 'pt-BR',
   isPartOf: {
     '@type': 'WebSite',
@@ -65,40 +69,11 @@ const webpageJsonLd = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'O que é o BRS?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'BRS é uma stablecoin de Real, emitida pela Nora Finance. Cada BRS é lastreado 1:1 em reais mantidos em reserva, e você pode comprar, guardar e movimentar BRS na Hodle.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'A Hodle emite o BRS?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Não. O BRS é emitido pela Nora Finance. A Hodle é a plataforma onde você compra, guarda em carteira auto-custodial e movimenta BRS via Pix ou on-chain.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Como eu compro e saco BRS?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Você paga um Pix na Hodle e recebe BRS na sua carteira. Para sacar, converte o BRS de volta para reais e recebe via Pix, 24 horas por dia.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Em quais redes o BRS existe?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'BRS circula on-chain na rede Solana, onde você recebe e envia direto da sua carteira.',
-      },
-    },
-  ],
+  mainEntity: copy.faq.items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
 }
 
 export default function BrsPage() {
@@ -124,6 +99,7 @@ export default function BrsPage() {
       <BrsUseCases />
       <BrsDeveloperSection />
       <BrsFaq />
+      <BrsResources copy={copy} />
       <BrsFinalCta />
     </div>
   )

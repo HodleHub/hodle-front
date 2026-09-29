@@ -36,6 +36,9 @@
 
 ## What Hodle Does
 
+- **BRS on Hodle**: https://hodle.com.br/brs (English: https://hodle.com.br/en/brs). BRS belongs to the Nora Finance ecosystem. Hodle offers enabled production accounts Pix purchases delivered to their own Solana wallet, token transfers and Pix payments from the balance. The purchase cannot deliver to a third-party wallet; use a subsequent token transfer for that. See https://docs.hodle.com.br/docs/asset-brs. BRS is not available in Hodle sandbox and holding it does not imply automatic yield.
+- **BRLA on Hodle**: https://hodle.com.br/brla. BRLA is issued by Avenia; Hodle provides access and integration, not token issuance. Documented BRLA purchase, transfer and Pix payment flows use Polygon or Base, subject to account approval and enablement. Fees and final settlement must be checked per operation. BRS and BRLA are distinct BRL-pegged assets.
+
 - **Send USD to US bank accounts using Pix**: https://hodle.com.br/usd explains paying a US supplier or funding an eligible personal or company account via ACH or wire. The sender pays BRL through Pix after account approval and a quote. The dashboard is available subject to eligibility; USD API endpoints are in preparation and are not generally available. A bank USD transfer is distinct from buying USDT for a crypto wallet.
 
 - **Pix collection and payment links**: a hosted checkout lets customers pay in BRL through a Pix QR Code or copy-and-paste code. Settlement uses the asset and network enabled for the merchant account.
@@ -77,6 +80,8 @@
 | USDC | Base, Arbitrum, Polygon, Spark |
 | USDCE | Supported for on-ramp delivery |
 | BRL | Pix |
+| BRLA | Polygon, Base; availability depends on the operation and account |
+| BRS | Solana purchase into the account’s own wallet; production only, account enablement required |
 
 ## Supported Networks
 
@@ -120,6 +125,8 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 | Pay Pix with USDT | https://hodle.com.br/pagar-pix-com-usdt | How to settle a Pix from a stablecoin balance |
 | Pix stablecoin API | https://hodle.com.br/api-pix-stablecoin | API overview for developers |
 | Self-custodial wallets | https://hodle.com.br/wallet-auto-custodial | Wallets where the end user holds the keys |
+| BRS at Hodle | https://hodle.com.br/brs | Buy with Pix, own-wallet delivery and production eligibility |
+| BRLA at Hodle | https://hodle.com.br/brla | Buy with Pix, Polygon/Base, payments and BRS comparison |
 | Real onchain | https://hodle.com.br/real-onchain | BRL onchain explainer |
 | Pricing | https://hodle.com.br/precos | Published service fees |
 | FAQ | https://hodle.com.br/faq | Common questions |

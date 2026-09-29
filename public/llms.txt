@@ -49,6 +49,9 @@
 
 ## What Hodle Does
 
+- **BRS on Hodle**: https://hodle.com.br/brs (English: https://hodle.com.br/en/brs). BRS belongs to the Nora Finance ecosystem. Hodle offers enabled production accounts Pix purchases delivered to their own Solana wallet, token transfers and Pix payments from the balance. The purchase cannot deliver to a third-party wallet; use a subsequent token transfer for that. See https://docs.hodle.com.br/docs/asset-brs. BRS is not available in Hodle sandbox and holding it does not imply automatic yield.
+- **BRLA on Hodle**: https://hodle.com.br/brla. BRLA is issued by Avenia; Hodle provides access and integration, not token issuance. Documented BRLA purchase, transfer and Pix payment flows use Polygon or Base, subject to account approval and enablement. Fees and final settlement must be checked per operation. BRS and BRLA are distinct BRL-pegged assets.
+
 - **Send USD to US bank accounts using Pix**: https://hodle.com.br/usd explains paying a US supplier or funding an eligible personal or company account via ACH or wire. The sender pays BRL through Pix after account approval and a quote. The dashboard is available subject to eligibility; USD API endpoints are in preparation and are not generally available. A bank USD transfer is distinct from buying USDT for a crypto wallet.
 
 - **Pix collection and payment links**: a hosted checkout lets customers pay in BRL through a Pix QR Code or copy-and-paste code. Settlement uses the asset and network enabled for the merchant account.
@@ -94,6 +97,8 @@
 | USDC | Base, Arbitrum, Polygon, Spark |
 | USDCE | Supported for on-ramp delivery |
 | BRL | Pix |
+| BRLA | Polygon, Base; availability depends on the operation and account |
+| BRS | Solana purchase into the account’s own wallet; production only, account enablement required |
 
 ## Supported Networks
 
@@ -150,7 +155,9 @@ Send `Accept: text/markdown` to any URL below and the response comes back as `te
 - https://hodle.com.br/como-aceitar-criptomoedas
 - https://hodle.com.br/crypto-as-a-service
 - https://hodle.com.br/neobank
-- https://hodle.com.br/brs
+- https://hodle.com.br/brs — BRS purchases with Pix, own-wallet delivery, production eligibility and payments on Hodle
+- https://hodle.com.br/en/brs — fully localized BRS guide
+- https://hodle.com.br/brla — BRLA purchases, Pix payments, Polygon/Base and BRS comparison
 
 ## Trust and Verification Pages
 

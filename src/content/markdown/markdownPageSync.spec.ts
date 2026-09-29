@@ -12,7 +12,8 @@ type MarkdownPage = {
 }
 
 const pages: MarkdownPage[] = [
-  { markdown: brsMarkdown, pageFile: 'src/app/brs/page.tsx' },
+  { markdown: brsMarkdown.pt, pageFile: 'src/components/brs/brsCopy.ts' },
+  { markdown: brsMarkdown.en, pageFile: 'src/components/brs/brsCopy.ts' },
   {
     markdown: cryptoAsAServiceMarkdown,
     pageFile: 'src/app/crypto-as-a-service/page.tsx',
