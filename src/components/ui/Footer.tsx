@@ -56,6 +56,7 @@ export function Footer() {
                 },
                 { label: 'Wallets', href: '/wallet-auto-custodial' },
                 { label: isEnglish ? 'Business account' : 'Conta digital PJ', href: '/conta-digital-pj' },
+                { label: isEnglish ? 'Pix for LLCs' : 'Pix para LLC', href: '/pix-para-llc' },
                 { label: isEnglish ? 'QR payments' : 'Pagamentos QR', href: '/#pagamentos' },
                 {
                   label: isEnglish ? 'Pay Pix with USDT' : 'Pagar Pix com USDT',

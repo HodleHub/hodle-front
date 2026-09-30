@@ -43,6 +43,7 @@ export const topicMarkdownSlugs: string[] = [
   'pagar-pix-com-usdt',
   'para-agentes-de-ia',
   'pix',
+  'pix-para-llc',
   'real-onchain',
   'receber-pix-em-stablecoin',
   'wallet-auto-custodial',
