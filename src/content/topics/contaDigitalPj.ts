@@ -14,7 +14,7 @@ export const contaDigitalPj: TopicPage = {
     "subcontas"
   ],
   "primaryKeyword": "conta digital PJ",
-  "updatedAt": "2026-09-22T00:00:00Z",
+  "updatedAt": "2026-09-30T00:00:00-03:00",
   "changeFrequency": "monthly",
   "priority": 0.8,
   "kicker": "DISPONÍVEL SÓ EM PRODUÇÃO",
@@ -129,6 +129,10 @@ export const contaDigitalPj: TopicPage = {
     }
   ],
   "related": [
+    {
+      "label": "Pix para LLC",
+      "href": "/pix-para-llc"
+    },
     {
       "label": "BaaS e contas via parceiros",
       "href": "/baas"

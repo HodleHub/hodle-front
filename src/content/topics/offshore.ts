@@ -17,7 +17,7 @@ export const offshore: TopicPage = {
     'planejamento sucessório bitcoin',
   ],
   primaryKeyword: 'offshore cripto',
-  updatedAt: '2026-08-12T17:50:45Z',
+  updatedAt: '2026-09-30T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'OFFSHORE E PROTEÇÃO PATRIMONIAL',
@@ -173,6 +173,7 @@ export const offshore: TopicPage = {
     },
   ],
   related: [
+    { label: 'Pix para LLC', href: '/pix-para-llc' },
     { label: 'Receba Pix em stablecoin, direto na sua carteira', href: '/receber-pix-em-stablecoin' },
     { label: 'Carteiras em que a chave é do usuário', href: '/wallet-auto-custodial' },
     { label: 'Pague um Pix com saldo em USDT', href: '/pagar-pix-com-usdt' },
