@@ -115,6 +115,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${siteUrl}/marca`,
+      lastModified: new Date(pageUpdatedAt.marca),
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
       url: `${siteUrl}/contato`,
       lastModified: new Date(pageUpdatedAt.contato),
       changeFrequency: 'monthly',
