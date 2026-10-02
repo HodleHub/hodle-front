@@ -124,6 +124,7 @@ export function Footer() {
               links: [
                 { label: isEnglish ? 'About' : 'Sobre a Hodle', href: '/sobre' },
                 { label: isEnglish ? 'Contact' : 'Contato', href: '/contato' },
+                { label: isEnglish ? 'Brand kit' : 'Marca', href: '/marca' },
                 { label: isEnglish ? 'Articles' : 'Artigos', href: '/articles' },
                 { label: 'Neobank', href: '/neobank' },
                 { label: 'BaaS', href: '/baas' },
