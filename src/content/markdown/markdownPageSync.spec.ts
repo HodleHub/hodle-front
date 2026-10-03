@@ -16,9 +16,9 @@ const pages: MarkdownPage[] = [
   { markdown: brsMarkdown.en, pageFile: 'src/components/brs/brsCopy.ts' },
   {
     markdown: cryptoAsAServiceMarkdown,
-    pageFile: 'src/app/crypto-as-a-service/page.tsx',
+    pageFile: 'src/app/(pt)/crypto-as-a-service/page.tsx',
   },
-  { markdown: neobankMarkdown, pageFile: 'src/app/neobank/page.tsx' },
+  { markdown: neobankMarkdown, pageFile: 'src/app/(pt)/neobank/page.tsx' },
   { markdown: usdMarkdown, pageFile: 'src/components/usd/usdData.ts' },
 ]
 

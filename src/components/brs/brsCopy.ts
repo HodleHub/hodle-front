@@ -80,7 +80,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         },
         {
           "title": "Sua carteira Solana",
-          "desc": "Na compra pela Hodle, o BRS é entregue na carteira Solana da própria conta. Uma transferência posterior pode enviar o token a outro endereço compatível."
+          "desc": "Por padrão, a compra entrega BRS na carteira Solana da própria conta. A entrega direta a um endereço externo exige habilitação específica e taxa de entrega."
         },
         {
           "title": "Plataforma e API da Hodle",
@@ -105,7 +105,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         {
           "number": "03",
           "title": "Acompanhe a entrega",
-          "desc": "O BRS chega à carteira Solana da própria conta após a conclusão da operação. Não use a confirmação do Pix como confirmação de entrega."
+          "desc": "Acompanhe a chegada do BRS à carteira de destino confirmada na compra. Não use a confirmação do Pix como confirmação de entrega."
         },
         {
           "number": "04",
@@ -149,10 +149,10 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
     "developer": {
       "eyebrow": "Para desenvolvedores",
       "title": "API da Hodle para BRS e Pix",
-      "description": "A compra usa POST /api/deposit/asset com BRS e solana. O valor é informado em centavos; o destino é a carteira Solana da própria conta. O exemplo cria uma cobrança: a entrega é assíncrona e deve ser acompanhada conforme a documentação.",
+      "description": "A compra usa POST /api/deposit/asset com BRS e solana. O valor é informado em centavos. Este exemplo usa a entrega padrão à carteira Solana da própria conta; entrega externa exige habilitação e taxa específicas. A entrega é assíncrona e deve ser acompanhada conforme a documentação.",
       "items": [
         "Conta de produção aprovada, BRS habilitado e carteira Solana criada",
-        "Compra sem campo de endereço; transferência posterior em /api/wallet/transfer",
+        "Compra padrão sem campo de endereço; confira os requisitos de entrega externa na documentação",
         "Pagamento Pix do saldo em /api/wallet/payout, sujeito à habilitação"
       ],
       "docsCta": "Ver o guia BRS da Hodle"
@@ -167,11 +167,11 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         },
         {
           "question": "Onde comprar BRS com Pix?",
-          "answer": "Na Hodle, uma conta aprovada e habilitada para BRS pode gerar uma compra com Pix. Prepare sua carteira Solana, confira as condições e acompanhe o status até a entrega do BRS na carteira da própria conta."
+          "answer": "Na Hodle, uma conta aprovada e habilitada para BRS pode gerar uma compra com Pix. Prepare sua carteira Solana, confira o destino e as condições e acompanhe o status até a confirmação da entrega."
         },
         {
           "question": "Posso comprar BRS para uma carteira de terceiros?",
-          "answer": "A compra de BRS pela Hodle entrega na carteira Solana da própria conta. Para enviar a outro endereço compatível, primeiro conclua a compra e depois use o fluxo de transferência on-chain."
+          "answer": "Sim, com habilitação específica para entrega externa. Por padrão, a compra entrega na carteira Solana da própria conta. Para entregar diretamente a outro endereço Solana, a conta precisa estar autorizada e ter saldo BRS na sua carteira Hodle para pagar a taxa de entrega. Confira os requisitos e a taxa antes de gerar o Pix. Também é possível comprar para a própria carteira e transferir depois."
         },
         {
           "question": "Como transformar BRS em Pix ou pagar um QR Code?",
@@ -183,7 +183,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         },
         {
           "question": "Qual a diferença entre BRS e BRLA na Hodle?",
-          "answer": "São ativos distintos com referência no real. BRS pertence ao ecossistema Nora e a compra na Hodle entrega na sua carteira Solana. BRLA é emitido pela Avenia e os fluxos documentados da Hodle usam Polygon ou Base, conforme a operação e a habilitação da conta."
+          "answer": "São ativos distintos com referência no real. BRS pertence ao ecossistema Nora e a compra na Hodle usa Solana. BRLA é emitido pela Avenia e os fluxos documentados da Hodle usam Polygon ou Base, conforme a operação e a habilitação da conta."
         },
         {
           "question": "Qual o custo para comprar BRS?",
@@ -207,7 +207,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
     },
     "resources": {
       "title": "Fontes e próximos passos",
-      "reviewed": "Conteúdo revisado em 29 de setembro de 2026.",
+      "reviewed": "Conteúdo revisado em 3 de outubro de 2026.",
       "links": [
         {
           "label": "BRS: guia de compra e pagamento da Hodle",
@@ -263,7 +263,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         },
         {
           "title": "Your Solana wallet",
-          "desc": "A Hodle BRS purchase delivers to the account’s own Solana wallet. A later transfer can send the token to another compatible address."
+          "desc": "By default, a BRS purchase delivers to the account’s own Solana wallet. Direct delivery to an external address requires separate enablement and a delivery fee."
         },
         {
           "title": "Hodle platform and API",
@@ -288,7 +288,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         {
           "number": "03",
           "title": "Follow delivery",
-          "desc": "BRS arrives in the account’s own Solana wallet when the operation completes. Pix confirmation alone does not confirm token delivery."
+          "desc": "Track BRS delivery to the destination wallet confirmed for the purchase. Pix confirmation alone does not confirm token delivery."
         },
         {
           "number": "04",
@@ -332,10 +332,10 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
     "developer": {
       "eyebrow": "For developers",
       "title": "Hodle API for BRS and Pix",
-      "description": "Purchases use POST /api/deposit/asset with BRS and solana. The value is in BRL cents and delivery goes to the account’s own Solana wallet. This example creates a payment request: delivery is asynchronous and must be tracked as documented.",
+      "description": "Purchases use POST /api/deposit/asset with BRS and solana. The value is in BRL cents. This example uses default delivery to the account’s own Solana wallet; external delivery requires separate enablement and a fee. Delivery is asynchronous and must be tracked as documented.",
       "items": [
         "Approved production account, BRS enabled and a Solana wallet created",
-        "Purchases omit the address field; subsequent transfers use /api/wallet/transfer",
+        "Default purchases omit the address field; check the documentation for external delivery requirements",
         "Pix payments from the balance use /api/wallet/payout, subject to enablement"
       ],
       "docsCta": "Read the Hodle BRS guide"
@@ -350,11 +350,11 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         },
         {
           "question": "Where can I buy BRS with Pix?",
-          "answer": "On Hodle, an approved account with BRS enabled can create a Pix purchase. Prepare your Solana wallet, review the conditions and track the operation until BRS reaches the account’s own wallet."
+          "answer": "On Hodle, an approved account with BRS enabled can create a Pix purchase. Prepare your Solana wallet, confirm the destination and conditions, and track the operation until delivery is confirmed."
         },
         {
           "question": "Can I buy BRS for a third-party wallet?",
-          "answer": "A BRS purchase through Hodle delivers to the account’s own Solana wallet. To send BRS to another compatible address, complete the purchase and then use an on-chain transfer."
+          "answer": "Yes, with separate external-delivery enablement. By default, purchases deliver to the account’s own Solana wallet. Direct delivery to another Solana address requires authorization and a BRS balance in the account’s Hodle wallet to pay the delivery fee. Check the requirements and fee before creating the Pix charge. You can also buy into your own wallet and transfer afterward."
         },
         {
           "question": "How can I convert BRS to Pix or pay a QR code?",
@@ -366,7 +366,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
         },
         {
           "question": "How do BRS and BRLA differ on Hodle?",
-          "answer": "They are distinct BRL-pegged assets. BRS belongs to the Nora ecosystem and a Hodle purchase delivers to your Solana wallet. BRLA is issued by Avenia and documented Hodle flows use Polygon or Base, depending on the operation and account enablement."
+          "answer": "They are distinct BRL-pegged assets. BRS belongs to the Nora ecosystem and Hodle purchases use Solana. BRLA is issued by Avenia and documented Hodle flows use Polygon or Base, depending on the operation and account enablement."
         },
         {
           "question": "What does buying BRS cost?",
@@ -390,7 +390,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
     },
     "resources": {
       "title": "Sources and next steps",
-      "reviewed": "Content reviewed on September 29, 2026.",
+      "reviewed": "Content reviewed on October 3, 2026.",
       "links": [
         {
           "label": "Hodle BRS purchase and payment guide",

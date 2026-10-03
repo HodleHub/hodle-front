@@ -21,7 +21,7 @@ export const Supported = () => (
           <h2 id="lv2-redes-h" className={`${heading} mt-3.5 mb-3 text-4xl lg:text-[46px] font-medium tracking-[-0.04em] leading-[1.08]`}>
             Tudo que flui pela Hodle.
           </h2>
-          <p className="text-[17px] text-[#525252] leading-relaxed">Trocar de rede não muda a taxa de serviço.</p>
+          <p className="text-[17px] text-[#525252] leading-relaxed">Consulte os ativos, redes e custos disponíveis para cada operação.</p>
         </div>
         <div className="lv2-cells grid-cols-1 sm:grid-cols-2 flex-1">
           {SUPPORTED_ASSETS.map((asset) => (

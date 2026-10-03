@@ -10,7 +10,7 @@ export const homeMarkdown = `# Receba em Pix, guarde em dólar, pague em stablec
 
 Fonte canônica: https://hodle.com.br
 
-A Hodle é uma empresa de software que constrói infraestrutura de pagamento entre o real e o dólar digital. O produto é entregue em duas frentes: um painel para o time de operações e uma API REST para o time de engenharia. A Hodle não é banco, não é instituição financeira e não custodia fundos ou ativos de clientes.
+A Hodle é uma empresa de software que constrói infraestrutura de pagamento entre o real e o dólar digital. O produto é entregue em duas frentes: um painel para o time de operações e uma API REST para o time de engenharia. A Hodle não é banco, não é instituição financeira e não custodia fundos ou ativos de clientes. Os serviços financeiros e os fluxos de fundos regulados são conduzidos por parceiros licenciados e/ou regulados.
 
 ## Compra e venda de ativos digitais
 
@@ -45,11 +45,11 @@ A Hodle reúne produtos Pix, stablecoins e uma camada de software para integrar 
 
 ## Uma API. Pix, dólar e stablecoins.
 
-Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, OpenAPI e webhooks — pensados para times de produto e agentes de IA.
+Integre pagamentos com Pix e stablecoin usando REST, OpenAPI e webhooks. A disponibilidade depende do ativo, da rede, da operação e das permissões da conta.
 
-- \`POST /api/wallet/payout\` — paga um Pix debitando saldo em USDT (Polygon, Tron) ou USDC (Base), com gas patrocinado.
-- \`POST /api/lightning/invoice\` — invoice BOLT11 que dispara um payout Pix automaticamente quando é pago.
-- \`POST /api/deposit/asset\` — on-ramp: Pix entra, cripto sai no endereço informado.
+- \`POST /api/wallet/payout\` — inicia um Pix com saldo em stablecoin; acompanhe o status até a confirmação. [Ativos, redes e requisitos do payout](https://docs.hodle.com.br/docs/wallet-payout).
+- \`POST /api/lightning/invoice\` — em produção, o pagamento da invoice inicia o fluxo de Pix. A invoice de sandbox não é pagável.
+- \`POST /api/deposit/asset\` — cria uma cobrança Pix para entrega do ativo na rede habilitada. A confirmação do Pix e a entrega do ativo são etapas distintas. [Requisitos de depósito](https://docs.hodle.com.br/docs/deposit-asset).
 - \`POST /api/quote\` — preço indicativo e composição da taxa de um par BRL ↔ ativo.
 - \`GET /api/wallet\` — endereços e saldos por rede de uma carteira auto-custodial.
 - \`GET /api/account/statement\` — saldo por ativo e operações paginadas, para conciliação.
@@ -61,20 +61,28 @@ Recursos para desenvolvedores: https://hodle.com.br/desenvolvedores
 
 ## Pagamento de QR codes com stablecoins
 
-Pague qualquer QR code Pix usando USDT ou USDC. A conversão para real é automática e a liquidação é instantânea — para o lojista o crédito é um Pix comum, com o mesmo comprovante e a mesma conciliação.
+O payout permite pagar QR Pix com saldo em stablecoin, sujeito à validação do código, saldo, limites e habilitação da conta. USDT é suportado em Polygon, Tron e Solana; USDC em Polygon, Base e Solana. Tron exige habilitação adicional. BRLA e BRS têm condições próprias descritas na [referência de payout](https://docs.hodle.com.br/docs/wallet-payout).
+
+Após a confirmação, o destinatário recebe reais via Pix. O aceite da solicitação não garante liquidação imediata: acompanhe o estado final. A Hodle patrocina o gas nesse fluxo; isso não elimina as taxas de serviço.
 
 ## Tudo que flui pela Hodle
 
 | Grupo | O que é | Itens |
 | --- | --- | --- |
 | Pagamentos | Entrada e saída em reais via Pix, disponível 24/7. | Pix |
-| Stablecoins | Dólar digital que circula pela plataforma e paga QR codes. | USDT, USDC |
-| Bitcoin & Lightning | BTC on-chain e liquidação instantânea pela rede Lightning. | Bitcoin, Lightning |
-| Redes | Redes onde você recebe, guarda e envia seus ativos. | Arbitrum, Polygon, Base, Spark, Solana, Tron, Liquid |
+| Stablecoins | Ativos digitais com suporte por operação e rede. | USDT, USDC, BRLA, BRS |
+| Bitcoin & Lightning | Fluxos de Bitcoin e Lightning, com condições próprias de confirmação e entrega. | Bitcoin, Lightning |
+| Redes | A presença no catálogo não habilita todos os fluxos. Confira a documentação da operação. | Arbitrum, Polygon, Base, Spark, Solana, Tron, Liquid |
+
+## Sandbox e acesso à produção
+
+Crie um cadastro separado em https://app-sandbox.hodle.com.br e use uma chave de teste. Os fluxos suportados usam ativos de teste em Base Sepolia; Pix é simulado, sem movimentação de reais. Consulte a [cobertura do sandbox](https://docs.hodle.com.br/docs/sandbox).
+
+Produção exige conta aprovada em KYC ou KYB, chave de produção e habilitação de cada fluxo. Testar no sandbox não aprova a conta nem libera todos os produtos em produção.
 
 ## Preço
 
-On-ramp e off-ramp começam em 2% e caem por faixa de volume mensal até o piso de 0,5%, com mínimo de R$ 0,75 por operação. Transferência entre carteiras na mesma rede não tem custo. A referência oficial, com a tabela completa, é https://hodle.com.br/precos — qualquer número citado fora dela deve ser conferido antes de ser considerado válido.
+On-ramp e off-ramp começam em 2% e caem por faixa de volume mensal até o piso de 0,5%, com mínimo de R$ 0,75 por operação. Transferência entre carteiras da Hodle na mesma rede não tem custo, nas redes previstas na tabela. Transferências entre redes têm condições próprias. A referência oficial, com a tabela completa, é https://hodle.com.br/precos — qualquer número citado fora dela deve ser conferido antes de ser considerado válido.
 
 ## Falar com a Hodle
 

@@ -12,21 +12,21 @@ const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 const NAV_LINKS = {
   pt: [
     { label: 'CaaS', href: '/crypto-as-a-service' },
-    { label: 'Plataforma', href: '#plataforma' },
-    { label: 'API', href: '#api' },
-    { label: 'Wallets', href: '#wallets' },
-    { label: 'Pagamentos', href: '#pagamentos' },
+    { label: 'Plataforma', href: '/#produtos' },
+    { label: 'API', href: '/api-pix-stablecoin' },
+    { label: 'Wallets', href: '/wallet-auto-custodial' },
+    { label: 'Pagamentos', href: '/pagar-pix-com-usdt' },
     { label: 'Conta USD', href: '/usd' },
-    { label: 'Conta PJ', href: '#conta-pj' },
+    { label: 'Conta PJ', href: '/conta-digital-pj' },
     { label: 'Offshore', href: '/offshore' },
   ],
   en: [
     { label: 'CaaS', href: '/crypto-as-a-service' },
-    { label: 'Platform', href: '#plataforma' },
+    { label: 'Platform', href: '/#produtos' },
     { label: 'API', href: '/en/pix-stablecoin-api' },
-    { label: 'Wallets', href: '#wallets' },
-    { label: 'Payments', href: '#pagamentos' },
-    { label: 'Business account', href: '#conta-pj' },
+    { label: 'Wallets', href: '/wallet-auto-custodial' },
+    { label: 'Payments', href: '/pagar-pix-com-usdt' },
+    { label: 'Business account', href: '/conta-digital-pj' },
     { label: 'Offshore', href: '/offshore' },
   ],
 } as const
@@ -58,7 +58,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
+                href={link.href}
                 className="text-gray-500 hover:text-foreground text-sm font-medium transition-colors"
               >
                 {link.label}
@@ -83,6 +83,10 @@ export default function Header() {
 
           <div className="md:hidden">
             <button
+              type="button"
+              aria-label={isEnglish ? 'Navigation menu' : 'Menu de navegação'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg text-gray-600 hover:text-foreground hover:bg-gray-50 transition-colors"
             >
@@ -97,12 +101,12 @@ export default function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div id="mobile-navigation" className="md:hidden border-t border-gray-200 bg-white">
           <div className="px-6 pt-3 pb-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-500 hover:text-foreground hover:bg-gray-50 transition-colors"
               >

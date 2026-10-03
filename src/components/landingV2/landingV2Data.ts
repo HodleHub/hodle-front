@@ -90,7 +90,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Como pagar um Pix usando saldo em stablecoin?',
     answer:
-      'Um POST em /api/wallet/payout debita o saldo em USDT ou USDC da carteira e liquida o Pix no destino. O gas é patrocinado pela Hodle.',
+      'A API de payout usa o saldo em stablecoin para iniciar um Pix nos ativos e redes habilitados para a conta. Acompanhe a operação até a confirmação; o aceite da solicitação não confirma a liquidação. A Hodle patrocina o gas nesse fluxo, mas as taxas de serviço continuam aplicáveis.',
   },
   {
     question: 'Como funciona a conta PJ?',

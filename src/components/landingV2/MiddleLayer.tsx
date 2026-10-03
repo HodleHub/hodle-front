@@ -132,7 +132,7 @@ export const MiddleLayer = () => (
         title="Entre o Pix e as redes, a Hodle."
         aside={
           <p className="text-lg leading-relaxed text-[#525252]">
-            Dinheiro entra por Pix, conta PJ ou API. Sai em qualquer rede, com um saldo só e a mesma conciliação.
+            Conecte Pix e conta PJ pela plataforma ou API. Movimente os ativos nas redes habilitadas para cada operação e acompanhe a conciliação.
           </p>
         }
       />
