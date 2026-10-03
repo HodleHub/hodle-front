@@ -1,6 +1,6 @@
 # Hodle
 
-> Last updated: 2026-09-29. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
+> Last updated: 2026-10-03. Fees, limits, and supported networks are point-in-time and may have changed — see https://hodle.com.br for current data.
 
 > Hodle provides Pix and stablecoin payment software for companies operating with Brazil. Its API and dashboard connect Pix payment links, payment tracking, self-custodial wallets, and conversions between BRL and digital assets. In a BaaS architecture, Hodle provides the software orchestration layer; licensed and/or regulated partners provide the financial services.
 
@@ -49,7 +49,9 @@
 
 ## What Hodle Does
 
-- **BRS on Hodle**: https://hodle.com.br/brs (English: https://hodle.com.br/en/brs). BRS belongs to the Nora Finance ecosystem. Hodle offers enabled production accounts Pix purchases delivered to their own Solana wallet, token transfers and Pix payments from the balance. The purchase cannot deliver to a third-party wallet; use a subsequent token transfer for that. See https://docs.hodle.com.br/docs/asset-brs. BRS is not available in Hodle sandbox and holding it does not imply automatic yield.
+- **Sandbox versus production**: register separately at https://app-sandbox.hodle.com.br and use test credentials. Supported sandbox flows use Base Sepolia and simulated Pix. BRS and nominal business accounts are production-only; production requires verification and flow-specific enablement. Check https://docs.hodle.com.br/docs/sandbox.
+
+- **BRS on Hodle**: https://hodle.com.br/brs (English: https://hodle.com.br/en/brs). BRS belongs to the Nora Finance ecosystem. Enabled production accounts can buy BRS with Pix, transfer tokens and pay Pix from the balance. Purchases deliver to the account's own Solana wallet by default. Direct delivery to an external Solana address requires separate enablement and a delivery fee paid in BRS from the account's Hodle wallet. See https://docs.hodle.com.br/docs/asset-brs. BRS is not available in Hodle sandbox and holding it does not imply automatic yield.
 - **BRLA on Hodle**: https://hodle.com.br/brla. BRLA is issued by Avenia; Hodle provides access and integration, not token issuance. Documented BRLA purchase, transfer and Pix payment flows use Polygon or Base, subject to account approval and enablement. Fees and final settlement must be checked per operation. BRS and BRLA are distinct BRL-pegged assets.
 
 - **Send USD to US bank accounts using Pix**: https://hodle.com.br/usd explains paying a US supplier or funding an eligible personal or company account via ACH or wire. The sender pays BRL through Pix after account approval and a quote. The dashboard is available subject to eligibility; USD API endpoints are in preparation and are not generally available. A bank USD transfer is distinct from buying USDT for a crypto wallet.
@@ -57,11 +59,11 @@
 - **Pix collection and payment links**: a hosted checkout lets customers pay in BRL through a Pix QR Code or copy-and-paste code. Settlement uses the asset and network enabled for the merchant account.
 - **Pix reconciliation**: follow order status, account statements, and supported events to match payments to operations. The integration must distinguish payment confirmation from completion of asset settlement.
 - **BaaS integration and nominal business accounts**: software connects onboarding, partner accounts, Pix operations, and digital assets. Nominal accounts are available only in production, subject to KYB approval and partner eligibility. Hodle does not supply a banking license or hold customer funds.
-- **Pay Pix from a stablecoin balance**: `POST /api/wallet/payout` settles a Pix payment funded by the user's USDT (Polygon, Tron) or USDC (Base) balance. Gas is sponsored. One POST plus one GET.
+- **Pay Pix from a stablecoin balance**: `POST /api/wallet/payout` starts a Pix payout funded by an enabled wallet balance. Supported assets, networks and permissions depend on the flow; see https://docs.hodle.com.br/docs/wallet-payout. Gas sponsorship does not remove the service fee. Track the transaction and signed webhooks: acceptance is not confirmation of settlement, and no end-to-end settlement time is guaranteed here.
 - **Lightning to Pix**: `POST /api/lightning/invoice` issues a BOLT11 invoice; once it is paid, a Pix payout is triggered automatically. Payer anywhere in the world, recipient in Brazil.
 - **On-ramp and off-ramp**: convert BRL to Lightning, USDT, USDC, or USDCE and deliver to an address.
 - **Self-custodial wallets**: read addresses per network and balances; fetch the `protectedSymmetricKey` needed to sign payouts and transfers. Private keys stay under the end user's control.
-- **Multi-network transfers**: move USDT to any address on Polygon, Base, or Tron. Gas sponsored on EVM networks.
+- **Token transfers**: transfer supported stablecoins between Hodle wallets or to compatible external addresses. Asset and network combinations, account permissions and gas sponsorship are documented at https://docs.hodle.com.br/docs/wallet-transfer. A token transfer on one network is distinct from a cross-network conversion.
 - **KYC**: submit and inspect KYC for end users. Required for on-ramp and off-ramp.
 - **Account statement**: balances per asset and a paginated list of operations over a window.
 - **Webhooks**: signed payloads with HMAC verification for deposits, payouts, and KYC state changes.

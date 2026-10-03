@@ -6,7 +6,8 @@ import { markdownPaths } from './markdownPaths'
 
 const appDirectory = path.join(process.cwd(), 'src/app')
 
-const dynamicSegment = /^[[(]/
+const dynamicSegment = /^\[/
+const routeGroup = /^\(.+\)$/
 const excludedRoots = ['api', 'md', 'lnurlp', '.well-known']
 
 const collectPagePaths = (directory: string, prefix: string): string[] => {
@@ -23,7 +24,7 @@ const collectPagePaths = (directory: string, prefix: string): string[] => {
     .flatMap((entry) =>
       collectPagePaths(
         path.join(directory, entry.name),
-        `${prefix}/${entry.name}`,
+        routeGroup.test(entry.name) ? prefix : `${prefix}/${entry.name}`,
       ),
     )
 

@@ -1,6 +1,6 @@
 # Hodle
 
-> Last updated: 2026-09-16.
+> Last updated: 2026-10-03.
 
 > Crypto payment infrastructure for companies operating with Brazil: pay Pix from a USDT or USDC balance, issue Lightning invoices that settle in Pix, run self-custodial multi-network wallets, and convert between BRL, USD, and stablecoins.
 
@@ -16,13 +16,13 @@
 
 ## For Developers
 
-- `POST /api/wallet/payout` — pay Pix funded by USDT (Polygon, Tron) or USDC (Base). Gas sponsored.
+- `POST /api/wallet/payout` — start a Pix payout from an enabled wallet balance. Check supported assets, networks, permissions and fees at https://docs.hodle.com.br/docs/wallet-payout; track completion separately from acceptance.
 - `POST /api/lightning/invoice` — BOLT11 invoice that triggers a Pix payout once paid.
 - Wallet, KYC, statement, and webhook guides: https://docs.hodle.com.br
 - OpenAPI 3.1 description: https://hodle.com.br/openapi.json
 - API catalog (RFC 9727): https://hodle.com.br/.well-known/api-catalog
 - Developer index: https://hodle.com.br/desenvolvedores
-- Sandbox: https://sandbox-api.hodle.com.br
+- Sandbox: separate registration at https://app-sandbox.hodle.com.br and test API at https://sandbox-api.hodle.com.br. Supported flows use Base Sepolia and simulated Pix. BRS and nominal business accounts are production-only. See https://docs.hodle.com.br/docs/sandbox.
 - Webhooks are HMAC-signed.
 - `Accept: text/markdown` returns markdown at the same canonical URL. Dead paths return a real 404 with a markdown body. Full list in https://hodle.com.br/llms.txt
 

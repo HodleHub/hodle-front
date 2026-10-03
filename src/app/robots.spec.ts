@@ -1,5 +1,7 @@
 import { expect, it } from 'vitest'
 import robots from './robots'
+import { metadata as animationMetadata } from './(pt)/animation/layout'
+import { metadata as createMetadata } from './(pt)/create/layout'
 
 it('explicitly allows current search, retrieval and AI crawler tokens', () => {
   const rules = robots().rules
@@ -27,4 +29,24 @@ it('explicitly allows current search, retrieval and AI crawler tokens', () => {
   expect(explicitRule.allow).toContain('/')
   expect(explicitRule.disallow).toContain('/api/')
   expect(explicitRule.disallow).toContain('/md/')
+})
+
+it('lets crawlers read the noindex policy on public utility pages', () => {
+  const rules = robots().rules
+  const ruleList = Array.isArray(rules) ? rules : [rules]
+
+  for (const rule of ruleList) {
+    expect(rule.disallow).not.toContain('/animation')
+    expect(rule.disallow).not.toContain('/create')
+    expect(rule.disallow).toEqual(expect.arrayContaining([
+      '/api/', '/.well-known/', '/lnurlp/', '/lnurlpay/', '/verify/', '/md/',
+    ]))
+  }
+
+  for (const metadata of [animationMetadata, createMetadata]) {
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      googleBot: { index: false },
+    })
+  }
 })

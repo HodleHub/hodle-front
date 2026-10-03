@@ -56,8 +56,8 @@ const Wallets = () => (
 const QrPayment = () => (
   <article className="lv2-cell md:col-span-2 p-8 lg:p-9 flex flex-col gap-3 min-h-[420px]">
     <Eyebrow>03 · PAGAMENTO QR</Eyebrow>
-    <h3 className={`${heading} text-[26px] font-medium leading-tight`}>Pague qualquer QR Pix com USDT.</h3>
-    <p className="text-[15px] leading-relaxed text-[#525252]">Pro lojista, é um Pix comum. Mesmo comprovante, mesma conciliação.</p>
+    <h3 className={`${heading} text-[26px] font-medium leading-tight`}>Pague QR Pix com stablecoin.</h3>
+    <p className="text-[15px] leading-relaxed text-[#525252]">Escolha um ativo e uma rede habilitados na sua conta. Após a confirmação do pagamento, o lojista recebe em reais via Pix.</p>
     <div aria-hidden="true" className="relative mx-auto mt-auto mb-3">
       <Image
         src="/qr-code.svg"

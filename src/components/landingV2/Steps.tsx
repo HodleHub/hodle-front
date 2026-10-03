@@ -9,9 +9,9 @@ type Step = {
 }
 
 const STEPS: Step[] = [
-  { title: 'Crie a conta e teste', description: 'Tudo começa em sandbox, com as mesmas telas e APIs de produção.', delay: '0s' },
-  { title: 'Verifique a empresa', description: 'KYC para pessoa física, KYB para empresa. Aprovou, produção liga.', delay: '1.2s' },
-  { title: 'Mova dinheiro de verdade', description: 'Receba em Pix, guarde em dólar e pague em stablecoin.', delay: '2.4s' },
+  { title: 'Crie a conta de teste', description: 'O sandbox tem cadastro separado. Teste os fluxos suportados com Pix simulado e ativos de teste.', delay: '0s' },
+  { title: 'Solicite acesso à produção', description: 'KYC para pessoa física, KYB para empresa. Produção exige aprovação cadastral e habilitação de cada fluxo.', delay: '1.2s' },
+  { title: 'Mova dinheiro de verdade', description: 'Com a conta aprovada, opere os ativos, redes e serviços habilitados para o seu negócio.', delay: '2.4s' },
 ]
 
 /**

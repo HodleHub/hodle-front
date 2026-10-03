@@ -1,4 +1,4 @@
-import { APP_URL, DOCS_URL, WHATSAPP_URL } from './landingV2Data'
+import { DOCS_URL, WHATSAPP_URL } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -21,16 +21,16 @@ export const ClosingCta = () => (
           Construa sua infraestrutura de pagamentos com a Hodle
         </h2>
         <p className="text-lg leading-relaxed text-[#525252] max-w-[600px]">
-          Crie uma conta para explorar a plataforma em sandbox, ou fale com o time para desenhar uma integração sob medida para o seu negócio.
+          Crie uma conta separada no sandbox para testar os fluxos disponíveis sem movimentar reais, ou fale com o time sobre a integração do seu negócio.
         </p>
         <div className="flex flex-wrap items-center gap-8 mt-2">
           <a
-            href={APP_URL}
+            href="https://app-sandbox.hodle.com.br"
             target="_blank"
             rel="noreferrer"
             className="lv2-btn lv2-sheen bg-[#0A0A0A] text-white font-medium text-base px-6 py-4 rounded-xl flex items-center gap-2.5"
           >
-            Comece agora
+            Começar no sandbox
             <PlayMark color="#EAB308" />
           </a>
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="font-medium text-base hover:text-[#A16207]">
@@ -44,10 +44,10 @@ export const ClosingCta = () => (
           <div className="flex flex-col gap-3">
             <h3 className="text-lg font-medium">Comece sua integração</h3>
             <p className="text-base leading-relaxed text-[#525252]">
-              Teste tudo em sandbox em minutos. Produção liga quando a verificação da empresa é aprovada.
+              Consulte a cobertura do sandbox. O acesso à produção exige KYC ou KYB aprovado e habilitação dos fluxos que você vai usar.
             </p>
-            <a href={DOCS_URL} target="_blank" rel="noreferrer" className="font-medium flex items-center gap-2 hover:text-[#A16207]">
-              Referência da API
+            <a href={`${DOCS_URL}/docs/sandbox`} target="_blank" rel="noreferrer" className="font-medium flex items-center gap-2 hover:text-[#A16207]">
+              Guia do sandbox
               <PlayMark color="#0A0A0A" />
             </a>
           </div>

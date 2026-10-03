@@ -32,8 +32,8 @@ it('only lists static paths that have a page on disk', () => {
   const missing = staticMarkdownPaths.filter((markdownPath) => {
     const segments = markdownPath === '/' ? [] : markdownPath.slice(1).split('/')
 
-    return !fs.existsSync(
-      path.join(appDirectory, ...segments, 'page.tsx'),
+    return ![appDirectory, path.join(appDirectory, '(pt)')].some((root) =>
+      fs.existsSync(path.join(root, ...segments, 'page.tsx')),
     )
   })
 
