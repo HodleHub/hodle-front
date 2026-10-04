@@ -110,7 +110,7 @@ export const paraAgentesDeIa: TopicPage = {
       heading: 'Como selecionar e autorizar uma carteira',
       body: 'Use o walletId da carteira de origem. POST /api/wallet/keys retorna walletId, protectedSymmetricKey e email do proprietário; faça cache por walletId junto do email. Atualize esse registro quando a chave protegida daquela carteira mudar, inclusive após uma alteração de PIN que a renove.',
       bullets: [
-        'POST /api/wallet/keys — selecione walletId e, para carteira de cliente, subAccountId. O endpoint exige WALLET_PAYOUT_API e limita a consulta a uma por minuto por API key.',
+        'POST /api/wallet/keys — selecione walletId e, para carteira de cliente, subAccountId. O endpoint exige acesso às operações de wallet pela API e limita a consulta a uma por minuto por API key.',
         'POST /api/wallet/transfer — envie walletId, walletPin e a chave protegida correspondente; use fromSubAccountId quando a origem for uma subconta.',
         'POST /api/wallet/payout — no fluxo por PIN, envie as credenciais da carteira selecionada e subAccountId quando aplicável.',
         'Consulte o status do payout por transactionId e processe os webhooks assinados. A resposta inicial não confirma liquidação.',
@@ -131,8 +131,8 @@ export const paraAgentesDeIa: TopicPage = {
       body: 'Wallet Transfer envia o token na rede escolhida. Wallet Payout converte o saldo elegível para pagar o destinatário em reais via Pix. A disponibilidade de uma rede em um desses endpoints não implica suporte no outro.',
       bullets: [
         'Transfer: Polygon — USDT, USDC e BRLA; Base — USDC e BRLA; Solana — USDT, USDC e BRS; BNB Chain — USDT BEP20.',
-        'Transfer em BNB Chain exige BNB_ASSET e conta habilitada, tem mínimo de 1 USDT e não está disponível no sandbox. BRS em Solana exige NORA_RAIL além de WALLET_PAYOUT_API.',
-        'Payout: Polygon — USDT, USDC e BRLA; Base — USDC e BRLA; Tron — USDT; Solana — USDT, USDC e BRS. Tron exige TRON_PAYOUT; BRS exige NORA_RAIL, além de WALLET_PAYOUT_API.',
+        'Transfer em BNB Chain depende de disponibilidade na conta, tem mínimo de 1 USDT e não está disponível no sandbox. Para BRS em Solana, confirme o acesso às operações desse ativo pela API.',
+        'Payout: Polygon — USDT, USDC e BRLA; Base — USDC e BRLA; Tron — USDT; Solana — USDT, USDC e BRS. O acesso ao payout deve estar disponível na conta; confirme também a disponibilidade de Tron e BRS.',
         'No payout, a seleção do ativo considera as regras e o saldo disponível; consulte a ordem de preferência e os fallbacks na documentação.',
         'Lightning → Pix usa /api/lightning/invoice, em um fluxo separado do payout de stablecoins.',
       ],

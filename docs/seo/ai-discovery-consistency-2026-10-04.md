@@ -61,7 +61,7 @@ permanecem fora do repositório; os registros públicos omitem dados de conta.
 - Linha de base: 32 pares únicos prompt/motor e denominadores conferidos.
 
 Capturas nativas do build final:
-[stablecoin](evidence/2026-10-04-ai-discovery/stablecoin.jpg),
+[stablecoin, copy revisada sem flags](evidence/2026-10-04-ai-discovery/stablecoin.jpg),
 [Bitcoin sem receita](evidence/2026-10-04-ai-discovery/bitcoin.jpg),
 [recursos para agentes](evidence/2026-10-04-ai-discovery/agentes.jpg).
 O ambiente não possui gravação de vídeo configurada nem credenciais R2; as imagens
@@ -71,3 +71,17 @@ executam o shell com `curl` substituído por uma função local para validar pay
 
 Risco principal: documentação pública ainda pode mudar fora deste repositório.
 Rollback: reverter o commit deste PR; não há migração ou novo feature flag.
+
+## Revisão de linguagem da landing
+
+Após a revisão do PR #88, os identificadores internos de feature flags foram
+retirados da home e dos tópicos de wallets e agentes (HTML e Markdown). A copy
+agora descreve disponibilidade da operação na conta e mantém os requisitos de
+verificação, PIN, rede e ambiente. Os contratos internos explicitam essa regra
+para evitar reintroduzir os nomes na copy pública.
+
+Validação da revisão: 32 testes focados passaram; ESLint dos três arquivos e
+`git diff --check` passaram. O novo build gera 110 páginas estáticas.
+
+A revisão também foi conferida em Chrome (Polygon e Tron) e em seis respostas
+HTTP (HTML/Markdown da home e dos dois tópicos), sem identificadores internos.

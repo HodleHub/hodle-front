@@ -88,3 +88,9 @@ específicas; buscas em cache e a introdução das docs podem ficar atrás desse
 - As FAQs precisam refletir o modelo de assinatura e as matrizes por operação.
 - Verificar paridade do conteúdo/FAQ com Markdown e JSON-LD gerados pelo registry.
 - Validar testes relevantes, TypeScript, lint e build no fluxo de revisão do repositório.
+
+## Linguagem pública
+
+Nomes internos de feature flags são referências de implementação neste contrato.
+Não devem aparecer na landing, tópicos públicos ou Markdown: descreva a disponibilidade
+da operação na conta em linguagem de produto, preservando os requisitos relevantes.

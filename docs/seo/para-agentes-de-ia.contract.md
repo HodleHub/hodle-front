@@ -98,3 +98,9 @@ resultados de busca em cache e a introdução da documentação podem estar desa
 - FAQ e conteúdo visível devem concordar com Markdown e JSON-LD gerados.
 - Preservar slug, canonical, links internos e um único H1.
 - Validar testes relevantes, TypeScript, lint e build no fluxo de revisão do repositório.
+
+## Linguagem pública
+
+Nomes internos de feature flags são referências de implementação neste contrato.
+Não devem aparecer na landing, tópicos públicos ou Markdown: descreva a disponibilidade
+da operação na conta em linguagem de produto, preservando os requisitos relevantes.

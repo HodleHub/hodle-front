@@ -272,7 +272,7 @@ export const buildFlowRecipe = (source: FlowSource): FlowRecipe => {
     return {
       supported: true,
       description: 'Saldo em stablecoin da wallet selecionada paga uma chave Pix em reais.',
-      prerequisites: `Use uma subconta com KYC aprovado, PIN do titular e WALLET_PAYOUT_API habilitado.${source.network === 'tron' ? ' Tron também exige TRON_PAYOUT e uma wallet existente.' : ''}${source.asset === 'BRS' ? ' BRS exige NORA_RAIL.' : ''}${source.network === 'solana' ? ' Solana está disponível em produção, não no sandbox.' : ''} Pagamentos a terceiros exigem habilitação e dados adicionais do beneficiário.`,
+      prerequisites: `Use uma subconta verificada, o PIN do titular e acesso ao pagamento Pix pela API.${source.network === 'tron' ? ' Para Tron, confirme a disponibilidade na conta e use uma wallet existente.' : ''}${source.asset === 'BRS' ? ' Para BRS, confirme a disponibilidade na conta.' : ''}${source.network === 'solana' ? ' Solana está disponível em produção, não no sandbox.' : ''} Pagamentos a terceiros exigem habilitação e dados adicionais do beneficiário.`,
       docsUrl: `${DOCS_URL}/docs/wallet-payout`,
       steps: buildStablecoinSteps(source),
     }

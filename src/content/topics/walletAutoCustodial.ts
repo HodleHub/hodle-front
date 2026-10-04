@@ -103,8 +103,8 @@ export const walletAutoCustodial: TopicPage = {
       bullets: [
         'Polygon: USDT, USDC e BRLA.',
         'Base: USDC e BRLA.',
-        'Solana: USDT, USDC e BRS. BRS exige NORA_RAIL além de WALLET_PAYOUT_API.',
-        'BNB Chain: USDT BEP20, com mínimo de 1 USDT. Exige BNB_ASSET e conta habilitada; não está disponível no sandbox.',
+        'Solana: USDT, USDC e BRS. Para BRS, confirme o acesso às operações desse ativo pela API.',
+        'BNB Chain: USDT BEP20, com mínimo de 1 USDT. Depende de disponibilidade na conta; não está disponível no sandbox.',
         'No sandbox, a criação EVM usa Base Sepolia. A criação de carteira Solana não está disponível nesse ambiente.',
       ],
       links: [
@@ -128,7 +128,7 @@ export const walletAutoCustodial: TopicPage = {
       body: 'POST /api/wallet/payout inicia um Pix financiado pelo saldo elegível da carteira. O recebedor recebe reais; a seleção do ativo segue as regras de saldo e preferência do endpoint. A resposta inicial traz transactionId para acompanhamento e não confirma a liquidação.',
       bullets: [
         'Payout em Polygon: USDT, USDC e BRLA; em Base: USDC e BRLA; em Tron: USDT; em Solana: USDT, USDC e BRS.',
-        'Payout exige WALLET_PAYOUT_API. Tron exige também TRON_PAYOUT; BRS em Solana exige também NORA_RAIL.',
+        'O payout depende de acesso às operações de pagamento Pix pela API. Confirme também a disponibilidade de Tron e BRS em Solana na sua conta.',
         'No fluxo por PIN, envie walletId, walletPin e protectedSymmetricKey correspondentes. A documentação também descreve um fluxo separado com assinatura do usuário para carteira própria.',
         'Lightning → Pix usa uma invoice BOLT11 em /api/lightning/invoice, separada da transferência e do payout de stablecoins.',
       ],
