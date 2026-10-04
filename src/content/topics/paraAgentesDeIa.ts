@@ -4,9 +4,9 @@ export const paraAgentesDeIa: TopicPage = {
   slug: 'para-agentes-de-ia',
   primaryKeyword: 'api para agentes de IA pagamento',
   title: 'API de pagamento para agentes de IA',
-  h1: 'Trilhos que um agente opera sozinho',
+  h1: 'Pagamentos por API e MCP para agentes de IA',
   description:
-    'API REST para agentes de IA moverem dinheiro: pagar Pix com stablecoin, emitir invoice Lightning, transferir entre redes e reconciliar por webhook.',
+    'Integre agentes à API REST da Hodle e conheça o MCP documentado: consultas, pagamentos Pix com stablecoins e controles de autorização.',
   keywords: [
     'api para agentes de IA pagamento',
     'pagamentos agênticos',
@@ -15,13 +15,13 @@ export const paraAgentesDeIa: TopicPage = {
     'automatizar pagamento com IA',
     'agente autônomo stablecoin',
   ],
-  updatedAt: '2026-07-30T21:04:55-03:00',
+  updatedAt: '2026-10-04T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   ogImage: '/og-image-v2.png',
   kicker: 'AGENTES DE IA',
   subhead:
-    'Um agente precisa de operações determinísticas, autorização por chave e confirmação assinada. É o que a API entrega: dispara o pagamento, lê o estado, recebe o webhook. Sem clique humano no meio.',
+    'Integre pela API REST e conheça o servidor local @hodle/mcp descrito na documentação. Comece no sandbox com consultas e defina permissões e aprovações antes de habilitar pagamentos.',
   heroIcons: [
     { src: '/pix.svg', label: 'Pix' },
     { src: '/usdt.svg', label: 'USDT' },
@@ -34,7 +34,7 @@ export const paraAgentesDeIa: TopicPage = {
     'Comece pela documentação ou fale com o time da Hodle.',
   ctaPrimary: {
     label: 'Ver a documentação',
-    href: 'https://docs.hodle.com.br',
+    href: 'https://docs.hodle.com.br/docs/ai',
   },
   ctaSecondary: {
     label: 'Falar com vendas',
@@ -44,13 +44,18 @@ export const paraAgentesDeIa: TopicPage = {
     {
       id: 'o-que-muda',
       kind: 'PROSE',
-      heading: 'O que um agente precisa que uma pessoa não precisa',
-      body: 'Uma pessoa tolera ambiguidade: lê a tela, entende o erro, tenta de novo. Um agente não. Ele precisa de operação com resultado determinístico, de um jeito de provar que tem autorização para mover fundo, e de um sinal confiável de que a operação terminou.\n\nA API da Hodle é construída nesses três pontos. O disparo é um POST com corpo em JSON. A autorização é a chave do usuário, buscada uma vez e cacheada. O fim da operação chega por webhook assinado, não por polling esperançoso.',
+      heading: 'REST, MCP e skill: três formas de integrar',
+      body: 'A API REST expõe as operações de pagamento e consulta. A documentação descreve @hodle/mcp como um servidor local via stdio, com ferramentas para Claude Code, Cursor, Codex e Hermes. A skill hodle-api reúne instruções sobre fluxos, KYC e webhooks. Na revisão de 04/10/2026, @hodle/mcp não foi localizado no registro público npm; confirme com a equipe o acesso ao pacote antes de instalar. O repositório indicado para instalar a skill também não estava acessível publicamente nessa revisão; consulte o guia e confirme o acesso.\n\nNa configuração documentada, o MCP usa sandbox por padrão e registra apenas ferramentas de consulta até que HODLE_MCP_ALLOW_WRITES=true seja configurado. Cada chamada de escrita também exige confirm: true. Esse campo é preenchido pelo agente; a aprovação humana depende do controle de ferramentas do cliente MCP.',
       bullets: [
-        'Operações com resultado determinístico, não fluxo de tela.',
-        'Autorização por chave do usuário final, não por sessão de navegador.',
-        'Confirmação por webhook assinado com HMAC, não por polling.',
-        'Gas patrocinado nas redes EVM: o agente não administra saldo de rede.',
+        'HODLE_API_KEY autentica o servidor MCP; HODLE_API_URL seleciona o ambiente.',
+        'PIN e chave protegida são lidos de variáveis de ambiente, fora dos argumentos enviados pelo modelo.',
+        'Mantenha a aprovação do cliente MCP para ferramentas de escrita. Agentes sem supervisão devem permanecer no sandbox com escrita desabilitada.',
+        'O MCP documentado é local via stdio; a integração REST continua disponível sem MCP.',
+      ],
+      links: [
+        { label: 'Configuração e controles documentados do MCP', href: 'https://docs.hodle.com.br/docs/ai/mcp' },
+        { label: 'Guia da skill hodle-api', href: 'https://docs.hodle.com.br/docs/ai/skills' },
+        { label: 'Testar no sandbox', href: 'https://docs.hodle.com.br/docs/sandbox' },
       ],
       icons: [],
       comparison: null,
@@ -61,14 +66,19 @@ export const paraAgentesDeIa: TopicPage = {
       id: 'o-que-o-agente-faz',
       kind: 'STEPS',
       heading: 'O que o agente consegue fazer pela API',
-      body: 'Cada item é uma chamada documentada. Nenhum passo exige interface.',
+      body: 'Cada operação tem requisitos, ativos e redes próprios. Acesso em produção depende da conta, do KYC e das funcionalidades habilitadas.',
       bullets: [
-        'Pagar um Pix com saldo em stablecoin. POST /api/wallet/payout, financiado por USDT em Polygon ou Tron, ou USDC em Base.',
-        'Receber de fora do Brasil. POST /api/lightning/invoice emite uma BOLT11 que, ao ser paga, liquida em Pix em segundos.',
-        'Converter reais em ativo. O deposit-asset entrega em Lightning, USDT, USDC ou USDCE num endereço.',
-        'Mover entre redes. USDT para qualquer endereço em Polygon, Base ou Tron, com gas patrocinado nas EVM.',
+        'Pagar Pix com stablecoin. POST /api/wallet/payout inicia a operação; acompanhe o transactionId até COMPLETED ou FAILED.',
+        'Receber Bitcoin pela Lightning. POST /api/lightning/invoice emite uma BOLT11 para o fluxo Lightning → Pix.',
+        'Converter reais em ativo. POST /api/deposit/asset usa os pares e destinos documentados para on-ramp.',
+        'Transferir tokens na rede selecionada. POST /api/wallet/transfer envia para uma subconta ou endereço externo na mesma rede; não realiza bridge entre redes.',
         'Ler estado. Endereços por rede, saldo por ativo e extrato paginado de operações.',
         'Reconciliar. Webhook assinado com HMAC em depósito, payout e mudança de KYC.',
+      ],
+      links: [
+        { label: 'Payout de stablecoin para Pix', href: 'https://docs.hodle.com.br/docs/wallet-payout' },
+        { label: 'Invoice Lightning para Pix', href: 'https://docs.hodle.com.br/docs/lightning-invoice' },
+        { label: 'On-ramp por Deposit Asset', href: 'https://docs.hodle.com.br/docs/deposit-asset' },
       ],
       icons: [],
       comparison: null,
@@ -79,11 +89,15 @@ export const paraAgentesDeIa: TopicPage = {
       id: 'autorizacao',
       kind: 'PROSE',
       heading: 'Quem autoriza o que',
-      body: 'Há dois níveis. A API key identifica a sua plataforma e define o escopo do que ela alcança. A chave do usuário final é o que permite mover os fundos dele: sem ela não há payout nem transfer, por construção.\n\nIsso significa que o desenho do seu agente decide o limite dele. Você escolhe quais usuários ele alcança, quais operações expõe e o que faz antes de cada disparo. A plataforma não decide isso no seu lugar, e a Hodle não movimenta fundo de usuário sem a chave dele.',
+      body: 'A API key identifica a conta e seu escopo. No fluxo por PIN, transferências e payouts exigem walletPin e protectedSymmetricKey da carteira de origem. O servidor usa essas credenciais para desbloquear a chave temporariamente em memória e assinar a operação. A aplicação que integra é responsável por guardar e fornecer as credenciais corretas das subcontas.\n\nNo MCP, HODLE_WALLET_PIN e HODLE_PROTECTED_SYMMETRIC_KEY ficam no ambiente do processo. O servidor mantém um par de credenciais e recusa payout com subAccountId; payouts de subcontas devem usar uma integração que selecione as credenciais de cada titular.',
       bullets: [
-        'API key com escopo por plataforma, nos headers.',
-        'Chave do usuário final necessária para qualquer movimentação.',
-        'A fronteira do agente é o desenho do seu fluxo, não uma configuração nossa.',
+        'Defina usuários, valores, destinatários e operações permitidos antes de expor ferramentas de escrita.',
+        'Não inclua PIN ou chave protegida nos prompts do agente.',
+        'Se houver timeout ou outcomeUnknown, consulte o estado antes de repetir uma escrita: a operação pode já ter sido aceita.',
+      ],
+      links: [
+        { label: 'Credenciais e seleção da carteira', href: 'https://docs.hodle.com.br/docs/wallet-keys' },
+        { label: 'Controles e limites do MCP', href: 'https://docs.hodle.com.br/docs/ai/mcp#what-the-gates-do-and-do-not-do' },
       ],
       icons: [],
       comparison: null,
@@ -93,13 +107,17 @@ export const paraAgentesDeIa: TopicPage = {
     {
       id: 'exemplo',
       kind: 'CODE',
-      heading: 'A chamada que o agente faz',
-      body: 'A mesma API que roda o painel da Hodle é a que o agente consome. Autenticação por header, corpo em JSON, resposta com o estado da operação.',
+      heading: 'Como selecionar e autorizar uma carteira',
+      body: 'Use o walletId da carteira de origem. POST /api/wallet/keys retorna walletId, protectedSymmetricKey e email do proprietário; faça cache por walletId junto do email. Atualize esse registro quando a chave protegida daquela carteira mudar, inclusive após uma alteração de PIN que a renove.',
       bullets: [
-        'POST /api/wallet/payout — paga Pix com saldo em stablecoin.',
-        'POST /api/lightning/invoice — invoice BOLT11 que liquida em Pix ao ser paga.',
-        'GET wallet-keys — o protectedSymmetricKey do usuário, cacheado uma vez.',
-        'POST wallet-transfer — USDT em Polygon, Base ou Tron.',
+        'POST /api/wallet/keys — selecione walletId e, para carteira de cliente, subAccountId. O endpoint exige WALLET_PAYOUT_API e limita a consulta a uma por minuto por API key.',
+        'POST /api/wallet/transfer — envie walletId, walletPin e a chave protegida correspondente; use fromSubAccountId quando a origem for uma subconta.',
+        'POST /api/wallet/payout — no fluxo por PIN, envie as credenciais da carteira selecionada e subAccountId quando aplicável.',
+        'Consulte o status do payout por transactionId e processe os webhooks assinados. A resposta inicial não confirma liquidação.',
+      ],
+      links: [
+        { label: 'Contrato de Wallet Keys e invalidação do cache', href: 'https://docs.hodle.com.br/docs/wallet-keys' },
+        { label: 'Contrato de Wallet Transfer', href: 'https://docs.hodle.com.br/docs/wallet-transfer' },
       ],
       icons: [],
       comparison: null,
@@ -109,9 +127,19 @@ export const paraAgentesDeIa: TopicPage = {
     {
       id: 'redes',
       kind: 'ASSETS',
-      heading: 'Ativos e redes que o agente alcança',
-      body: 'USDT em Polygon e Tron, USDC em Base, as duas também em Arbitrum e Spark. Bitcoin on-chain e por Lightning. Reais entram e saem por Pix.',
-      bullets: [],
+      heading: 'Ativos e redes por operação',
+      body: 'Wallet Transfer envia o token na rede escolhida. Wallet Payout converte o saldo elegível para pagar o destinatário em reais via Pix. A disponibilidade de uma rede em um desses endpoints não implica suporte no outro.',
+      bullets: [
+        'Transfer: Polygon — USDT, USDC e BRLA; Base — USDC e BRLA; Solana — USDT, USDC e BRS; BNB Chain — USDT BEP20.',
+        'Transfer em BNB Chain exige BNB_ASSET e conta habilitada, tem mínimo de 1 USDT e não está disponível no sandbox. BRS em Solana exige NORA_RAIL além de WALLET_PAYOUT_API.',
+        'Payout: Polygon — USDT, USDC e BRLA; Base — USDC e BRLA; Tron — USDT; Solana — USDT, USDC e BRS. Tron exige TRON_PAYOUT; BRS exige NORA_RAIL, além de WALLET_PAYOUT_API.',
+        'No payout, a seleção do ativo considera as regras e o saldo disponível; consulte a ordem de preferência e os fallbacks na documentação.',
+        'Lightning → Pix usa /api/lightning/invoice, em um fluxo separado do payout de stablecoins.',
+      ],
+      links: [
+        { label: 'Matriz de transferência por rede', href: 'https://docs.hodle.com.br/docs/wallet-transfer' },
+        { label: 'Matriz e seleção de ativos no payout', href: 'https://docs.hodle.com.br/docs/wallet-payout' },
+      ],
       icons: [
         { src: '/usdt.svg', label: 'USDT' },
         { src: '/usdc.svg', label: 'USDC' },
@@ -120,8 +148,6 @@ export const paraAgentesDeIa: TopicPage = {
         { src: '/polygon.svg', label: 'Polygon' },
         { src: '/tron.svg', label: 'Tron' },
         { src: '/base.png', label: 'Base' },
-        { src: '/arbitrum.svg', label: 'Arbitrum' },
-        { src: '/spark.svg', label: 'Spark' },
       ],
       comparison: null,
       code: null,
@@ -134,33 +160,34 @@ export const paraAgentesDeIa: TopicPage = {
     {
       question: 'Um agente de IA pode pagar um Pix?',
       answer:
-        'Sim, pela API. O agente dispara um POST em /api/wallet/payout com a chave Pix e o valor, financiado por saldo em USDT ou USDC, e acompanha o resultado por webhook assinado. Não há tela no caminho.',
+        'Sim, com conta e funcionalidades habilitadas, saldo elegível e autorização para a carteira. A API inicia o payout e permite acompanhar seu status e webhooks. No @hodle/mcp, escrita fica desabilitada por padrão; habilitá-la e enviar confirm: true não substitui a aprovação humana no cliente MCP.',
     },
     {
       question: 'Como o agente é autorizado a movimentar fundos?',
       answer:
-        'Por duas chaves. A API key identifica a sua plataforma e define o escopo. A chave do usuário final, buscada uma vez e cacheada, é o que autoriza mover os fundos dele — sem ela não há payout nem transfer.',
+        'A API key identifica a conta. No fluxo por PIN, a integração fornece walletPin e protectedSymmetricKey da carteira selecionada. POST /api/wallet/keys retorna a chave protegida, walletId e email; o cache é por walletId, junto do email, e deve ser atualizado quando essa chave mudar. No MCP, as credenciais de assinatura ficam em variáveis de ambiente.',
     },
     {
       question: 'O que impede o agente de gastar além do previsto?',
       answer:
-        'O desenho do seu fluxo. Você decide quais usuários o agente alcança, quais operações expõe e quais validações rodam antes de cada disparo. A Hodle não movimenta fundo de usuário sem a chave dele, mas o limite de comportamento do agente é responsabilidade de quem o constrói.',
+        'A integração deve impor os limites de valor, destinatário e escopo e manter as aprovações adequadas. No MCP, HODLE_MCP_ALLOW_WRITES controla a exposição de ferramentas de escrita; confirm: true é um campo que o próprio agente pode preencher, não uma aprovação humana.',
     },
     {
-      question: 'Precisa de MCP para integrar?',
+      question: 'A Hodle tem servidor MCP? Preciso dele para integrar?',
       answer:
-        'Não. A Hodle expõe uma API REST, e é isso que a documentação cobre. Não publicamos servidor MCP hoje. Qualquer agente que faça chamada HTTP autenticada integra direto.',
+        'A Hodle documenta @hodle/mcp como um servidor local via stdio para Claude Code, Cursor, Codex e Hermes, com sandbox e consultas por padrão. O pacote não foi localizado no npm público na revisão de 04/10/2026; confirme o acesso com a equipe. O guia está em /docs/ai/mcp. O MCP é opcional: a integração REST pode ser feita diretamente.',
     },
     {
       question: 'Quais operações o agente consegue fazer?',
       answer:
-        'Pagar Pix com stablecoin, emitir invoice Lightning que liquida em Pix, converter reais em Lightning, USDT, USDC ou USDCE, transferir USDT entre Polygon, Base e Tron, ler endereços, saldos e extrato, e receber webhook de cada mudança de estado.',
+        'Consultar carteiras, saldos, extrato e cotações; iniciar payout de stablecoin para Pix, invoices Lightning, depósitos e transferências quando autorizados. Wallet Transfer envia tokens na mesma rede, conforme a matriz do endpoint; não faz bridge. O MCP atual recusa payout de subcontas porque mantém um único par de credenciais de assinatura.',
     },
   ],
   related: [
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
     { label: 'Carteiras auto-custodiais', href: '/wallet-auto-custodial' },
     { label: 'Glossário', href: '/glossario' },
-    { label: 'Documentação da API', href: 'https://docs.hodle.com.br' },
+    { label: 'MCP documentado pela Hodle', href: 'https://docs.hodle.com.br/docs/ai/mcp' },
+    { label: 'Skill hodle-api', href: 'https://docs.hodle.com.br/docs/ai/skills' },
   ],
 }

@@ -11,18 +11,18 @@ type Stat = {
 
 const STATS: Stat[] = [
   { value: '24/7', label: 'Pix disponível, a qualquer hora.', delay: '0.3s' },
-  { value: <>100<span className="text-[#EAB308]">%</span></>, label: 'Auto-custódia. Suas chaves, suas moedas.', delay: '0.5s' },
+  { value: 'PIN', label: 'Autorize operações com as credenciais da wallet.', delay: '0.5s' },
   { value: <>5<span className="text-[#14B8A6]">+</span></>, label: 'Redes e rails num só saldo.', delay: '0.7s' },
 ]
 
 /**
- * Three headline numbers that roll up from behind a mask.
+ * Three operational highlights that roll up from behind a mask.
  */
 export const Stats = () => (
   <section aria-labelledby="lv2-numeros" className="lv2-sec">
     <SectionMarks />
     <h2 id="lv2-numeros" className="sr-only">
-      A Hodle em números
+      Destaques da Hodle
     </h2>
     <div className="lv2-rail lv2-cells grid-cols-1 md:grid-cols-3">
       {STATS.map((stat) => (

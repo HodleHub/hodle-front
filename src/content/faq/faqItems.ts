@@ -20,10 +20,10 @@ export const faqItems: FaqItem[] = [
       'A Hodle é ideal para empresas SaaS, agentes de IA, fintechs, marketplaces e negócios que precisam de infraestrutura cripto confiável. Oferecemos APIs robustas para integração direta, além da plataforma visual para gerenciamento. Se a sua empresa recebe em real e precisa guardar ou pagar em dólar, ou recebe em dólar e precisa pagar em real, o caso de uso é este.',
   },
   {
-    question: 'As wallets são realmente auto-custodiais?',
+    question: 'Quem autoriza as operações das wallets?',
     answer:
-      'Sim. Na Hodle, as chaves privadas ficam 100% sob o controle do usuário. Não temos acesso às suas chaves nem aos seus fundos. A chave é derivada no cliente e a Hodle guarda apenas um envelope cifrado que não consegue abrir, então nem um comprometimento da nossa infraestrutura move o seu saldo. Veja em detalhe como funcionam as wallets auto-custodiais.',
-    link: { text: 'wallets auto-custodiais', href: '/wallet-auto-custodial' },
+      'Depende do modelo de assinatura. Na integração por API com PIN, a plataforma fornece o PIN e a chave protegida da wallet selecionada para autorizar a assinatura temporária no servidor. A plataforma é responsável por proteger as credenciais e obter a autorização do titular. Existem também fluxos de assinatura pelo usuário; consulte os requisitos de cada modelo.',
+    link: { text: 'modelo de assinatura', href: '/wallet-auto-custodial' },
   },
   {
     question: 'Como funciona a API?',
@@ -54,7 +54,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Quais ativos e redes vocês suportam?',
     answer:
-      'USDT em Polygon, Base, Solana, Tron, Arbitrum e Spark. USDC em Base, Polygon, Solana, Arbitrum e Spark. Bitcoin em Lightning, on-chain e Liquid. Real tokenizado em BRLA e BRS. A taxa de serviço é a mesma em todos os ativos e em todas as redes — não existe preço diferente por rede.',
+      'USDT em Polygon, Base, Solana, Tron, Arbitrum e Spark. USDC em Base, Polygon, Solana, Arbitrum e Spark. Bitcoin em Lightning, on-chain e Liquid. Real tokenizado em BRLA e BRS. A tarifa pode variar por ativo, rede, operação e condição da conta; confira a cotação e a documentação do fluxo.',
   },
   {
     question: 'Quanto tempo demora a liquidação?',
@@ -64,7 +64,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Quais são as taxas cobradas?',
     answer:
-      'On-ramp e off-ramp custam a mesma taxa de serviço nas duas direções: começa em 2% e cai por faixa de volume mensal até o piso de 0,5%, com mínimo de R$ 0,75 por operação. Transferência entre carteiras na mesma rede não tem custo. A referência oficial e completa é a nossa página de preços — qualquer número citado em outro lugar deve ser conferido contra ela.',
+      'A página de preços publica uma tabela comercial por volume de 2% a 0,5%, com mínimo de R$ 0,75, para operações abrangidas pela condição contratada. API payout, Lightning e wallet podem ter tarifas próprias; confirme taxa e total na cotação do fluxo. Transferência entre carteiras Hodle na mesma rede é sem custo nas combinações previstas na página de preços.',
     link: { text: 'página de preços', href: '/precos' },
   },
   {

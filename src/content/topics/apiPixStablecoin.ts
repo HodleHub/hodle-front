@@ -21,7 +21,7 @@ export const apiPixStablecoin: TopicPage = {
     'webhook pix cripto',
   ],
   primaryKeyword: 'api pix stablecoin',
-  updatedAt: '2026-09-22T00:00:00Z',
+  updatedAt: '2026-10-04T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'DESENVOLVEDORES',
@@ -277,14 +277,14 @@ export const apiPixStablecoin: TopicPage = {
         'Sim. A API conecta cobrança Pix à entrega de ativos digitais e permite pagar Pix a partir de saldo em stablecoin. Ativo, rede, habilitação e verificação variam por fluxo. Consulte o endpoint antes de escolher a integração.',
     },
     {
-      question: 'A Hodle custodia os ativos dos clientes?',
+      question: 'Como a integração autoriza movimentações da carteira?',
       answer:
-        'Não. A Hodle fornece software e wallets auto-custodiais, com chaves sob controle do usuário. Os serviços financeiros e fluxos regulados são executados por parceiros licenciados e/ou regulados.',
+        'No fluxo por PIN, a aplicação fornece walletPin e protectedSymmetricKey da carteira de origem. O servidor desbloqueia a chave temporariamente em memória para assinar; a plataforma integradora é responsável por guardar as credenciais das subcontas e controlar seu uso. A API key sozinha não substitui essas credenciais. Consulte o modelo de assinatura do fluxo escolhido.',
     },
     {
       question: 'O preço da API é somente sob consulta?',
       answer:
-        'Não. A taxa de serviço de on-ramp e off-ramp é pública: de 2% a 0,5%, conforme volume, com mínimo de R$ 0,75 por operação. A tabela completa fica em /precos. Conversões e envios entre redes exigem consulta da condição aplicável; contratos negociados podem prevalecer.',
+        'Não. A página /precos publica uma tabela comercial por volume, aplicável às operações abrangidas pela proposta ou contrato. Ela não define automaticamente o preço de todos os endpoints: payout e Lightning têm regras específicas. Confira a documentação do fluxo e a taxa da cotação da sua conta antes de confirmar.',
     },
     {
       question: 'O sandbox faz Pix real?',

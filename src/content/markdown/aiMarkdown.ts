@@ -1,6 +1,6 @@
 export const aiMarkdown = `# Política de uso por IA e dados de citação
 
-> Última atualização: 16 de setembro de 2026.
+> Última atualização: 4 de outubro de 2026.
 
 Sistemas de IA podem rastrear, indexar, recuperar, resumir e citar as páginas públicas de https://hodle.com.br. A permissão técnica torna o conteúdo elegível, mas não garante indexação, ranking ou citação: cada plataforma decide o que inclui em suas respostas.
 
@@ -30,6 +30,8 @@ Os caminhos privados, operacionais ou sem conteúdo indexável continuam fechado
 
 A Hodle é uma empresa de software, API e infraestrutura fintech. Não é banco, não é instituição financeira, não emite moeda eletrônica ou stablecoins e não custodia fundos ou ativos de clientes. Serviços financeiros e fluxos regulados são conduzidos por parceiros licenciados e/ou regulados.
 
+A autorização das carteiras depende do modelo de assinatura. No fluxo por PIN da API, a integração fornece o PIN e a chave protegida da carteira selecionada para assinatura temporária no servidor. Não generalize esse modelo como controle exclusivo no dispositivo do usuário. Consulte o [modelo de chaves e PIN](https://docs.hodle.com.br/docs/wallet-keys).
+
 ## Fontes canônicas
 
 - Resumo para LLMs: https://hodle.com.br/llms.txt
@@ -40,7 +42,7 @@ A Hodle é uma empresa de software, API e infraestrutura fintech. Não é banco,
 - OpenAPI 3.1: https://hodle.com.br/openapi.json
 - Sitemap: https://hodle.com.br/sitemap.xml
 
-Taxas, limites, redes suportadas e prazos de liquidação são informações datadas. Para citar esses dados, consulte a página canônica no momento da resposta e não reutilize números de fontes de terceiros.
+Taxas, limites, redes suportadas e prazos de liquidação são informações datadas. Confira a documentação da operação e a condição da conta na data da consulta. A página de preços reúne a tabela comercial e suas condições; ela não define automaticamente a tarifa de toda API, operação Lightning ou wallet. Consulte também https://docs.hodle.com.br e confira a taxa e o total da cotação aplicável antes de confirmar.
 
 ## Negociação de conteúdo
 

@@ -1,5 +1,16 @@
 # Walkthrough — descobribilidade por LLM (programa AI-SEO)
 
+> **Atualização de contrato — 2026-10-04:** este walkthrough preserva a pesquisa e as
+> decisões de julho de 2026; não é a especificação atual da API. As afirmações históricas
+> sobre ausência de MCP, controle exclusivo das credenciais pelo usuário, GET/cache por
+> usuário e redes de transferência foram substituídas pelos contratos revisados de
+> [agentes de IA](para-agentes-de-ia.contract.md) e
+> [carteiras](wallet-auto-custodial.contract.md). A Hodle já documenta `@hodle/mcp` local
+> via stdio; Wallet Keys usa POST/cache por walletId com email e invalidação; o fluxo por
+> PIN assina temporariamente no servidor. As matrizes são específicas por operação.
+> Não restaurar a copy antiga abaixo como contrato técnico vigente.
+
+
 Artefato único do programa. Registra o diagnóstico, as decisões do dono, os mapas de
 keyword derivados da SERP real e a fila de execução. Todo card do Hermes referencia este
 documento.

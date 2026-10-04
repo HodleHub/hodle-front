@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "locale": "pt-BR",
   "market": "BR",
   "baselineDate": "2026-09-22",
@@ -270,6 +270,118 @@
       "intent": "asset-discovery",
       "prompt": "Qual a diferença entre BRS e BRLA na Hodle?",
       "targetUrl": "https://hodle.com.br/brla"
+    },
+    {
+      "id": "discovery-q01",
+      "intent": "broad_term",
+      "prompt": "Pix",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/pix"
+    },
+    {
+      "id": "discovery-q02",
+      "intent": "broad_term",
+      "prompt": "Pagamento",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/pix"
+    },
+    {
+      "id": "discovery-q03",
+      "intent": "broad_term",
+      "prompt": "Stablecoin",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/api-pix-stablecoin"
+    },
+    {
+      "id": "discovery-q04",
+      "intent": "broad_term",
+      "prompt": "Bitcoin",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/comprar-bitcoin-com-pix"
+    },
+    {
+      "id": "discovery-q05",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: quais APIs Pix posso usar para receber pagamentos no meu SaaS no Brasil? Compare opções e cite fontes oficiais.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/api-pix"
+    },
+    {
+      "id": "discovery-q06",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: quero receber Pix de clientes e receber o valor em USDC na minha carteira. Quais plataformas oferecem isso no Brasil? Cite fontes oficiais e condições.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/receber-pix-em-stablecoin"
+    },
+    {
+      "id": "discovery-q07",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: preciso de uma API para pagar Pix usando saldo em USDT ou USDC. Quais fornecedores atendem empresas no Brasil? Cite documentação oficial.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/api-pix-stablecoin"
+    },
+    {
+      "id": "discovery-q08",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: como criar um link de pagamento Pix para vender pelo WhatsApp? Quais plataformas posso usar? Cite fontes oficiais.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/gateway-de-pagamento-cripto"
+    },
+    {
+      "id": "discovery-q09",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: quais gateways de pagamento conectam Pix e criptomoedas para empresas no Brasil? Compare opções e cite fontes oficiais.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/gateway-de-pagamento-cripto"
+    },
+    {
+      "id": "discovery-q10",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: existe API para receber Bitcoin pela Lightning e pagar o destinatário em Pix no Brasil? Quais serviços oferecem isso? Cite documentação oficial.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/lightning-para-pix"
+    },
+    {
+      "id": "discovery-q11",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: quais APIs ou servidores MCP permitem a agentes de IA consultar e iniciar pagamentos Pix com stablecoins? Cite documentação oficial e limitações.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/para-agentes-de-ia"
+    },
+    {
+      "id": "discovery-q12",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: sou uma empresa fora do Brasil e quero receber pagamentos Pix de clientes brasileiros. Quais integrações existem e em que moeda posso receber? Cite fontes oficiais.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/pix-para-llc"
+    },
+    {
+      "id": "discovery-q13",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: quais plataformas oferecem conta PJ com Pix e integração com saldo em stablecoins para empresas brasileiras? Cite fontes oficiais e condições.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/conta-digital-pj"
+    },
+    {
+      "id": "discovery-q14",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: preciso automatizar a conciliação Pix usando API e webhooks. Quais fornecedores e exemplos de integração posso avaliar? Cite fontes oficiais.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/articles/conciliacao-pix-api"
+    },
+    {
+      "id": "discovery-q15",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: quais APIs permitem criar carteiras auto-custodiais para usuários e conectar essas carteiras ao Pix no Brasil? Cite documentação oficial.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/wallet-auto-custodial"
+    },
+    {
+      "id": "discovery-q16",
+      "intent": "commercial_unbranded",
+      "prompt": "Pesquise na web: como uma empresa pode pagar fornecedores brasileiros por Pix usando USDC? Quais plataformas têm esse fluxo documentado? Cite fontes oficiais.",
+      "brandInPrompt": false,
+      "targetUrl": "https://hodle.com.br/pagar-fornecedores-com-usdc"
     }
   ],
   "observationFields": [
@@ -287,8 +399,788 @@
     "competitors",
     "evidencePath"
   ],
-  "observations": [],
-  "interpretation": "GSC baseline is observed data before this release. Other engine prompt observations are not yet collected. A single answer is not a stable ranking. Review after recrawling, using the same prompts and matched periods. No automated monitor created.",
+  "observations": [
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q01",
+      "observedAt": "2026-10-04T02:44:50.550Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Pede esclarecimento: Pix brasileiro ou fotos.",
+      "evidencePath": "private-browser-captures/chatgpt-q01.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q01",
+      "observedAt": "2026-10-04T02:45:22.318Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Explica Pix, modalidades e segurança, depois pede esclarecer a necessidade.",
+      "evidencePath": "private-browser-captures/claude-q01.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q02",
+      "observedAt": "2026-10-04T02:46:20.212Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Pede qual problema de pagamento o usuário quer resolver.",
+      "evidencePath": "private-browser-captures/chatgpt-q02.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q02",
+      "observedAt": "2026-10-04T02:46:20.967Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Pede esclarecer pagamento; oferece exemplos que incluem cobrança da assinatura Claude.",
+      "evidencePath": "private-browser-captures/claude-q02.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q03",
+      "observedAt": "2026-10-04T02:47:20.217Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Define stablecoin, dá exemplos e explica mecanismos, usos e riscos; nenhuma recomendação de fornecedor Pix.",
+      "evidencePath": "private-browser-captures/chatgpt-q03.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q03",
+      "observedAt": "2026-10-04T02:47:20.381Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Explica stablecoins e riscos; entidades citadas são exemplos e contexto, não uma lista de fornecedores de integração Pix.",
+      "evidencePath": "private-browser-captures/claude-q03.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q04",
+      "observedAt": "2026-10-04T02:47:40.146Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": false,
+      "note": "Define Bitcoin e pede escolher preço, investimento, funcionamento ou previsão.",
+      "evidencePath": "private-browser-captures/chatgpt-q04.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q04",
+      "observedAt": "2026-10-04T02:47:40.235Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [],
+      "commercialDenominatorEligible": false,
+      "webObserved": true,
+      "note": "Interpreta Bitcoin como consulta de preço e apresenta cotação, histórico e contexto de notícias com links.",
+      "evidencePath": "private-browser-captures/claude-q04.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q05",
+      "observedAt": "2026-10-04T02:48:34.266Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Asaas",
+        "Efí",
+        "Mercado Pago",
+        "Banco do Brasil",
+        "Itaú",
+        "Bradesco"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Compara fornecedores de API Pix genérica e recorrência; Hodle ausente. Shortlist final: Asaas, Efí e Banco do Brasil.",
+      "evidencePath": "private-browser-captures/chatgpt-q05.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q05",
+      "observedAt": "2026-10-04T02:49:20.902Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Efí",
+        "Banco Inter",
+        "Cielo",
+        "Asaas",
+        "Woovi/OpenPix",
+        "Mercado Pago",
+        "Stripe"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Compara API Pix padrão BC e gateways; Hodle ausente. Há citações secundárias, apesar do pedido de fontes oficiais.",
+      "evidencePath": "private-browser-captures/claude-q05.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q06",
+      "observedAt": "2026-10-04T02:49:53.003Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": true,
+      "firstPartyCited": true,
+      "citedUrls": [
+        "https://hodle.com.br/receber-pix-em-stablecoin",
+        "https://hodle.com.br/api-pix-stablecoin",
+        "https://hodle.com.br/precos",
+        "https://hodle.com.br/comprar-usdt-com-pix"
+      ],
+      "accuracy": "compatible_with_cited_sources_not_fully_audited",
+      "competitors": [
+        "Abroad",
+        "Astron Pay",
+        "LuniumPay",
+        "ONE",
+        "CBRpaga"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle é citada e colocada em primeiro na shortlist para receber Pix e liquidar USDC em carteira externa.",
+      "evidencePath": "private-browser-captures/chatgpt-q06.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q06",
+      "observedAt": "2026-10-04T02:50:52.497Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Avenia",
+        "Woovi/OpenPix",
+        "Bitso Business",
+        "Koywe",
+        "Stripe"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle não aparece. Avenia é a opção descrita como mais diretamente documentada; outras opções têm ressalvas de fluxo ou elegibilidade.",
+      "evidencePath": "private-browser-captures/claude-q06.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q07",
+      "observedAt": "2026-10-04T02:50:52.551Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": true,
+      "firstPartyCited": true,
+      "citedUrls": [
+        "https://docs.hodle.com.br/",
+        "https://docs.hodle.com.br/docs/flow-stable-pix",
+        "https://docs.hodle.com.br/docs/wallet-payout",
+        "https://docs.hodle.com.br/docs/wallet-payout-beneficiary",
+        "https://docs.hodle.com.br/docs/kyc"
+      ],
+      "accuracy": "compatible_with_cited_sources_not_fully_audited",
+      "competitors": [
+        "Lunium",
+        "Astron Pay",
+        "OpenPix/Woovi"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle aparece em primeiro na tabela e na shortlist, com links para a documentação do fluxo stablecoin→Pix, payout, beneficiário e KYC.",
+      "evidencePath": "private-browser-captures/chatgpt-q07.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q07",
+      "observedAt": "2026-10-04T02:53:20.566Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": true,
+      "firstPartyCited": true,
+      "citedUrls": [
+        "https://hodle.com.br/"
+      ],
+      "accuracy": "public_documentation_retrieval_gap",
+      "competitors": [
+        "Woovi/OpenPix",
+        "Avenia",
+        "kamiPay",
+        "BlindPay",
+        "UnblockPay",
+        "Koywe",
+        "Bitso Business"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle aparece como quarta opção no grupo de APIs nativas e cita a home, mas o modelo não encontra a referência técnica pública existente.",
+      "evidencePath": "private-browser-captures/claude-q07.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q08",
+      "observedAt": "2026-10-04T02:51:42.719Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Mercado Pago",
+        "PagBank",
+        "Asaas",
+        "Stone",
+        "InfinitePay"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Não menciona Hodle. Recomenda Mercado Pago para começar e separa link de checkout de cobrança Pix por link.",
+      "evidencePath": "private-browser-captures/chatgpt-q08.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q08",
+      "observedAt": "2026-10-04T02:55:12.309Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Mercado Pago",
+        "PagBank",
+        "InfinitePay",
+        "Asaas",
+        "Stripe",
+        "Linkspix",
+        "Pixlink"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Não menciona Hodle. Explica chave Pix no WhatsApp e plataformas de link; recomendação principal de checkout: Mercado Pago ou PagBank.",
+      "evidencePath": "private-browser-captures/claude-q08.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q09",
+      "observedAt": "2026-10-04T02:52:24.780Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Foxbit Gateway/Foxbit Pay",
+        "BRL Bridge",
+        "Pixup",
+        "BSPay",
+        "SyntraPay",
+        "PixBitcoin.org"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Não menciona Hodle. Prioriza Foxbit, BRL Bridge e Pixup; BSPay, SyntraPay e PixBitcoin aparecem na tabela com ressalvas.",
+      "evidencePath": "private-browser-captures/chatgpt-q09.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q09",
+      "observedAt": "2026-10-04T02:56:52.319Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Bitso Business",
+        "Brasil Bitcoin",
+        "Woovi/OpenPix",
+        "Avenia",
+        "Binance Pay"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Não menciona Hodle. Compara cinco fornecedores por fluxo; Brasil Bitcoin, Bitso/Avenia e Woovi têm indicações distintas.",
+      "evidencePath": "private-browser-captures/claude-q09.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q10",
+      "observedAt": "2026-10-04T02:53:04.542Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": true,
+      "firstPartyCited": true,
+      "citedUrls": [
+        "https://docs.hodle.com.br/docs/flow-lightning-pix",
+        "https://docs.hodle.com.br/docs",
+        "https://docs.hodle.com.br/docs/lightning-invoice",
+        "https://docs.hodle.com.br/docs/webhooks"
+      ],
+      "accuracy": "compatible_with_cited_sources_with_public_pricing_conflict",
+      "competitors": [
+        "CryptoUse",
+        "Foxbit Gateway"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle é primeira opção e recomendação final para Lightning→Pix, com quatro URLs distintas da documentação citadas.",
+      "evidencePath": "private-browser-captures/chatgpt-q10.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q10",
+      "observedAt": "2026-10-04T02:58:54.556Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Lightspark Grid",
+        "Bitso",
+        "Sqala",
+        "EBANX"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Não menciona Hodle. Recomenda Lightspark Grid para o fluxo completo; Bitso e Sqala aparecem com incertezas e EBANX como parte de composição própria.",
+      "evidencePath": "private-browser-captures/claude-q10.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q11",
+      "observedAt": "2026-10-04T02:58:37.164Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": true,
+      "firstPartyCited": true,
+      "citedUrls": [
+        "https://docs.hodle.com.br/docs/wallet-payout",
+        "https://hodle.com.br/api-pix-stablecoin",
+        "https://hodle.com.br/para-agentes-de-ia"
+      ],
+      "accuracy": "material_public_source_contradiction_reproduced",
+      "competitors": [
+        "UnblockPay",
+        "OpenPix/Woovi",
+        "PayZu MCP",
+        "Coinbase CDP/Bazaar MCP"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle é primeira opção, mas a resposta marca MCP oficial como inexistente e recomenda criar uma camada MCP própria, reproduzindo a landing desatualizada.",
+      "evidencePath": "private-browser-captures/chatgpt-q11.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q11",
+      "observedAt": "2026-10-04T03:00:34.163Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "BlindPay",
+        "Bridge",
+        "Woovi/OpenPix",
+        "UnblockPay"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Recomenda BlindPay como caminho mais pronto com MCP oficial e Pix; alternativa final é MCP próprio sobre Woovi. Separa componentes parciais de soluções stablecoin→Pix.",
+      "evidencePath": "private-browser-captures/claude-q11.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q12",
+      "observedAt": "2026-10-04T02:59:28.319Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "EBANX",
+        "dLocal",
+        "Stripe/EBANX"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Não menciona Hodle. Prioriza EBANX e dLocal para comerciante estrangeiro; distingue Pix pago em BRL de liquidação na moeda contratada.",
+      "evidencePath": "private-browser-captures/chatgpt-q12.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q12",
+      "observedAt": "2026-10-04T03:02:34.475Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Stripe/EBANX",
+        "EBANX",
+        "dLocal",
+        "PagBrasil",
+        "Glin"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Compara Stripe via EBANX, EBANX direto e dLocal; PagBrasil e Glin aparecem como prestadores especializados adicionais. Descreve liquidação internacional em moedas fiduciárias.",
+      "evidencePath": "private-browser-captures/claude-q12.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q13",
+      "observedAt": "2026-10-04T03:00:15.434Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Foxbit Empresas",
+        "Bitso Business"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Shortlist principal de Foxbit Empresas e Bitso Business para conta empresarial, Pix e stablecoins.",
+      "evidencePath": "private-browser-captures/chatgpt-q13.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q13",
+      "observedAt": "2026-10-04T03:04:37.846Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Bitso Business",
+        "Foxbit Empresas",
+        "Transfero",
+        "Avenia",
+        "NoxPay/CrossRamp"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Destaca Bitso, Foxbit, Transfero, Avenia e NoxPay; distingue conta pronta de infraestrutura API.",
+      "evidencePath": "private-browser-captures/claude-q13.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q14",
+      "observedAt": "2026-10-04T03:01:03.517Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Efí Bank",
+        "Banco Inter",
+        "Asaas",
+        "Pagar.me",
+        "Mercado Pago"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Compara APIs, webhooks, identificadores e extratos; shortlist principal Efí, Inter e Asaas, além de Pagar.me e Mercado Pago para gateway/checkout.",
+      "evidencePath": "private-browser-captures/chatgpt-q14.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q14",
+      "observedAt": "2026-10-04T03:04:35.382Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Efí Bank",
+        "Banco Inter",
+        "Bradesco",
+        "Asaas",
+        "Celcoin",
+        "Woovi/OpenPix",
+        "Stark Bank",
+        "Mercado Pago",
+        "QI Tech"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Organiza fornecedores por padrão BCB ou API proprietária, com documentação de callbacks, segurança, consulta e reenvio.",
+      "evidencePath": "private-browser-captures/claude-q14.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q15",
+      "observedAt": "2026-10-04T03:01:40.627Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Dynamic",
+        "Ramp Network",
+        "Transak",
+        "Asaas"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Propõe combinação Dynamic + Ramp, Dynamic + Transak ou wallet + instituição brasileira/Open Finance. Não encontrou API única para todo o fluxo.",
+      "evidencePath": "private-browser-captures/chatgpt-q15.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q15",
+      "observedAt": "2026-10-04T03:05:49.276Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Privy",
+        "Circle User-Controlled Wallets",
+        "Coinbase CDP",
+        "Bridge",
+        "BlindPay",
+        "Avenia",
+        "Woovi",
+        "Banxa"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Recomenda combinar API de wallet com rampa Pix, separando Privy/Circle/CDP de Bridge/BlindPay/Avenia/Woovi/Banxa.",
+      "evidencePath": "private-browser-captures/claude-q15.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q16",
+      "observedAt": "2026-10-04T03:02:30.453Z",
+      "engine": "ChatGPT Search",
+      "model": null,
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": true,
+      "firstPartyCited": true,
+      "citedUrls": [
+        "https://docs.hodle.com.br/docs/flow-stable-pix",
+        "https://hodle.com.br/pagar-fornecedores-com-usdc",
+        "https://docs.hodle.com.br/docs/wallet-payout",
+        "https://docs.hodle.com.br/docs/webhooks"
+      ],
+      "accuracy": "compatible_with_cited_sources_not_fully_audited",
+      "competitors": [
+        "Striga/Grid",
+        "UnblockPay",
+        "Lunium",
+        "BlindPay",
+        "Trace Finance"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle aparece primeiro na tabela, na descrição e na shortlist. A resposta destaca a página específica sobre pagamento de fornecedores com USDC e cita documentação técnica do fluxo e webhooks.",
+      "evidencePath": "private-browser-captures/chatgpt-q16.json"
+    },
+    {
+      "runId": "2026-10-04-unbranded-browser",
+      "promptId": "discovery-q16",
+      "observedAt": "2026-10-04T03:08:08.488Z",
+      "engine": "Claude web search",
+      "model": "Opus 5.5 Médio",
+      "surface": "web",
+      "locale": "pt-BR",
+      "signedIn": true,
+      "brandMentioned": false,
+      "firstPartyCited": false,
+      "citedUrls": [],
+      "accuracy": "not_applicable_no_hodle_claims",
+      "competitors": [
+        "Bridge",
+        "Circle Payments Network",
+        "Bitso Business",
+        "UnblockPay"
+      ],
+      "commercialDenominatorEligible": true,
+      "webObserved": true,
+      "note": "Hodle ausente. Compara Bridge, Circle Payments Network por instituições/parceiros, Bitso Business e UnblockPay para USDC→BRL→Pix.",
+      "evidencePath": "private-browser-captures/claude-q16.json"
+    }
+  ],
+  "interpretation": "GSC baseline predates this release. The 2026-10-04 browser run records 32 completed answers in fresh conversations without Hodle in the prompt. Count the 24 explicit-web commercial answers separately from the eight broad-term controls. One answer is not a stable ranking. Repeat after recrawling with the same prompts and matched configurations; no automated monitor created.",
   "caseStudies": {
     "customerEvidence": "Pending customer permission and verifiable business outcomes. Do not invent or publish private account data.",
     "publicAlternative": "Two explicitly labelled technical demonstrations in webhook and reconciliation tutorials, with reproducible local tests; not customer ROI or live financial results."
@@ -303,5 +1195,67 @@
     "nextAction": "Confirm authorized partner contacts and accurate integration scope before requesting directory listings or editorial references. Use public technical evidence and disclose the relationship; no bought links or fabricated endorsements."
   },
   "baselineLocation": "Private Search Console audit retained outside this public repository; do not publish account analytics or customer data.",
-  "updatedAt": "2026-09-29"
+  "updatedAt": "2026-10-04",
+  "observedRuns": [
+    {
+      "id": "2026-10-04-unbranded-browser",
+      "sourceRevision": "ed86ee5",
+      "role": "baseline_before_ai_discovery_contract_fixes",
+      "startedAt": "2026-10-04T02:44:50.550Z",
+      "endedAt": "2026-10-04T03:08:08.488Z",
+      "timezone": "America/Sao_Paulo",
+      "repetitionsPerPromptAndEngine": 1,
+      "configuration": {
+        "chatgpt": "Web, Free account, temporary chat, non-personalized; exact model not exposed",
+        "claude": "Web, Opus 5.5 Médio, incognito chat"
+      },
+      "promptSets": {
+        "broadTerms": "q01-q04, default behavior without explicit web instruction",
+        "commercial": "q05-q16, explicit web search and official-source request"
+      },
+      "limitations": [
+        "Signed-in interfaces; one answer per prompt/engine is not a stable ranking.",
+        "Citations count observed rendered first-party URLs; grouped +N sources may contain additional URLs.",
+        "Presence in intermediate search activity does not count as a final mention.",
+        "Not a before/after experiment and not evidence that a prior code change caused a citation."
+      ],
+      "summary": {
+        "commercial": {
+          "chatgpt": {
+            "cited": 5,
+            "total": 12
+          },
+          "claude": {
+            "cited": 1,
+            "total": 12
+          }
+        },
+        "broadTerms": {
+          "cited": 0,
+          "total": 8
+        }
+      },
+      "evidence": "Redacted structured observations below; original browser captures retained outside the public repository.",
+      "followUpFindings": [
+        {
+          "checkedOn": "2026-10-04",
+          "topic": "MCP package availability",
+          "finding": "The docs describe @hodle/mcp and npx installation, but npm view @hodle/mcp version returned E404 from the public npm registry. This narrows the earlier MCP interpretation to a disagreement between public sources; documentation alone does not establish installable public availability. The observed model answers and citation counts are unchanged.",
+          "sources": [
+            "https://docs.hodle.com.br/docs/ai/mcp",
+            "https://registry.npmjs.org/@hodle%2fmcp"
+          ]
+        },
+        {
+          "checkedOn": "2026-10-04",
+          "topic": "Agent skill repository availability",
+          "finding": "The documented installation points to HodleHub/skills, which returned HTTP 404 without authentication on GitHub and its public API. This does not establish whether a private repository exists. Public copy now asks integrators to confirm repository access before installation.",
+          "sources": [
+            "https://docs.hodle.com.br/docs/ai/skills",
+            "https://github.com/HodleHub/skills"
+          ]
+        }
+      ]
+    }
+  ]
 }

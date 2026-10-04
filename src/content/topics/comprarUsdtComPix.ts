@@ -150,9 +150,9 @@ export const comprarUsdtComPix: TopicPage = {
       "id": "taxas-e-cotacao",
       "kind": "PROSE",
       "heading": "Quanto custa comprar USDT com Pix",
-      "body": "A tabela de serviço começa em 2% e chega a 0,5% conforme o volume liquidado no mês anterior, somando compra e venda. A taxa por operação é o maior valor entre o percentual da faixa e R$ 0,75. Consulte as faixas e a condição contratada antes de iniciar a compra.",
+      "body": "A tabela comercial por volume em /precos vai de 2% a 0,5%, com mínimo de R$ 0,75, para operações abrangidas pela proposta ou contrato. Ela não define automaticamente a tarifa de todo fluxo de compra. Confira a condição da conta, a composição da cotação e o total de USDT a receber antes de confirmar.",
       "bullets": [
-        "Exemplo ilustrativo, não uma cotação: numa compra de R$ 1.000 na faixa de 2%, a taxa de serviço é R$ 20.",
+        "Exemplo somente para uma operação abrangida pela tabela comercial, não uma cotação: numa compra de R$ 1.000 na faixa de 2%, a taxa de serviço é R$ 20.",
         "Se considerarmos apenas essa taxa, restam R$ 980 para a conversão. A quantidade de USDT depende do preço e da composição final informados na operação; não é possível deduzi-la desta conta.",
         "Para R$ 20 na mesma faixa, o percentual daria R$ 0,40, mas o mínimo da tabela resulta em R$ 0,75. O exemplo não afirma que todo fluxo aceite esse ticket."
       ],
@@ -230,7 +230,7 @@ export const comprarUsdtComPix: TopicPage = {
     {
       question: 'Qual a taxa para comprar USDT com Pix?',
       answer:
-        'A tabela de on-ramp publica taxa de serviço de 2% a 0,5%, conforme volume, com mínimo de R$ 0,75 por operação. Confira também a cotação e a quantidade final da compra; a taxa de serviço isolada não é a cotação do USDT. Condições negociadas dependem do contrato.',
+        'A tabela comercial por volume vai de 2% a 0,5%, com mínimo de R$ 0,75, quando a proposta ou contrato abrange a operação. O fluxo de compra pode ter precificação específica. Confira taxa, cotação e quantidade final de USDT antes de confirmar; o percentual isolado não determina o total recebido.',
     },
     {
       question: 'Precisa de KYC?',

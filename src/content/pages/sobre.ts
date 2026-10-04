@@ -14,7 +14,7 @@ export const sobre: InfoPage = {
   h1: 'Sobre a Hodle',
   description:
     'Quem é a Hodle: empresa de software e API de infraestrutura cripto para empresas que operam com o Brasil. Entidades, endereço, registros, o que a empresa faz e o que ela não é.',
-  updatedAt: '2026-08-22T00:00:00-03:00',
+  updatedAt: '2026-10-04T00:00:00-03:00',
   intro: [
     'A Hodle é uma empresa de software que constrói infraestrutura de pagamento entre o real e o dólar digital. Uma única API permite receber em Pix, guardar em stablecoin de dólar e pagar em Pix a partir desse saldo — além de emitir invoice Lightning que liquida em Pix, rodar carteiras auto-custodiais multi-rede e converter entre real, dólar e stablecoins.',
     'O produto existe porque a operação financeira de uma empresa brasileira que fatura em dólar, ou de uma empresa estrangeira que paga no Brasil, costuma ser feita à mão: câmbio em uma planilha, custódia em uma exchange, pagamento em outra conta, conciliação no fim do mês. A Hodle entrega isso como duas coisas integradas — um painel para o time de operações e uma API REST para o time de engenharia.',
@@ -32,7 +32,7 @@ export const sobre: InfoPage = {
         'Pagar Pix a partir de saldo em stablecoin: um POST debita USDT (Polygon, Tron) ou USDC (Base) e liquida o Pix no destino, com gas patrocinado pela Hodle.',
         'Invoice Lightning que liquida em Pix: o pagador liquida um invoice BOLT11 de qualquer lugar do mundo e o recebedor no Brasil recebe um Pix comum.',
         'On-ramp e off-ramp: converter real em USDT, USDC ou Bitcoin e voltar, com entrega no endereço ou na chave Pix informada.',
-        'Carteiras auto-custodiais multi-rede: endereços e saldos por rede, com a chave privada sob controle exclusivo do usuário final.',
+        'Carteiras e operações por rede: endereços, saldos e autorização conforme o modelo de assinatura. No fluxo por PIN, a integração fornece o PIN e a chave protegida da carteira selecionada.',
         'Conta PJ nominal em bancos parceiros regulados pelo Banco Central, integrada à mesa de conversão.',
         'KYC dos usuários finais da plataforma integradora, por embed pronto ou pela API.',
         'Extrato com saldo por ativo e operações paginadas, para conciliação automática.',
@@ -81,7 +81,7 @@ export const sobre: InfoPage = {
       kind: 'PROSE',
       heading: 'O que a Hodle não é',
       body: [
-        'A Hodle é uma empresa de software e API. Não é banco, não é instituição financeira, não emite moeda eletrônica, não emite stablecoin, não emite cartões diretamente e não custodia fundos ou ativos de clientes. Nas carteiras auto-custodiais, as chaves privadas permanecem sob controle exclusivo do usuário.',
+        'A Hodle é uma empresa de software e API. Não é banco, não é instituição financeira, não emite moeda eletrônica, não emite stablecoin, não emite cartões diretamente e não custodia fundos ou ativos de clientes. A autorização das carteiras depende do modelo de assinatura. No fluxo por PIN da API, a integração fornece o PIN e a chave protegida da carteira selecionada para assinatura temporária no servidor.',
         'O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados. A Hodle não deve ser descrita como entidade regulada ou licenciada. O uso de ativos digitais no Brasil é regido pelo Marco Legal das Criptomoedas (Lei nº 14.478/2022), e os requisitos aplicáveis dependem do modelo de negócio de cada cliente.',
       ],
     },
@@ -91,8 +91,8 @@ export const sobre: InfoPage = {
       kind: 'PROSE',
       heading: 'Como trabalhamos',
       body: [
-        'Preço é público. A tabela de taxas fica em uma única página, com as faixas de volume até o piso, e essa página prevalece sobre qualquer número citado em outro lugar. Quando um serviço não tem preço de tabela, dizemos qual é e por quê.',
-        'Auto-custódia é padrão, não opção. A chave é derivada no cliente e a Hodle guarda apenas um envelope cifrado que não consegue abrir. Um comprometimento da nossa infraestrutura não move saldo de cliente.',
+        'A página de preços reúne a tabela comercial por volume e as condições de aplicação. API payout, Lightning e wallet podem ter regras próprias. Confira o contrato, a documentação da operação e a taxa apresentada na cotação antes de confirmar.',
+        'A integração define quem pode autorizar cada operação. No fluxo por PIN, a aplicação fornece walletPin e protectedSymmetricKey da carteira selecionada; o servidor desbloqueia a chave temporariamente em memória para assinar. A aplicação deve proteger essas credenciais e controlar sua utilização. Outros modelos de assinatura têm requisitos próprios, descritos na documentação.',
         'A documentação é escrita para ser lida por máquina. A especificação OpenAPI 3.1 é pública, tem operationId, descrição e schema de resposta em cada operação, e o site responde em markdown para quem pedir com Accept: text/markdown.',
       ],
     },

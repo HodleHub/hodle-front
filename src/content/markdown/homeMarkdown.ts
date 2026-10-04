@@ -22,9 +22,11 @@ Uma conta nominal no nome da sua empresa, aberta por parceiro financeiro e conec
 
 **Disponível só em produção.** [Conhecer a conta PJ](https://hodle.com.br/conta-digital-pj).
 
-## Wallets 100% auto-custodiais
+## Wallets e autorização de operações
 
-Chaves privadas 100% sob o controle do usuário, sem custódia de terceiros. A chave é derivada no cliente e a Hodle guarda apenas um envelope cifrado que não consegue abrir, então nem um comprometimento da nossa infraestrutura move o saldo.
+O controle das operações depende do modelo de assinatura escolhido. Na integração por API com PIN, a plataforma fornece o PIN e a chave protegida da wallet selecionada para autorizar a assinatura temporária no servidor. A plataforma é responsável por proteger essas credenciais e obter a autorização do titular. Há também fluxos de assinatura pelo usuário; confira os requisitos de cada modelo antes de integrar.
+
+[Modelo de chaves e PIN](https://docs.hodle.com.br/docs/wallet-keys) · [Autorização de transferências](https://docs.hodle.com.br/docs/wallet-transfer).
 
 ## O que você quer construir?
 
@@ -82,7 +84,7 @@ Produção exige conta aprovada em KYC ou KYB, chave de produção e habilitaç�
 
 ## Preço
 
-On-ramp e off-ramp começam em 2% e caem por faixa de volume mensal até o piso de 0,5%, com mínimo de R$ 0,75 por operação. Transferência entre carteiras da Hodle na mesma rede não tem custo, nas redes previstas na tabela. Transferências entre redes têm condições próprias. A referência oficial, com a tabela completa, é https://hodle.com.br/precos — qualquer número citado fora dela deve ser conferido antes de ser considerado válido.
+A tabela comercial por volume publica faixas de 2% a 0,5%, com mínimo de R$ 0,75, para operações abrangidas por uma proposta ou contrato que adote essas condições. API payout, Lightning e wallet podem ter tarifas próprias. Confira o fluxo e a condição da conta em https://hodle.com.br/precos e valide a taxa e o total na cotação antes de confirmar. Transferência entre carteiras Hodle na mesma rede é sem custo nas combinações previstas; transferências entre redes têm condições próprias.
 
 ## Falar com a Hodle
 

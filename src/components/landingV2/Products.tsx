@@ -35,10 +35,13 @@ const BuySell = () => (
 const Wallets = () => (
   <article className="lv2-cell md:col-span-6 lg:col-span-2 p-8 lg:p-9 flex flex-col gap-3 !bg-[#0A0A0A] text-white overflow-hidden min-h-[400px]">
     <Eyebrow dark>02 · WALLETS</Eyebrow>
-    <h3 className={`${heading} text-[28px] font-medium leading-tight`}>Suas chaves. Suas moedas.</h3>
+    <h3 className={`${heading} text-[28px] font-medium leading-tight`}>Você autoriza suas operações.</h3>
     <p className="text-[15px] leading-relaxed text-[#D4D4D4]">
-      Apenas o seu dispositivo pode acessar o seu saldo.
+      Autorize operações conforme o modelo de assinatura da sua wallet.
     </p>
+    <Link href="/wallet-auto-custodial" className="text-sm underline underline-offset-4">
+      Entenda a autorização →
+    </Link>
     <div aria-hidden="true" className="relative w-40 h-40 mx-auto mt-auto -mb-1.5">
       <div className="lv2-orbit lv2-orbit-fast absolute inset-0 border border-dashed border-[#525252] rounded-full">
         <span className="absolute -top-1.5 left-[74px] w-3 h-3 rounded-full bg-[#EAB308] shadow-[0_0_12px_#EAB308]" />
