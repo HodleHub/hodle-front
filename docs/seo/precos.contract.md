@@ -18,6 +18,16 @@
 > a regra de **nunca usar a chave `price` do schema.org para taxa percentual ou
 > condicional** — só para valor absoluto e incondicional em reais.
 
+> **Revisão de escopo em 4 de outubro de 2026:** a rota atual é
+> `src/app/(pt)/precos/page.tsx`. A tabela por volume é uma referência comercial
+> para operações abrangidas pela proposta ou contrato que adote essas condições.
+> Ela não estabelece a tarifa universal de API payout, Lightning ou wallet.
+> Esses fluxos têm regras próprias, descritas na documentação vinculada e na
+> cotação da operação. A cópia compartilhada de escopo está em
+> `src/content/pricing/pricingTables.ts`; HTML, Markdown e schema devem preservar
+> essa distinção. Nenhuma tarifa operacional deve ser inferida de um checkout de
+> backend sem comprovação de implantação e da configuração aplicável à conta.
+
 Leva A. Contexto: [`ai-discoverability.walkthrough.md`](ai-discoverability.walkthrough.md).
 
 **Esta é uma migração, não uma página nova.** O conteúdo atual de

@@ -17,7 +17,7 @@ export const pagarPixComUsdt: TopicPage = {
     'pagar pix com dólar digital',
   ],
   primaryKeyword: 'pagar pix com usdt',
-  updatedAt: '2026-09-22T00:00:00Z',
+  updatedAt: '2026-10-04T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'PAGAMENTOS',
@@ -135,7 +135,10 @@ export const pagarPixComUsdt: TopicPage = {
       id: 'quem-recebe',
       kind: 'PROSE',
       heading: 'Quem recebe continua recebendo em reais',
-      body: 'A pessoa ou empresa do outro lado recebe um Pix comum, em reais, na conta que ela já usa. Não há carteira para instalar, endereço para copiar nem rede para escolher. É isso que torna o pagamento com stablecoin utilizável para fornecedor, prestador de serviço e cobrança do dia a dia. As chaves privadas da carteira de origem seguem sob controle exclusivo do usuário. A Hodle não custodia os ativos que financiam o pagamento.',
+      body: 'A pessoa ou empresa do outro lado recebe um Pix comum, em reais, na conta que ela já usa. Não há carteira para instalar, endereço para copiar nem rede para escolher. É isso que torna o pagamento com stablecoin utilizável para fornecedor, prestador de serviço e cobrança do dia a dia.\n\nNa origem, o fluxo de API por PIN exige walletPin e protectedSymmetricKey da carteira selecionada. A aplicação fornece essas credenciais e o servidor desbloqueia a chave temporariamente em memória para assinar. A integração deve controlar quem pode usar as credenciais e autorizar o pagamento.',
+      links: [
+        { label: 'Autorização e credenciais do payout', href: 'https://docs.hodle.com.br/docs/wallet-payout' },
+      ],
       bullets: [],
       icons: [],
       comparison: null,
@@ -175,11 +178,11 @@ export const pagarPixComUsdt: TopicPage = {
       "id": "custos",
       "kind": "PROSE",
       "heading": "Taxa de serviço e débito em stablecoin",
-      "body": "A tabela comercial de on-ramp e off-ramp publica taxas de 2% a 0,5% por volume, com mínimo de R$ 0,75 por operação. Ela serve como referência comercial. Para executar um payout, confira a taxa e o total de ativos da cotação do beneficiário: a precificação do endpoint e as condições da conta precisam corresponder ao contratado.",
+      "body": "O payout por API tem precificação própria por conta, ativo, rede e fluxo. A tabela comercial por volume em /precos só se aplica às operações abrangidas pela condição contratada; seu mínimo de R$ 0,75 não deve ser aplicado automaticamente ao payout. Confira a taxa e o total de ativos na cotação vinculada ao beneficiário antes de autorizar.",
       "bullets": [
-        "Exemplo ilustrativo da tabela, não uma cotação: a 2%, R$ 1.000 × 0,02 = R$ 20 de taxa de serviço.",
-        "No mesmo exemplo de faixa, 2% de R$ 20 são R$ 0,40; o mínimo da tabela leva a taxa de serviço a R$ 0,75.",
-        "Essas contas não determinam o total debitado em USDT. Cotação, ativo escolhido e condições da operação definem esse total; confirme-o antes de autorizar."
+        "Guarde a taxa em reais e a quantidade de USDT apresentada na cotação da operação.",
+        "Quando usar quoteId na execução, confira o beneficiário e os termos da cotação vinculada.",
+        "Se a cotação divergir do contrato, esclareça a diferença com a Hodle antes de executar."
       ],
       "icons": [],
       "comparison": null,

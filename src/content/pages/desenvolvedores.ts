@@ -13,13 +13,54 @@ export const desenvolvedores: InfoPage = {
   title: 'API Hodle para desenvolvedores',
   h1: 'API Hodle para desenvolvedores',
   description:
-    'Recursos para desenvolvedores da API Hodle: especificação OpenAPI 3.1, autenticação por API key, webhooks assinados com HMAC, sandbox e a lista de operações com operationId.',
-  updatedAt: '2026-09-22T00:00:00Z',
+    'Documentação pública da API Hodle: guias Pix e stablecoins, Lightning para Pix, carteiras, servidor MCP, OpenAPI, autenticação, webhooks e sandbox.',
+  updatedAt: '2026-10-04T00:00:00-03:00',
   intro: [
     'A API Hodle é uma API REST para mover dinheiro entre o real e o dólar digital: pagar Pix a partir de saldo em stablecoin, emitir invoice Lightning que liquida em Pix, rodar on-ramp e off-ramp, ler carteiras auto-custodiais e enviar KYC de usuário final. Autenticação é por API key no header, respostas são JSON e cada mudança de estado chega por webhook assinado.',
     'Esta página é o índice estável dos recursos de desenvolvimento da Hodle. Os endereços abaixo não mudam: se você é um agente ou um script procurando a especificação da API Hodle, comece por /openapi.json e por /.well-known/api-catalog.',
   ],
   sections: [
+    {
+      ...emptySection,
+      id: 'guias-por-fluxo',
+      kind: 'LINKS',
+      heading: 'Documentação por fluxo de pagamento',
+      body: [
+        'A documentação da Hodle é pública. Escolha o fluxo para consultar requisitos, exemplos de requisição, confirmação por webhook e limitações da operação. A moeda que financia o pagamento e a moeda recebida pelo destinatário podem ser diferentes.',
+      ],
+      links: [
+        {
+          label: 'Pagar Pix usando saldo em USDT ou USDC',
+          href: 'https://docs.hodle.com.br/docs/flow-stable-pix',
+          description:
+            'Fluxo stablecoin → reais via Pix: carteira, autorização, beneficiário, cotação e acompanhamento da liquidação.',
+        },
+        {
+          label: 'Receber Pix e entregar cripto na carteira',
+          href: 'https://docs.hodle.com.br/docs/deposit-asset',
+          description:
+            'Referência do on-ramp: dados do pagador, ativo e rede de destino, cobrança Pix e entrega após confirmação. Confira os fluxos habilitados para sua conta.',
+        },
+        {
+          label: 'Receber Bitcoin via Lightning e liquidar em Pix',
+          href: 'https://docs.hodle.com.br/docs/flow-lightning-pix',
+          description:
+            'Invoice BOLT11 para um destinatário Pix, com contrato e acompanhamento específicos de Lightning.',
+        },
+        {
+          label: 'Consultar e autorizar operações de uma wallet',
+          href: 'https://docs.hodle.com.br/docs/wallet-keys',
+          description:
+            'Criação, PIN, chave protegida e cache por carteira. Leia o modelo de assinatura antes de integrar pagamentos de usuários.',
+        },
+        {
+          label: 'Confirmar pagamentos e conciliar webhooks',
+          href: 'https://docs.hodle.com.br/docs/webhooks',
+          description:
+            'Eventos assinados, identificadores e estados da operação; a aceitação de uma requisição não confirma a liquidação.',
+        },
+      ],
+    },
     {
       ...emptySection,
       id: 'tutoriais-pix',
@@ -113,7 +154,7 @@ export const desenvolvedores: InfoPage = {
         },
         {
           label: 'GET /api/wallet/payout/{transactionId}',
-          value: 'walletPayoutStatus — estado final de um payout.',
+          value: 'walletPayoutStatus — consulta o estado de um payout, inclusive operações ainda pendentes.',
         },
         {
           label: 'POST /api/lightning/invoice',
@@ -141,7 +182,7 @@ export const desenvolvedores: InfoPage = {
         {
           label: 'POST /api/wallet/transfer',
           value:
-            'walletTransfer — envia USDT para qualquer endereço nas redes suportadas.',
+            'walletTransfer — transfere um ativo na rede selecionada, conforme a matriz e a habilitação do endpoint. Não é uma operação de bridge entre redes.',
         },
         {
           label: 'POST /api/subaccount',
@@ -209,12 +250,32 @@ export const desenvolvedores: InfoPage = {
     {
       ...emptySection,
       id: 'agentes',
-      kind: 'PROSE',
-      heading: 'Para agentes e LLMs',
+      kind: 'LINKS',
+      heading: 'MCP, skill e API REST para agentes de IA',
       body: [
+        'A Hodle documenta o servidor MCP @hodle/mcp para clientes locais compatíveis com stdio. Ele usa sandbox e modo de leitura por padrão; operações de escrita exigem habilitação explícita e os requisitos de autorização de cada fluxo. Confira a configuração antes de permitir que um agente inicie pagamentos.',
+        'Na verificação de 4 de outubro de 2026, o pacote @hodle/mcp não estava disponível no registro público do npm. Confirme o acesso ao pacote com a equipe antes de seguir a instalação descrita na documentação; a integração REST permanece documentada separadamente.',
+        'O MCP local não é um conector remoto pronto para instalar no ChatGPT web ou no Claude web. Um agente também pode integrar diretamente pela API REST ou consultar o guia da skill. O repositório indicado para instalar a skill também não estava acessível publicamente nessa verificação; confirme o acesso com a equipe.',
         'O site responde em markdown para quem pede. Envie Accept: text/markdown em qualquer página listada em /llms.txt e a resposta volta como text/markdown no mesmo endereço canônico. Um tipo que não sabemos servir recebe 406.',
         'Caminhos inexistentes respondem 404 de verdade, com um corpo curto apontando para o sitemap, o llms.txt e a documentação — nunca 200 com o shell da aplicação.',
         'A especificação em /openapi.json tem operationId único, descrição e schema de resposta em cada operação, que é o formato esperado pelos conversores de OpenAPI para tool calling. Os limites de taxa declarados hoje estão nas respostas 429 das operações que os têm.',
+      ],
+      links: [
+        {
+          label: 'MCP documentado: configuração e controles',
+          href: 'https://docs.hodle.com.br/docs/ai/mcp',
+          description: 'Configuração de @hodle/mcp, clientes compatíveis, ambiente e habilitação de escrita; confirme a disponibilidade do pacote.',
+        },
+        {
+          label: 'Guia da skill para agentes',
+          href: 'https://docs.hodle.com.br/docs/ai/skills',
+          description: 'Instruções de integração; confirme o acesso ao repositório antes de instalar a skill.',
+        },
+        {
+          label: 'Requisitos de KYC e KYB',
+          href: 'https://docs.hodle.com.br/docs/kyc',
+          description: 'Verificação dos participantes e requisitos para operar em produção.',
+        },
       ],
     },
   ],

@@ -125,7 +125,7 @@ export const pagarFornecedoresComUsdc: TopicPage = {
       id: 'custos',
       kind: 'PROSE',
       heading: 'Taxa, câmbio e conciliação são coisas diferentes',
-      body: 'A taxa de serviço pública de off-ramp vai de 2% a 0,5% conforme volume, com mínimo de R$ 0,75 por operação. Uma operação de R$ 1.000 na faixa de 2% tem R$ 20 de taxa de serviço; a quantidade de USDC debitada depende da cotação da operação. O contrato negociado pode prevalecer.',
+      body: 'O payout por API tem precificação própria por conta, ativo, rede e fluxo. A tabela comercial em /precos depende da condição contratada e não define automaticamente a tarifa desse endpoint. Confirme a taxa e a quantidade de USDC debitada na cotação vinculada ao beneficiário; se divergirem do contrato, esclareça a diferença antes de executar.',
       bullets: [
         'Guarde valor em BRL, ativo e rede debitados, taxa, identificador e estado final no registro do pagamento.',
         'Confirme com sua contabilidade os documentos e registros necessários para a operação.',

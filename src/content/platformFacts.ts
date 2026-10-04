@@ -5,7 +5,7 @@ export const platformFacts: TopicSection[] = [
     id: 'modelo-operacional',
     kind: 'COMPARISON',
     heading: 'Custódia, verificação e acesso: quem faz o quê',
-    body: 'A Hodle fornece software e API para conectar Pix e ativos digitais. Nas wallets auto-custodiais, o usuário controla as chaves. Os serviços financeiros e os fluxos de fundos regulados são executados por parceiros licenciados e/ou regulados. Referências conferidas em 19 de setembro de 2026.',
+    body: 'A Hodle fornece software e API para conectar Pix e ativos digitais. A autorização das wallets depende do modelo de assinatura e de quem fornece as credenciais da carteira selecionada. Os serviços financeiros e os fluxos de fundos regulados são executados por parceiros licenciados e/ou regulados. Modelo de autorização revisado em 4 de outubro de 2026.',
     bullets: [],
     icons: [],
     code: null,
@@ -15,7 +15,7 @@ export const platformFacts: TopicSection[] = [
       rows: [
         [
           'Custódia',
-          'Wallets auto-custodiais: chaves sob controle do usuário. A Hodle não custodia fundos ou ativos de clientes.',
+          'A Hodle não custodia fundos ou ativos de clientes. No fluxo por PIN da API, a integração fornece o PIN e a chave protegida da carteira selecionada para assinatura temporária no servidor. A descrição técnica não determina, por si só, o enquadramento jurídico da integração.',
         ],
         [
           'KYC e KYB',
@@ -37,6 +37,7 @@ export const platformFacts: TopicSection[] = [
     },
     links: [
       { label: 'Termos e responsabilidades', href: '/termos' },
+      { label: 'Modelo de autorização e seleção da wallet', href: 'https://docs.hodle.com.br/docs/wallet-keys' },
       { label: 'API e recursos para desenvolvedores', href: '/desenvolvedores' },
       { label: 'English: Pix stablecoin API', href: '/en/pix-stablecoin-api' },
       { label: 'Cobertura do sandbox', href: 'https://docs.hodle.com.br/docs/sandbox' },
@@ -50,7 +51,7 @@ export const platformFacts: TopicSection[] = [
     id: 'custos-da-integracao',
     kind: 'COMPARISON',
     heading: 'Quanto custa integrar Pix e stablecoin',
-    body: 'On-ramp e off-ramp têm taxa de serviço publicada: de 2% a 0,5%, conforme a faixa de volume, com mínimo de R$ 0,75 por operação. O volume liquidado no mês anterior define a faixa do mês seguinte; compra e venda contam juntas. Condições do contrato assinado prevalecem sobre a tabela.',
+    body: 'A tabela comercial por volume publica faixas de 2% a 0,5%, com mínimo de R$ 0,75, para operações abrangidas por uma proposta ou contrato que adote essas condições. API payout, Lightning e wallet podem ter regras próprias. Confira o fluxo, a condição da conta e a cotação antes de confirmar.',
     bullets: [],
     icons: [],
     code: null,
@@ -59,8 +60,8 @@ export const platformFacts: TopicSection[] = [
       headers: ['Serviço', 'Preço de tabela e condição'],
       rows: [
         [
-          'On-ramp e off-ramp',
-          '2% até R$ 100 mil de volume mensal; faixas intermediárias de 1,6%, 1,25%, 0,95% e 0,7%; 0,5% acima de R$ 5 milhões. Mínimo de R$ 0,75 por operação.',
+          'Tabela comercial por volume',
+          'Para operações abrangidas pela tabela: 2% até R$ 100 mil de volume mensal; faixas intermediárias de 1,6%, 1,25%, 0,95% e 0,7%; 0,5% acima de R$ 5 milhões. Mínimo de R$ 0,75. Não define automaticamente a tarifa de cada endpoint.',
         ],
         [
           'Exemplo de taxa de serviço',

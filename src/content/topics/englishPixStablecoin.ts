@@ -18,7 +18,7 @@ export const englishPixStablecoin: TopicPage = {
     'stablecoin neobank Brazil',
   ],
   primaryKeyword: 'api pix stablecoin',
-  updatedAt: '2026-09-19T00:00:00-03:00',
+  updatedAt: '2026-10-04T00:00:00-03:00',
   changeFrequency: 'monthly',
   priority: 0.8,
   kicker: 'FOR DEVELOPERS AND PRODUCT TEAMS',
@@ -101,16 +101,16 @@ export const englishPixStablecoin: TopicPage = {
     {
       id: 'operating-model',
       kind: 'COMPARISON',
-      heading: 'Custody, verification and responsibilities',
-      body: 'Hodle is a software company, not a bank or a custodian. In self-custodial wallets, users control the keys. Licensed and/or regulated partners execute regulated funds flows and financial services. References reviewed on September 19, 2026.',
+      heading: 'Wallet authorization, verification and responsibilities',
+      body: 'Hodle is a software company, not a bank. In the PIN-based API flow, the application supplies walletPin and protectedSymmetricKey for the source wallet; the server temporarily unlocks the key in memory to sign. The integrating platform must protect subaccount credentials and control their use. Licensed and/or regulated partners execute regulated funds flows and financial services.',
       bullets: [],
       icons: [],
       comparison: {
         headers: ['Criterion', 'Availability and conditions'],
         rows: [
           [
-            'Custody',
-            'Users control their self-custodial wallet keys. Hodle does not custody customer funds or digital assets.',
+            'Wallet authorization',
+            'The PIN-based flow requires walletPin and protectedSymmetricKey for server-side signing. An API key alone does not replace these credentials; access depends on the credentials and permissions granted to the integration.',
           ],
           [
             'KYC and KYB',
@@ -151,19 +151,19 @@ export const englishPixStablecoin: TopicPage = {
       id: 'pricing',
       kind: 'COMPARISON',
       heading: 'Published fees for Pix on-ramps and off-ramps',
-      body: 'Hodle publishes a service fee schedule. On-ramp and off-ramp fees range from 2% to 0.5%, with a BRL 0.75 minimum per operation. The previous calendar month’s settled volume sets the next month’s tier; both directions count together. A signed negotiated contract takes precedence.',
+      body: 'Hodle publishes a commercial volume schedule from 2% to 0.5%, with a BRL 0.75 minimum, for operations covered by a proposal or contract that adopts those terms. API payouts, Lightning and wallet flows may have their own pricing. Check the account terms and the operation’s quote before confirming.',
       bullets: [],
       icons: [],
       comparison: {
         headers: ['Criterion', 'Availability and conditions'],
         rows: [
           [
-            'On-ramp and off-ramp',
-            '2% up to BRL 100,000 monthly volume. Intermediate tiers: 1.6%, 1.25%, 0.95% and 0.7%. 0.5% above BRL 5 million. Minimum BRL 0.75 per operation.',
+            'Commercial volume schedule',
+            'For covered operations: 2% up to BRL 100,000 monthly volume; intermediate tiers of 1.6%, 1.25%, 0.95% and 0.7%; 0.5% above BRL 5 million. Minimum BRL 0.75. This does not automatically price every endpoint.',
           ],
           [
             'Service fee example',
-            'A BRL 1,000 operation at the 2% tier has a BRL 20 service fee. This is not an exchange-rate quote or a promised net token amount.',
+            'For an operation covered by the commercial schedule, BRL 1,000 at the 2% tier means a BRL 20 service fee. This is not an exchange-rate quote or a promised net token amount.',
           ],
           [
             'Named business account issuance',
@@ -288,14 +288,14 @@ export const englishPixStablecoin: TopicPage = {
         'Yes. The REST API connects Pix collection to digital asset delivery and supports Pix payouts funded from stablecoin balances. Availability depends on the asset, network, flow permissions and verification.',
     },
     {
-      question: 'Does Hodle custody customer assets?',
+      question: 'How does an integration authorize wallet transactions?',
       answer:
-        'No. Hodle provides software and self-custodial wallets with keys controlled by the user. Licensed and/or regulated partners execute regulated financial services and funds flows.',
+        'In the PIN-based flow, the application supplies walletPin and protectedSymmetricKey for the source wallet. The server temporarily unlocks the key in memory to sign. The integrating platform must protect subaccount credentials and control their use. An API key alone does not replace these credentials; check the signing model for your chosen flow.',
     },
     {
       question: 'Are Hodle’s fees only available on request?',
       answer:
-        'No. The published on-ramp and off-ramp service fees range from 2% to 0.5% by volume, with a BRL 0.75 minimum per operation. The complete schedule is on the pricing page. Asset conversions and cross-network transfers require confirmation of the applicable commercial terms.',
+        'No. The pricing page publishes a commercial volume schedule for operations covered by the proposal or contract. API payouts and Lightning have specific rules; check the flow documentation and the fee in the account’s quote before confirming. Asset conversions and cross-network transfers require confirmation of the applicable terms.',
     },
     {
       question: 'Does the sandbox send real Pix payments?',
