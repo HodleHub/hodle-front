@@ -109,8 +109,7 @@ const Api = () => (
       Integre pagamentos com Pix e stablecoin no seu produto em minutos. REST, SDK e webhooks — pensados para times de produto e agentes de IA.
     </p>
     <div className={`${mono} mt-auto bg-[#0A0A0A] text-[#FAFAFA] rounded-xl px-4 py-3.5 text-sm`}>
-      <span className="text-[#EAB308]">POST</span> /api/wallet/payout
-      <span className="lv2-caret ml-1.5" />
+      <span className="text-[#EAB308]">Pix</span> + stablecoins
     </div>
     <Link href="#flow" className="font-medium text-[15px]">
       Montar o fluxo →

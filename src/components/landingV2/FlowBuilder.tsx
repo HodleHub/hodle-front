@@ -2,14 +2,12 @@
 
 import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowDown, Pause, Play, Terminal } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowRightLeft, Pause, Play } from 'lucide-react'
 import {
   FLOW_BUILDER_URL,
   FLOW_SOURCES,
   ICONS,
-  buildCurlLines,
   buildFlowRecipe,
-  type CodeLineTone,
   type FlowSource,
   type FlowStep,
 } from './landingV2Data'
@@ -19,13 +17,6 @@ import { SectionMarks } from './SectionMarks'
 const mono = 'font-[family-name:var(--font-geist-mono)]'
 
 const STEP_INTERVAL_MS = 2600
-
-const TONE_COLOR: Record<CodeLineTone, string> = {
-  plain: '#FAFAFA',
-  muted: '#737373',
-  string: '#FCD34D',
-  number: '#5EEAD4',
-}
 
 const usePrefersReducedMotion = (): boolean => {
   const [reduced, setReduced] = useState<boolean>(false)
@@ -95,29 +86,11 @@ const StepNode = ({ step, index, current, playing, onSelect }: StepNodeProps) =>
         {index + 1}
       </span>
       <span className="flex-1">{step.title}</span>
-      <span className={`${mono} text-[11px] rounded px-1.5 py-0.5 ${active ? 'bg-[#0A0A0A] text-white' : 'bg-[#F5F5F5] text-[#525252]'}`}>
-        {step.kind === 'request' ? step.method : 'AÇÃO'}
-      </span>
       {active && playing && <span key={`prog-${current}`} aria-hidden="true" className="lv2-prog absolute left-0 bottom-0 h-0.5 bg-[#EAB308]" />}
     </button>
   )
 }
 
-type WebhookChipProps = {
-  label: string
-  color: string
-  lit: boolean
-}
-
-const WebhookChip = ({ label, color, lit }: WebhookChipProps) => (
-  <span className={`${mono} text-xs border border-[#262626] rounded-md px-2 py-1 transition-colors`} style={{ color: lit ? color : '#737373' }}>
-    {label}
-  </span>
-)
-
-/**
- * Walk the operation-specific requests and actions needed to settle a PIX.
- */
 export const FlowBuilder = () => {
   const [sourceIndex, setSourceIndex] = useState<number>(0)
   const [stepIndex, setStepIndex] = useState<number>(0)
@@ -128,7 +101,6 @@ export const FlowBuilder = () => {
   const steps = recipe.steps
   const step = steps[stepIndex] ?? steps[0]
   const playing = !userPaused && !reducedMotion && steps.length > 0
-  const lines = useMemo(() => step ? buildCurlLines(step) : [], [step])
 
   useEffect(() => {
     if (!playing) return
@@ -158,15 +130,15 @@ export const FlowBuilder = () => {
           id="lv2-flow-h"
           eyebrow={
             <>
-              <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
-              FLOW BUILDER
+              <ArrowRightLeft className="w-3.5 h-3.5" aria-hidden="true" />
+              PAGAMENTOS
             </>
           }
           title="Escolha a origem. Veja o caminho até o Pix."
           aside={
             <>
               <p className="text-lg leading-relaxed text-[#525252]">
-                Cada ativo tem seu fluxo. Veja as chamadas REST, as ações do pagador e a confirmação da liquidação. Os exemplos pressupõem onboarding concluído e as permissões da conta.
+                Use stablecoins ou Bitcoin via Lightning para pagar em reais. Você escolhe a origem; quem recebe usa o Pix de sempre.
               </p>
               <a
                 href={FLOW_BUILDER_URL}
@@ -174,13 +146,13 @@ export const FlowBuilder = () => {
                 rel="noreferrer"
                 className="lv2-btn self-start border border-[#D4D4D4] bg-white font-medium text-[15px] px-4 py-3 rounded-xl"
               >
-                Abrir o Flow Builder na documentação
+                Ver documentação da integração
               </a>
             </>
           }
         />
 
-        <div className="lv2-cells grid-cols-1 lg:grid-cols-[290px_400px_1fr] lg:min-h-[720px]">
+        <div className="lv2-cells grid-cols-1 lg:grid-cols-[290px_400px_1fr] lg:min-h-[480px]">
           <div className="p-6 flex flex-col gap-3.5">
             <div className={`${mono} text-xs tracking-[0.12em] text-gray-500`}>ORIGEM</div>
             <div role="radiogroup" aria-label="Origem" className="grid grid-cols-2 lg:grid-cols-1 gap-2">
@@ -197,14 +169,14 @@ export const FlowBuilder = () => {
               BRL · PIX
             </div>
             <div className="mt-auto text-[13px] text-[#525252] leading-normal border-t border-dashed border-[#E5E5E5] pt-3.5">
-              <span className={`${mono} bg-[#F5F5F5] rounded px-1.5 py-0.5 text-xs`}>OFF-RAMP</span> {recipe.description}
+              {recipe.description}
             </div>
           </div>
 
           <div className="lv2-dots !bg-[#FCFCFC] p-6 flex flex-col gap-2.5">
             <div className="flex items-center justify-between mb-1">
               <div className={`${mono} text-xs tracking-[0.12em] text-gray-500 uppercase`}>{source.label} → BRL · PIX</div>
-              {recipe.supported && <button
+              <button
                 type="button"
                 onClick={() => setUserPaused(playing)}
                 aria-label={playing ? 'Pausar a animação do fluxo' : 'Rodar a animação do fluxo'}
@@ -212,15 +184,8 @@ export const FlowBuilder = () => {
               >
                 {playing ? <Pause className="w-3 h-3" aria-hidden="true" /> : <Play className="w-3 h-3" aria-hidden="true" />}
                 {playing ? 'Pausar' : 'Rodar'}
-              </button>}
+              </button>
             </div>
-            <p className="text-sm leading-relaxed text-[#525252]">{recipe.prerequisites}</p>
-            <a href={recipe.docsUrl} target="_blank" rel="noreferrer" className="text-sm underline underline-offset-4">
-              Consultar o contrato desta operação
-            </a>
-            {recipe.supported && <a href="https://docs.hodle.com.br/docs/kyc" target="_blank" rel="noreferrer" className="text-sm underline underline-offset-4">
-              Preparar a subconta e concluir a verificação
-            </a>}
             <div className="relative flex flex-col gap-2.5">
               {steps.length > 0 && <div aria-hidden="true" className="absolute left-[25px] top-5 bottom-5 w-px bg-[#E5E5E5]">
                 <span className="lv2-vdot" />
@@ -232,41 +197,26 @@ export const FlowBuilder = () => {
             </div>
           </div>
 
-          <div className="!bg-[#0A0A0A] text-[#FAFAFA] p-6 lg:p-7 flex flex-col gap-4 min-w-0" aria-live="polite">
-            {step ? <>
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5">
-                <span className={`${mono} text-xs bg-[#EAB308] text-[#0A0A0A] rounded px-1.5 py-0.5`}>
-                  PASSO {stepIndex + 1}/{steps.length}
-                </span>
-                <span className="font-medium text-[17px]">{step.title}</span>
-              </div>
-              <span className={`${mono} text-xs text-gray-500`}>{step.kind === 'request' ? 'cURL' : 'AÇÃO'}</span>
+          <div className="!bg-[#0A0A0A] text-[#FAFAFA] p-6 lg:p-7 flex flex-col gap-6 min-w-0" aria-live="polite">
+            <div className="flex items-center gap-4" aria-hidden="true">
+              <Image src={source.icon} alt="" width={36} height={36} />
+              <ArrowRight className="w-5 h-5 text-[#737373]" />
+              <Image src={ICONS.pix} alt="" width={36} height={36} />
             </div>
-            <p className="text-[15px] leading-relaxed text-[#D4D4D4]">{step.description}</p>
-            {step.kind === 'request' ? <>
-            <p className="text-xs text-[#A3A3A3]">Exemplo para backend. Defina as variáveis com os dados da sua integração e das respostas anteriores; nunca exponha API key, PIN ou chave protegida no site.</p>
-            <div key={`${sourceIndex}-${stepIndex}`} className="flex-1 border border-[#262626] rounded-2xl bg-[#111111] px-5 py-4 overflow-x-auto">
-              {lines.map((line, index) => (
-                <div key={index} className={`${mono} lv2-cl flex gap-4 text-[13.5px] leading-[1.75]`} style={{ animationDelay: `${index * 0.05}s` }}>
-                  <span className="text-[#525252] w-4 text-right shrink-0">{index + 1}</span>
-                  <span className="whitespace-pre" style={{ color: TONE_COLOR[line.tone] }}>
-                    {line.text}
-                  </span>
-                </div>
-              ))}
-              <span className="lv2-caret ml-8 mt-1" />
+            <div className="flex flex-col gap-4">
+              <span className={`${mono} self-start text-xs bg-[#EAB308] text-[#0A0A0A] rounded px-2 py-1`}>
+                PASSO {stepIndex + 1}/{steps.length}
+              </span>
+              <h3 className="text-2xl font-medium tracking-tight">{step.title}</h3>
+              <p className="text-[16px] leading-relaxed text-[#D4D4D4]">{step.description}</p>
             </div>
-            </> : <p className="border border-[#262626] rounded-2xl bg-[#111111] px-5 py-4 text-sm text-[#A3A3A3]">Esta etapa não é uma chamada REST. Continue após a ação ou confirmação descrita acima.</p>}
-            {step.webhooks && <div className="flex gap-2 flex-wrap items-center">
-              <span className={`${mono} text-xs text-gray-500`}>WEBHOOKS</span>
-              {step.webhooks.map((event) => <WebhookChip key={event} label={event} color={event === 'PAYOUT_SUCCESSFUL' ? '#5EEAD4' : '#FCA5A5'} lit />)}
-            </div>}
-            </> : <>
-              <h3 className="text-xl font-semibold">Sem receita validada para esta combinação</h3>
-              <p className="text-[15px] leading-relaxed text-[#D4D4D4]">{recipe.description}</p>
-              <a href={recipe.docsUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4">Ver ativos, redes e direções documentadas</a>
-            </>}
+            <div className="mt-auto pt-6 border-t border-[#262626]">
+              <p className="text-lg font-medium">Quem recebe, recebe em reais.</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#A3A3A3]">O destinatário recebe um Pix na conta que já usa.</p>
+              <a href={recipe.docsUrl} target="_blank" rel="noreferrer" className="inline-block mt-5 text-sm underline underline-offset-4">
+                Conhecer a integração
+              </a>
+            </div>
           </div>
         </div>
       </div>
