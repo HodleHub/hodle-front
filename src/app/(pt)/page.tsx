@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     absolute: 'Receba em Pix, guarde em dólar, pague em stablecoin | Hodle',
   },
   description:
-    'A infraestrutura que conecta Pix, dólar e stablecoins, via API ou plataforma. Flow Builder com as chamadas exatas da API Hodle.',
+    'A infraestrutura que conecta Pix, dólar e stablecoins, via API ou plataforma. Use stablecoins ou Bitcoin via Lightning para pagar em reais.',
   alternates: {
     canonical: 'https://hodle.com.br',
   },

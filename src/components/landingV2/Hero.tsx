@@ -29,7 +29,7 @@ export const Hero = () => (
           <span className="bg-[#EAB308] text-[#0A0A0A] font-semibold text-xs tracking-wide rounded-full px-2.5 py-1">
             NOVO
           </span>
-          Flow Builder: as chamadas exatas da API
+          Veja como pagar Pix com cripto
           <span className="text-gray-500">→</span>
         </Link>
 
