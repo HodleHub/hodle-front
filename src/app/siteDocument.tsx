@@ -225,11 +225,6 @@ export default function SiteDocument({
             __html: JSON.stringify(websiteJsonLd),
           }}
         />
-        <noscript>
-          <style>{
-            '.animated-section{opacity:1 !important;transform:none !important}'
-          }</style>
-        </noscript>
         <Header />
         {children}
         <Footer />

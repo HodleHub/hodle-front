@@ -1,0 +1,481 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="reduced-motion" viewBox="0 0 648 936" preserveAspectRatio="xMidYMid meet">
+  <!-- Dot positions match src/components/brs/latamDotMapData.ts. Keep this decoration external so the grid is not duplicated in HTML and the React Server Component payload. -->
+  <style>
+    svg {
+      -webkit-mask-image: radial-gradient(ellipse 92% 92% at 50% 42%, #000 60%, transparent 100%);
+      mask-image: radial-gradient(ellipse 92% 92% at 50% 42%, #000 60%, transparent 100%);
+    }
+    .brs-dot { fill: #94a3b8; opacity: 0.3; }
+    .brs-dot--highlight {
+      fill: #009c3b;
+      opacity: 0.85;
+      animation: brsDotShimmer 5.2s ease-in-out infinite;
+    }
+    /* The host page selects this fragment when embedded-image media queries do not inherit reduced motion. */
+    svg:target .brs-dot--highlight { animation: none; }
+    @keyframes brsDotShimmer {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .brs-dot--highlight { animation: none; }
+    }
+  </style>
+  <circle cx="9" cy="9" r="2.1" class="brs-dot"/>
+  <circle cx="27" cy="9" r="2.1" class="brs-dot"/>
+  <circle cx="45" cy="27" r="2.1" class="brs-dot"/>
+  <circle cx="63" cy="27" r="2.1" class="brs-dot"/>
+  <circle cx="81" cy="27" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="27" r="2.1" class="brs-dot"/>
+  <circle cx="63" cy="45" r="2.1" class="brs-dot"/>
+  <circle cx="81" cy="45" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="45" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="45" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="45" r="2.1" class="brs-dot"/>
+  <circle cx="45" cy="63" r="2.1" class="brs-dot"/>
+  <circle cx="63" cy="63" r="2.1" class="brs-dot"/>
+  <circle cx="81" cy="63" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="63" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="63" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="63" r="2.1" class="brs-dot"/>
+  <circle cx="81" cy="81" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="81" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="81" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="81" r="2.1" class="brs-dot"/>
+  <circle cx="153" cy="81" r="2.1" class="brs-dot"/>
+  <circle cx="63" cy="99" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="99" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="99" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="99" r="2.1" class="brs-dot"/>
+  <circle cx="153" cy="99" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="117" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="117" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="117" r="2.1" class="brs-dot"/>
+  <circle cx="153" cy="117" r="2.1" class="brs-dot"/>
+  <circle cx="297" cy="117" r="2.1" class="brs-dot"/>
+  <circle cx="99" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="153" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="225" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="135" r="2.1" class="brs-dot"/>
+  <circle cx="117" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="135" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="153" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="171" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="207" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="225" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="153" r="2.1" class="brs-dot"/>
+  <circle cx="153" cy="171" r="2.1" class="brs-dot"/>
+  <circle cx="171" cy="171" r="2.1" class="brs-dot"/>
+  <circle cx="189" cy="171" r="2.1" class="brs-dot"/>
+  <circle cx="207" cy="171" r="2.1" class="brs-dot"/>
+  <circle cx="225" cy="171" r="2.1" class="brs-dot"/>
+  <circle cx="207" cy="189" r="2.1" class="brs-dot"/>
+  <circle cx="225" cy="189" r="2.1" class="brs-dot"/>
+  <circle cx="243" cy="189" r="2.1" class="brs-dot"/>
+  <circle cx="261" cy="189" r="2.1" class="brs-dot"/>
+  <circle cx="225" cy="207" r="2.1" class="brs-dot"/>
+  <circle cx="243" cy="207" r="2.1" class="brs-dot"/>
+  <circle cx="261" cy="207" r="2.1" class="brs-dot"/>
+  <circle cx="261" cy="225" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="225" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="225" r="2.1" class="brs-dot"/>
+  <circle cx="261" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="243" r="2.1" class="brs-dot"/>
+  <circle cx="279" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="261" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="279" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="297" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="315" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.63s"/>
+  <circle cx="441" cy="315" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.86s"/>
+  <circle cx="459" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="315" r="2.1" class="brs-dot"/>
+  <circle cx="513" cy="315" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.75s"/>
+  <circle cx="315" cy="333" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="333" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="333" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="333" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.50s"/>
+  <circle cx="405" cy="333" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.95s"/>
+  <circle cx="441" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.18s"/>
+  <circle cx="459" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.40s"/>
+  <circle cx="477" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.62s"/>
+  <circle cx="495" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.85s"/>
+  <circle cx="513" cy="333" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.07s"/>
+  <circle cx="297" cy="351" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="351" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="351" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="351" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="351" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.82s"/>
+  <circle cx="405" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.05s"/>
+  <circle cx="423" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.27s"/>
+  <circle cx="441" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.50s"/>
+  <circle cx="459" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.72s"/>
+  <circle cx="477" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.94s"/>
+  <circle cx="495" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.17s"/>
+  <circle cx="513" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.39s"/>
+  <circle cx="531" cy="351" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.62s"/>
+  <circle cx="297" cy="369" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="369" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="369" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="369" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="369" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.14s"/>
+  <circle cx="405" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.37s"/>
+  <circle cx="423" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.59s"/>
+  <circle cx="441" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.82s"/>
+  <circle cx="459" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.04s"/>
+  <circle cx="477" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.26s"/>
+  <circle cx="495" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.49s"/>
+  <circle cx="513" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.71s"/>
+  <circle cx="531" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.94s"/>
+  <circle cx="549" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.16s"/>
+  <circle cx="567" cy="369" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.38s"/>
+  <circle cx="297" cy="387" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="387" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="387" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="387" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="387" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.46s"/>
+  <circle cx="405" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.69s"/>
+  <circle cx="423" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.91s"/>
+  <circle cx="441" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.14s"/>
+  <circle cx="459" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.36s"/>
+  <circle cx="477" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.58s"/>
+  <circle cx="495" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.81s"/>
+  <circle cx="513" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.03s"/>
+  <circle cx="531" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.26s"/>
+  <circle cx="549" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.00s"/>
+  <circle cx="567" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.22s"/>
+  <circle cx="585" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.45s"/>
+  <circle cx="603" cy="387" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.67s"/>
+  <circle cx="297" cy="405" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="405" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="405" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.34s"/>
+  <circle cx="369" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.56s"/>
+  <circle cx="387" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.78s"/>
+  <circle cx="405" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.01s"/>
+  <circle cx="423" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.23s"/>
+  <circle cx="441" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.46s"/>
+  <circle cx="459" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.68s"/>
+  <circle cx="477" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.90s"/>
+  <circle cx="495" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.13s"/>
+  <circle cx="513" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.35s"/>
+  <circle cx="531" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.10s"/>
+  <circle cx="549" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.32s"/>
+  <circle cx="567" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.54s"/>
+  <circle cx="585" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.77s"/>
+  <circle cx="603" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.99s"/>
+  <circle cx="621" cy="405" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.22s"/>
+  <circle cx="297" cy="423" r="2.1" class="brs-dot"/>
+  <circle cx="315" cy="423" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="423" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.66s"/>
+  <circle cx="369" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.88s"/>
+  <circle cx="387" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.10s"/>
+  <circle cx="405" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.33s"/>
+  <circle cx="423" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.55s"/>
+  <circle cx="441" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.78s"/>
+  <circle cx="459" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.00s"/>
+  <circle cx="477" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.22s"/>
+  <circle cx="495" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.45s"/>
+  <circle cx="513" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.19s"/>
+  <circle cx="531" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.42s"/>
+  <circle cx="549" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.64s"/>
+  <circle cx="567" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.86s"/>
+  <circle cx="585" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.09s"/>
+  <circle cx="603" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.31s"/>
+  <circle cx="621" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.54s"/>
+  <circle cx="639" cy="423" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.76s"/>
+  <circle cx="315" cy="441" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="441" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.98s"/>
+  <circle cx="369" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.20s"/>
+  <circle cx="387" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.42s"/>
+  <circle cx="405" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.65s"/>
+  <circle cx="423" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.87s"/>
+  <circle cx="441" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.10s"/>
+  <circle cx="459" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.32s"/>
+  <circle cx="477" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.06s"/>
+  <circle cx="495" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.29s"/>
+  <circle cx="513" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.51s"/>
+  <circle cx="531" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.74s"/>
+  <circle cx="549" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.96s"/>
+  <circle cx="567" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.18s"/>
+  <circle cx="585" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.41s"/>
+  <circle cx="603" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.63s"/>
+  <circle cx="621" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.86s"/>
+  <circle cx="639" cy="441" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.08s"/>
+  <circle cx="315" cy="459" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="459" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="459" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.52s"/>
+  <circle cx="387" cy="459" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="459" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.19s"/>
+  <circle cx="441" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.42s"/>
+  <circle cx="459" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.16s"/>
+  <circle cx="477" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.38s"/>
+  <circle cx="495" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.61s"/>
+  <circle cx="513" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.83s"/>
+  <circle cx="531" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.06s"/>
+  <circle cx="549" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.28s"/>
+  <circle cx="567" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.50s"/>
+  <circle cx="585" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.73s"/>
+  <circle cx="603" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.95s"/>
+  <circle cx="621" cy="459" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.18s"/>
+  <circle cx="333" cy="477" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="477" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="477" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="477" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="477" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.03s"/>
+  <circle cx="441" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.26s"/>
+  <circle cx="459" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.48s"/>
+  <circle cx="477" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.70s"/>
+  <circle cx="495" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.93s"/>
+  <circle cx="513" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.15s"/>
+  <circle cx="531" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.38s"/>
+  <circle cx="549" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.60s"/>
+  <circle cx="567" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.82s"/>
+  <circle cx="585" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.05s"/>
+  <circle cx="603" cy="477" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.27s"/>
+  <circle cx="333" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="495" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.80s"/>
+  <circle cx="477" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.02s"/>
+  <circle cx="495" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.25s"/>
+  <circle cx="513" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.47s"/>
+  <circle cx="531" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.70s"/>
+  <circle cx="549" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.92s"/>
+  <circle cx="567" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.14s"/>
+  <circle cx="585" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.37s"/>
+  <circle cx="603" cy="495" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.59s"/>
+  <circle cx="351" cy="513" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="513" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="513" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="513" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="513" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="513" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.12s"/>
+  <circle cx="477" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.34s"/>
+  <circle cx="495" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.57s"/>
+  <circle cx="513" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.79s"/>
+  <circle cx="531" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.02s"/>
+  <circle cx="549" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.24s"/>
+  <circle cx="567" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.46s"/>
+  <circle cx="585" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.69s"/>
+  <circle cx="603" cy="513" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.91s"/>
+  <circle cx="369" cy="531" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="531" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="531" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="531" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="531" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="531" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.66s"/>
+  <circle cx="495" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.89s"/>
+  <circle cx="513" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.11s"/>
+  <circle cx="531" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.34s"/>
+  <circle cx="549" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.56s"/>
+  <circle cx="567" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.78s"/>
+  <circle cx="585" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.01s"/>
+  <circle cx="603" cy="531" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.23s"/>
+  <circle cx="369" cy="549" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="549" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="549" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="549" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="549" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="549" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:1.98s"/>
+  <circle cx="495" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.21s"/>
+  <circle cx="513" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.43s"/>
+  <circle cx="531" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.66s"/>
+  <circle cx="549" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.88s"/>
+  <circle cx="567" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.10s"/>
+  <circle cx="585" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.33s"/>
+  <circle cx="603" cy="549" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.55s"/>
+  <circle cx="387" cy="567" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="567" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="567" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="567" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="567" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.30s"/>
+  <circle cx="495" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.53s"/>
+  <circle cx="513" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.75s"/>
+  <circle cx="531" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.98s"/>
+  <circle cx="549" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.20s"/>
+  <circle cx="567" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.42s"/>
+  <circle cx="585" cy="567" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.65s"/>
+  <circle cx="369" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="585" r="2.1" class="brs-dot"/>
+  <circle cx="495" cy="585" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:2.85s"/>
+  <circle cx="513" cy="585" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.07s"/>
+  <circle cx="531" cy="585" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.30s"/>
+  <circle cx="549" cy="585" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.52s"/>
+  <circle cx="567" cy="585" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.74s"/>
+  <circle cx="585" cy="585" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.97s"/>
+  <circle cx="369" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="603" r="2.1" class="brs-dot"/>
+  <circle cx="495" cy="603" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.17s"/>
+  <circle cx="513" cy="603" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.39s"/>
+  <circle cx="531" cy="603" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.62s"/>
+  <circle cx="369" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="495" cy="621" r="2.1" class="brs-dot"/>
+  <circle cx="513" cy="621" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.71s"/>
+  <circle cx="531" cy="621" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.94s"/>
+  <circle cx="369" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="639" r="2.1" class="brs-dot"/>
+  <circle cx="495" cy="639" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.81s"/>
+  <circle cx="513" cy="639" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.03s"/>
+  <circle cx="531" cy="639" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.26s"/>
+  <circle cx="369" cy="657" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="657" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="657" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="657" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="657" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="657" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="657" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:3.90s"/>
+  <circle cx="495" cy="657" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.13s"/>
+  <circle cx="513" cy="657" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.35s"/>
+  <circle cx="369" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="675" r="2.1" class="brs-dot"/>
+  <circle cx="495" cy="675" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:4.45s"/>
+  <circle cx="513" cy="675" r="3.1" class="brs-dot brs-dot--highlight" style="animation-delay:0.19s"/>
+  <circle cx="369" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="495" cy="693" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="477" cy="711" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="729" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="441" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="459" cy="747" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="765" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="765" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="765" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="765" r="2.1" class="brs-dot"/>
+  <circle cx="423" cy="765" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="783" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="783" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="783" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="783" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="801" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="801" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="801" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="801" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="819" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="819" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="819" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="819" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="837" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="837" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="837" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="837" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="855" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="855" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="855" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="855" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="873" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="873" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="873" r="2.1" class="brs-dot"/>
+  <circle cx="333" cy="891" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="891" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="891" r="2.1" class="brs-dot"/>
+  <circle cx="351" cy="909" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="909" r="2.1" class="brs-dot"/>
+  <circle cx="369" cy="927" r="2.1" class="brs-dot"/>
+  <circle cx="387" cy="927" r="2.1" class="brs-dot"/>
+  <circle cx="405" cy="927" r="2.1" class="brs-dot"/>
+</svg>
