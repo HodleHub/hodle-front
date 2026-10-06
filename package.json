@@ -4,15 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && node scripts/check-crawl-budget.mjs",
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "postdeploy:indexnow": "node scripts/indexnow-ping.mjs",
-    "test": "vitest run && pnpm test:examples",
+    "test": "vitest run && pnpm test:examples && pnpm test:crawl",
     "test:watch": "vitest",
     "test:examples": "node --test scripts/tests/pixExamples.test.mjs",
-    "test:seo": "node scripts/verify-public-seo.mjs"
+    "test:seo": "node scripts/verify-public-seo.mjs",
+    "check:crawl": "node scripts/check-crawl-budget.mjs",
+    "test:crawl": "node --test scripts/tests/crawlBudget.test.mjs"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",

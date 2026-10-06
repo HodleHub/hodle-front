@@ -4,6 +4,8 @@ const base = new URL(process.argv[2] ?? 'http://localhost:3000')
 const canonicalOrigin = 'https://hodle.com.br'
 const pages = new Map()
 const images = new Set()
+const renderAssets = new Set()
+const crawlBudget = 1_500_000
 
 const fetchPage = async (pathname, headers = {}) => {
   const response = await fetch(new URL(pathname, base), {
@@ -11,7 +13,12 @@ const fetchPage = async (pathname, headers = {}) => {
     redirect: 'manual',
     signal: AbortSignal.timeout(30000),
   })
-  return { response, body: await response.text() }
+  const body = await response.text()
+  if (/^text\/|^application\/(?:javascript|json|xml)/.test(response.headers.get('content-type') ?? '')) {
+    // fetch decodes gzip/Brotli; Content-Length can describe the compressed body.
+    assert.ok(Buffer.byteLength(body) <= crawlBudget, `${pathname}: response exceeds the 1.5 MB uncompressed crawl budget`)
+  }
+  return { response, body }
 }
 
 const sitemap = await fetchPage('/sitemap.xml')
@@ -43,9 +50,22 @@ await Promise.all(Array.from({ length: 4 }, async () => {
       const image = new URL(match[1], canonicalOrigin)
       if (image.origin === canonicalOrigin) images.add(`${image.pathname}${image.search}`)
     }
+    for (const match of page.body.matchAll(/(?:src|href)="([^"]+\.(?:js|css)(?:\?[^"]*)?)"/g)) {
+      const asset = new URL(match[1].replaceAll('&amp;', '&'), base)
+      if (asset.origin === base.origin || asset.origin === canonicalOrigin) {
+        renderAssets.add(`${asset.pathname}${asset.search}`)
+      }
+    }
     pages.set(pathname, page.body)
   }
 }))
+
+for (const pathname of renderAssets) {
+  const asset = await fetchPage(pathname)
+  assert.equal(asset.response.status, 200, `${pathname}: render asset must remain available`)
+  assert.match(asset.response.headers.get('content-type') ?? '', /(?:java|ecma)script|text\/css/, `${pathname}: render asset content type`)
+  assert.ok(Buffer.byteLength(asset.body) <= crawlBudget, `${pathname}: render asset exceeds the 1.5 MB uncompressed crawl budget`)
+}
 
 for (const pathname of images) {
   const image = await fetchPage(pathname)
@@ -103,4 +123,4 @@ assert.ok(article?.includes('589'), 'PSAV article must cite the amendment')
 assert.ok(article?.includes('6 de novembro de 2026'), 'Article must distinguish the amended prohibition date')
 assert.ok(article?.includes('30 de outubro de 2026'), 'Article must retain the separate filing deadline')
 
-console.log(`SEO verification passed: ${urls.length} public URLs and ${images.size} social images; canonical, H1, language, indexability, JSON-LD, navigation, hreflang, Markdown, sandbox, utility noindex and 404 checks.`)
+console.log(`SEO verification passed: ${urls.length} public URLs, ${renderAssets.size} JS/CSS assets and ${images.size} social images; crawl size budget, canonical, H1, language, indexability, JSON-LD, navigation, hreflang, Markdown, sandbox, utility noindex and 404 checks.`)

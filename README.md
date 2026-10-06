@@ -20,6 +20,29 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Crawl payload budget
+
+`pnpm build` checks generated HTML/RSC, browser JS/CSS/JSON and public text assets
+against a **1,500,000-byte (1.5 MB) budget per uncompressed file**. It fails when a
+file exceeds the budget or the production build is missing. Run `pnpm check:crawl`
+to repeat the check on an existing build, and `pnpm test:crawl` for the checker tests.
+
+[Googlebot's limit](https://developers.google.com/search/docs/crawling-indexing/googlebot)
+is 2 MB per file, not the sum of a page's resources. The budget leaves room for
+headers and runtime additions. Gzip/Brotli does not change this limit. Server-only
+bundles, source maps, fonts and raster/video assets are excluded. The RSC and SVG
+checks are additional project budgets, not claims about Google's media crawlers.
+
+After starting the production server, `pnpm test:seo http://localhost:3000` also
+checks the decoded HTML of every sitemap URL and its same-origin JS/CSS resources.
+Use the deployed origin to verify responses after middleware/CDN processing.
+Dynamic APIs and third-party assets still need separate checks when introduced.
+
+Keep decorative artwork in external assets rather than repeating large inline SVGs
+in both HTML and React's serialized payload. The BRS map uses an external SVG;
+section entrance effects use the Web Animations API and keep content visible in
+the server HTML, including when JavaScript is unavailable.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
