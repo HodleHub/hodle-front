@@ -2,6 +2,11 @@ import type { TopicPage } from '../../types/topic'
 
 export const pixParaLlc: TopicPage = {
   slug: 'pix-para-llc',
+  language: 'pt-BR',
+  translations: {
+    'pt-BR': '/pix-para-llc',
+    en: '/en/pix-for-llc',
+  },
   primaryKeyword: 'pix para llc',
   title: 'Pix para LLC: conta para sua empresa no exterior',
   h1: 'Pix para LLC. Sua estrutura, conectada ao Brasil.',
@@ -173,6 +178,7 @@ export const pixParaLlc: TopicPage = {
     { label: 'Conta digital PJ para sua empresa', href: '/conta-digital-pj' },
     { label: 'Pix para empresas', href: '/pix' },
     { label: 'Preços e taxas da Hodle', href: '/precos' },
+    { label: 'English: Pix for LLCs', href: '/en/pix-for-llc' },
   ],
   ogImage: '/og-image-v2.png',
 }

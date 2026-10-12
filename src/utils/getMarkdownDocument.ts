@@ -11,6 +11,7 @@ import { usdMarkdown } from '../content/markdown/usdMarkdown'
 import { sobre } from '../content/pages/sobre'
 import { contato } from '../content/pages/contato'
 import { desenvolvedores } from '../content/pages/desenvolvedores'
+import { englishPixParaLlc } from '../content/topics/englishPixParaLlc'
 import { englishPixStablecoin } from '../content/topics/englishPixStablecoin'
 import { getTopicBySlug } from './getTopicBySlug'
 import { getArticleMarkdown } from './getArticleMarkdown'
@@ -30,6 +31,7 @@ const staticDocuments: Record<string, () => string> = {
   '/contato': () => infoPageToMarkdown({ page: contato }),
   '/crypto-as-a-service': () => cryptoAsAServiceMarkdown,
   '/desenvolvedores': () => infoPageToMarkdown({ page: desenvolvedores }),
+  '/en/pix-for-llc': () => topicToMarkdown({ topic: englishPixParaLlc }),
   '/en/pix-stablecoin-api': () => topicToMarkdown({ topic: englishPixStablecoin }),
   '/faq': faqToMarkdown,
   '/glossario': glossaryToMarkdown,
