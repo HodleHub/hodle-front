@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     description:
       'Notas de produto, engenharia e mercado sobre Pix, stablecoins, Lightning e as APIs da Hodle.',
     url: `${siteUrl}/articles`,
+    images: ['/og-image-v2.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Artigos | Hodle',
+    images: ['/og-image-v2.png'],
   },
 }
 

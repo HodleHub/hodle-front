@@ -5,7 +5,7 @@ export const offshore: TopicPage = {
   title: 'Offshore, LLC e proteção patrimonial com cripto',
   h1: 'Offshore, LLC e proteção patrimonial para quem opera cripto',
   description:
-    'Como estruturar offshore e LLC de forma lícita, proteger patrimônio com autocustódia e operar stablecoin na conta PJ. A Hodle cuida do rail Pix–stablecoin; a Solidus Wealth estrutura o jurídico.',
+    'Como estruturar offshore e LLC de forma lícita e proteger patrimônio com autocustódia. A Hodle opera o rail Pix–stablecoin; a Solidus Wealth, o jurídico.',
   keywords: [
     'offshore',
     'abrir llc',

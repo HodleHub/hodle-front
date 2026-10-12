@@ -3,6 +3,7 @@ export type BrsCopy = {
     eyebrow: string
     title: string
     metadataTitle: string
+    metadataDescription: string
     availability: string
     description: string
     issuer: string
@@ -59,6 +60,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
       "eyebrow": "BRS na Hodle",
       "title": "BRS: compre com Pix na Hodle",
       "metadataTitle": "BRS: comprar com Pix e pagar em reais",
+      "metadataDescription": "Compre BRS, a stablecoin do real da Nora Finance, com Pix na Hodle. Receba na sua carteira Solana e use nos fluxos habilitados para sua conta.",
       "description": "BRS é a stablecoin vinculada ao real do ecossistema Nora Finance. Na Hodle, compre BRS com Pix, receba na sua carteira Solana e use o saldo nos fluxos de transferência e pagamento habilitados para sua conta.",
       "availability": "Disponível só em produção, após aprovação cadastral e habilitação de BRS na conta.",
       "issuer": "BRS · Nora Finance",
@@ -242,6 +244,7 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
       "eyebrow": "BRS at Hodle",
       "title": "BRS: buy with Pix on Hodle",
       "metadataTitle": "BRS: buy with Pix and pay in Brazilian reais",
+      "metadataDescription": "Buy BRS, the Nora Finance Brazilian Real stablecoin, with Pix on Hodle. Receive it in your Solana wallet and use the flows enabled for your account.",
       "description": "BRS is the Brazilian Real stablecoin in the Nora Finance ecosystem. On Hodle, buy BRS with Pix, receive it in your Solana wallet and use the transfer and payment flows enabled for your account.",
       "availability": "Available only in production, after account approval and BRS enablement.",
       "issuer": "BRS · Nora Finance",
