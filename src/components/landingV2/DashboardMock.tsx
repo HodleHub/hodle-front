@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { ICONS } from './landingV2Data'
 
@@ -84,6 +86,10 @@ const CompletedBadge = () => (
 
 /**
  * Animated mock of the Hodle platform overview, used under the hero.
+ *
+ * A client island on purpose: as a server component its whole markup was
+ * serialized into the home page's RSC payload on top of the HTML. Server
+ * rendering still emits the same markup, so it is visible without JavaScript.
  */
 export const DashboardMock = () => (
   <div className="lv2-dash relative z-10 mx-4 mt-14 lg:absolute lg:left-6 lg:right-6 lg:top-[720px] lg:mx-0 lg:mt-0 bg-white border border-[#E5E5E5] rounded-2xl shadow-[0_40px_80px_-20px_rgba(10,10,10,0.18),0_0_0_8px_rgba(255,255,255,0.6)] overflow-hidden flex lg:h-[560px]">

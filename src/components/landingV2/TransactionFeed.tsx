@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { ArrowDownLeft, ArrowUpRight } from 'lucide-react'
 import { ICONS } from './landingV2Data'
@@ -65,6 +67,10 @@ const FeedRow = ({ item }: { item: FeedItem }) => (
 
 /**
  * Example transaction feed that scrolls downward, fading in at the top and out at the bottom.
+ *
+ * A client island on purpose: the loop renders the feed twice, and as a server
+ * component both copies were serialized into the home page's RSC payload on top
+ * of the HTML. Server rendering still emits the same markup.
  */
 export const TransactionFeed = () => (
   <div className="lv2-feed relative h-[300px] overflow-hidden" aria-label="Transações de exemplo">
