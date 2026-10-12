@@ -13,7 +13,7 @@ export const sobre: InfoPage = {
   title: 'Sobre a Hodle',
   h1: 'Sobre a Hodle',
   description:
-    'Quem é a Hodle: empresa de software e API de infraestrutura cripto para empresas que operam com o Brasil. Entidades, endereço, registros, o que a empresa faz e o que ela não é.',
+    'Quem é a Hodle: empresa de software e API de infraestrutura cripto para empresas que operam com o Brasil. Entidades, endereço, registros e o que ela não é.',
   updatedAt: '2026-10-04T00:00:00-03:00',
   intro: [
     'A Hodle é uma empresa de software que constrói infraestrutura de pagamento entre o real e o dólar digital. Uma única API permite receber em Pix, guardar em stablecoin de dólar e pagar em Pix a partir desse saldo — além de emitir invoice Lightning que liquida em Pix, rodar carteiras auto-custodiais multi-rede e converter entre real, dólar e stablecoins.',

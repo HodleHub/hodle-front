@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     siteName: 'Hodle',
     locale: 'pt_BR',
     type: 'website',
+    images: ['/og-image-v2.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Marca Hodle',
+    images: ['/og-image-v2.png'],
   },
 }
 
