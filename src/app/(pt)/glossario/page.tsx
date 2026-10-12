@@ -96,6 +96,17 @@ export default function GlossarioPage() {
                       <p className="text-sm text-gray-500 leading-relaxed">
                         {term.definition}
                       </p>
+                      {term.link && (
+                        <p className="mt-1 text-sm text-gray-500">
+                          Veja também:{' '}
+                          <Link
+                            href={term.link.href}
+                            className="text-foreground underline underline-offset-2 hover:text-gray-600"
+                          >
+                            {term.link.text}
+                          </Link>
+                        </p>
+                      )}
                     </dd>
                   </div>
                 ))}

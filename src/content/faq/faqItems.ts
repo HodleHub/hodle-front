@@ -71,6 +71,10 @@ export const faqItems: FaqItem[] = [
     question: 'A Hodle é regulada?',
     answer:
       'A Hodle é uma empresa de software e API: não é banco, não é instituição financeira, não emite moeda eletrônica, não emite cartões diretamente e não custodia fundos ou ativos de clientes. O fluxo de fundos regulados e os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados. O uso de ativos digitais no Brasil é regido pelo Marco Legal das Criptomoedas (Lei nº 14.478/2022). Os requisitos aplicáveis ao seu caso dependem do seu modelo de negócio.',
+    link: {
+      text: 'Marco Legal das Criptomoedas (Lei nº 14.478/2022)',
+      href: '/articles/psav-regulacao-banco-central',
+    },
   },
   {
     question: 'Como funciona o KYC dos meus usuários finais?',

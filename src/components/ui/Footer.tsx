@@ -63,6 +63,10 @@ export function Footer() {
                   href: '/pagar-pix-com-usdt',
                 },
                 {
+                  label: isEnglish ? 'Pay suppliers with USDC' : 'Pagar fornecedores com USDC',
+                  href: '/pagar-fornecedores-com-usdc',
+                },
+                {
                   label: isEnglish ? 'Lightning to Pix' : 'Lightning para Pix',
                   href: '/lightning-para-pix',
                 },
