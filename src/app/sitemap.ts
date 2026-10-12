@@ -3,6 +3,7 @@ import { getAllArticles } from '../utils/getAllArticles'
 import { getAllTopics } from '../utils/getAllTopics'
 import { pageUpdatedAt } from '../content/pageUpdatedAt'
 import type { ArticleMeta } from '../types/article'
+import { englishPixParaLlc } from '../content/topics/englishPixParaLlc'
 import { englishPixStablecoin } from '../content/topics/englishPixStablecoin'
 
 const siteUrl = 'https://hodle.com.br'
@@ -180,6 +181,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           'pt-BR': `${siteUrl}/api-pix-stablecoin`,
           en: `${siteUrl}/${englishPixStablecoin.slug}`,
+        },
+      },
+    },
+    {
+      url: `${siteUrl}/${englishPixParaLlc.slug}`,
+      lastModified: new Date(englishPixParaLlc.updatedAt),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          'pt-BR': `${siteUrl}/pix-para-llc`,
+          en: `${siteUrl}/${englishPixParaLlc.slug}`,
         },
       },
     },

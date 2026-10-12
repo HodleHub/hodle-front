@@ -15,6 +15,7 @@ export const staticMarkdownPaths: string[] = [
   '/contato',
   '/crypto-as-a-service',
   '/desenvolvedores',
+  '/en/pix-for-llc',
   '/en/pix-stablecoin-api',
   '/faq',
   '/glossario',

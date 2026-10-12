@@ -179,6 +179,7 @@ Primary language of the website: Brazilian Portuguese (pt-BR). API documentation
 ## Integration guides
 
 - [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
+- [Pix for LLC — English](https://hodle.com.br/en/pix-for-llc): existing LLCs and offshore companies, international documents and eligibility subject to KYB review.
 - [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.
 
 ## Guias práticos de Pix

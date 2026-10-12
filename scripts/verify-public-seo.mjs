@@ -84,7 +84,7 @@ for (const [pathname, html] of pages) {
 }
 assert.match(home, /href="https:\/\/app-sandbox\.hodle\.com\.br\/?"/, 'Home must link to separate sandbox registration')
 
-for (const [pt, en] of [['/brs', '/en/brs'], ['/api-pix-stablecoin', '/en/pix-stablecoin-api']]) {
+for (const [pt, en] of [['/brs', '/en/brs'], ['/api-pix-stablecoin', '/en/pix-stablecoin-api'], ['/pix-para-llc', '/en/pix-for-llc']]) {
   for (const pathname of [pt, en]) {
     const html = pages.get(pathname)
     const alternates = [...html.matchAll(/<link\b[^>]*>/gi)].map(([tag]) =>

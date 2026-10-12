@@ -6,6 +6,7 @@ it('knows the static pages', () => {
   expect(isKnownSitePath('/faq')).toBe(true)
   expect(isKnownSitePath('/termos')).toBe(true)
   expect(isKnownSitePath('/en/brs')).toBe(true)
+  expect(isKnownSitePath('/en/pix-for-llc')).toBe(true)
   expect(isKnownSitePath('/sobre')).toBe(true)
 })
 
