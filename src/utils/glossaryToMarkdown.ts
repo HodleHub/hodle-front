@@ -18,5 +18,6 @@ export const glossaryToMarkdown = (): string =>
       '',
       entry.definition,
       '',
+      ...(entry.link ? [`Veja também: ${siteUrl}${entry.link.href}`, ''] : []),
     ]),
   ].join('\n')

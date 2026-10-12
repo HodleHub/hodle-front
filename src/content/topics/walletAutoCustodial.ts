@@ -176,6 +176,10 @@ export const walletAutoCustodial: TopicPage = {
     { label: 'API Pix stablecoin', href: '/api-pix-stablecoin' },
     { label: 'Perguntas frequentes', href: '/faq' },
     { label: 'Preços e taxas', href: '/precos' },
+    {
+      label: 'Auto-custódia não é detalhe de implementação',
+      href: '/articles/auto-custodia-nao-e-detalhe-de-implementacao',
+    },
     { label: 'Documentação de Wallet Keys', href: 'https://docs.hodle.com.br/docs/wallet-keys' },
     { label: 'Documentação de Wallet Transfer', href: 'https://docs.hodle.com.br/docs/wallet-transfer' },
   ],

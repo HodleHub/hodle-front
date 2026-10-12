@@ -20,6 +20,10 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'Auto-custódia',
     definition:
       'Arranjo em que a chave privada fica sob controle exclusivo do dono dos ativos. Nenhum terceiro consegue mover, bloquear ou recuperar o saldo.',
+    link: {
+      text: 'Auto-custódia não é detalhe de implementação',
+      href: '/articles/auto-custodia-nao-e-detalhe-de-implementacao',
+    },
   },
   {
     term: 'Base',
@@ -185,6 +189,10 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'PSAV',
     definition:
       'Prestador de Serviços de Ativos Virtuais. É o termo em português para a categoria que a Lei 14.478/2022 regula.',
+    link: {
+      text: 'PSAV: como funciona a autorização no Banco Central',
+      href: '/articles/psav-regulacao-banco-central',
+    },
   },
   {
     term: 'Resolução BCB 519',

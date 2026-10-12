@@ -256,6 +256,7 @@ export const pagarPixComUsdt: TopicPage = {
   related: [
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'Receber Pix em stablecoin', href: '/receber-pix-em-stablecoin' },
+    { label: 'Pagar fornecedores com USDC', href: '/pagar-fornecedores-com-usdc' },
     { label: 'API de Pix com stablecoin', href: '/api-pix-stablecoin' },
     { label: 'Carteiras auto-custodiais', href: '/wallet-auto-custodial' },
     { label: 'Preços e taxas', href: '/precos' },
