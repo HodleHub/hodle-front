@@ -2,7 +2,7 @@
 
 Production: **https://hodle.com.br**
 
-This repo has two deploy paths. **Vercel is the one that currently works and serves `hodle.com.br`.** The Fly.io GitHub Action is present but broken (see below) — don't rely on it.
+Production is served by **Vercel** and deployed manually with the Vercel CLI. Merging to `main` does not deploy: run the release command below after every merge that should go live.
 
 ## TL;DR — ship to production
 
@@ -48,6 +48,13 @@ Verify the live page after deploy, e.g.:
 curl -s https://hodle.com.br/articles/precos | grep -oE '[0-9.]+%'
 ```
 
+Confirm production serves the current `main` (the two hashes must match):
+
+```bash
+curl -s https://hodle.com.br/llms.txt | git hash-object --stdin
+git rev-parse main:public/llms.txt
+```
+
 ## Useful Vercel commands
 
 ```bash
@@ -57,22 +64,8 @@ vercel redeploy <url>                      # redeploy an existing build
 vercel --prod --yes                        # build + deploy current dir to prod
 ```
 
-## Fly.io (legacy / currently broken)
+## Fly.io (removed)
 
-`.github/workflows/fly-deploy.yml` runs `flyctl deploy --remote-only` on every push
-to `main`. It has been **failing since deploy #23** with:
-
-```
-Error: no access token available. Please login with 'flyctl auth login'
-```
-
-The GitHub Actions secret `FLY_API_TOKEN` is empty/expired, and there is no `fly.toml`
-in the repo. Until that's fixed the Fly action is a no-op failure — production is served
-by Vercel regardless.
-
-To revive Fly later:
-```bash
-fly tokens create deploy                          # generate a deploy token
-gh secret set FLY_API_TOKEN --repo HodleHub/hodle-front   # paste the token
-```
-…and commit a `fly.toml`. Otherwise consider removing the workflow to stop the red Xs.
+The `.github/workflows/fly-deploy.yml` action failed on every push to `main` (no
+`FLY_API_TOKEN`, no `fly.toml`) since deploy #23, while Vercel serves `hodle.com.br`. It was removed so a
+red check on `main` means something again.
