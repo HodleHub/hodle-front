@@ -21,6 +21,7 @@ export const metadata: Metadata = {
       'Definições objetivas dos termos de stablecoin, Pix, Lightning e regulação de criptoativos no Brasil. Referência para quem integra pagamentos.',
     url: `${siteUrl}/glossario`,
     images: ['/og-image-v2.png'],
+    locale: 'pt_BR',
   },
 }
 
