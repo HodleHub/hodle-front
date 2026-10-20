@@ -36,7 +36,6 @@ export const topicMarkdownSlugs: string[] = [
   'comprar-usdt-com-pix',
   'conciliacao-pix',
   'conta-digital-pj',
-  'gateway-de-pagamento-cripto',
   'lightning-para-pix',
   'link-de-pagamento-pix',
   'offshore',

@@ -126,10 +126,6 @@ export const apiPixStablecoin: TopicPage = {
           label: 'Recebimento por chave Pix em USDC',
           href: '/receber-pix-em-stablecoin',
         },
-        {
-          label: 'Gateway Pix para USDT',
-          href: '/gateway-de-pagamento-cripto',
-        },
       ],
     },
     ...platformFacts,

@@ -1,10 +1,10 @@
 import { expect, it } from 'vitest'
 import { topics } from './topics'
 
-it('includes the gateway de pagamento cripto topic', () => {
+it('no longer publishes the retired gateway de pagamento cripto topic', () => {
   const slugs = topics.map((topic) => topic.slug)
 
-  expect(slugs).toContain('gateway-de-pagamento-cripto')
+  expect(slugs).not.toContain('gateway-de-pagamento-cripto')
 })
 
 it('includes the como aceitar criptomoedas topic', () => {

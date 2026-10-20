@@ -134,10 +134,6 @@ export const linkDePagamentoPix: TopicPage = {
       "href": "/cobranca-pix"
     },
     {
-      "label": "Gateway Pix para USDT",
-      "href": "/gateway-de-pagamento-cripto"
-    },
-    {
       "label": "Produtos Pix",
       "href": "/pix"
     },

@@ -156,10 +156,6 @@ export const receberPixEmStablecoin: TopicPage = {
           label: 'Falar com o time',
           href: '/contato',
         },
-        {
-          label: 'Checkout para receber USDT',
-          href: '/gateway-de-pagamento-cripto',
-        },
       ],
     },
     {
@@ -225,7 +221,6 @@ export const receberPixEmStablecoin: TopicPage = {
     { label: 'Produtos Pix para empresas', href: '/pix' },
     { label: 'Conta digital PJ por parceiro', href: '/conta-digital-pj' },
     { label: 'Conciliação Pix', href: '/conciliacao-pix' },
-    { label: 'Gateway Pix para USDT e link de pagamento', href: '/gateway-de-pagamento-cripto' },
     { label: 'Como receber pagamentos com Pix e cripto', href: '/como-aceitar-criptomoedas' },
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },

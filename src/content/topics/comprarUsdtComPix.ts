@@ -239,7 +239,6 @@ export const comprarUsdtComPix: TopicPage = {
     },
   ],
   related: [
-    { label: 'Receber vendas em USDT via Pix', href: '/gateway-de-pagamento-cripto' },
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'Comprar Bitcoin com Pix', href: '/comprar-bitcoin-com-pix' },
     { label: 'Preços e taxas', href: '/precos' },
