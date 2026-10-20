@@ -11,7 +11,6 @@ import { comprarUsdtComPix } from './comprarUsdtComPix'
 import { receberPixEmStablecoin } from './receberPixEmStablecoin'
 import { offshore } from './offshore'
 import { pixParaLlc } from './pixParaLlc'
-import { gatewayDePagamentoCripto } from './gatewayDePagamentoCripto'
 import { comoAceitarCriptomoedas } from './comoAceitarCriptomoedas'
 import { pagarFornecedoresComUsdc } from './pagarFornecedoresComUsdc'
 
@@ -43,7 +42,6 @@ export const topics: TopicPage[] = [
   paraAgentesDeIa,
   offshore,
   pixParaLlc,
-  gatewayDePagamentoCripto,
   comoAceitarCriptomoedas,
   pagarFornecedoresComUsdc,
 ]

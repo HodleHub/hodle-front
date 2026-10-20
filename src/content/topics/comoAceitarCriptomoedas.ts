@@ -161,7 +161,6 @@ export const comoAceitarCriptomoedas: TopicPage = {
     },
   ],
   related: [
-    { label: 'Gateway Pix para USDT', href: '/gateway-de-pagamento-cripto' },
     { label: 'Pagar Pix com USDT', href: '/pagar-pix-com-usdt' },
     { label: 'Comprar USDT com Pix', href: '/comprar-usdt-com-pix' },
     { label: 'Crypto as a Service', href: '/crypto-as-a-service' },

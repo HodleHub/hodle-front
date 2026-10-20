@@ -90,10 +90,6 @@ export function Footer() {
                     : 'Receber Pix em stablecoin',
                   href: '/receber-pix-em-stablecoin',
                 },
-                {
-                  label: isEnglish ? 'Pix to USDT gateway' : 'Gateway Pix para USDT',
-                  href: '/gateway-de-pagamento-cripto',
-                },
               ],
             },
             {

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { negotiateAccept } from './utils/negotiateAccept'
 import { hasMarkdownVariant } from './utils/hasMarkdownVariant'
 import { isKnownSitePath } from './utils/isKnownSitePath'
+import { isRetiredPath } from './utils/isRetiredPath'
 import { notFoundMarkdown } from './content/markdown/notFoundMarkdown'
 
 const MARKDOWN_CONTENT_TYPE = 'text/markdown; charset=utf-8'
@@ -14,6 +15,17 @@ hodle.com.br serve \`text/html\` e \`text/markdown\`. Repita a requisição com
 
 Mapa do site: https://hodle.com.br/llms.txt
 `
+
+const goneBody = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Página removida</title></head><body><h1>410 — página removida</h1><p>Este conteúdo não está mais disponível. <a href="/">Ir para a página inicial</a>.</p></body></html>`
+
+const goneResponse = (): NextResponse =>
+  new NextResponse(goneBody, {
+    status: 410,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'X-Robots-Tag': 'noindex, nofollow',
+    },
+  })
 
 const isAsset = (pathname: string): boolean => pathname.includes('.')
 
@@ -52,6 +64,10 @@ export const middleware = (request: NextRequest): NextResponse => {
 
   if (pathname === '/md' || isAsset(pathname) || isReactServerComponentRequest(request)) {
     return NextResponse.next()
+  }
+
+  if (isRetiredPath(pathname)) {
+    return goneResponse()
   }
 
   const preference = negotiateAccept(request.headers.get('accept'))

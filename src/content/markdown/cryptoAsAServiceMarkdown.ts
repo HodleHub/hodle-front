@@ -65,7 +65,6 @@ ${sectionsToMarkdown({ sections: platformFacts })}
 
 - [Documentação da API](https://docs.hodle.com.br)
 - [API Pix stablecoin](https://hodle.com.br/api-pix-stablecoin)
-- [Gateway de pagamento cripto](https://hodle.com.br/gateway-de-pagamento-cripto)
 - [Preços e taxas](https://hodle.com.br/precos)
 - [Perguntas frequentes](https://hodle.com.br/faq)
 `

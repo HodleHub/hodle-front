@@ -30,3 +30,10 @@ it('still returns a Markdown 404 for an unknown public route', async () => {
   expect(response.headers.get('Content-Type')).toContain('text/markdown')
   expect(await response.text()).toContain('404')
 })
+
+it('answers a retired page with 410 Gone and noindex', () => {
+  const response = middleware(new NextRequest('https://hodle.com.br/gateway-de-pagamento-cripto'))
+
+  expect(response.status).toBe(410)
+  expect(response.headers.get('X-Robots-Tag')).toBe('noindex, nofollow')
+})
