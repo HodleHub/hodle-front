@@ -24,6 +24,7 @@ export const infoPageMetadata = ({ page }: { page: InfoPage }): Metadata => {
       description: page.description,
       url,
       images: ['/og-image-v2.png'],
+      locale: 'pt_BR',
     },
   }
 }
