@@ -80,6 +80,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: `${siteUrl}/excluir-conta`,
+      lastModified: new Date(pageUpdatedAt.excluirConta),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
       url: `${siteUrl}/termos`,
       lastModified: new Date(pageUpdatedAt.termos),
       changeFrequency: 'monthly',

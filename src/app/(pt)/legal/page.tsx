@@ -33,6 +33,12 @@ const documents = [
       'Quais dados pessoais coletamos, com que finalidade, por quanto tempo guardamos e como você exerce seus direitos sob a LGPD.',
   },
   {
+    href: '/excluir-conta',
+    title: 'Excluir sua conta',
+    description:
+      'Como excluir sua conta pelo app ou por e-mail, o que apagamos e o que guardamos por obrigação legal.',
+  },
+  {
     href: '/cookies',
     title: 'Política de Cookies',
     description:
