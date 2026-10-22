@@ -19,6 +19,7 @@ export const staticSitePaths: string[] = [
   '/en/brs',
   '/en/pix-for-llc',
   '/en/pix-stablecoin-api',
+  '/excluir-conta',
   '/faq',
   '/glossario',
   '/legal',
