@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       'Notas de produto, engenharia e mercado sobre Pix, stablecoins, Lightning e as APIs da Hodle.',
     url: `${siteUrl}/articles`,
     images: ['/og-image-v2.png'],
+    locale: 'pt_BR',
   },
   twitter: {
     card: 'summary_large_image',

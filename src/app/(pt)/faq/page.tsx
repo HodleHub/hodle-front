@@ -8,7 +8,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
 export const metadata: Metadata = {
   title: 'Perguntas Frequentes (FAQ)',
   description:
-    'Tire suas dúvidas sobre a Hodle: o que é, como funciona a wallet auto-custodial, conta PJ, pagamento de QR codes com stablecoins, API, taxas, segurança e muito mais.',
+    'Dúvidas sobre a Hodle: wallet auto-custodial, conta PJ, pagamento de QR codes com stablecoins, API, taxas e segurança.',
   alternates: {
     canonical: 'https://hodle.com.br/faq',
   },
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
       'Esclareça suas principais dúvidas sobre nossa plataforma de infraestrutura cripto para empresas.',
     url: 'https://hodle.com.br/faq',
     images: ['/og-image-v2.png'],
+    locale: 'pt_BR',
   },
 }
 

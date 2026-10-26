@@ -8,7 +8,7 @@ import { sectionsToMarkdown } from '../../utils/sectionsToMarkdown'
  */
 export const neobankMarkdown = `# Infraestrutura para neobanks
 
-> A infraestrutura da Hodle para neobanks: conta nominal, Pix liquidado em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin, USD fiat, disputes e KYB em uma única camada.
+> Infraestrutura da Hodle para neobanks: conta nominal, Pix liquidado em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin, USD fiat e KYB.
 
 Fonte canônica: https://hodle.com.br/neobank
 
