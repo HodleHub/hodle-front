@@ -1,0 +1,134 @@
+name: Weekly public SEO audit
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-public-seo-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: Verify hodle.com.br
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run public SEO verification
+        id: verify
+        shell: bash
+        env:
+          TARGET_URL: https://hodle.com.br
+        run: |
+          set -uo pipefail
+
+          audit_epoch="$(date -u +%s)"
+          audit_date="$(date -u -d "@$audit_epoch" +'%Y-%m-%d %H:%M:%S UTC')"
+          audit_slug="$(date -u -d "@$audit_epoch" +'%Y-%m-%dT%H-%M-%SZ')"
+          audit_dir="$RUNNER_TEMP/seo-audit"
+          mkdir -p "$audit_dir"
+
+          report="$audit_dir/seo-audit-$audit_slug.md"
+          log="$audit_dir/seo-audit-$audit_slug.log"
+          attempt_log="$audit_dir/current-attempt.log"
+          max_attempts=3
+          attempts=0
+          result="inconclusivo"
+          reason="Falha de execução não classificada."
+
+          for ((attempt = 1; attempt <= max_attempts; attempt++)); do
+            attempts="$attempt"
+            printf 'Tentativa %s/%s — %s\n' "$attempt" "$max_attempts" "$audit_date" >> "$log"
+
+            set +e
+            node scripts/verify-public-seo.mjs "$TARGET_URL" > "$attempt_log" 2>&1
+            exit_code=$?
+            set -e
+
+            cat "$attempt_log" >> "$log"
+            if [[ "$exit_code" -eq 0 ]]; then
+              result="aprovado"
+              reason="Verificador concluído sem regressões."
+              break
+            fi
+
+            if grep -Eq 'actual: (429|5[0-9]{2})' "$attempt_log"; then
+              reason="O site limitou a requisição ou respondeu com erro 5xx; tentativas limitadas a $max_attempts."
+              if (( attempt < max_attempts )); then
+                sleep 5
+                continue
+              fi
+              break
+            fi
+
+            if grep -Eq 'AssertionError|SyntaxError' "$attempt_log"; then
+              result="regressao"
+              reason="O verificador encontrou uma asserção ou JSON-LD inválido."
+              break
+            fi
+
+            if grep -Eiq 'fetch failed|ENOTFOUND|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EAI_AGAIN|EHOSTUNREACH|ECONNABORTED|AbortError|TimeoutError|UND_ERR_' "$attempt_log"; then
+              reason="Falha transitória de rede; tentativas limitadas a $max_attempts."
+              if (( attempt < max_attempts )); then
+                sleep 5
+                continue
+              fi
+              break
+            fi
+
+            reason="Falha de execução não classificada; revisão manual necessária."
+            break
+          done
+
+          {
+            printf '# Auditoria SEO pública\n\n'
+            printf -- '- Data: %s\n' "$audit_date"
+            printf -- '- Alvo: `%s`\n' "$TARGET_URL"
+            printf -- '- Resultado: **%s**\n' "$result"
+            printf -- '- Tentativas: %s/%s\n' "$attempts" "$max_attempts"
+            printf -- '- Detalhe: %s\n\n' "$reason"
+            printf '## Log completo\n\n```text\n'
+            cat "$log"
+            printf '\n```\n'
+          } > "$report"
+
+          {
+            printf '## Auditoria SEO pública — %s\n\n' "$audit_date"
+            printf -- '- Alvo: `%s`\n' "$TARGET_URL"
+            printf -- '- Resultado: **%s** (%s)\n' "$result" "$reason"
+            printf -- '- Tentativas: %s/%s; log completo no artifact.\n' "$attempts" "$max_attempts"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "result=$result" >> "$GITHUB_OUTPUT"
+          echo "report=$report" >> "$GITHUB_OUTPUT"
+          echo "artifact_name=public-seo-audit-$audit_slug" >> "$GITHUB_OUTPUT"
+
+          if [[ "$result" == "regressao" ]]; then
+            echo "::error::A auditoria encontrou uma regressão SEO real. Consulte o summary e o artifact."
+            exit 1
+          fi
+
+          if [[ "$result" == "inconclusivo" ]]; then
+            echo "::warning::A auditoria foi inconclusiva; falha operacional não é marcada como regressão SEO. Consulte o artifact."
+          fi
+
+      - name: Upload dated report and log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.verify.outputs.artifact_name }}
+          path: ${{ runner.temp }}/seo-audit/seo-audit-*
+          if-no-files-found: error
+          retention-days: 30
