@@ -121,7 +121,7 @@ const offerCatalogJsonLd = {
       },
       priceSpecification: {
         '@type': 'PriceSpecification',
-        price: 15000,
+        price: 20000,
         priceCurrency: 'BRL',
         description: 'Valor único de implantação, cobrado uma só vez',
       },
@@ -414,7 +414,7 @@ export default function PrecosPage() {
             Clientes que precisam emitir contas PJ nominais em nome próprio —
             uma conta por cliente final, com CNPJ e titularidade separados —
             pagam um valor único de implantação de{' '}
-            <strong>R$ 15.000</strong>. O valor cobre a habilitação do recurso,
+            <strong>R$ 20.000</strong>. O valor cobre a habilitação do recurso,
             e não há custo por conta criada depois disso: a quantidade de contas
             emitidas é livre.
           </p>

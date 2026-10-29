@@ -69,7 +69,7 @@ export const platformFacts: TopicSection[] = [
         ],
         [
           'Emissão de conta nominal PJ',
-          'Setup de R$ 15.000, uma única vez, para habilitar a emissão. Esse setup não é necessário para usar on-ramp e off-ramp.',
+          'Setup de R$ 20.000, uma única vez, para habilitar a emissão. Esse setup não é necessário para usar on-ramp e off-ramp.',
         ],
         [
           'Conversão e envio entre redes',
