@@ -76,7 +76,7 @@ export const pricingToMarkdown = (): string =>
     '',
     '## Contas PJ nominais',
     '',
-    'Clientes que precisam emitir contas PJ nominais em nome próprio pagam um valor único de implantação de R$ 15.000. O valor cobre a habilitação do recurso, e não há custo por conta criada depois disso. Não existe taxa de setup para usar o on-ramp, o off-ramp ou o Pix para Real on-chain.',
+    'Clientes que precisam emitir contas PJ nominais em nome próprio pagam um valor único de implantação de R$ 20.000. O valor cobre a habilitação do recurso, e não há custo por conta criada depois disso. Não existe taxa de setup para usar o on-ramp, o off-ramp ou o Pix para Real on-chain.',
     '',
     '## Contestações',
     '',

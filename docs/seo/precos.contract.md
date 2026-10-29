@@ -10,7 +10,7 @@
 > **A especificação viva de preço é `src/app/precos/page.tsx`.** Em 13 de agosto de 2026 a
 > página passou a publicar a tabela de volume (2% a 0,5%), o mínimo de R$ 0,75 por operação
 > de on-ramp/off-ramp, o rail Pix para Real on-chain (R$ 0,75 até R$ 5.000; acima disso
-> 0,10% no lugar, teto de R$ 50), o setup de contas PJ nominais (R$ 15.000, sem custo por
+> 0,10% no lugar, teto de R$ 50), o setup de contas PJ nominais (R$ 20.000, sem custo por
 > conta) e a contestação (R$ 10,00). O payout Pix, antes não publicado, virou o off-ramp.
 >
 > O que continua valendo do contrato: a rota, o redirect permanente de `/articles/precos`

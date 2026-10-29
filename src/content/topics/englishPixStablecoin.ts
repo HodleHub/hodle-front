@@ -167,7 +167,7 @@ export const englishPixStablecoin: TopicPage = {
           ],
           [
             'Named business account issuance',
-            'One-time BRL 15,000 setup to enable issuance. This setup is not required for on-ramp or off-ramp use.',
+            'One-time BRL 20,000 setup to enable issuance. This setup is not required for on-ramp or off-ramp use.',
           ],
           [
             'Asset conversion and cross-network transfers',
