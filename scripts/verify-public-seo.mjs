@@ -41,6 +41,7 @@ await Promise.all(Array.from({ length: 4 }, async () => {
     assert.ok(canonical, `${pathname}: canonical missing`)
     assert.equal(new URL(canonical).href, new URL(pathname, canonicalOrigin).href, `${pathname}: canonical changed`)
     assert.equal(page.body.match(/<html[^>]*lang="([^"]+)"/)?.[1], pathname.startsWith('/en/') ? 'en' : 'pt-BR', `${pathname}: document language`)
+    assert.equal(page.body.match(/<meta[^>]*property="og:locale"[^>]*content="([^"]+)"/)?.[1], pathname.startsWith('/en/') ? 'en_US' : 'pt_BR', `${pathname}: Open Graph locale`)
     assert.doesNotMatch(page.body, /<meta[^>]*(?:name="(?:robots|googlebot)"[^>]*content="[^"]*noindex)/i, `${pathname}: public page must remain indexable`)
     assert.doesNotMatch(page.response.headers.get('x-robots-tag') ?? '', /noindex/i, `${pathname}: public page header`)
     for (const match of page.body.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
@@ -123,4 +124,4 @@ assert.ok(article?.includes('589'), 'PSAV article must cite the amendment')
 assert.ok(article?.includes('6 de novembro de 2026'), 'Article must distinguish the amended prohibition date')
 assert.ok(article?.includes('30 de outubro de 2026'), 'Article must retain the separate filing deadline')
 
-console.log(`SEO verification passed: ${urls.length} public URLs, ${renderAssets.size} JS/CSS assets and ${images.size} social images; crawl size budget, canonical, H1, language, indexability, JSON-LD, navigation, hreflang, Markdown, sandbox, utility noindex and 404 checks.`)
+console.log(`SEO verification passed: ${urls.length} public URLs, ${renderAssets.size} JS/CSS assets and ${images.size} social images; crawl size budget, canonical, H1, language, Open Graph locale, indexability, JSON-LD, navigation, hreflang, Markdown, sandbox, utility noindex and 404 checks.`)

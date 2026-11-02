@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       'Saiba como a Hodle utiliza cookies e tecnologias de rastreamento em sua plataforma.',
     url: 'https://hodle.com.br/cookies',
     images: ['/og-image-v2.png'],
+    locale: 'pt_BR',
   },
 }
 

@@ -13,7 +13,9 @@ export const metadata: Metadata = {
     title: 'Termos de Serviço | Hodle',
     description:
       'Termos e condições de uso da plataforma de infraestrutura cripto da Hodle.',
+    url: 'https://hodle.com.br/termos',
     images: ['/og-image-v2.png'],
+    locale: 'pt_BR',
   },
 }
 

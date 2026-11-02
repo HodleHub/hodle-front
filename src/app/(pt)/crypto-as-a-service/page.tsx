@@ -33,7 +33,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 const title = 'Crypto as a Service para empresas'
 const description =
-  'Hodle CaaS: rampas de Pix para stablecoin, wallets auto-custodiais multi-rede, swaps entre ativos e redes e front whitelabel. Uma API para ligar cripto ao seu produto.'
+  'Hodle CaaS: rampas de Pix para stablecoin, wallets auto-custodiais multi-rede, swaps e front whitelabel. Uma API para ligar cripto ao seu produto.'
 
 export const metadata: Metadata = {
   title,

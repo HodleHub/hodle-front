@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: `${siteUrl}/precos`,
     images: ['/og-image-v2.png'],
+    locale: 'pt_BR',
   },
 }
 

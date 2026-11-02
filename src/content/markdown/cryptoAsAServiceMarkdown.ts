@@ -7,7 +7,7 @@ import { sectionsToMarkdown } from '../../utils/sectionsToMarkdown'
  */
 export const cryptoAsAServiceMarkdown = `# Crypto as a Service para empresas
 
-> Hodle CaaS: rampas de Pix para stablecoin, wallets auto-custodiais multi-rede, swaps entre ativos e redes e front whitelabel. Uma API para ligar cripto ao seu produto.
+> Hodle CaaS: rampas de Pix para stablecoin, wallets auto-custodiais multi-rede, swaps e front whitelabel. Uma API para ligar cripto ao seu produto.
 
 Fonte canônica: https://hodle.com.br/crypto-as-a-service
 
