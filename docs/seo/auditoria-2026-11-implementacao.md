@@ -84,26 +84,13 @@ testes de rota desconhecida, o servidor registrou `Internal: NoFallbackError` na
 rota dinâmica de tópicos; as respostas 404 e todas as asserções do verificador
 passaram. Não foi alterado o mecanismo de fallback nesta entrega.
 
-## Commits bloqueados pelo ambiente
+## Commits
 
-A tentativa de `git add docs/seo/plano-seo-geo-2026-11.md` retornou:
-
-```text
-fatal: Unable to create '/workspace/hodle-front/.git/index.lock': Read-only file system
-```
-
-A configuração desta sessão expõe `.git` somente para leitura. Nenhum commit pôde
-ser criado; não foi tentado contornar essa restrição. As alterações estão no
-working tree da branch solicitada. Em um ambiente com `.git` gravável:
-
-```sh
-git add docs/seo/plano-seo-geo-2026-11.md
-git commit -m "docs(seo): registrar plano da auditoria SEO e GEO de novembro"
-git add src public
-git commit -m "fix(seo): corrigir metadados acessibilidade e descoberta por IA"
-git add docs/seo/pendencias-externas.md docs/seo/auditoria-2026-11-implementacao.md docs/seo/auditoria-2026-11-pendencias-externas.md
-git commit -m "docs(seo): registrar implementacao e pendencias da auditoria"
-```
+O sandbox do Codex expunha `.git` somente para leitura (`index.lock: Read-only file
+system`), então os commits foram criados depois, fora do sandbox, na branch
+`seo/auditoria-geo-fixes`, com a mesma divisão proposta (plano, código, documentação).
+Lint, TypeScript, testes, build e `pnpm test:seo` foram repetidos após o commit.
+Sem push, PR, merge ou deploy.
 
 ## Arquivos alterados
 
