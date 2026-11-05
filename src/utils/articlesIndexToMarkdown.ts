@@ -1,4 +1,5 @@
 import { getAllArticles } from './getAllArticles'
+import { groupArticlesByCategory } from './groupArticlesByCategory'
 
 const siteUrl = 'https://hodle.com.br'
 
@@ -13,9 +14,14 @@ export const articlesIndexToMarkdown = (): string =>
     '',
     `Fonte canônica: ${siteUrl}/articles`,
     '',
-    ...getAllArticles().map(
-      (article) =>
-        `- [${article.title}](${siteUrl}/articles/${article.slug}) — ${article.description} (${article.date}, ${article.readingMinutes} min)`,
-    ),
+    ...groupArticlesByCategory(getAllArticles()).flatMap((group) => [
+      `## ${group.category.label}`,
+      '',
+      ...group.articles.map(
+        (article) =>
+          `- [${article.title}](${siteUrl}/articles/${article.slug}) — ${article.description} (${article.date}, ${article.readingMinutes} min)`,
+      ),
+      '',
+    ]),
     '',
   ].join('\n')

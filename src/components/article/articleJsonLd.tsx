@@ -16,7 +16,7 @@ export default function ArticleJsonLd({ article }: { article: ArticleMeta }) {
     articleSection: article.category.label,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     url,
-    image: article.cover ? `${siteUrl}${article.cover.src}` : `${siteUrl}/og-image-v2.png`,
+    image: article.cover ? `${siteUrl}${article.cover.src}` : `${url}/opengraph-image`,
     author: { '@type': 'Organization', name: article.author.name, url: siteUrl },
     publisher: {
       '@type': 'Organization',

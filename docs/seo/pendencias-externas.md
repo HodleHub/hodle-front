@@ -1,5 +1,7 @@
 # O que não é possível fazer deste repositório
 
+[Atualização: pendências da auditoria de novembro de 2026](auditoria-2026-11-pendencias-externas.md).
+
 Companion de [`ai-discoverability.walkthrough.md`](ai-discoverability.walkthrough.md).
 Lista honesta do que o programa de descobribilidade por LLM **não** consegue entregar por
 código neste repo, dividido em três classes: bloqueado em acesso, fora do repo, e

@@ -52,7 +52,7 @@ const anchorOffset = '!scroll-mt-20'
 export const metadata: Metadata = {
   title: 'Infraestrutura para neobanks',
   description:
-    'A infraestrutura da Hodle para neobanks: conta nominal, Pix liquidado em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin, USD fiat, disputes e KYB em uma única camada.',
+    'Integre conta nominal, Pix em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin e USD fiat com a Hodle. Uma camada de software para seu neobank.',
   alternates: { canonical: siteUrl },
   openGraph: {
     title: 'Hodle — infraestrutura para neobanks',
@@ -78,7 +78,7 @@ const webpageJsonLd = {
   '@type': 'WebPage',
   name: 'Infraestrutura para neobanks',
   description:
-    'A infraestrutura da Hodle para neobanks: conta nominal, Pix liquidado em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin, USD fiat, disputes e KYB em uma única camada.',
+    'Integre conta nominal, Pix em real tokenizado, wallets, USDT e USDC, swaps, Bitcoin e USD fiat com a Hodle. Uma camada de software para seu neobank.',
   url: siteUrl,
   inLanguage: 'pt-BR',
   isPartOf: {

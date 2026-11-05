@@ -10,7 +10,7 @@ const emptySection = {
 export const sobre: InfoPage = {
   slug: 'sobre',
   kicker: 'Sobre',
-  title: 'Sobre a Hodle',
+  title: 'Software e API para Pix e stablecoins',
   h1: 'Sobre a Hodle',
   description:
     'Quem é a Hodle: empresa de software e API de infraestrutura cripto para empresas que operam com o Brasil. Entidades, endereço, registros e o que ela não é.',
@@ -29,7 +29,7 @@ export const sobre: InfoPage = {
         'Todos os fluxos abaixo estão disponíveis tanto no painel quanto na API, com webhooks assinados para cada mudança de estado.',
       ],
       bullets: [
-        'Pagar Pix a partir de saldo em stablecoin: um POST debita USDT (Polygon, Tron) ou USDC (Base) e liquida o Pix no destino, com gas patrocinado pela Hodle.',
+        'Pagar Pix a partir de saldo habilitado: Wallet Payout suporta Polygon (USDT, USDC, BRLA), Base (USDC, BRLA), Tron (USDT) e Solana (USDT, USDC, BRS), conforme permissões da conta. A aceitação da operação não confirma a liquidação; acompanhe o status e os webhooks.',
         'Invoice Lightning que liquida em Pix: o pagador liquida um invoice BOLT11 de qualquer lugar do mundo e o recebedor no Brasil recebe um Pix comum.',
         'On-ramp e off-ramp: converter real em USDT, USDC ou Bitcoin e voltar, com entrega no endereço ou na chave Pix informada.',
         'Carteiras e operações por rede: endereços, saldos e autorização conforme o modelo de assinatura. No fluxo por PIN, a integração fornece o PIN e a chave protegida da carteira selecionada.',

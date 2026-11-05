@@ -6,7 +6,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
 export const metadata: Metadata = {
   title: 'Central Legal',
   description:
-    'Central legal da Hodle: termos de serviço, política de privacidade, política de cookies e política de uso por IA, em conformidade com a LGPD e o Marco Civil da Internet.',
+    'Consulte os documentos legais da Hodle em um só lugar: termos de serviço e políticas de privacidade, cookies e uso por IA, com referências à LGPD.',
   alternates: {
     canonical: 'https://hodle.com.br/legal',
   },

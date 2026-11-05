@@ -18,7 +18,7 @@ const description =
   'Brand kit da Hodle: logo, símbolo, cores, tipografia, elementos de interface e tom de voz. Arquivos oficiais para parceiros e imprensa.'
 
 export const metadata: Metadata = {
-  title: 'Marca',
+  title: 'Marca: identidade visual e recursos',
   description,
   alternates: { canonical: pageUrl },
   openGraph: {

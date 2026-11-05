@@ -198,7 +198,7 @@ export const TilePile = () => {
 
   return (
     <div ref={containerRef} aria-hidden="true" className="absolute inset-0 overflow-hidden select-none">
-      <div className="absolute left-6 top-6 font-[family-name:var(--font-geist-mono)] text-[11px] tracking-[0.14em] text-[#A3A3A3] pointer-events-none">
+      <div className="absolute left-6 top-6 font-[family-name:var(--font-geist-mono)] text-[11px] tracking-[0.14em] text-gray-600 pointer-events-none">
         ARRASTE E ARREMESSE
       </div>
       <div
