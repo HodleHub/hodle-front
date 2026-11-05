@@ -8,7 +8,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
 export const metadata: Metadata = {
   title: 'Perguntas Frequentes (FAQ)',
   description:
-    'Tire suas dúvidas sobre a Hodle: o que é, como funciona a wallet auto-custodial, conta PJ, pagamento de QR codes com stablecoins, API, taxas, segurança e muito mais.',
+    'Entenda como usar Pix e stablecoins com a Hodle: respostas sobre API, wallets, conta PJ, pagamentos, taxas, segurança e requisitos de cada operação.',
   alternates: {
     canonical: 'https://hodle.com.br/faq',
   },
@@ -45,7 +45,7 @@ const breadcrumbJsonLd = {
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -139,6 +139,6 @@ export default function FAQPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

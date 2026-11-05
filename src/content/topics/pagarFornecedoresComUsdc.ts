@@ -3,7 +3,7 @@ import type { TopicPage } from '../../types/topic'
 export const pagarFornecedoresComUsdc: TopicPage = {
   slug: 'pagar-fornecedores-com-usdc',
   language: 'pt-BR',
-  title: 'Pagar fornecedores via Pix com USDC: fluxo e requisitos',
+  title: 'Pagar fornecedores com USDC via Pix por API',
   h1: 'Como pagar fornecedores via Pix usando USDC',
   description:
     'Veja os requisitos para pagar um fornecedor em reais a partir de USDC: habilitação para terceiros, beneficiário, cotação, taxas e conciliação por API.',

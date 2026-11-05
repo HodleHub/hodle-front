@@ -31,6 +31,7 @@ export function Footer() {
             <div className="flex space-x-3">
               <a
                 href="https://github.com/HodleHub"
+                aria-label="GitHub da Hodle"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-foreground transition-colors"

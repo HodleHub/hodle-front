@@ -153,6 +153,7 @@ export const baas: TopicPage = {
     }
   ],
   "related": [
+    { "label": "PSAV e autorização no Banco Central", "href": "/articles/psav-regulacao-banco-central" },
     {
       "label": "Conta digital PJ",
       "href": "/conta-digital-pj"

@@ -132,6 +132,7 @@ const organizationJsonLd = {
     },
   ],
   sameAs: [
+    'https://www.linkedin.com/company/hodle-app',
     'https://x.com/hodle_app',
     'https://github.com/HodleHub',
     'https://app.hodle.com.br',

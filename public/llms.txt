@@ -95,8 +95,8 @@
 | Asset | Networks |
 |-------|----------|
 | Bitcoin (BTC) | On-chain, Lightning Network |
-| USDT | Polygon, Tron, Arbitrum, Base, Spark |
-| USDC | Base, Arbitrum, Polygon, Spark |
+| USDT | Polygon, Tron, Arbitrum, Base, Spark; Solana for enabled payout and transfer flows |
+| USDC | Base, Arbitrum, Polygon, Spark; Solana for enabled payout and transfer flows |
 | USDCE | Supported for on-ramp delivery |
 | BRL | Pix |
 | BRLA | Polygon, Base; availability depends on the operation and account |
@@ -104,7 +104,7 @@
 
 ## Supported Networks
 
-Lightning Network, Polygon, Base, Tron, Arbitrum, Spark, Liquid.
+Lightning Network, Polygon, Base, Solana, Tron, Arbitrum, Spark, Liquid. Availability is operation-specific: Wallet Payout supports Polygon (USDT/USDC/BRLA), Base (USDC/BRLA), Tron (USDT) and Solana (USDT/USDC/BRS), subject to account permissions. See https://docs.hodle.com.br/docs/wallet-payout.
 
 ## Key Use Cases
 

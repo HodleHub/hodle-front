@@ -33,6 +33,19 @@
 - Verify fees against https://hodle.com.br/precos and the specific operation at https://docs.hodle.com.br. Commercial volume tiers do not automatically apply to every API, Lightning or wallet flow. Account terms and the applicable quote determine execution pricing; published typical settlement times are not guarantees.
 - For endpoint-level detail, see https://docs.hodle.com.br
 - For the extended version of this file, see https://hodle.com.br/llms-full.txt
+- Pages listed under "Markdown Representations" below answer `Accept: text/markdown` with markdown at the same canonical URL.
+- A path that does not exist answers a real HTTP 404 with a short markdown body pointing back here. A 200 with an app shell is never returned.
+- An `Accept` header that asks only for media types this site does not serve gets a 406.
+
+## AI Discovery and Crawler Policy
+
+- Google AI Overviews and AI Mode use the Google Search index. Public pages are available to `Googlebot`.
+- Microsoft Copilot and Bing AI answers use Bing Search. Public pages are available to `bingbot`.
+- AI search crawlers `OAI-SearchBot`, `Claude-SearchBot`, and `PerplexityBot` may crawl public pages.
+- User-triggered retrieval agents `ChatGPT-User`, `Claude-User`, and `Perplexity-User` may fetch public pages.
+- Training and extended-use crawlers, including `GPTBot`, `ClaudeBot`, `Google-Extended`, `Applebot-Extended`, `CCBot`, `Bytespider`, `Amazonbot`, and `meta-externalagent`, may crawl public pages.
+- Private, operational, proxy, and non-indexable routes remain disallowed in https://hodle.com.br/robots.txt.
+- Permission makes a page eligible for discovery. It does not guarantee indexing, ranking, inclusion, or citation by any provider.
 
 ## What Hodle Does
 
@@ -70,6 +83,10 @@
 | Account statement | https://docs.hodle.com.br/docs/account-statement |
 | Webhooks | https://docs.hodle.com.br/docs/webhooks |
 | Full reference | https://docs.hodle.com.br/api-reference |
+| OpenAPI 3.1 description | https://hodle.com.br/openapi.json |
+| API catalog (RFC 9727) | https://hodle.com.br/.well-known/api-catalog |
+| Sandbox | https://sandbox-api.hodle.com.br — https://docs.hodle.com.br/docs/sandbox |
+| Developer index | https://hodle.com.br/desenvolvedores |
 | End-to-end flow: Stable to Pix | https://docs.hodle.com.br/docs/flow-stable-pix |
 | End-to-end flow: Lightning to Pix | https://docs.hodle.com.br/docs/flow-lightning-pix |
 
@@ -78,8 +95,8 @@
 | Asset | Networks |
 |-------|----------|
 | Bitcoin (BTC) | On-chain, Lightning Network |
-| USDT | Polygon, Tron, Arbitrum, Base, Spark |
-| USDC | Base, Arbitrum, Polygon, Spark |
+| USDT | Polygon, Tron, Arbitrum, Base, Spark; Solana for enabled payout and transfer flows |
+| USDC | Base, Arbitrum, Polygon, Spark; Solana for enabled payout and transfer flows |
 | USDCE | Supported for on-ramp delivery |
 | BRL | Pix |
 | BRLA | Polygon, Base; availability depends on the operation and account |
@@ -87,7 +104,7 @@
 
 ## Supported Networks
 
-Lightning Network, Polygon, Base, Tron, Arbitrum, Spark, Liquid.
+Lightning Network, Polygon, Base, Solana, Tron, Arbitrum, Spark, Liquid. Availability is operation-specific: Wallet Payout supports Polygon (USDT/USDC/BRLA), Base (USDC/BRLA), Tron (USDT) and Solana (USDT/USDC/BRS), subject to account permissions. See https://docs.hodle.com.br/docs/wallet-payout.
 
 ## Key Use Cases
 
@@ -103,9 +120,73 @@ Issue a Lightning invoice to a payer abroad and settle BRL in Brazil, or hold do
 ### For fintechs and PSPs
 Multi-network stablecoin wallets and Pix rails via API, without building the integration in-house.
 
+## Markdown Representations
+
+Send `Accept: text/markdown` to any URL below and the response comes back as `text/markdown; charset=utf-8` at the same canonical URL. q-values are honoured, so `Accept: text/html;q=0.9, text/markdown` gets markdown and `Accept: text/markdown;q=0.5, text/html` gets HTML.
+
+- https://hodle.com.br/ — what Hodle does, the API surface and the price summary
+- https://hodle.com.br/ai — AI crawling, retrieval, training, and citation policy
+- https://hodle.com.br/sobre — entities, registration data, what Hodle is and is not
+- https://hodle.com.br/contato — every official contact channel
+- https://hodle.com.br/desenvolvedores — OpenAPI, auth, webhooks, sandbox, operation list
+- https://hodle.com.br/usd — send dollars to US bank accounts using Pix, with ACH/wire requirements and USD API availability
+- https://hodle.com.br/precos — the official fee tables
+- https://hodle.com.br/faq — 14 answered questions
+- https://hodle.com.br/glossario — glossary of payment and crypto terms
+- https://hodle.com.br/pix — Pix products for businesses and their availability conditions
+- https://hodle.com.br/api-pix — integrating Pix operations with Hodle APIs
+- https://hodle.com.br/cobranca-pix — Pix collection with QR Code and copy-and-paste code
+- https://hodle.com.br/link-de-pagamento-pix — hosted Pix checkout and payment links
+- https://hodle.com.br/conciliacao-pix — payment tracking and reconciliation
+- https://hodle.com.br/baas — BaaS architecture and Hodle's software role alongside financial partners
+- https://hodle.com.br/conta-digital-pj — nominal business accounts through partners, production-only and subject to KYB approval
+- https://hodle.com.br/articles — article index
+- https://hodle.com.br/articles/psav-regulacao-banco-central
+- https://hodle.com.br/articles/auto-custodia-nao-e-detalhe-de-implementacao
+- https://hodle.com.br/pagar-pix-com-usdt
+- https://hodle.com.br/lightning-para-pix
+- https://hodle.com.br/comprar-bitcoin-com-pix
+- https://hodle.com.br/comprar-usdt-com-pix
+- https://hodle.com.br/receber-pix-em-stablecoin
+- https://hodle.com.br/api-pix-stablecoin
+- https://hodle.com.br/wallet-auto-custodial
+- https://hodle.com.br/para-agentes-de-ia
+- https://hodle.com.br/real-onchain
+- https://hodle.com.br/offshore
+- https://hodle.com.br/pix-para-llc — Pix for existing LLCs and offshore companies, international documents and eligibility subject to KYB review
+- https://hodle.com.br/como-aceitar-criptomoedas
+- https://hodle.com.br/crypto-as-a-service
+- https://hodle.com.br/neobank
+- https://hodle.com.br/brs — BRS purchases with Pix, own-wallet delivery, production eligibility and payments on Hodle
+- https://hodle.com.br/en/brs — fully localized BRS guide
+- https://hodle.com.br/brla — BRLA purchases, Pix payments, Polygon/Base and BRS comparison
+
+## Trust and Verification Pages
+
+- https://hodle.com.br/sobre — about, with entity and registration data
+- https://hodle.com.br/contato — contact channels and postal address
+- https://hodle.com.br/privacidade — privacy policy (LGPD)
+- https://hodle.com.br/termos — terms of service
+- https://hodle.com.br/cookies — cookie policy
+- https://hodle.com.br/ai — AI crawling and citation policy
+- https://hodle.com.br/legal — index of every legal document
+
 ## Language
 
 Primary language of the website: Brazilian Portuguese (pt-BR). API documentation is in English.
+
+## Integration guides
+
+- [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
+- [Pix for LLC — English](https://hodle.com.br/en/pix-for-llc): existing LLCs and offshore companies, international documents and eligibility subject to KYB review.
+- [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.
+
+## Guias práticos de Pix
+- [Integrar API Pix com Node.js](https://hodle.com.br/articles/integrar-api-pix-nodejs): criação e consulta com requisitos de ambiente.
+- [Webhook Pix e idempotência](https://hodle.com.br/articles/validar-webhook-pix-idempotencia): HMAC, corpo original e demonstração de duplicatas.
+- [Conciliação Pix por API](https://hodle.com.br/articles/conciliacao-pix-api): extrato, paginação e demonstração com dados sintéticos.
+- [Link de pagamento Pix por API](https://hodle.com.br/articles/criar-link-pagamento-pix-api): produto de checkout e página hospedada.
+- [Comparar API Pix e BaaS](https://hodle.com.br/articles/comparar-api-pix-baas): critérios e fontes oficiais de Woovi, Asaas, iugu, Celcoin e Hodle.
 
 ## Product Surfaces
 
@@ -175,12 +256,6 @@ The public discovery paths are:
 Public pages are allowed for these agents. Private, operational, proxy, and non-indexable
 routes remain disallowed in https://hodle.com.br/robots.txt. This policy provides technical
 eligibility only; no provider is required to index, rank, include, or cite a page.
-
-## Integration guides
-
-- [Brazil Pix stablecoin API — English](https://hodle.com.br/en/pix-stablecoin-api): supported flows, custody, public pricing, verification and sandbox.
-- [Pix for LLC — English](https://hodle.com.br/en/pix-for-llc): existing LLCs and offshore companies, international documents and eligibility subject to KYB review.
-- [Pagar fornecedores com USDC](https://hodle.com.br/pagar-fornecedores-com-usdc): Pix payouts, third-party enablement, beneficiary confirmation and reconciliation.
 
 ## Practical Pix guides (Portuguese)
 

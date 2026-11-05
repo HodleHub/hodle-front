@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getAllArticles } from '../../../utils/getAllArticles'
+import { groupArticlesByCategory } from '../../../utils/groupArticlesByCategory'
 import ArticleRow from '../../../components/article/articleRow'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
@@ -45,8 +46,15 @@ export default function ArticlesPage() {
       </header>
 
       <div className="mt-14 border-t border-gray-200">
-        {articles.map((article) => (
-          <ArticleRow key={article.slug} article={article} withThumb />
+        {groupArticlesByCategory(articles).map((group) => (
+          <section key={group.category.slug} className="mt-10">
+            <h2 className={`${heading} text-2xl text-foreground mb-6`}>
+              {group.category.label}
+            </h2>
+            {group.articles.map((article) => (
+              <ArticleRow key={article.slug} article={article} withThumb />
+            ))}
+          </section>
         ))}
       </div>
     </div>

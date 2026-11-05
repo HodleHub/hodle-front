@@ -10,7 +10,7 @@ const emptySection = {
 export const contato: InfoPage = {
   slug: 'contato',
   kicker: 'Contato',
-  title: 'Contato',
+  title: 'Contato comercial e suporte',
   h1: 'Falar com a Hodle',
   description:
     'Canais oficiais de contato da Hodle: e-mail, WhatsApp comercial, suporte técnico, endereço da entidade e canal de privacidade (LGPD).',

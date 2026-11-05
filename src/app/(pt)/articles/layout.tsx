@@ -3,22 +3,25 @@ import { Metadata } from 'next'
 const siteUrl = 'https://hodle.com.br'
 
 export const metadata: Metadata = {
-  title: 'Artigos',
+  title: {
+    default: 'Artigos sobre Pix, stablecoins e APIs',
+    template: '%s | Hodle',
+  },
   description:
-    'Notas de produto, engenharia e mercado sobre Pix, stablecoins, Lightning e as APIs da Hodle.',
+    'Aprenda a integrar Pix e stablecoins com os artigos da Hodle: guias de API, webhooks e conciliação, além de análises de auto-custódia, regulação e BaaS.',
   alternates: {
     canonical: `${siteUrl}/articles`,
   },
   openGraph: {
-    title: 'Artigos | Hodle',
+    title: 'Artigos sobre Pix, stablecoins e APIs | Hodle',
     description:
-      'Notas de produto, engenharia e mercado sobre Pix, stablecoins, Lightning e as APIs da Hodle.',
+      'Aprenda a integrar Pix e stablecoins com os artigos da Hodle: guias de API, webhooks e conciliação, além de análises de auto-custódia, regulação e BaaS.',
     url: `${siteUrl}/articles`,
     images: ['/og-image-v2.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Artigos | Hodle',
+    title: 'Artigos sobre Pix, stablecoins e APIs | Hodle',
     images: ['/og-image-v2.png'],
   },
 }

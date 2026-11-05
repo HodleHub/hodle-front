@@ -191,7 +191,7 @@ const sections = [
           </li>
           <li>
             <a
-              href="https://support.microsoft.com/pt-br/microsoft-edge/excluir-cookies-no-microsoft-edge"
+              href="https://support.microsoft.com/pt-br/edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use"
               target="_blank"
               rel="noreferrer"
               className="text-foreground underline underline-offset-2 hover:text-gray-600"

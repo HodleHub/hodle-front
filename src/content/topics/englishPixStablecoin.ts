@@ -8,7 +8,7 @@ export const englishPixStablecoin: TopicPage = {
     'pt-BR': '/api-pix-stablecoin',
     en: '/en/pix-stablecoin-api',
   },
-  title: 'Brazil Pix stablecoin API: on-ramp, off-ramp and sandbox',
+  title: 'Brazil Pix stablecoin API: ramps and sandbox',
   h1: 'Connect Brazil’s Pix to your stablecoin product',
   description:
     'Build Pix on-ramps and off-ramps with Hodle’s REST API. Compare custody, published fees, KYC/KYB, supported flows and sandbox integration.',

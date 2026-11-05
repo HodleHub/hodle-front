@@ -147,7 +147,7 @@ const offerCatalogJsonLd = {
 
 export default function PrecosPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageJsonLd) }}
@@ -167,7 +167,7 @@ export default function PrecosPage() {
           >
             Preços e Taxas
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-600">
             Atualizado em {formattedUpdatedAt}.
           </p>
         </div>
@@ -513,7 +513,7 @@ export default function PrecosPage() {
             de ticket descrita nesta página.
           </p>
 
-          <p className="text-sm text-gray-400 pt-4 border-t border-gray-200">
+          <p className="text-sm text-gray-600 pt-4 border-t border-gray-200">
             Atualizado em {formattedUpdatedAt}.
           </p>
         </div>
@@ -543,6 +543,6 @@ export default function PrecosPage() {
           </nav>
         </div>
       </article>
-    </div>
+    </main>
   )
 }

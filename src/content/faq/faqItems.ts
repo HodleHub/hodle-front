@@ -12,7 +12,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'O que é a Hodle?',
     answer:
-      'A Hodle é uma plataforma brasileira de infraestrutura cripto para empresas. Oferecemos compra e venda de ativos digitais, APIs para pagamentos crossborder, wallets auto-custodiais, contas PJ com bancos parceiros e pagamento de QR codes com stablecoins. O produto é entregue em duas frentes: um painel para o time de operações e uma API REST para o time de engenharia.',
+      'A Hodle é uma empresa de software e API que conecta Pix e ativos digitais para empresas que operam com o Brasil. A entidade principal é a Hodle LLC, em Wyoming, e a entidade operacional brasileira é a HODLE TECNOLOGIA LTDA. Os serviços financeiros são conduzidos por parceiros licenciados e/ou regulados. O produto é entregue em duas frentes: um painel para o time de operações e uma API REST para o time de engenharia.',
   },
   {
     question: 'Para quem é a plataforma?',
@@ -34,7 +34,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Como pagar um Pix usando saldo em stablecoin?',
     answer:
-      'Um POST em /api/wallet/payout debita o saldo em USDT (Polygon, Tron) ou USDC (Base) da carteira e liquida o Pix no destino. O gas é patrocinado pela Hodle, então a carteira não precisa manter saldo na moeda nativa da rede. Um GET no mesmo recurso devolve o estado final da operação, e o webhook avisa sem precisar de polling.',
+      'Um POST em /api/wallet/payout inicia o pagamento Pix com saldo habilitado em Polygon (USDT, USDC, BRLA), Base (USDC, BRLA), Tron (USDT) ou Solana (USDT, USDC, BRS), conforme permissões da conta. A resposta inicial não confirma liquidação. Acompanhe o status e os webhooks e confira a tarifa e a cotação da operação.',
   },
   {
     question: 'Como funciona o invoice Lightning que liquida em Pix?',
