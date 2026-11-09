@@ -1,3 +1,4 @@
+import { englishStablecoinTopics } from '../content/topics/englishStablecoinApi'
 import { MetadataRoute } from 'next'
 import { getAllArticles } from '../utils/getAllArticles'
 import { getAllTopics } from '../utils/getAllTopics'
@@ -202,6 +203,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    ...englishStablecoinTopics.map((topic) => ({
+      url: `${siteUrl}/${topic.slug}`,
+      lastModified: new Date(topic.updatedAt),
+      changeFrequency: topic.changeFrequency,
+      priority: topic.priority,
+      alternates: getAlternates({ translations: topic.translations }),
+    })),
     ...topicEntries,
   ]
 }

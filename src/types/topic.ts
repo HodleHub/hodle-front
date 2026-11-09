@@ -48,6 +48,7 @@ export type TopicSection = {
 }
 
 export type TopicPage = {
+  apiSchema?: boolean
   language?: 'pt-BR' | 'en'
   translations?: Record<string, string>
   slug: string

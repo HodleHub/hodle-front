@@ -1,3 +1,4 @@
+import { englishStablecoinTopics } from '../content/topics/englishStablecoinApi'
 import {
   articleMarkdownSlugs,
   topicMarkdownSlugs,
@@ -23,6 +24,7 @@ import { faqToMarkdown } from './faqToMarkdown'
 import { pricingToMarkdown } from './pricingToMarkdown'
 
 const staticDocuments: Record<string, () => string> = {
+  ...Object.fromEntries(englishStablecoinTopics.map((topic) => [`/${topic.slug}`, () => topicToMarkdown({ topic })])),
   '/': () => homeMarkdown,
   '/ai': () => aiMarkdown,
   '/articles': articlesIndexToMarkdown,

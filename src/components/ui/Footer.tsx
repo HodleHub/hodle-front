@@ -96,6 +96,9 @@ export function Footer() {
             {
               title: isEnglish ? 'Developers' : 'Desenvolvedores',
               links: [
+                { label: 'Stablecoin API', href: '/en/stablecoin-api' },
+                { label: 'USDT to BRL', href: '/en/usdt-to-brl' },
+                { label: 'USDC to BRL', href: '/en/usdc-to-brl' },
                 { label: isEnglish ? 'Pix API' : 'API Pix', href: '/api-pix' },
                 {
                   label: isEnglish
