@@ -1,3 +1,4 @@
+import { stablecoinApiLinks } from './englishStablecoinApi'
 import type { TopicPage } from '../../types/topic'
 import { sandboxQuote } from '../sandboxQuote'
 
@@ -314,6 +315,7 @@ export const englishPixStablecoin: TopicPage = {
     },
   ],
   related: [
+    ...stablecoinApiLinks,
     {
       label: 'API documentation',
       href: 'https://docs.hodle.com.br',

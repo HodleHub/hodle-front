@@ -395,6 +395,9 @@ export const brsCopy: Record<'pt' | 'en', BrsCopy> = {
       "title": "Sources and next steps",
       "reviewed": "Content reviewed on October 3, 2026.",
       "links": [
+        { "label": "Stablecoin API overview", "href": "/en/stablecoin-api" },
+        { "label": "USDT to BRL via Pix", "href": "/en/usdt-to-brl" },
+        { "label": "USDC to BRL via Pix", "href": "/en/usdc-to-brl" },
         {
           "label": "Hodle BRS purchase and payment guide",
           "href": "https://docs.hodle.com.br/docs/asset-brs"

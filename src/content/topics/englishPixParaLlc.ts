@@ -1,3 +1,4 @@
+import { stablecoinApiLinks } from './englishStablecoinApi'
 import type { TopicPage } from '../../types/topic'
 
 export const englishPixParaLlc: TopicPage = {
@@ -184,6 +185,7 @@ export const englishPixParaLlc: TopicPage = {
     },
   ],
   related: [
+    ...stablecoinApiLinks,
     { label: 'Offshore and LLC: legal structuring (Português)', href: '/offshore' },
     { label: 'Business account for your company (Português)', href: '/conta-digital-pj' },
     { label: 'Pix for businesses (Português)', href: '/pix' },

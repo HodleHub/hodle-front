@@ -2,7 +2,7 @@ import { TopicPage } from '../../types/topic'
 
 const siteUrl = 'https://hodle.com.br'
 
-export default function TopicJsonLd({ topic }: { topic: TopicPage }) {
+const TopicJsonLd = ({ topic }: { topic: TopicPage }) => {
   const webPage = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -47,6 +47,19 @@ export default function TopicJsonLd({ topic }: { topic: TopicPage }) {
 
   return (
     <>
+      {topic.apiSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebAPI',
+            name: 'Hodle stablecoin API',
+            description: topic.description,
+            url: `${siteUrl}/${topic.slug}`,
+            documentation: 'https://docs.hodle.com.br',
+          }) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }}
@@ -62,3 +75,5 @@ export default function TopicJsonLd({ topic }: { topic: TopicPage }) {
     </>
   )
 }
+
+export default TopicJsonLd
