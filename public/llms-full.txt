@@ -19,7 +19,7 @@
 - API documentation: https://docs.hodle.com.br
 - OpenAPI 3.1 description: https://hodle.com.br/openapi.json
 - API catalog (RFC 9727): https://hodle.com.br/.well-known/api-catalog
-- Contact email: contato@hodle.com.br
+- Contact email: contato@inbox.hodle.com.br
 - Sales and support (WhatsApp): +55 11 96000-0445
 - X: https://x.com/hodle_app
 - GitHub: https://github.com/HodleHub

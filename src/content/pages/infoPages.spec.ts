@@ -89,7 +89,8 @@ it('renders markdown that keeps every heading and row', () => {
 it('publishes the contact channels an agent verifies a business with', () => {
   const markdown = infoPageToMarkdown({ page: contato })
 
-  expect(markdown).toContain('contato@hodle.com.br')
+  expect(markdown).toContain('contato@inbox.hodle.com.br')
+  expect(markdown).not.toContain('contato@hodle.com.br')
   expect(markdown).toContain('+55 11 96000-0445')
   expect(markdown).toContain('30 N Gould St, Ste R, Sheridan, WY 82801')
 })

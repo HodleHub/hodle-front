@@ -2,6 +2,7 @@ import type { ReactElement } from 'react'
 import { Plus } from 'lucide-react'
 import { FAQ_ITEMS, type FaqItem } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
+import { HODLE_CONTACT_EMAIL } from '../../content/hodleContactEmail'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -24,8 +25,8 @@ export const Faq = ({ items = FAQ_ITEMS }: FaqProps): ReactElement => {
           </h2>
           <p className="text-base leading-relaxed text-[#525252]">
             Não achou? Fale com o time no WhatsApp ou em{' '}
-            <a href="mailto:contato@hodle.com.br" className="underline underline-offset-4">
-              contato@hodle.com.br
+            <a href={`mailto:${HODLE_CONTACT_EMAIL}`} className="underline underline-offset-4">
+              {HODLE_CONTACT_EMAIL}
             </a>
             .
           </p>

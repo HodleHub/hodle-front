@@ -1,4 +1,5 @@
 import { InfoPage } from '../../types/infoPage'
+import { HODLE_CONTACT_EMAIL } from '../hodleContactEmail'
 
 const emptySection = {
   body: [] as string[],
@@ -72,7 +73,7 @@ export const sobre: InfoPage = {
         },
         { label: 'Site oficial', value: 'https://hodle.com.br' },
         { label: 'Documentação da API', value: 'https://docs.hodle.com.br' },
-        { label: 'Contato', value: 'contato@hodle.com.br' },
+        { label: 'Contato', value: HODLE_CONTACT_EMAIL },
       ],
     },
     {

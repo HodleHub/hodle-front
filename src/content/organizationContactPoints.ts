@@ -1,3 +1,5 @@
+import { HODLE_CONTACT_EMAIL } from './hodleContactEmail'
+
 export type OrganizationContactPoint = {
   '@type': 'ContactPoint'
   contactType: string
@@ -16,7 +18,7 @@ export const organizationContactPoints: OrganizationContactPoint[] = [
   {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     telephone: '+55-11-96000-0445',
     areaServed: ['BR', 'US'],
     availableLanguage: ['Portuguese', 'English'],
@@ -25,7 +27,7 @@ export const organizationContactPoints: OrganizationContactPoint[] = [
   {
     '@type': 'ContactPoint',
     contactType: 'sales',
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     telephone: '+55-11-96000-0445',
     areaServed: ['BR', 'US'],
     availableLanguage: ['Portuguese', 'English'],
@@ -34,7 +36,7 @@ export const organizationContactPoints: OrganizationContactPoint[] = [
   {
     '@type': 'ContactPoint',
     contactType: 'technical support',
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     areaServed: ['BR', 'US'],
     availableLanguage: ['Portuguese', 'English'],
     url: 'https://hodle.com.br/desenvolvedores',
@@ -42,7 +44,7 @@ export const organizationContactPoints: OrganizationContactPoint[] = [
   {
     '@type': 'ContactPoint',
     contactType: 'privacy',
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     areaServed: ['BR', 'US'],
     availableLanguage: ['Portuguese', 'English'],
     url: 'https://hodle.com.br/privacidade',
@@ -50,7 +52,7 @@ export const organizationContactPoints: OrganizationContactPoint[] = [
   {
     '@type': 'ContactPoint',
     contactType: 'security',
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     areaServed: ['BR', 'US'],
     availableLanguage: ['Portuguese', 'English'],
     url: 'https://hodle.com.br/contato',

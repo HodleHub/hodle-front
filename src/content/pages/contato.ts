@@ -1,4 +1,5 @@
 import { InfoPage } from '../../types/infoPage'
+import { HODLE_CONTACT_EMAIL } from '../hodleContactEmail'
 
 const emptySection = {
   body: [] as string[],
@@ -26,18 +27,18 @@ export const contato: InfoPage = {
       kind: 'ROWS',
       heading: 'Canais oficiais',
       rows: [
-        { label: 'E-mail geral', value: 'contato@hodle.com.br' },
+        { label: 'E-mail geral', value: HODLE_CONTACT_EMAIL },
         {
           label: 'WhatsApp comercial e suporte',
           value: '+55 11 96000-0445',
         },
         {
           label: 'Privacidade e LGPD',
-          value: 'contato@hodle.com.br, com o assunto "LGPD"',
+          value: `${HODLE_CONTACT_EMAIL}, com o assunto "LGPD"`,
         },
         {
           label: 'Segurança e divulgação de vulnerabilidade',
-          value: 'contato@hodle.com.br, com o assunto "Security"',
+          value: `${HODLE_CONTACT_EMAIL}, com o assunto "Security"`,
         },
         { label: 'Documentação da API', value: 'https://docs.hodle.com.br' },
         { label: 'Código aberto', value: 'https://github.com/HodleHub' },

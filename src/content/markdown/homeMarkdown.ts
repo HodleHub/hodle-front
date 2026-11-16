@@ -1,4 +1,5 @@
 import { integrationPaths } from '../integrationPaths'
+import { HODLE_CONTACT_EMAIL } from '../hodleContactEmail'
 
 /**
  * Markdown representation of the home page, served under
@@ -89,7 +90,7 @@ A tabela comercial por volume publica faixas de 2% a 0,5%, com mínimo de R$ 0,7
 ## Falar com a Hodle
 
 - WhatsApp comercial e suporte: +55 11 96000-0445
-- E-mail: contato@hodle.com.br
+- E-mail: ${HODLE_CONTACT_EMAIL}
 - Painel: https://app.hodle.com.br
 
 ## Onde ir a seguir

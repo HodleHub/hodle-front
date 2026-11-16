@@ -6,6 +6,7 @@ import { Footer } from '../components/ui/Footer'
 import { Analytics } from '@vercel/analytics/next'
 import { ConversionAnalytics } from '../components/analytics/conversionAnalytics'
 import { organizationContactPoints } from '../content/organizationContactPoints'
+import { HODLE_CONTACT_EMAIL } from '../content/hodleContactEmail'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -113,7 +114,7 @@ const organizationJsonLd = {
   description:
     'Infraestrutura cripto para empresas: API para pagar Pix com USDT e USDC, invoice Lightning que liquida em Pix, carteiras auto-custodiais multi-rede e conversão entre reais, dólar e stablecoins.',
   foundingDate: '2026-05-04',
-  email: 'contato@hodle.com.br',
+  email: HODLE_CONTACT_EMAIL,
   telephone: '+55-11-96000-0445',
   address: {
     '@type': 'PostalAddress',

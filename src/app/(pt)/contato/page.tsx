@@ -3,6 +3,7 @@ import { contato } from '../../../content/pages/contato'
 import { InfoPageView } from '../../../components/infoPageView'
 import { infoPageMetadata } from '../../../utils/infoPageMetadata'
 import { organizationContactPoints } from '../../../content/organizationContactPoints'
+import { HODLE_CONTACT_EMAIL } from '../../../content/hodleContactEmail'
 
 const siteUrl = 'https://hodle.com.br'
 
@@ -21,7 +22,7 @@ const contactJsonLd = {
     name: 'Hodle',
     legalName: 'Hodle LLC',
     url: siteUrl,
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     telephone: '+55-11-96000-0445',
     address: {
       '@type': 'PostalAddress',

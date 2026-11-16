@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { HODLE_CONTACT_EMAIL } from '../../../content/hodleContactEmail'
 import {
   ArrowLeftRight,
   ArrowRight,
@@ -655,7 +656,7 @@ export default function CaasPage() {
             </div>
 
             <p className="font-mono text-xs text-gray-500">
-              contato@hodle.com.br · WhatsApp +55 11 96000-0445
+              {HODLE_CONTACT_EMAIL} · WhatsApp +55 11 96000-0445
             </p>
           </div>
         </div>

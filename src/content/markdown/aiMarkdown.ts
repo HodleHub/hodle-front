@@ -1,3 +1,5 @@
+import { HODLE_CONTACT_EMAIL } from '../hodleContactEmail'
+
 export const aiMarkdown = `# Política de uso por IA e dados de citação
 
 > Última atualização: 4 de outubro de 2026.
@@ -26,7 +28,7 @@ Os caminhos privados, operacionais ou sem conteúdo indexável continuam fechado
 - Escritório principal: 30 N Gould St, Ste R, Sheridan, WY 82801, Estados Unidos.
 - Entidade operacional brasileira: HODLE TECNOLOGIA LTDA, CNPJ 63.673.264/0001-26.
 - Site oficial: https://hodle.com.br.
-- Contato: contato@hodle.com.br e https://hodle.com.br/contato.
+- Contato: ${HODLE_CONTACT_EMAIL} e https://hodle.com.br/contato.
 
 A Hodle é uma empresa de software, API e infraestrutura fintech. Não é banco, não é instituição financeira, não emite moeda eletrônica ou stablecoins e não custodia fundos ou ativos de clientes. Serviços financeiros e fluxos regulados são conduzidos por parceiros licenciados e/ou regulados.
 

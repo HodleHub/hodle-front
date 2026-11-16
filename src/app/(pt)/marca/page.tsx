@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, Download, X } from 'lucide-react'
 import { ButtonShadow } from '../../../components/ui/ButtonShadow'
 import { pageUpdatedAt } from '../../../content/pageUpdatedAt'
+import { HODLE_CONTACT_EMAIL } from '../../../content/hodleContactEmail'
 
 const siteUrl = 'https://hodle.com.br'
 const pageUrl = `${siteUrl}/marca`
@@ -520,8 +521,8 @@ const DownloadsSection = () => (
           <Image src={symbol} alt="" width={28} height={28} className="w-7 h-7 invert" />
           <span className="text-sm text-gray-400">
             Imprensa e parcerias:{' '}
-            <a href="mailto:contato@hodle.com.br" className="text-white hover:text-gray-300">
-              contato@hodle.com.br
+            <a href={`mailto:${HODLE_CONTACT_EMAIL}`} className="text-white hover:text-gray-300">
+              {HODLE_CONTACT_EMAIL}
             </a>
           </span>
         </div>
