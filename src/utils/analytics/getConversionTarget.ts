@@ -1,3 +1,5 @@
+import { HODLE_CONTACT_EMAIL } from '../../content/hodleContactEmail'
+
 type GetConversionTargetArgs = { href: string; origin: string }
 type GetConversionTargetSuccess = { success: true; destination: 'sales' | 'docs' | 'app' | 'sandbox'; url: URL }
 type GetConversionTargetError = { success: false; error: string }
@@ -8,7 +10,7 @@ export const getConversionTarget = ({ href, origin }: GetConversionTargetArgs): 
   try {
     const url: URL = new URL(href, origin)
 
-    if (url.protocol === 'mailto:' && url.pathname === 'contato@hodle.com.br') return { success: true, destination: 'sales', url }
+    if (url.protocol === 'mailto:' && url.pathname === HODLE_CONTACT_EMAIL) return { success: true, destination: 'sales', url }
 
     if (url.protocol !== 'https:' && url.origin !== origin) return { success: false, error: 'Unsupported protocol' }
 

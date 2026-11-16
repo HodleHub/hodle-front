@@ -9,7 +9,7 @@
 - Legal name: Hodle LLC (Wyoming, United States) — filing ID 2026-001968203, incorporated 2026-05-04
 - Brazilian operating entity: HODLE TECNOLOGIA LTDA, CNPJ 63.673.264/0001-26
 - Principal office: 30 N Gould St, Ste R, Sheridan, WY 82801, United States
-- Contact: contato@hodle.com.br, +55 11 96000-0445, https://hodle.com.br/contato
+- Contact: contato@inbox.hodle.com.br, +55 11 96000-0445, https://hodle.com.br/contato
 - About: https://hodle.com.br/sobre
 - Type: software and API company. Not a bank, not a financial institution, does not custody customer assets.
 - Primary market: Brazil. Website language: Brazilian Portuguese. Docs: English.

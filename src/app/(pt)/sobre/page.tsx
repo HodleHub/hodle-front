@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { sobre } from '../../../content/pages/sobre'
 import { InfoPageView } from '../../../components/infoPageView'
 import { infoPageMetadata } from '../../../utils/infoPageMetadata'
+import { HODLE_CONTACT_EMAIL } from '../../../content/hodleContactEmail'
 
 const siteUrl = 'https://hodle.com.br'
 
@@ -22,7 +23,7 @@ const aboutJsonLd = {
     url: siteUrl,
     logo: `${siteUrl}/h-logo.svg`,
     foundingDate: '2026-05-04',
-    email: 'contato@hodle.com.br',
+    email: HODLE_CONTACT_EMAIL,
     telephone: '+55-11-96000-0445',
     address: {
       '@type': 'PostalAddress',

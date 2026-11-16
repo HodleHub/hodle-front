@@ -12,7 +12,7 @@ it('declares the contact types an agent looks for', () => {
 it('gives every contact point an email and a served area', () => {
   for (const point of organizationContactPoints) {
     expect(point['@type']).toBe('ContactPoint')
-    expect(point.email).toMatch(/@hodle\.com\.br$/)
+    expect(point.email).toBe('contato@inbox.hodle.com.br')
     expect(point.areaServed.length).toBeGreaterThan(0)
     expect(point.availableLanguage.length).toBeGreaterThan(0)
   }

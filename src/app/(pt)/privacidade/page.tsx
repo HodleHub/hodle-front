@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { HODLE_CONTACT_EMAIL } from '../../../content/hodleContactEmail'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -256,10 +257,10 @@ const sections = [
         anonimização ou exclusão de dados desnecessários. As solicitações devem
         ser feitas para{' '}
         <a
-          href="mailto:contato@hodle.com.br"
+          href={`mailto:${HODLE_CONTACT_EMAIL}`}
           className="text-foreground underline underline-offset-2 hover:text-gray-600"
         >
-          contato@hodle.com.br
+          {HODLE_CONTACT_EMAIL}
         </a>
         .
       </p>
@@ -359,10 +360,10 @@ const sections = [
         coletamos, usamos ou compartilhamos suas informações, entre em contato
         conosco através do e-mail{' '}
         <a
-          href="mailto:contato@hodle.com.br"
+          href={`mailto:${HODLE_CONTACT_EMAIL}`}
           className="text-foreground underline underline-offset-2 hover:text-gray-600"
         >
-          contato@hodle.com.br
+          {HODLE_CONTACT_EMAIL}
         </a>
         .
       </p>

@@ -36,11 +36,11 @@ import {
   WalletWindow,
 } from '../../../components/neobank/NeobankMockWindows'
 import { NeutralPill, StatusPill } from '../../../components/neobank/neobankPills'
+import { HODLE_CONTACT_EMAIL } from '../../../content/hodleContactEmail'
 
 const siteUrl = 'https://hodle.com.br/neobank'
 const WHATSAPP_URL = 'https://api.whatsapp.com/send?phone=5511960000445'
 const DOCS_URL = 'https://docs.hodle.com.br'
-const CONTACT_EMAIL = 'contato@hodle.com.br'
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
 // The global Header is sticky and 64px tall, so an anchor jump must clear it.
@@ -1066,11 +1066,11 @@ export default function NeobankPage() {
                   </ButtonShadow>
                 </Link>
                 <a
-                  href={`mailto:${CONTACT_EMAIL}`}
+                  href={`mailto:${HODLE_CONTACT_EMAIL}`}
                   className="inline-flex items-center justify-center gap-2 rounded-[14px] border-2 border-gray-300 px-9 py-3.5 text-base font-semibold tracking-tight text-foreground transition-colors hover:border-foreground"
                 >
                   <Mail className="h-4 w-4" />
-                  {CONTACT_EMAIL}
+                  {HODLE_CONTACT_EMAIL}
                 </a>
               </div>
 
