@@ -4,9 +4,10 @@
  * module scope, because only its source text reaches the page.
  *
  * Injects the deferred Next.js chunk scripts, in order, on the first user
- * interaction, when the tab is hidden or the page is left, or after the window
- * load event plus the first contentful paint plus `idleFallbackMs`, with a hard
- * upper bound after load. A click that lands on a JS-only control before
+ * interaction, or after the window load event plus the first contentful paint
+ * plus `idleFallbackMs`, with a hard upper bound after load. Tab visibility and
+ * page-hide events are deliberately not triggers: they can fire without a
+ * person behind them and would start the scripts before the first paint. A click that lands on a JS-only control before
  * hydration is replayed once the control has a React fiber. Only buttons are
  * replayed: links navigate natively, a form submit button and native form
  * fields already acted on the first click, and a second click would undo a
@@ -131,10 +132,6 @@ export const hydrationLoader = (scripts, idleFallbackMs) => {
     window.addEventListener(name, inject, { once: true, passive: true, capture: true })
   })
   window.addEventListener('click', onClick, true)
-  window.addEventListener('pagehide', inject)
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) inject()
-  })
 
   if (document.readyState === 'complete') return afterLoad()
 
