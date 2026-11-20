@@ -11,7 +11,8 @@ type ArticleCoverProps = {
 /**
  * Cover slab above the headline. Articles without a `coverImage` reuse their
  * generated Open Graph image so the in-page cover and social preview cannot
- * drift apart.
+ * drift apart. The image goes through the Next image optimizer (WebP, sized
+ * to the viewport); social metadata keeps pointing at the raw 1200x630 route.
  */
 export default function ArticleCover({
   cover,
@@ -32,7 +33,6 @@ export default function ArticleCover({
         fill
         priority={priority}
         fetchPriority={priority ? 'high' : undefined}
-        unoptimized={!cover}
         sizes="(min-width: 1024px) 720px, 100vw"
         className="object-cover"
       />
