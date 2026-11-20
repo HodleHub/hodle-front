@@ -31,6 +31,7 @@ export default function ArticleCover({
         alt={image.alt}
         fill
         priority={priority}
+        fetchPriority={priority ? 'high' : undefined}
         unoptimized={!cover}
         sizes="(min-width: 1024px) 720px, 100vw"
         className="object-cover"
