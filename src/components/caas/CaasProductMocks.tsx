@@ -30,7 +30,7 @@ export const RampasMock = () => (
         <span className="text-[13px] font-semibold text-foreground">
           Nova compra
         </span>
-        <span className="rounded-full border border-gray-200 px-2 py-0.5 text-[10px] font-medium text-gray-400">
+        <span className="rounded-full border border-gray-200 px-2 py-0.5 text-[10px] font-medium text-gray-500">
           exemplo
         </span>
       </div>
@@ -42,7 +42,7 @@ export const RampasMock = () => (
 
     <div className="px-5 py-6 flex flex-col gap-3">
       <div className="rounded-xl border border-gray-200 bg-gray-50 px-[18px] py-4">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
           Seu cliente paga
         </p>
         <div className="flex items-center justify-between gap-3">
@@ -57,12 +57,12 @@ export const RampasMock = () => (
 
       <div className="flex items-center justify-center">
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-gray-200 bg-white">
-          <ArrowRight className="h-3.5 w-3.5 rotate-90 text-gray-400" />
+          <ArrowRight className="h-3.5 w-3.5 rotate-90 text-gray-500" />
         </span>
       </div>
 
       <div className="rounded-xl border border-gray-200 bg-white px-[18px] py-4">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
           Seu cliente recebe
         </p>
         <div className="flex items-center justify-between gap-3">
@@ -78,26 +78,26 @@ export const RampasMock = () => (
 
     <div className="border-t border-[#F3F4F6] px-5 py-3.5 flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-400">Cotação travada</span>
+        <span className="text-xs text-gray-500">Cotação travada</span>
         <span className="font-mono text-xs text-gray-600">
           no momento da cobrança
         </span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-400">Liquidação</span>
-        <span className="font-mono text-xs text-green-600">
+        <span className="text-xs text-gray-500">Liquidação</span>
+        <span className="font-mono text-xs text-green-700">
           Pix confirmado em segundos
         </span>
       </div>
     </div>
 
     <div className="border-t border-[#F3F4F6] bg-gray-50 px-5 py-3 flex items-center gap-2">
-      <span className="font-mono text-[11px] text-gray-400">POST</span>
+      <span className="font-mono text-[11px] text-gray-500">POST</span>
       <span className="font-mono text-[11px] text-gray-600">
         /api/deposit/asset
       </span>
       <span className="grow" />
-      <span className="font-mono text-[11px] text-gray-400">
+      <span className="font-mono text-[11px] text-gray-500">
         webhook: payment.settled
       </span>
     </div>
@@ -139,7 +139,7 @@ export const WalletsMock = () => (
             />
           ),
         )}
-        <span className="ml-1 text-[11px] text-gray-400">
+        <span className="ml-1 text-[11px] text-gray-500">
           mesma carteira, 7 redes
         </span>
       </div>
@@ -148,28 +148,28 @@ export const WalletsMock = () => (
         <p className="mb-1.5 text-[10px] font-bold tracking-[0.1em] text-foreground">
           POLYGON
         </p>
-        <p className="mb-1.5 text-[10px] text-gray-400">Smart Account</p>
+        <p className="mb-1.5 text-[10px] text-gray-500">Smart Account</p>
         <span className="inline-flex items-center gap-2 rounded-[10px] border border-[#F3F4F6] bg-gray-50 px-3 py-1.5">
           <span className="font-mono text-[11px] text-gray-500">
             0x1F2CCa…A5F07d
           </span>
-          <Copy className="h-3 w-3 text-gray-400" />
+          <Copy className="h-3 w-3 text-gray-500" />
         </span>
       </div>
 
       <div>
-        <p className="mb-2.5 text-[10px] text-gray-400">Saldos</p>
+        <p className="mb-2.5 text-[10px] text-gray-500">Saldos</p>
         <div className="flex flex-col gap-2.5">
           <div className="flex items-center gap-2.5">
             <Image src="/usdt.svg" alt="USDT" width={20} height={20} className="h-5 w-5 rounded-full" />
             <span className={`${heading} text-sm font-medium text-foreground`}>
-              1.250,45 <span className="text-gray-400">USDT</span>
+              1.250,45 <span className="text-gray-500">USDT</span>
             </span>
           </div>
           <div className="flex items-center gap-2.5">
             <Image src="/usdc.svg" alt="USDC" width={20} height={20} className="h-5 w-5 rounded-full" />
             <span className={`${heading} text-sm font-medium text-foreground`}>
-              835,12 <span className="text-gray-400">USDC</span>
+              835,12 <span className="text-gray-500">USDC</span>
             </span>
           </div>
         </div>
@@ -188,10 +188,10 @@ export const WalletsMock = () => (
     </div>
 
     <div className="border-t border-[#F3F4F6] bg-gray-50 px-5 py-3 flex items-center gap-2">
-      <span className="font-mono text-[11px] text-gray-400">POST</span>
+      <span className="font-mono text-[11px] text-gray-500">POST</span>
       <span className="font-mono text-[11px] text-gray-600">/api/wallet/create</span>
       <span className="grow" />
-      <span className="font-mono text-[11px] text-gray-400">gas patrocinado</span>
+      <span className="font-mono text-[11px] text-gray-500">gas patrocinado</span>
     </div>
   </div>
 )
@@ -200,7 +200,7 @@ export const SwapsMock = () => (
   <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden">
     <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
       <span className="text-[13px] font-semibold text-foreground">Swap</span>
-      <span className="font-mono text-[11px] text-gray-400">
+      <span className="font-mono text-[11px] text-gray-500">
         cotação com validade
       </span>
     </div>
@@ -208,10 +208,10 @@ export const SwapsMock = () => (
     <div className="px-5 py-5 flex flex-col gap-2.5">
       <div className="rounded-xl border border-gray-200 bg-gray-50 px-[18px] py-4">
         <div className="mb-2.5 flex items-center justify-between">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
             De
           </span>
-          <span className="text-[11px] text-gray-400">Saldo 1.250,45</span>
+          <span className="text-[11px] text-gray-500">Saldo 1.250,45</span>
         </div>
         <div className="flex items-center justify-between gap-3">
           <span
@@ -225,16 +225,16 @@ export const SwapsMock = () => (
 
       <div className="flex items-center justify-center">
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-gray-200 bg-white">
-          <ArrowRight className="h-3.5 w-3.5 rotate-90 text-gray-400" />
+          <ArrowRight className="h-3.5 w-3.5 rotate-90 text-gray-500" />
         </span>
       </div>
 
       <div className="rounded-xl border border-gray-200 bg-white px-[18px] py-4">
         <div className="mb-2.5 flex items-center justify-between">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
             Para
           </span>
-          <span className="text-[11px] text-gray-400">estimado</span>
+          <span className="text-[11px] text-gray-500">estimado</span>
         </div>
         <div className="flex items-center justify-between gap-3">
           <span
@@ -249,7 +249,7 @@ export const SwapsMock = () => (
 
     <div className="border-t border-[#F3F4F6] px-5 py-3.5">
       <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-400">Rota</span>
+        <span className="text-xs text-gray-500">Rota</span>
         <span className="inline-flex items-center gap-1.5">
           <Image src="/polygon.svg" alt="Polygon" width={16} height={16} className="h-4 w-4 rounded-full" />
           <ArrowRight className="h-3 w-3 text-gray-300" />
@@ -262,10 +262,10 @@ export const SwapsMock = () => (
     </div>
 
     <div className="border-t border-[#F3F4F6] bg-gray-50 px-5 py-3 flex items-center gap-2">
-      <span className="font-mono text-[11px] text-gray-400">POST</span>
+      <span className="font-mono text-[11px] text-gray-500">POST</span>
       <span className="font-mono text-[11px] text-gray-600">/api/quote</span>
       <span className="grow" />
-      <span className="font-mono text-[11px] text-gray-400">cotação indicativa</span>
+      <span className="font-mono text-[11px] text-gray-500">cotação indicativa</span>
     </div>
   </div>
 )
@@ -302,7 +302,7 @@ export const WhitelabelMock = () => (
       </div>
 
       <div>
-        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
           Valor a pagar
         </p>
         <p className={`${heading} text-[40px] font-light tracking-[-0.03em] text-foreground`}>
@@ -344,7 +344,7 @@ export const WhitelabelMock = () => (
         Gerar QR Code Pix
       </div>
 
-      <p className="text-center text-[10px] text-gray-400">
+      <p className="text-center text-[10px] text-gray-500">
         Infraestrutura por Hodle · a sua marca é a única que o
         usuário vê
       </p>

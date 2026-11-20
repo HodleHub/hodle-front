@@ -16,7 +16,7 @@ export default function ArticleFaq({ items }: ArticleFaqProps) {
 
   return (
     <section className="mt-14 border-t border-gray-200 pt-10">
-      <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-400">
+      <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500">
         Perguntas frequentes
       </h2>
 

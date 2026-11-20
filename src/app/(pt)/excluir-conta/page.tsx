@@ -106,7 +106,7 @@ export default function DeleteAccountPage() {
           >
             Excluir sua conta
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             Última atualização: outubro de 2026
           </p>
         </div>

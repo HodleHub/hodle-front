@@ -11,7 +11,7 @@ export const BrsFaq = ({ copy = brsCopy.pt }: BrsFaqProps): ReactElement => (
   <section id="brs-faq" className="border-t border-gray-200">
     <div className="max-w-[700px] mx-auto px-6 py-20 lg:py-24">
       <div className="text-center mb-12">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#009c3b] mb-4 block">{copy.faq.eyebrow}</span>
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00852f] mb-4 block">{copy.faq.eyebrow}</span>
         <h2 className={`${heading} text-[clamp(2rem,4vw,3rem)] font-light text-foreground`}>{copy.faq.title}</h2>
       </div>
       <div className="space-y-2">

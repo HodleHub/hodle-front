@@ -250,7 +250,7 @@ type SectionEyebrowProps = {
 }
 
 const SectionEyebrow = ({ children, badge }: SectionEyebrowProps) => (
-  <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b]">
+  <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00852f]">
     {badge ? (
       <span className="rounded border border-green-200 bg-green-50 px-1.5 py-0.5 font-mono tracking-[0.04em]">
         {badge}
@@ -292,7 +292,7 @@ export default function NeobankPage() {
             <h1
               className={`${heading} mt-6 max-w-[640px] text-[clamp(2.8rem,6.6vw,5.2rem)] font-light leading-[1.02] tracking-[-0.045em]`}
             >
-              O sistema por trás do seu <span className="text-[#009c3b]">neobank.</span>
+              O sistema por trás do seu <span className="text-[#00852f]">neobank.</span>
             </h1>
             <p className="mt-7 max-w-[560px] text-lg leading-relaxed text-gray-500 lg:text-xl">
               Uma camada financeira para lançar contas, movimentar Pix e operar ativos digitais — com
@@ -319,7 +319,7 @@ export default function NeobankPage() {
               </Link>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-400">
+            <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-500">
               <span className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-[#009c3b]" /> API-first
               </span>
@@ -350,7 +350,7 @@ export default function NeobankPage() {
               <p className={`${heading} text-2xl font-light tracking-tight sm:text-3xl`}>
                 {stat.value}
               </p>
-              <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.16em] text-gray-400">
+              <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.16em] text-gray-500">
                 {stat.label}
               </p>
             </div>
@@ -385,7 +385,7 @@ export default function NeobankPage() {
                   <h3 className={`${heading} text-[17px] font-semibold tracking-tight`}>
                     {family.title}
                   </h3>
-                  <span className="font-mono text-[11px] text-gray-400">{family.range}</span>
+                  <span className="font-mono text-[11px] text-gray-500">{family.range}</span>
                 </div>
 
                 {family.modules.map((module) => (
@@ -399,7 +399,7 @@ export default function NeobankPage() {
                     </span>
                     <span className="min-w-0">
                       <span className="flex items-baseline gap-2.5">
-                        <span className="font-mono text-[11px] font-medium text-[#009c3b]">
+                        <span className="font-mono text-[11px] font-medium text-[#00852f]">
                           {module.number}
                         </span>
                         <span className={`${heading} text-[15.5px] font-semibold`}>
@@ -453,14 +453,14 @@ export default function NeobankPage() {
             <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-[0_8px_30px_rgba(0,0,0,0.05)] sm:p-10">
               <div className="grid gap-6 lg:grid-cols-[0.85fr_1.3fr_0.85fr] lg:items-stretch">
                 <div className="flex flex-col rounded-2xl border border-gray-200 p-6">
-                  <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+                  <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-500">
                     Camada 1 • sua experiência
                   </p>
                   <div className="mx-auto mt-7 flex h-13 w-13 items-center justify-center rounded-2xl bg-gray-900 p-3.5">
                     <span className="h-5 w-5 rounded bg-white" />
                   </div>
                   <p className={`${heading} mt-4 text-center text-[15px] font-semibold`}>Seu app</p>
-                  <p className="mt-2 text-center text-[11.5px] leading-relaxed text-gray-400">
+                  <p className="mt-2 text-center text-[11.5px] leading-relaxed text-gray-500">
                     conta • wallet • pagamentos
                   </p>
                   <div className="mt-auto flex flex-wrap justify-center gap-1.5 pt-6">
@@ -499,7 +499,7 @@ export default function NeobankPage() {
                 </div>
 
                 <div className="flex flex-col rounded-2xl border border-gray-200 p-6">
-                  <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+                  <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-500">
                     Camada 3 • rails
                   </p>
                   <div className="mx-auto mt-7 flex h-13 w-13 items-center justify-center rounded-2xl bg-gray-100 p-3.5">
@@ -508,7 +508,7 @@ export default function NeobankPage() {
                   <p className={`${heading} mt-4 text-center text-[15px] font-semibold`}>
                     9 redes conectadas
                   </p>
-                  <p className="mt-2 text-center text-[11.5px] leading-relaxed text-gray-400">
+                  <p className="mt-2 text-center text-[11.5px] leading-relaxed text-gray-500">
                     a rede certa para cada operação
                   </p>
                   <div className="mt-auto flex flex-wrap justify-center gap-1.5 pt-6">
@@ -562,7 +562,7 @@ export default function NeobankPage() {
                     <strong className="block truncate text-[13.5px] font-semibold">
                       {network.name}
                     </strong>
-                    <small className="mt-0.5 block truncate text-[11px] text-gray-400">
+                    <small className="mt-0.5 block truncate text-[11px] text-gray-500">
                       {network.detail}
                     </small>
                   </span>
@@ -580,7 +580,7 @@ export default function NeobankPage() {
                 <strong className="block text-xs font-semibold text-gray-600">
                   Precisa de outra rede?
                 </strong>
-                <small className="mt-0.5 block text-[11px] text-gray-400">Fale com o time</small>
+                <small className="mt-0.5 block text-[11px] text-gray-500">Fale com o time</small>
               </span>
             </Link>
           </div>
@@ -603,7 +603,7 @@ export default function NeobankPage() {
                 {asset}
               </span>
             ))}
-            <span className="ml-1.5 text-[11.5px] text-gray-400">
+            <span className="ml-1.5 text-[11.5px] text-gray-500">
               A disponibilidade por ativo e operação varia por fluxo.
             </span>
           </div>
@@ -782,7 +782,7 @@ export default function NeobankPage() {
                       <span className="font-mono text-white/70">on-chain</span>
                     </span>
                   </div>
-                  <p className="mt-4 text-[10.5px] text-white/35">Dados ilustrativos</p>
+                  <p className="mt-4 text-[10.5px] text-white/45">Dados ilustrativos</p>
                 </div>
               </div>
             </div>
@@ -794,7 +794,7 @@ export default function NeobankPage() {
                 <span className="flex h-[42px] w-[42px] items-center justify-center rounded-xl border border-gray-200">
                   <Image src="/brs.svg" alt="BRS" width={24} height={24} className="h-6 w-6" />
                 </span>
-                <span className="font-mono text-[11px] font-medium text-gray-400">05</span>
+                <span className="font-mono text-[11px] font-medium text-gray-500">05</span>
               </div>
               <h3 className={`${heading} mt-6 text-[21px] font-medium tracking-[-0.03em]`}>
                 Real tokenizado
@@ -817,7 +817,7 @@ export default function NeobankPage() {
                 <span className="flex h-[42px] w-[42px] items-center justify-center rounded-xl bg-gray-100">
                   <RefreshCcw className="h-5 w-5" />
                 </span>
-                <span className="font-mono text-[11px] font-medium text-gray-400">06</span>
+                <span className="font-mono text-[11px] font-medium text-gray-500">06</span>
               </div>
               <h3 className={`${heading} mt-6 text-[21px] font-medium tracking-[-0.03em]`}>Swaps</h3>
               <p className="mt-3 text-[13px] leading-relaxed text-gray-500">
@@ -827,7 +827,7 @@ export default function NeobankPage() {
                 <span className="rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-1.5 font-mono text-[11px]">
                   BRLA
                 </span>
-                <ArrowRight className="h-3.5 w-3.5 text-gray-400" />
+                <ArrowRight className="h-3.5 w-3.5 text-gray-500" />
                 <span className="rounded-lg border border-gray-300 px-2.5 py-1.5 font-mono text-[11px] font-semibold">
                   USDT
                 </span>
@@ -839,7 +839,7 @@ export default function NeobankPage() {
                 <span className="flex h-[42px] w-[42px] items-center justify-center rounded-xl bg-orange-50">
                   <Bitcoin className="h-5 w-5 text-[#f7931a]" />
                 </span>
-                <span className="font-mono text-[11px] font-medium text-gray-400">07</span>
+                <span className="font-mono text-[11px] font-medium text-gray-500">07</span>
               </div>
               <h3 className={`${heading} mt-6 text-[21px] font-medium tracking-[-0.03em]`}>
                 Bitcoin
@@ -862,7 +862,7 @@ export default function NeobankPage() {
                 <span className="flex h-[42px] w-[42px] items-center justify-center rounded-xl bg-gray-100">
                   <Banknote className="h-5 w-5" />
                 </span>
-                <span className="font-mono text-[11px] font-medium text-gray-400">03</span>
+                <span className="font-mono text-[11px] font-medium text-gray-500">03</span>
               </div>
               <h3 className={`${heading} mt-6 text-[21px] font-medium tracking-[-0.03em]`}>
                 USD fiat
@@ -904,7 +904,7 @@ export default function NeobankPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100">
                   <BadgeCheck className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-[10.5px] text-gray-400">08 • KYC / KYB</span>
+                <span className="font-mono text-[10.5px] text-gray-500">08 • KYC / KYB</span>
               </div>
               <h3 className={`${heading} mt-6 text-xl font-medium`}>Onboarding empresarial</h3>
               <p className="mt-3 text-[13.5px] leading-relaxed text-gray-500">
@@ -921,7 +921,7 @@ export default function NeobankPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100">
                   <Scale className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-[10.5px] text-gray-400">09 • OPS / DISPUTES</span>
+                <span className="font-mono text-[10.5px] text-gray-500">09 • OPS / DISPUTES</span>
               </div>
               <h3 className={`${heading} mt-6 text-xl font-medium`}>Disputes rastreáveis</h3>
               <p className="mt-3 text-[13.5px] leading-relaxed text-gray-500">
@@ -941,7 +941,7 @@ export default function NeobankPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-[10.5px] text-gray-400">CONTROLES</span>
+                <span className="font-mono text-[10.5px] text-gray-500">CONTROLES</span>
               </div>
               <h3 className={`${heading} mt-6 text-xl font-medium`}>Visibilidade operacional</h3>
               <p className="mt-3 text-[13.5px] leading-relaxed text-gray-500">
@@ -968,7 +968,7 @@ export default function NeobankPage() {
             <h2
               className={`${heading} mt-5 text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.04em]`}
             >
-              O dinheiro também é uma <span className="text-[#009c3b]">API.</span>
+              O dinheiro também é uma <span className="text-[#00852f]">API.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-gray-500">
               REST, webhooks assinados e operações tipadas para transformar contas e saldos em
@@ -1048,7 +1048,7 @@ export default function NeobankPage() {
               <h2
                 className={`${heading} mt-5 max-w-[620px] text-[clamp(2.5rem,5vw,4.4rem)] font-light leading-[1] tracking-[-0.05em]`}
               >
-                Construa o neobank. <span className="text-[#009c3b]">Não os trilhos.</span>
+                Construa o neobank. <span className="text-[#00852f]">Não os trilhos.</span>
               </h2>
               <p className="mt-5 max-w-[500px] text-base leading-relaxed text-gray-500">
                 Conte o que você está lançando e desenhamos a combinação de módulos para o seu caso.
@@ -1074,7 +1074,7 @@ export default function NeobankPage() {
                 </a>
               </div>
 
-              <p className="mt-4 text-[12.5px] text-gray-400">
+              <p className="mt-4 text-[12.5px] text-gray-500">
                 Prefere ler antes? A{' '}
                 <Link
                   href={DOCS_URL}
@@ -1089,7 +1089,7 @@ export default function NeobankPage() {
             </AnimatedSection>
 
             <div>
-              <p className="mb-3.5 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+              <p className="mb-3.5 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-500">
                 Perguntas frequentes
               </p>
               <div className="border-t border-gray-200">
@@ -1097,12 +1097,12 @@ export default function NeobankPage() {
                   <details key={item.question} className="group border-b border-gray-200 py-5">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold">
                       <span>
-                        <span className="mr-3 font-mono text-[11px] font-normal text-gray-400">
+                        <span className="mr-3 font-mono text-[11px] font-normal text-gray-500">
                           0{index + 1}
                         </span>
                         {item.question}
                       </span>
-                      <span className="text-xl font-light text-gray-400 transition-transform group-open:rotate-45">
+                      <span className="text-xl font-light text-gray-500 transition-transform group-open:rotate-45">
                         +
                       </span>
                     </summary>
@@ -1119,7 +1119,7 @@ export default function NeobankPage() {
 
       <div className="border-t border-gray-200 bg-gray-50/50 px-6 py-5">
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4">
-          <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+          <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-500">
             Hodle / Infrastructure for neobanks
           </span>
           <div className="flex flex-wrap items-center gap-5">

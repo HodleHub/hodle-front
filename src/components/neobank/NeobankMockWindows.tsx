@@ -72,11 +72,11 @@ export const AccountWindow = () => (
       <div className="p-5 sm:p-7">
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.18em] text-gray-400">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-gray-500">
               Saldo operacional
             </p>
             <p className={`${heading} mt-2 text-4xl font-light tracking-[-0.05em] sm:text-5xl`}>
-              R$ 1.284.320<span className="text-gray-300">,40</span>
+              R$ 1.284.320<span className="text-gray-500">,40</span>
             </p>
           </div>
           <NeutralPill>+12,8% / 30d</NeutralPill>
@@ -121,7 +121,7 @@ export const AccountWindow = () => (
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-xs font-medium text-foreground">{transaction.label}</p>
-                <p className="mt-0.5 truncate text-[10.5px] text-gray-400">{transaction.meta}</p>
+                <p className="mt-0.5 truncate text-[10.5px] text-gray-500">{transaction.meta}</p>
               </div>
               <span className="whitespace-nowrap font-mono text-[11px] font-medium text-foreground">
                 {transaction.value}
@@ -184,7 +184,7 @@ const PixFlowStep = ({
     <div className={`min-w-0 flex-1 ${isLast ? '' : 'pb-6'}`}>
       <div className="flex items-baseline justify-between gap-3">
         <span className="text-sm font-semibold text-foreground">{title}</span>
-        <span className="shrink-0 font-mono text-[11px] text-gray-400">{time}</span>
+        <span className="shrink-0 font-mono text-[11px] text-gray-500">{time}</span>
       </div>
       <p className="mt-1.5 text-xs leading-relaxed text-gray-500">{description}</p>
       {children}
@@ -201,7 +201,7 @@ export const PixCycleWindow = () => (
         </div>
         <div className="min-w-0">
           <p className="text-sm font-semibold">Ciclo de um Pix recebido</p>
-          <p className="mt-0.5 truncate text-[11px] text-gray-400">
+          <p className="mt-0.5 truncate text-[11px] text-gray-500">
             Sua Empresa Ltda. • ag. 0001 / cc. 12345-6
           </p>
         </div>
@@ -224,7 +224,7 @@ export const PixCycleWindow = () => (
         description="O Pix não vira saldo em BRL para depois ser convertido — ele nasce tokenizado. BRLA na Polygon ou BRS na Solana, sem conversão cambial no caminho."
       >
         <div className="mt-2.5 flex items-center justify-between gap-3 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5">
-          <span className="truncate font-mono text-[11px] text-gray-400">
+          <span className="truncate font-mono text-[11px] text-gray-500">
             E2E E18236120…4c1a • BRLA / Polygon
           </span>
           <span className="shrink-0 font-mono text-xs font-medium">8.420,00 BRLA</span>
@@ -282,7 +282,7 @@ export const WalletWindow = () => (
         </div>
         <div className="min-w-0">
           <p className="text-sm font-semibold">Wallet multi-rede</p>
-          <p className="mt-0.5 text-[11px] text-gray-400">Auto-custodial por padrão</p>
+          <p className="mt-0.5 text-[11px] text-gray-500">Auto-custodial por padrão</p>
         </div>
       </div>
       <NeutralPill>
@@ -291,7 +291,7 @@ export const WalletWindow = () => (
     </div>
 
     <div className="p-5 sm:p-6">
-      <p className="mb-3 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+      <p className="mb-3 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gray-500">
         Endereços por rede
       </p>
       <div className="space-y-2">
@@ -313,7 +313,7 @@ export const WalletWindow = () => (
             </span>
             <span className="min-w-0 flex-1">
               <span className="block text-xs font-semibold">{wallet.network}</span>
-              <span className="mt-0.5 block truncate font-mono text-[10.5px] text-gray-400">
+              <span className="mt-0.5 block truncate font-mono text-[10.5px] text-gray-500">
                 {wallet.address}
               </span>
             </span>

@@ -42,9 +42,9 @@ const sections = [
     title: '2. Tipos de Cookies que Utilizamos',
     content: (
       <>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
+        <h3 className="font-semibold text-foreground mt-6 mb-2">
           Cookies Essenciais (Necessários)
-        </h4>
+        </h3>
         <p className="text-gray-600 mb-3">
           Estes cookies são indispensáveis para o funcionamento da plataforma.
           Sem eles, funcionalidades básicas como navegação entre páginas e
@@ -57,9 +57,9 @@ const sections = [
           <li>Balanceamento de carga e desempenho</li>
         </ul>
 
-        <h4 className="font-semibold text-foreground mb-2">
+        <h3 className="font-semibold text-foreground mb-2">
           Cookies Analíticos
-        </h4>
+        </h3>
         <p className="text-gray-600 mb-3">
           Coletam informações anônimas sobre como você utiliza a plataforma —
           quais páginas visita, quanto tempo permanece e se encontra erros.
@@ -72,9 +72,9 @@ const sections = [
           <li>Origens de tráfego (campanhas, redes sociais, busca orgânica)</li>
         </ul>
 
-        <h4 className="font-semibold text-foreground mb-2">
+        <h3 className="font-semibold text-foreground mb-2">
           Cookies de Funcionalidade
-        </h4>
+        </h3>
         <p className="text-gray-600 mb-3">
           Permitem que a plataforma lembre escolhas que você faz (como idioma
           ou região) e ofereça recursos aprimorados e mais personalizados.
@@ -85,9 +85,9 @@ const sections = [
           <li>Dados de formulários preenchidos parcialmente</li>
         </ul>
 
-        <h4 className="font-semibold text-foreground mb-2">
+        <h3 className="font-semibold text-foreground mb-2">
           Cookies de Marketing
-        </h4>
+        </h3>
         <p className="text-gray-600 mb-3">
           Utilizados para exibir anúncios relevantes para você e medir a
           eficácia de campanhas publicitárias. Esses cookies podem rastrear sua
@@ -150,9 +150,9 @@ const sections = [
         <p className="text-gray-600 mb-4">
           Você pode controlar e gerenciar os cookies de diversas formas:
         </p>
-        <h4 className="font-semibold text-foreground mb-2">
+        <h3 className="font-semibold text-foreground mb-2">
           Configurações do Navegador
-        </h4>
+        </h3>
         <p className="text-gray-600 mb-4">
           A maioria dos navegadores permite bloquear ou excluir cookies através
           das configurações de privacidade. Consulte a documentação do seu
@@ -314,7 +314,7 @@ export default function CookiesPage() {
           >
             Política de Cookies
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             Última atualização: julho de 2026
           </p>
         </div>

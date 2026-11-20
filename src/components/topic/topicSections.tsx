@@ -120,7 +120,7 @@ function SectionComparison({ section }: { section: TopicPage['sections'][number]
                 {section.comparison.headers.map((header) => (
                   <th
                     key={header}
-                    className="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-400"
+                    className="px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-500"
                   >
                     {header}
                   </th>
@@ -184,7 +184,7 @@ function SectionScreenshot({ section }: { section: TopicPage['sections'][number]
             className="w-full h-auto rounded-2xl border border-gray-200"
             sizes="(max-width: 768px) 100vw, 700px"
           />
-          <p className="mt-3 text-xs text-gray-400">{section.image.caption}</p>
+          <p className="mt-3 text-xs text-gray-500">{section.image.caption}</p>
         </div>
       )}
     </>

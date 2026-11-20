@@ -16,7 +16,7 @@ export default function ArticleByline({
   readingMinutes,
 }: ArticleBylineProps) {
   return (
-    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-gray-400">
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-gray-500">
       <span className="flex items-center gap-2 text-foreground">
         <span className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 bg-white">
           <Image

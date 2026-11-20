@@ -20,11 +20,10 @@ export default function TopicPartnerLockup({
       href={partner.href}
       target="_blank"
       rel="noreferrer"
-      aria-label={partner.name}
       className={`inline-flex flex-col gap-2 group ${align === 'center' ? 'items-center' : 'items-start'}`}
     >
       {showKicker && (
-        <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-400">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500">
           {partner.kicker}
         </span>
       )}

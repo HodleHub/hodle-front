@@ -13,7 +13,7 @@ export default function ArticleRelated({ articles }: ArticleRelatedProps) {
 
   return (
     <section className="mx-auto max-w-[1160px] px-6 pb-24 pt-16">
-      <h2 className="border-b border-gray-200 pb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-400">
+      <h2 className="border-b border-gray-200 pb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500">
         Mais da Hodle
       </h2>
 

@@ -10,9 +10,9 @@ type Stat = {
 }
 
 const STATS: Stat[] = [
-  { value: <>1<span className="text-[#EAB308]"> Pix</span></>, label: 'É tudo que você paga. O câmbio acontece do nosso lado.', delay: '0.3s' },
-  { value: <>2<span className="text-[#14B8A6]"> trilhos</span></>, label: 'ACH e wire para qualquer banco nos Estados Unidos.', delay: '0.5s' },
-  { value: <>0<span className="text-[#EAB308]"> contas</span></>, label: 'no exterior para você abrir. Quem recebe usa o banco dele.', delay: '0.7s' },
+  { value: <>1<span className="text-[#B78C06]"> Pix</span></>, label: 'É tudo que você paga. O câmbio acontece do nosso lado.', delay: '0.3s' },
+  { value: <>2<span className="text-[#0D9488]"> trilhos</span></>, label: 'ACH e wire para qualquer banco nos Estados Unidos.', delay: '0.5s' },
+  { value: <>0<span className="text-[#B78C06]"> contas</span></>, label: 'no exterior para você abrir. Quem recebe usa o banco dele.', delay: '0.7s' },
 ]
 
 /**

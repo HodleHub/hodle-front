@@ -18,7 +18,7 @@ export const BrsFinalCta = ({ copy = brsCopy.pt }: BrsFinalCtaProps) => {
       <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
         <AnimatedSection delay={0.1}>
           <div className="text-center max-w-[680px] mx-auto">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00852f] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
               {copy.finalCta.eyebrow}
             </span>
@@ -32,7 +32,7 @@ export const BrsFinalCta = ({ copy = brsCopy.pt }: BrsFinalCtaProps) => {
             </p>
             <Link href={REGISTER_URL} target="_blank" rel="noreferrer">
               <ButtonShadow
-                faceClassName="border-[#009c3b] bg-[#009c3b] text-white hover:bg-[#009c3b]"
+                faceClassName="border-[#00852f] bg-[#00852f] text-white hover:border-[#007028] hover:bg-[#007028]"
                 shadowClassName="bg-[#32bcad]/40"
               >
                 {copy.finalCta.buyCta}

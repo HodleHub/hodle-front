@@ -7,7 +7,7 @@ export const GlobalToLocal = () => {
           className="brs-global-strike absolute left-0 top-1/2 h-[3px] md:h-[4px] w-full origin-left -translate-y-1/2 bg-gray-400/80 rounded-full"
         />
       </span>
-      <span className="text-[#009c3b]">local</span>
+      <span className="text-[#00852f]">local</span>
     </span>
   )
 }

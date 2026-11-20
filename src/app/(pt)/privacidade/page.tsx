@@ -69,9 +69,9 @@ const sections = [
           Para o funcionamento da plataforma, coletamos as seguintes categorias
           de dados:
         </p>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
+        <h3 className="font-semibold text-foreground mt-6 mb-2">
           3.1. Dados coletados diretamente pela Hodle
-        </h4>
+        </h3>
         <ul className="list-disc pl-6 space-y-1 text-gray-600">
           <li>
             <strong>Dados Cadastrais:</strong> e-mail, telefone e senha
@@ -92,9 +92,9 @@ const sections = [
           privadas e viabilização técnica da plataforma para leitura de saldos e
           histórico nas redes blockchain.
         </p>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
+        <h3 className="font-semibold text-foreground mt-6 mb-2">
           3.2. Dados coletados por/para Parceiros de Infraestrutura
-        </h4>
+        </h3>
         <ul className="list-disc pl-6 space-y-1 text-gray-600">
           <li>
             <strong>Dados de KYC/Compliance:</strong> nome completo, documentos
@@ -109,9 +109,9 @@ const sections = [
           exigido por parceiros de infraestrutura responsáveis pelas rampas de
           entrada e saída de moeda fiduciária (Pix).
         </p>
-        <h4 className="font-semibold text-foreground mt-6 mb-2">
+        <h3 className="font-semibold text-foreground mt-6 mb-2">
           3.3. Dados Técnicos e de Navegação
-        </h4>
+        </h3>
         <ul className="list-disc pl-6 space-y-1 text-gray-600">
           <li>
             <strong>Dados de Log:</strong> endereço IP (processado
@@ -384,7 +384,7 @@ export default function PrivacyPage() {
           >
             Política de Privacidade
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             Última atualização: julho de 2026
           </p>
         </div>

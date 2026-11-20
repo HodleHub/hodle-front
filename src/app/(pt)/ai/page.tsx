@@ -124,7 +124,7 @@ export default function AiPage() {
           >
             Política de uso por IA e dados de citação
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             Última atualização: 4 de outubro de 2026
           </p>
         </div>

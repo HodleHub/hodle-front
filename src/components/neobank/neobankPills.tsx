@@ -19,7 +19,7 @@ export const NeutralPill = ({ children }: { children: ReactNode }) => (
 // Every fabricated figure on the page carries this marker, so no mock reads as
 // a live platform metric.
 export const IllustrativeNote = ({ children }: { children?: ReactNode }) => (
-  <div className="flex items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-2.5 text-[10.5px] text-gray-400 sm:px-7">
+  <div className="flex items-center justify-between gap-3 border-t border-gray-200 bg-gray-50 px-5 py-2.5 text-[10.5px] text-gray-500 sm:px-7">
     <span className="inline-flex items-center gap-1.5">
       <Info className="h-3 w-3" aria-hidden="true" /> Dados ilustrativos
     </span>

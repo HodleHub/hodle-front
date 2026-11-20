@@ -14,7 +14,7 @@ const STEP_INTERVAL_MS = 2600
 
 const TONE_COLOR: Record<UsdCodeTone, string> = {
   plain: '#FAFAFA',
-  muted: '#737373',
+  muted: '#808080',
   string: '#FCD34D',
 }
 
@@ -119,13 +119,13 @@ const CodePanel = ({ step, stepIndex, rail }: CodePanelProps) => (
         </span>
         <span className="font-medium text-[17px]">{step.title}</span>
       </div>
-      <span className={`${mono} text-xs text-gray-500`}>cURL</span>
+      <span className={`${mono} text-xs text-gray-400`}>cURL</span>
     </div>
     <p className="text-[15px] leading-relaxed text-[#D4D4D4]">{step.description}</p>
     <div key={`${rail}-${stepIndex}`} className="flex-1 border border-[#262626] rounded-2xl bg-[#111111] px-5 py-4 overflow-x-auto">
       {step.lines.map((line, index) => (
         <div key={index} className={`${mono} lv2-cl flex gap-4 text-[13.5px] leading-[1.75]`} style={{ animationDelay: `${index * 0.05}s` }}>
-          <span className="text-[#525252] w-4 text-right shrink-0">{index + 1}</span>
+          <span className="text-[#808080] w-4 text-right shrink-0">{index + 1}</span>
           <span className="whitespace-pre" style={{ color: TONE_COLOR[line.tone] }}>
             {withRail(line.text, rail)}
           </span>
@@ -134,12 +134,12 @@ const CodePanel = ({ step, stepIndex, rail }: CodePanelProps) => (
       <span className="lv2-caret ml-8 mt-1" />
     </div>
     <div className="flex gap-2 flex-wrap items-center">
-      <span className={`${mono} text-xs text-gray-500`}>WEBHOOKS</span>
+      <span className={`${mono} text-xs text-gray-400`}>WEBHOOKS</span>
       {USD_WEBHOOKS.map((webhook) => (
         <span
           key={webhook.label}
           className={`${mono} text-xs border border-[#262626] rounded-md px-2 py-1 transition-colors`}
-          style={{ color: webhook.stepIndex === stepIndex ? webhook.color : '#737373' }}
+          style={{ color: webhook.stepIndex === stepIndex ? webhook.color : '#808080' }}
         >
           {webhook.label}
         </span>
