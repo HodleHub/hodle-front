@@ -22,7 +22,7 @@ export const BrsDeveloperSection = ({
       <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
         <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
           <AnimatedSection delay={0.1} direction="left" className="flex-1">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00852f] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
               {copy.developer.eyebrow}
             </span>

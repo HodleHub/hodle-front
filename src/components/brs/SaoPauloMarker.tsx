@@ -22,7 +22,7 @@ export const SaoPauloMarker = ({ label = 'São Paulo' }: SaoPauloMarkerProps) =>
         <span className="brs-sp-ring absolute inset-0 -m-2 rounded-full border-[1.6px] border-[#009c3b]" />
         <span className="block h-2 w-2 rounded-full bg-[#009c3b]" />
       </div>
-      <span className="brs-sp-label hidden sm:block absolute left-full top-1/2 ml-1.5 -translate-y-1/2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-[#009c3b]">
+      <span className="brs-sp-label hidden sm:block absolute left-full top-1/2 ml-1.5 -translate-y-1/2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-[#00852f]">
         {label}
       </span>
       <style>{`

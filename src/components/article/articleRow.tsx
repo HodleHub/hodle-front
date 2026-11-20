@@ -28,16 +28,16 @@ export default function ArticleRow({
         <span className="block text-[15px] leading-snug text-foreground">
           {article.title}
         </span>
-        <span className="mt-1 block text-[12.5px] text-gray-400 sm:hidden">
+        <span className="mt-1 block text-[12.5px] text-gray-500 sm:hidden">
           {article.category.label} · {formatArticleDate({ date: article.date })}
         </span>
       </span>
 
-      <span className="hidden w-[120px] shrink-0 text-[13px] text-gray-400 sm:block">
+      <span className="hidden w-[120px] shrink-0 text-[13px] text-gray-500 sm:block">
         {article.category.label}
       </span>
 
-      <span className="hidden w-[100px] shrink-0 text-[13px] text-gray-400 sm:block">
+      <span className="hidden w-[100px] shrink-0 text-[13px] text-gray-500 sm:block">
         {formatArticleDate({ date: article.date })}
       </span>
 

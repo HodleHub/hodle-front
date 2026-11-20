@@ -13,7 +13,7 @@ export const BrsHowItWorks = ({ copy = brsCopy.pt }: BrsHowItWorksProps) => {
       <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
         <AnimatedSection delay={0.05}>
           <div className="max-w-[600px] mx-auto text-center mb-16">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00852f] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
               {copy.howItWorks.eyebrow}
             </span>
@@ -30,7 +30,7 @@ export const BrsHowItWorks = ({ copy = brsCopy.pt }: BrsHowItWorksProps) => {
             <AnimatedSection key={step.title} delay={i * 0.1} direction="up">
               <div className="border-t border-gray-200 pt-6 lg:border-t-0 lg:pt-0">
                 <p
-                  className={`${heading} text-3xl font-light text-[#009c3b] mb-3 tracking-tight`}
+                  className={`${heading} text-3xl font-light text-[#00852f] mb-3 tracking-tight`}
                 >
                   {step.number}
                 </p>

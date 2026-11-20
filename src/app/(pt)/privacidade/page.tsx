@@ -384,7 +384,7 @@ export default function PrivacyPage() {
           >
             Política de Privacidade
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             Última atualização: julho de 2026
           </p>
         </div>

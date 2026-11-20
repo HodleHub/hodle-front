@@ -97,7 +97,7 @@ export const InfoPageView = ({ page }: { page: InfoPage }) => (
         >
           {page.h1}
         </h1>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-gray-500">
           Atualizado em {formatUpdatedAt(page.updatedAt)}.
         </p>
       </div>

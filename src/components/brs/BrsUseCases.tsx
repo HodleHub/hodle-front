@@ -13,7 +13,7 @@ export const BrsUseCases = ({ copy = brsCopy.pt }: BrsUseCasesProps) => {
       <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24">
         <AnimatedSection delay={0.05}>
           <div className="max-w-[680px] mx-auto text-center mb-14">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00852f] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
               {copy.useCases.eyebrow}
             </span>
@@ -34,7 +34,7 @@ export const BrsUseCases = ({ copy = brsCopy.pt }: BrsUseCasesProps) => {
             >
               <div className="border-t border-gray-200 py-6 flex gap-5">
                 <p
-                  className={`${heading} text-sm font-semibold text-[#009c3b] shrink-0`}
+                  className={`${heading} text-sm font-semibold text-[#00852f] shrink-0`}
                 >
                   {String(i + 1).padStart(2, '0')}
                 </p>
@@ -56,7 +56,7 @@ export const BrsUseCases = ({ copy = brsCopy.pt }: BrsUseCasesProps) => {
             className={`${heading} text-center text-xl lg:text-2xl font-light text-foreground mt-14 max-w-[640px] mx-auto leading-relaxed text-pretty`}
           >
             {copy.useCases.closingLead}{' '}
-            <span className="text-[#009c3b]">
+            <span className="text-[#00852f]">
               {copy.useCases.closingHighlight}
             </span>
           </p>

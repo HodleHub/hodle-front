@@ -276,7 +276,7 @@ export default function CaasPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2.5">
-              <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gray-400 mr-1">
+              <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gray-500 mr-1">
                 Feita para
               </span>
               {SEGMENTS.map((segment) => (
@@ -312,7 +312,7 @@ export default function CaasPage() {
                 >
                   {stat.value}
                 </div>
-                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-400">
+                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-500">
                   {stat.label}
                 </div>
               </div>
@@ -324,7 +324,7 @@ export default function CaasPage() {
       {/* ═══════════════ RAILS ═══════════════ */}
       <section className="border-t border-gray-200 bg-gray-50/50">
         <div className="max-w-[1200px] mx-auto px-6 py-12 lg:py-14">
-          <h2 className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 mb-8">
+          <h2 className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 mb-8">
             Redes e rails suportados
           </h2>
           <CaasRailsMarquee />
@@ -589,7 +589,7 @@ export default function CaasPage() {
                 ))}
               </dl>
               <div className="border-t border-gray-200 px-7 py-4">
-                <p className="text-xs text-gray-400 leading-relaxed">
+                <p className="text-xs text-gray-500 leading-relaxed">
                   A Hodle não é instituição financeira e não custodia os ativos
                   dos seus usuários. Detalhes em{' '}
                   <Link href="/termos" className="text-gray-500 underline underline-offset-2">

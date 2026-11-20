@@ -50,7 +50,7 @@ export const BrsHero = ({ copy = brsCopy.pt, languageLink }: BrsHeroProps) => {
               </div>
             </div>
 
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#009c3b] mb-5">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00852f] mb-5">
               <span className="h-1 w-1 rounded-full bg-[#009c3b]" />
               {copy.hero.eyebrow}
             </span>

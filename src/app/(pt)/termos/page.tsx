@@ -404,7 +404,7 @@ export default function TermsPage() {
           >
             Termos de Serviço
           </h1>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             Última atualização: julho de 2026
           </p>
         </div>

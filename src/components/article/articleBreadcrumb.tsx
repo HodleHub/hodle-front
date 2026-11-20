@@ -13,7 +13,7 @@ export default function ArticleBreadcrumb({
     >
       <Link
         href="/articles"
-        className="text-gray-400 hover:text-foreground transition-colors"
+        className="text-gray-500 hover:text-foreground transition-colors"
       >
         artigos
       </Link>
