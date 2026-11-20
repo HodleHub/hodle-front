@@ -86,7 +86,7 @@ const LOGO_DONTS = [
   {
     label: 'Distorcer a proporção',
     box: 'bg-white border border-gray-200',
-    image: 'w-[200px] h-[34px]',
+    image: 'w-[200px] h-auto scale-y-[0.574]',
   },
   {
     label: 'Recolorir fora de tinta ou branco',
