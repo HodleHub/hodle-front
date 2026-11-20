@@ -36,8 +36,8 @@ export const Hero = () => (
         <h1
           className={`${heading} mt-8 text-[clamp(2.6rem,6.4vw,5.25rem)] leading-[1.02] font-medium tracking-[-0.045em] max-w-[1060px] text-balance`}
         >
-          <span className="lv2-up lv2-u2 inline-block">Receba em Pix, guarde em dólar,</span>{' '}
-          <span className="lv2-up lv2-u3 inline-block">
+          <span className="inline-block">Receba em Pix, guarde em dólar,</span>{' '}
+          <span className="inline-block">
             pague em <span className="lv2-gtext">stablecoin.</span>
           </span>
         </h1>

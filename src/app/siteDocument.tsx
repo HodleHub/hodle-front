@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '../components/Header'
 import { Footer } from '../components/ui/Footer'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ConversionAnalytics } from '../components/analytics/conversionAnalytics'
 import { organizationContactPoints } from '../content/organizationContactPoints'
 
@@ -13,6 +14,7 @@ const geistSans = Geist({
 })
 
 const geistMono = Geist_Mono({
+  preload: false,
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
@@ -230,6 +232,7 @@ export default function SiteDocument({
         {children}
         <Footer />
         <Analytics />
+        <SpeedInsights />
         <ConversionAnalytics />
       </body>
     </html>
