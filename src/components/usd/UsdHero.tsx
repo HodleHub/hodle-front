@@ -41,7 +41,7 @@ export const UsdHero = () => (
           </span>
         </h1>
 
-        <p className="lv2-up lv2-u4 mt-7 text-lg lg:text-xl leading-relaxed text-[#525252] max-w-[660px]">
+        <p className="mt-7 text-lg lg:text-xl leading-relaxed text-[#525252] max-w-[660px]">
           {USD_PAGE_DESCRIPTION}
         </p>
 

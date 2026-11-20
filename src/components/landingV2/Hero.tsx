@@ -42,7 +42,7 @@ export const Hero = () => (
           </span>
         </h1>
 
-        <p className="lv2-up lv2-u4 mt-7 text-lg lg:text-xl leading-relaxed text-[#525252] max-w-[660px]">
+        <p className="mt-7 text-lg lg:text-xl leading-relaxed text-[#525252] max-w-[660px]">
           A infraestrutura que conecta Pix, dólar e stablecoins, via API ou plataforma. Feita para{' '}
           <span className="inline-block h-[1.6em] overflow-hidden align-bottom">
             <span className="lv2-words flex flex-col leading-[1.6em] text-[#0A0A0A] font-medium">
