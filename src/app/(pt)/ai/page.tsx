@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { SiteLink } from '../../../components/ui/SiteLink'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -147,19 +147,19 @@ export default function AiPage() {
               </p>
               <p>
                 A versão legível por máquina desta página está em{' '}
-                <Link
+                <SiteLink
                   href="/llms.txt"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   /llms.txt
-                </Link>
+                </SiteLink>
                 , com a versão estendida em{' '}
-                <Link
+                <SiteLink
                   href="/llms-full.txt"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   /llms-full.txt
-                </Link>
+                </SiteLink>
                 . A referência de API fica em{' '}
                 <a
                   href="https://docs.hodle.com.br"
@@ -186,12 +186,12 @@ export default function AiPage() {
                 por uma pessoa e treinamento. Todos os agentes abaixo podem
                 acessar as páginas públicas. Rotas privadas, operacionais ou
                 sem conteúdo indexável continuam fechadas no{' '}
-                <Link
+                <SiteLink
                   href="/robots.txt"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   robots.txt
-                </Link>
+                </SiteLink>
                 .
               </p>
               <div className="border-y border-gray-200 divide-y divide-gray-200">
@@ -290,12 +290,12 @@ export default function AiPage() {
             <div className="text-[15px] leading-relaxed space-y-4">
               <p>
                 As páginas listadas em{' '}
-                <Link
+                <SiteLink
                   href="/llms.txt"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   /llms.txt
-                </Link>{' '}
+                </SiteLink>{' '}
                 respondem a negociação de conteúdo: uma requisição com{' '}
                 <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
                   Accept: text/markdown
@@ -315,20 +315,20 @@ export default function AiPage() {
               </p>
               <p>
                 A descrição da API está publicada em{' '}
-                <Link
+                <SiteLink
                   href="/openapi.json"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   /openapi.json
-                </Link>{' '}
+                </SiteLink>{' '}
                 (OpenAPI 3.1, com operationId, parâmetros tipados e schema de
                 resposta em cada operação) e o ponto de descoberta padronizado é{' '}
-                <Link
+                <SiteLink
                   href="/.well-known/api-catalog"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   /.well-known/api-catalog
-                </Link>
+                </SiteLink>
                 , um linkset conforme a RFC 9727. Os dois endereços também
                 aparecem no header{' '}
                 <code className="rounded bg-gray-100 px-1.5 py-0.5 text-[13px] text-foreground">
@@ -350,12 +350,12 @@ export default function AiPage() {
                 Taxas, limites, redes suportadas e prazos de liquidação são
                 informações datadas. Confira a documentação da operação e a
                 condição da conta na data da consulta. A{' '}
-                <Link
+                <SiteLink
                   href="/precos"
                   className="text-foreground underline underline-offset-2 hover:text-gray-600"
                 >
                   página de preços
-                </Link>{' '}
+                </SiteLink>{' '}
                 reúne a tabela comercial e suas condições; ela não define
                 automaticamente a tarifa de toda API, operação Lightning ou
                 wallet. Consulte também docs.hodle.com.br e confira a taxa e
@@ -367,12 +367,12 @@ export default function AiPage() {
 
         <div className="mt-16 border-t border-gray-200 pt-10">
           <nav className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <SiteLink
               href="/termos"
               className="text-sm text-foreground underline underline-offset-2 hover:text-gray-600"
             >
               Termos de Serviço
-            </Link>
+            </SiteLink>
             <a
               href="https://docs.hodle.com.br"
               target="_blank"
@@ -381,12 +381,12 @@ export default function AiPage() {
             >
               Documentação da API
             </a>
-            <Link
+            <SiteLink
               href="/llms.txt"
               className="text-sm text-foreground underline underline-offset-2 hover:text-gray-600"
             >
               llms.txt
-            </Link>
+            </SiteLink>
           </nav>
         </div>
       </article>

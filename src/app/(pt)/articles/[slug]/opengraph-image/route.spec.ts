@@ -19,6 +19,7 @@ it('renders a real PNG at the stable article share image endpoint', async () => 
 
   expect(response.status).toBe(200)
   expect(response.headers.get('content-type')).toBe('image/png')
+  expect(response.headers.get('cache-control')).not.toContain('no-transform')
   expect(image.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
   expect(image.readUInt32BE(16)).toBe(1200)
   expect(image.readUInt32BE(20)).toBe(630)

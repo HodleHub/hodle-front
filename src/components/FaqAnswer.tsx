@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Fragment } from 'react'
-import Link from 'next/link'
+import { SiteLink } from './ui/SiteLink'
 import type { FaqItem } from '../content/faq/faqItems'
 
 /**
@@ -20,12 +20,12 @@ export const FaqAnswer = ({ item }: { item: FaqItem }): ReactNode => {
     <Fragment key={index}>
       {part}
       {index < parts.length - 1 && (
-        <Link
+        <SiteLink
           href={link.href}
           className="text-foreground underline underline-offset-2 hover:text-gray-600"
         >
           {link.text}
-        </Link>
+        </SiteLink>
       )}
     </Fragment>
   ))

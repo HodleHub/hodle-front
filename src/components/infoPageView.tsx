@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { SiteLink } from './ui/SiteLink'
 import { ArrowUpRight } from 'lucide-react'
 import { InfoPage, InfoPageSection } from '../types/infoPage'
 
@@ -16,7 +16,7 @@ const SectionLinks = ({ section }: { section: InfoPageSection }) => (
   <ul className="not-prose space-y-3">
     {section.links.map((link) => (
       <li key={link.href}>
-        <Link
+        <SiteLink
           href={link.href}
           target={isExternal(link.href) ? '_blank' : undefined}
           rel={isExternal(link.href) ? 'noreferrer' : undefined}
@@ -29,7 +29,7 @@ const SectionLinks = ({ section }: { section: InfoPageSection }) => (
           <span className="mt-1 block text-[13px] leading-relaxed text-gray-500">
             {link.description}
           </span>
-        </Link>
+        </SiteLink>
       </li>
     ))}
   </ul>
@@ -132,14 +132,14 @@ export const InfoPageView = ({ page }: { page: InfoPage }) => (
         <ul className="space-y-3">
           {page.cta.links.map((link) => (
             <li key={link.href}>
-              <Link
+              <SiteLink
                 href={link.href}
                 target={isExternal(link.href) ? '_blank' : undefined}
                 rel={isExternal(link.href) ? 'noreferrer' : undefined}
                 className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 hover:text-gray-600"
               >
                 {link.label}
-              </Link>
+              </SiteLink>
               <span className="ml-2 text-[13px] text-gray-500">
                 {link.description}
               </span>

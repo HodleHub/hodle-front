@@ -7,6 +7,8 @@ import { getOgKickerFontSize } from '../../../../../utils/getOgKickerFontSize'
 
 const size = { width: 1200, height: 630 }
 
+const CACHE_CONTROL = 'public, immutable, max-age=31536000'
+
 export const dynamic = 'force-static'
 export const dynamicParams = false
 
@@ -14,6 +16,10 @@ export const dynamicParams = false
  * The card is drawn at build time, like the article page itself. On a
  * serverless runtime neither the vendored font nor the `.mdx` sources are part
  * of the traced bundle, so a request-time render answers 500.
+ *
+ * The default `ImageResponse` cache header carries `no-transform`, which makes
+ * the image optimizer hand back the full 1200x630 PNG for the in-page cover.
+ * The header below drops that directive and keeps the long cache.
  */
 export const generateStaticParams = () =>
   getAllArticles().map((article) => ({ slug: article.slug }))
@@ -94,6 +100,7 @@ export async function GET(
     {
       ...size,
       fonts: [{ name: 'Space Grotesk', data: font, weight: 300, style: 'normal' }],
+      headers: { 'Cache-Control': CACHE_CONTROL },
     },
   )
 }

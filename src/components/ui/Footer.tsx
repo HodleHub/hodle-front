@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { SiteLink } from './SiteLink'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Github } from 'lucide-react'
@@ -174,12 +175,12 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((item) => (
                   <li key={item.label}>
-                    <Link
+                    <SiteLink
                       href={item.href}
                       className="text-xs text-gray-500 hover:text-foreground transition-colors"
                     >
                       {item.label}
-                    </Link>
+                    </SiteLink>
                   </li>
                 ))}
               </ul>
