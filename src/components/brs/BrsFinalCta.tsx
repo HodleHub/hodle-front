@@ -32,7 +32,7 @@ export const BrsFinalCta = ({ copy = brsCopy.pt }: BrsFinalCtaProps) => {
             </p>
             <Link href={REGISTER_URL} target="_blank" rel="noreferrer">
               <ButtonShadow
-                faceClassName="border-[#009c3b] bg-[#009c3b] text-white hover:bg-[#009c3b]"
+                faceClassName="border-[#00852f] bg-[#00852f] text-white hover:border-[#007028] hover:bg-[#007028]"
                 shadowClassName="bg-[#32bcad]/40"
               >
                 {copy.finalCta.buyCta}
