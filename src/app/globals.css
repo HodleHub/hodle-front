@@ -165,3 +165,7 @@ body {
     contain-intrinsic-size: auto var(--cv-d, 720px);
   }
 }
+
+html:has(:target) .cv-section {
+  content-visibility: visible;
+}
