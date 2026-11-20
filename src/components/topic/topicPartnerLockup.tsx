@@ -20,7 +20,6 @@ export default function TopicPartnerLockup({
       href={partner.href}
       target="_blank"
       rel="noreferrer"
-      aria-label={partner.name}
       className={`inline-flex flex-col gap-2 group ${align === 'center' ? 'items-center' : 'items-start'}`}
     >
       {showKicker && (
