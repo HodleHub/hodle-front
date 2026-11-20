@@ -103,8 +103,7 @@ export default async function ArticlePage({
           <header className="max-w-[720px]">
             <ArticleCover
               cover={article.cover}
-              fallbackSrc={`/articles/${slug}/opengraph-image`}
-              fallbackAlt={article.title}
+              kicker={article.coverKicker}
               priority
             />
 

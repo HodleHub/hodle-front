@@ -70,6 +70,14 @@ body {
   mask-image: radial-gradient(ellipse 60% 70% at 50% 30%, #000 30%, transparent 80%);
 }
 
+.cover-panel {
+  container-type: inline-size;
+}
+
+.cover-panel .dark-grid {
+  background-size: 10cqw 10cqw;
+}
+
 .hero-spotlight {
   background:
     radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 0, 0, 0.06), transparent 70%);
