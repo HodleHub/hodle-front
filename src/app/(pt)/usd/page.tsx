@@ -97,7 +97,7 @@ export default function UsdPage() {
       <UsdRailCompare />
       <UsdFlowBuilder />
       <UsdAudiences />
-      <Faq items={USD_FAQ_ITEMS} />
+      <Faq items={USD_FAQ_ITEMS} size={{ mobile: 1390, desktop: 838 }} />
       <UsdClosingCta />
     </div>
   )

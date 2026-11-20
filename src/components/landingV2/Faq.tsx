@@ -2,19 +2,23 @@ import type { ReactElement } from 'react'
 import { Plus } from 'lucide-react'
 import { FAQ_ITEMS, type FaqItem } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
+import { cvSize, type CvSizeArgs } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
+const HOME_FAQ_SIZE: CvSizeArgs = { mobile: 905, desktop: 457 }
+
 type FaqProps = {
   items?: FaqItem[]
+  size?: CvSizeArgs
 }
 
 /**
  * Renders every answer in HTML with a native accordion that also works without JavaScript.
  */
-export const Faq = ({ items = FAQ_ITEMS }: FaqProps): ReactElement => {
+export const Faq = ({ items = FAQ_ITEMS, size = HOME_FAQ_SIZE }: FaqProps): ReactElement => {
   return (
-    <section id="faq" aria-labelledby="lv2-faq-h" className="lv2-sec">
+    <section id="faq" aria-labelledby="lv2-faq-h" className="cv-section lv2-sec" style={cvSize(size)}>
       <SectionMarks />
       <div className="lv2-rail lv2-cells grid-cols-1 lg:grid-cols-[420px_1fr]">
         <div className="px-6 lg:px-11 py-14 flex flex-col gap-4">

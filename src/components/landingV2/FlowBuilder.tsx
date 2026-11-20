@@ -13,6 +13,7 @@ import {
 } from './landingV2Data'
 import { SectionHeader } from './SectionHeader'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const mono = 'font-[family-name:var(--font-geist-mono)]'
 
@@ -123,7 +124,7 @@ export const FlowBuilder = () => {
   }
 
   return (
-    <section id="flow" aria-labelledby="lv2-flow-h" className="lv2-sec">
+    <section id="flow" aria-labelledby="lv2-flow-h" className="cv-section lv2-sec" style={cvSize({ mobile: 1563, desktop: 774 })}>
       <SectionMarks />
       <div className="lv2-rail">
         <SectionHeader

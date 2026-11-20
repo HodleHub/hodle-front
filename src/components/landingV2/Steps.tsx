@@ -1,4 +1,5 @@
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -18,7 +19,7 @@ const STEPS: Step[] = [
  * Three onboarding steps with an animated progress rail.
  */
 export const Steps = () => (
-  <section aria-labelledby="lv2-passos-h" className="lv2-sec">
+  <section aria-labelledby="lv2-passos-h" className="cv-section lv2-sec" style={cvSize({ mobile: 924, desktop: 386 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <div className="px-6 pt-14 text-center">

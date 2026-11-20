@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { Landmark, Zap } from 'lucide-react'
 import { ICONS } from '../landingV2/landingV2Data'
 import { SectionMarks } from '../landingV2/SectionMarks'
+import { cvSize } from '../landingV2/cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -24,7 +25,7 @@ const TILES: RailTile[] = [
  * The rails a USD transfer touches: Pix in, ACH or wire out, USDT as balance.
  */
 export const UsdRailGrid = () => (
-  <section aria-labelledby="usd-trilhos-top" className="lv2-sec">
+  <section aria-labelledby="usd-trilhos-top" className="cv-section lv2-sec" style={cvSize({ mobile: 303, desktop: 238 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <div className="px-6 py-10 text-center border-b border-[#E5E5E5]">

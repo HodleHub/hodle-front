@@ -4,6 +4,7 @@ import { Code2, Landmark } from 'lucide-react'
 import { ICONS } from './landingV2Data'
 import { SectionHeader } from './SectionHeader'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const IN_PATHS: string[] = [
   'M220 90 C 360 90, 360 230, 456 230',
@@ -123,7 +124,7 @@ const MobileDiagram = () => (
  * "A camada do meio": animated diagram of money entering and leaving through Hodle.
  */
 export const MiddleLayer = () => (
-  <section aria-labelledby="lv2-camada-h" className="lv2-sec">
+  <section aria-labelledby="lv2-camada-h" className="cv-section lv2-sec" style={cvSize({ mobile: 903, desktop: 832 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <SectionHeader

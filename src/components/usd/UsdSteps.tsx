@@ -1,5 +1,6 @@
 import { SectionMarks } from '../landingV2/SectionMarks'
 import { USD_STEPS } from './usdData'
+import { cvSize } from '../landingV2/cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -7,7 +8,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
  * Four steps from the Pix to the dollars in the account, with the animated rail.
  */
 export const UsdSteps = () => (
-  <section id="como-funciona" aria-labelledby="usd-passos-h" className="lv2-sec">
+  <section id="como-funciona" aria-labelledby="usd-passos-h" className="cv-section lv2-sec" style={cvSize({ mobile: 1147, desktop: 386 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <div className="px-6 pt-14 text-center">

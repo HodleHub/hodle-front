@@ -7,6 +7,7 @@ import { ICONS, WHATSAPP_URL } from '../landingV2/landingV2Data'
 import { SectionHeader } from '../landingV2/SectionHeader'
 import { SectionMarks } from '../landingV2/SectionMarks'
 import { USD_FLOW_STEPS, USD_WEBHOOKS, type UsdCodeTone, type UsdFlowStep } from './usdData'
+import { cvSize } from '../landingV2/cvSize'
 
 const mono = 'font-[family-name:var(--font-geist-mono)]'
 
@@ -175,7 +176,7 @@ export const UsdFlowBuilder = () => {
   }
 
   return (
-    <section id="flow" aria-labelledby="usd-flow-h" className="lv2-sec">
+    <section id="flow" aria-labelledby="usd-flow-h" className="cv-section lv2-sec" style={cvSize({ mobile: 1575, desktop: 890 })}>
       <SectionMarks />
       <div className="lv2-rail">
         <SectionHeader

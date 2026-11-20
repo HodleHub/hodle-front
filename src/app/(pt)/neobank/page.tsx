@@ -25,6 +25,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { CodeBlock } from '../../../components/CodeBlock'
+import { cvSize } from '../../../components/landingV2/cvSize'
 import TopicSections from '../../../components/topic/topicSections'
 import { neobankDecision } from '../../../content/neobankDecision'
 import { platformFacts } from '../../../content/platformFacts'
@@ -361,7 +362,7 @@ export default function NeobankPage() {
       {/* MODULES */}
       <TopicSections topic={{ sections: [neobankDecision] }} />
 
-      <section id="plataforma" className={`border-b border-gray-200 bg-white ${anchorOffset}`}>
+      <section id="plataforma" className={`cv-section border-b border-gray-200 bg-white ${anchorOffset}`} style={cvSize({ mobile: 1717, desktop: 907 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <AnimatedSection>
             <div className="mx-auto mb-14 max-w-[660px] text-center">
@@ -430,7 +431,7 @@ export default function NeobankPage() {
       </section>
 
       {/* ARCHITECTURE */}
-      <section id="stack" className={`border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`}>
+      <section id="stack" className={`cv-section border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`} style={cvSize({ mobile: 1392, desktop: 866 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <AnimatedSection>
             <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end lg:gap-10">
@@ -527,7 +528,7 @@ export default function NeobankPage() {
       </section>
 
       {/* NETWORKS */}
-      <section id="redes" className={`border-b border-gray-200 bg-white ${anchorOffset}`}>
+      <section id="redes" className={`cv-section border-b border-gray-200 bg-white ${anchorOffset}`} style={cvSize({ mobile: 909, desktop: 586 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
@@ -611,7 +612,7 @@ export default function NeobankPage() {
       </section>
 
       {/* CONTA NOMINAL + PIX */}
-      <section id="conta-pj" className={`border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`}>
+      <section id="conta-pj" className={`cv-section border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`} style={cvSize({ mobile: 1474, desktop: 1014 })}>
         <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:gap-20 lg:py-24">
           <AnimatedSection direction="left">
             <SectionEyebrow badge="01 • 02">Conta nominal + Pix</SectionEyebrow>
@@ -651,7 +652,7 @@ export default function NeobankPage() {
       </section>
 
       {/* WALLETS */}
-      <section id="wallets" className={`border-b border-gray-200 bg-white ${anchorOffset}`}>
+      <section id="wallets" className={`cv-section border-b border-gray-200 bg-white ${anchorOffset}`} style={cvSize({ mobile: 1154, desktop: 638 })}>
         <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:py-24">
           <AnimatedSection direction="left">
             <WalletWindow />
@@ -690,7 +691,7 @@ export default function NeobankPage() {
       </section>
 
       {/* ATIVOS — USDT e USDC em destaque */}
-      <section id="ativos" className={`border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`}>
+      <section id="ativos" className={`cv-section border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`} style={cvSize({ mobile: 2282, desktop: 1153 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <AnimatedSection>
             <div className="mx-auto mb-12 max-w-[680px] text-center">
@@ -881,7 +882,7 @@ export default function NeobankPage() {
       </section>
 
       {/* OPERAÇÃO */}
-      <section id="operacao" className={`border-b border-gray-200 bg-white ${anchorOffset}`}>
+      <section id="operacao" className={`cv-section border-b border-gray-200 bg-white ${anchorOffset}`} style={cvSize({ mobile: 1185, desktop: 626 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
@@ -961,7 +962,7 @@ export default function NeobankPage() {
       {/* API */}
       <TopicSections topic={{ sections: platformFacts }} />
 
-      <section id="api" className={`border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`}>
+      <section id="api" className={`cv-section border-b border-gray-200 bg-gray-50/50 ${anchorOffset}`} style={cvSize({ mobile: 1094, desktop: 721 })}>
         <div className="mx-auto grid max-w-[1200px] gap-14 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20 lg:py-24">
           <AnimatedSection direction="left">
             <SectionEyebrow>Para engenharia</SectionEyebrow>
@@ -1009,7 +1010,7 @@ export default function NeobankPage() {
       </section>
 
       {/* PREÇOS — aponta para a tabela pública em /precos */}
-      <section id="precos" className={`border-b border-gray-200 bg-white ${anchorOffset}`}>
+      <section id="precos" className={`cv-section border-b border-gray-200 bg-white ${anchorOffset}`} style={cvSize({ mobile: 504, desktop: 388 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-14 lg:py-16">
           <AnimatedSection direction="up">
             <div className="flex flex-col justify-between gap-8 rounded-3xl border-2 border-foreground bg-white p-8 shadow-[6px_6px_0_0_#009c3b] lg:flex-row lg:items-center lg:gap-12 lg:p-10">
@@ -1040,7 +1041,7 @@ export default function NeobankPage() {
       </section>
 
       {/* FAQ + CTA */}
-      <section className="bg-white">
+      <section className="cv-section bg-white" style={cvSize({ mobile: 1041, desktop: 633 })}>
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
           <div className="grid gap-14 lg:grid-cols-[1fr_0.85fr] lg:items-start lg:gap-20">
             <AnimatedSection direction="left">

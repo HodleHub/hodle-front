@@ -1,5 +1,6 @@
 import { APP_URL, WHATSAPP_URL } from '../landingV2/landingV2Data'
 import { SectionMarks } from '../landingV2/SectionMarks'
+import { cvSize } from '../landingV2/cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -13,7 +14,7 @@ const PlayMark = ({ color }: { color: string }) => (
  * Closing call to action of /usd, same layout as the home closing.
  */
 export const UsdClosingCta = () => (
-  <section aria-labelledby="usd-cta-h" className="lv2-sec bg-[#FAFAFA]">
+  <section aria-labelledby="usd-cta-h" className="cv-section lv2-sec bg-[#FAFAFA]" style={cvSize({ mobile: 767, desktop: 594 })}>
     <SectionMarks />
     <div className="lv2-rail grid grid-cols-1 lg:grid-cols-12 gap-y-14 lg:gap-x-6 px-6 lg:px-[76px] py-24 lg:py-32 items-center">
       <div className="lg:col-span-7 flex flex-col gap-5">
