@@ -427,8 +427,8 @@
 .lv2-node-on { animation: lv2-node-glow 1.6s ease-out infinite; }
 
 @keyframes lv2-code-in {
-  from { opacity: 0; transform: translateX(-6px); }
-  to { opacity: 1; transform: none; }
+  from { clip-path: inset(0 100% 0 0); transform: translateX(-6px); }
+  to { clip-path: inset(0 0 0 0); transform: none; }
 }
 
 .lv2-cl { animation: lv2-code-in 0.4s ease both; }
