@@ -27,7 +27,8 @@ const goneResponse = (): NextResponse =>
     },
   })
 
-const isAsset = (pathname: string): boolean => pathname.includes('.')
+const isAsset = (pathname: string): boolean =>
+  pathname.includes('.') || pathname.endsWith('/opengraph-image')
 
 /**
  * The Next client router fetches flight payloads with `RSC: 1` and
