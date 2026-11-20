@@ -19,6 +19,16 @@ After the production deployment succeeds, submit the sitemap URLs to IndexNow:
 pnpm run postdeploy:indexnow
 ```
 
+## Deferred hydration build step
+
+`pnpm build` runs `next build`, then `scripts/defer-hydration.mjs`, then the crawl-budget check. The middle step rewrites every prerendered page in `.next/server/app/**/*.html`: the `/_next/static/chunks/...` script tags are removed and a small inline loader injects them on the first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll`, or when the browser is idle after the window `load` event. This keeps ~145 KB of JavaScript off the critical path before first paint (Lighthouse mobile LCP on a local build: `/precos` 2.6 s to 1.6 s, `/` 2.9 s to 1.7 s).
+
+Trade-off: hydration starts after `load` or on the first interaction. A tap made before hydration only triggers the loader, so the page is not interactive until the chunks arrive (usually a few hundred milliseconds).
+
+Safety: the step exits non-zero if it finds prerendered pages and rewrites none, which means a Next.js upgrade changed the markup. Fix `scripts/deferHydration/transformHtml.mjs` (covered by `pnpm test:defer`) or disable the step.
+
+To disable it, drop `node scripts/defer-hydration.mjs &&` from the `build` script in `package.json`.
+
 ## Prerequisites (one-time)
 
 - `vercel` CLI installed (`pnpm add -g vercel`) and logged in:
