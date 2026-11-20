@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { RAILS } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -10,7 +11,7 @@ const SPOTLIGHT_STEP_SECONDS = 2
  * BlindPay-style logo grid; each rail lights up in turn and on hover.
  */
 export const NetworkGrid = () => (
-  <section aria-labelledby="lv2-redes-top" className="lv2-sec">
+  <section aria-labelledby="lv2-redes-top" className="cv-section lv2-sec" style={cvSize({ mobile: 525, desktop: 363 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <div className="px-6 py-10 text-center border-b border-[#E5E5E5]">

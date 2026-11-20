@@ -1,6 +1,7 @@
 import { SectionHeader } from '../landingV2/SectionHeader'
 import { SectionMarks } from '../landingV2/SectionMarks'
 import { USD_AUDIENCES } from './usdData'
+import { cvSize } from '../landingV2/cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -8,7 +9,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
  * Who the Conta USD is for: companies, own US accounts and platforms.
  */
 export const UsdAudiences = () => (
-  <section aria-labelledby="usd-para-quem-h" className="lv2-sec">
+  <section aria-labelledby="usd-para-quem-h" className="cv-section lv2-sec" style={cvSize({ mobile: 1473, desktop: 709 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <SectionHeader

@@ -5,6 +5,7 @@ import { APP_URL } from './landingV2Data'
 import { TransactionFeed } from './TransactionFeed'
 import { SectionHeader } from './SectionHeader'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 const mono = 'font-[family-name:var(--font-geist-mono)]'
@@ -121,7 +122,7 @@ const Api = () => (
  * Product cells: buy/sell, wallets, QR payments, business account and API.
  */
 export const Products = () => (
-  <section id="produtos" aria-labelledby="lv2-produtos-h" className="lv2-sec">
+  <section id="produtos" aria-labelledby="lv2-produtos-h" className="cv-section lv2-sec" style={cvSize({ mobile: 2690, desktop: 1118 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <SectionHeader

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -19,7 +20,7 @@ const STATS: Stat[] = [
  * Three operational highlights that roll up from behind a mask.
  */
 export const Stats = () => (
-  <section aria-labelledby="lv2-numeros" className="lv2-sec">
+  <section aria-labelledby="lv2-numeros" className="cv-section lv2-sec" style={cvSize({ mobile: 667, desktop: 273 })}>
     <SectionMarks />
     <h2 id="lv2-numeros" className="sr-only">
       Destaques da Hodle

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { SUPPORTED_ASSETS } from './landingV2Data'
 import { TilePile } from './TilePile'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -9,7 +10,7 @@ const heading = 'font-[family-name:var(--font-space-grotesk)]'
  * Supported assets and networks, next to a pile of their tiles the visitor can grab and throw.
  */
 export const Supported = () => (
-  <section id="redes" aria-labelledby="lv2-redes-h" className="lv2-sec">
+  <section id="redes" aria-labelledby="lv2-redes-h" className="cv-section lv2-sec" style={cvSize({ mobile: 1160, desktop: 486 })}>
     <SectionMarks />
     <div className="lv2-rail lv2-cells grid-cols-1 lg:grid-cols-[520px_1fr]">
       <div className="lv2-dots !bg-[#FCFCFC] relative h-[380px] sm:h-[440px] lg:h-auto lg:min-h-[480px] overflow-hidden">

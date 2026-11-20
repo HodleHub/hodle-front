@@ -1,5 +1,6 @@
 import { DOCS_URL, WHATSAPP_URL } from './landingV2Data'
 import { SectionMarks } from './SectionMarks'
+import { cvSize } from './cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -13,7 +14,7 @@ const PlayMark = ({ color }: { color: string }) => (
  * Light lumx-style closing: headline and CTAs on the left, integration pointer on the right.
  */
 export const ClosingCta = () => (
-  <section aria-labelledby="lv2-cta-h" className="lv2-sec bg-[#FAFAFA]">
+  <section aria-labelledby="lv2-cta-h" className="cv-section lv2-sec bg-[#FAFAFA]" style={cvSize({ mobile: 836, desktop: 682 })}>
     <SectionMarks />
     <div className="lv2-rail grid grid-cols-1 lg:grid-cols-12 gap-y-14 lg:gap-x-6 px-6 lg:px-[76px] py-24 lg:py-32 items-center">
       <div className="lg:col-span-7 flex flex-col gap-5">

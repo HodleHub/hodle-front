@@ -1,5 +1,6 @@
 import { SectionMarks } from '../landingV2/SectionMarks'
 import { USD_RAILS, type UsdRail } from './usdData'
+import { cvSize } from '../landingV2/cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 const mono = 'font-[family-name:var(--font-geist-mono)]'
@@ -61,7 +62,7 @@ const RailCard = ({ rail, index }: RailCardProps) => {
  * ACH versus wire, side by side, with the wire cell inverted like the home product grid.
  */
 export const UsdRailCompare = () => (
-  <section aria-labelledby="usd-trilhos-h" className="lv2-sec">
+  <section aria-labelledby="usd-trilhos-h" className="cv-section lv2-sec" style={cvSize({ mobile: 1027, desktop: 435 })}>
     <SectionMarks />
     <div className="lv2-rail lv2-cells grid-cols-1 lg:grid-cols-[1.1fr_1fr_1fr]">
       <div className="px-6 lg:px-11 py-12 lg:py-14 flex flex-col gap-4">

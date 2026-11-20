@@ -4,6 +4,7 @@ import { Code2, Landmark, Zap } from 'lucide-react'
 import { ICONS } from '../landingV2/landingV2Data'
 import { SectionHeader } from '../landingV2/SectionHeader'
 import { SectionMarks } from '../landingV2/SectionMarks'
+import { cvSize } from '../landingV2/cvSize'
 
 const IN_PATHS: string[] = [
   'M220 90 C 360 90, 360 230, 456 230',
@@ -118,7 +119,7 @@ const MobileDiagram = () => (
  * "A camada do meio" for USD: real in through Pix, dollars out through ACH or wire.
  */
 export const UsdMiddleLayer = () => (
-  <section aria-labelledby="usd-camada-h" className="lv2-sec">
+  <section aria-labelledby="usd-camada-h" className="cv-section lv2-sec" style={cvSize({ mobile: 935, desktop: 880 })}>
     <SectionMarks />
     <div className="lv2-rail">
       <SectionHeader

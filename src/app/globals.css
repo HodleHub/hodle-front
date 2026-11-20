@@ -153,3 +153,19 @@ body {
   }
 
 }
+
+.cv-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto var(--cv-m, 720px);
+  overflow-clip-margin: 8px;
+}
+
+@media (min-width: 1024px) {
+  .cv-section {
+    contain-intrinsic-size: auto var(--cv-d, 720px);
+  }
+}
+
+html:has(:target) .cv-section {
+  content-visibility: visible;
+}

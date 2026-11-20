@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { SectionMarks } from '../landingV2/SectionMarks'
+import { cvSize } from '../landingV2/cvSize'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
 
@@ -19,7 +20,7 @@ const STATS: Stat[] = [
  * Three headline numbers of the USD product, same roll-in as the home stats.
  */
 export const UsdStats = () => (
-  <section aria-labelledby="usd-numeros" className="lv2-sec">
+  <section aria-labelledby="usd-numeros" className="cv-section lv2-sec" style={cvSize({ mobile: 687, desktop: 261 })}>
     <SectionMarks />
     <h2 id="usd-numeros" className="sr-only">
       A Conta USD em números

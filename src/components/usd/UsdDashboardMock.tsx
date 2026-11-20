@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { ICONS } from '../landingV2/landingV2Data'
 
 const heading = 'font-[family-name:var(--font-space-grotesk)]'
-const mono = 'font-[family-name:var(--font-geist-mono)]'
+const mono = 'font-mono'
 
 const SIDEBAR: string[] = ['Home', 'Conta USD', 'Destinatários', 'Transações', 'Wallets']
 

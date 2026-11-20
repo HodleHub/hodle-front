@@ -164,7 +164,7 @@ export const DashboardMock = () => (
             <span>Status</span>
           </div>
           <div className={`lv2-rowin ${ROW_GRID} py-3 border-b border-[#F0F0F0] bg-[#FEFCE8]`}>
-            <span className="font-[family-name:var(--font-geist-mono)] text-gray-500">VHJ…X2a</span>
+            <span className="font-mono text-gray-500">VHJ…X2a</span>
             <span className="text-gray-500">agora</span>
             <RailCell icon={ICONS.pix} label="Pix" />
             <RailCell icon={ICONS.polygon} label="Polygon" />
@@ -178,7 +178,7 @@ export const DashboardMock = () => (
           </div>
           {ROWS.map((row) => (
             <div key={row.id} className={`${ROW_GRID} py-3 border-b border-[#F0F0F0] last:border-b-0`}>
-              <span className="font-[family-name:var(--font-geist-mono)] text-gray-500">{row.id}</span>
+              <span className="font-mono text-gray-500">{row.id}</span>
               <span className="text-gray-500">{row.date}</span>
               <RailCell icon={row.fromIcon} label={row.from} />
               <RailCell icon={row.toIcon} label={row.to} />
