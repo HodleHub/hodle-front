@@ -156,23 +156,15 @@ test('a hidden tab waits the idle fallback without a paint entry', () => {
   assert.equal(h.state.appended.length, 3)
 })
 
-test('leaving the page injects', () => {
+test('hiding the tab or leaving the page does not inject', () => {
   const h = makeHarness()
 
   h.start()
   h.emit('pagehide')
-
-  assert.equal(h.state.appended.length, 3)
-})
-
-test('becoming hidden injects', () => {
-  const h = makeHarness()
-
-  h.start()
   h.document.hidden = true
-  h.state.docListeners.visibilitychange.forEach((fn) => fn())
+  ;(h.state.docListeners.visibilitychange ?? []).forEach((fn) => fn())
 
-  assert.equal(h.state.appended.length, 3)
+  assert.equal(h.state.appended.length, 0)
 })
 
 test('a pre-hydration click on a button is replayed once after the fiber appears', () => {

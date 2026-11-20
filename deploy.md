@@ -26,7 +26,7 @@ pnpm run postdeploy:indexnow
 Behaviour, in order of precedence:
 
 - The first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll` injects the scripts immediately.
-- Hiding the tab (`visibilitychange`) or leaving the page (`pagehide`) injects them immediately.
+- Hiding the tab or leaving the page does not inject them: those events can fire without a person behind them.
 - With no interaction, the loader waits for the window `load` event and the first contentful paint, then `IDLE_FALLBACK_MS` (4000, in `transformHtml.mjs`), then injects on `requestIdleCallback` (1.5 s timeout, plain call when unsupported). A tab that is already hidden skips the wait for a paint entry but keeps the delay.
 - Hard upper bound: 8 s after `load` the scripts are injected even if no paint entry was ever observed.
 
@@ -34,7 +34,7 @@ Click replay: a click that lands before hydration on a JS-only control (mobile m
 
 Trade-offs, stated plainly:
 
-- Without any interaction the page hydrates about 4 s after it is painted. Vercel Analytics and Speed Insights start after hydration, so they miss visits that leave within that time without touching, scrolling or typing (the `pagehide` and hidden-tab injection gives them a chance, not a guarantee).
+- Without any interaction the page hydrates about 4 s after it is painted. Vercel Analytics and Speed Insights start after hydration, so they miss visits that leave within that time without touching, scrolling or typing.
 - Client-side navigation and link prefetch only start after hydration. Until then a link click is a normal full page load.
 - A tap before hydration waits for the chunks (usually a few hundred milliseconds) before its effect shows.
 
