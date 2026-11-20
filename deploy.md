@@ -21,7 +21,7 @@ pnpm run postdeploy:indexnow
 
 ## Deferred hydration build step
 
-`pnpm build` runs `next build`, then `scripts/defer-hydration.mjs`, then the crawl-budget check. The middle step rewrites every prerendered page in `.next/server/app/**/*.html`: the `/_next/static/chunks/...` script tags are removed and a small inline loader injects them on the first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll`, or when the browser is idle after the window `load` event. This keeps ~145 KB of JavaScript off the critical path before first paint (Lighthouse mobile LCP on a local build: `/precos` 2.6 s to 1.6 s, `/` 2.9 s to 1.7 s).
+`pnpm build` runs `next build`, then `scripts/defer-hydration.mjs`, then the crawl-budget check. The middle step rewrites every prerendered page in `.next/server/app/**/*.html`: the `/_next/static/chunks/...` script tags are removed and a small inline loader injects them on the first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll`, or when the browser is idle after both the window `load` event and the first contentful paint (with a 4 s fallback). This keeps ~145 KB of JavaScript off the critical path before first paint (Lighthouse mobile LCP on a local build: `/precos` 2.6 s to 1.6 s, `/` 2.9 s to 1.7 s).
 
 Trade-off: hydration starts after `load` or on the first interaction. A tap made before hydration only triggers the loader, so the page is not interactive until the chunks arrive (usually a few hundred milliseconds).
 
