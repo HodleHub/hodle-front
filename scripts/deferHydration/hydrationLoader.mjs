@@ -7,7 +7,10 @@
  * interaction, when the tab is hidden or the page is left, or after the window
  * load event plus the first contentful paint plus `idleFallbackMs`, with a hard
  * upper bound after load. A click that lands on a JS-only control before
- * hydration is replayed once the control has a React fiber.
+ * hydration is replayed once the control has a React fiber. Only buttons are
+ * replayed: links navigate natively, a form submit button and native form
+ * fields already acted on the first click, and a second click would undo a
+ * checkbox or submit a form twice.
  *
  * @param scripts Pairs of chunk URL and optional element id, in load order.
  * @param idleFallbackMs Wait after load and first paint before injecting without interaction.
@@ -19,7 +22,7 @@ export const hydrationLoader = (scripts, idleFallbackMs) => {
   var POLL_GIVE_UP_MS = 10000
   var FIBER_KEY = /^__react(Fiber|Props)\$/
   var CONTAINER_KEY = /^__reactContainer\$/
-  var CLICKABLE = 'button, [role="button"], summary, input, select, textarea, label, a'
+  var CLICKABLE = 'button, [role="button"], a'
   var INTERACTIONS = ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll']
 
   if (window.__hodleHydrationLoader) return
@@ -82,9 +85,9 @@ export const hydrationLoader = (scripts, idleFallbackMs) => {
 
     var tag = control.tagName.toLowerCase()
 
-    if (tag === 'summary') return
-
     if (tag === 'a' && control.getAttribute('href') !== null) return
+
+    if (tag === 'button' && control.form && control.type === 'submit') return
 
     pending = control
     inject()

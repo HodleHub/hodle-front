@@ -194,23 +194,26 @@ test('a pre-hydration click on a button is replayed once after the fiber appears
   assert.deepEqual(h.state.listeners.click, [])
 })
 
-test('a click on a link with href or on a summary is not replayed', () => {
+test('a click on a link with href or on a form submit button is not replayed', () => {
   const link = makeControl('a', { href: '/x' })
-  const summary = makeControl('summary')
+  const submit = makeControl('button')
+
+  submit.form = {}
+  submit.type = 'submit'
   const h = makeHarness()
 
   h.start()
   h.emit('click', { target: link })
-  h.emit('click', { target: summary })
+  h.emit('click', { target: submit })
   assert.equal(h.state.appended.length, 0)
 
   h.emit('pointerdown')
   link.__reactProps$abc = {}
-  summary.__reactProps$abc = {}
+  submit.__reactProps$abc = {}
   h.advance(1000)
 
   assert.equal(link.clicks, 0)
-  assert.equal(summary.clicks, 0)
+  assert.equal(submit.clicks, 0)
 })
 
 test('a click with no clickable ancestor does nothing', () => {
