@@ -15,7 +15,7 @@
     "test:seo": "node scripts/verify-public-seo.mjs",
     "check:crawl": "node scripts/check-crawl-budget.mjs",
     "test:crawl": "node --test scripts/tests/crawlBudget.test.mjs",
-    "test:defer": "node --test scripts/tests/deferHydration.test.mjs"
+    "test:defer": "node --test scripts/tests/deferHydration.test.mjs scripts/tests/hydrationLoader.test.mjs"
   },
   "browserslist": [
     "chrome >= 111",

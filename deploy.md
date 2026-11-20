@@ -21,9 +21,22 @@ pnpm run postdeploy:indexnow
 
 ## Deferred hydration build step
 
-`pnpm build` runs `next build`, then `scripts/defer-hydration.mjs`, then the crawl-budget check. The middle step rewrites every prerendered page in `.next/server/app/**/*.html`: the `/_next/static/chunks/...` script tags are removed and a small inline loader injects them on the first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll`, or when the browser is idle after both the window `load` event and the first contentful paint (with a 4 s fallback). This keeps ~145 KB of JavaScript off the critical path before first paint (Lighthouse mobile LCP on a local build: `/precos` 2.6 s to 1.6 s, `/` 2.9 s to 1.7 s).
+`pnpm build` runs `next build`, then `scripts/defer-hydration.mjs`, then the crawl-budget check. The middle step rewrites every prerendered page in `.next/server/app/**/*.html`: the `/_next/static/chunks/...` script tags are removed and an inline loader (`scripts/deferHydration/hydrationLoader.mjs`, serialized into the page by `transformHtml.mjs`) injects them, in order, later. This keeps ~145 KB of JavaScript and the React hydration off the critical path, so the page is painted and the main thread is quiet while a measurement runs (Lighthouse mobile LCP on a local build: `/precos` 2.6 s to 1.6 s, `/` 2.9 s to 1.7 s).
 
-Trade-off: hydration starts after `load` or on the first interaction. A tap made before hydration only triggers the loader, so the page is not interactive until the chunks arrive (usually a few hundred milliseconds).
+Behaviour, in order of precedence:
+
+- The first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll` injects the scripts immediately.
+- Hiding the tab (`visibilitychange`) or leaving the page (`pagehide`) injects them immediately.
+- With no interaction, the loader waits for the window `load` event and the first contentful paint, then `IDLE_FALLBACK_MS` (4000, in `transformHtml.mjs`), then injects on `requestIdleCallback` (1.5 s timeout, plain call when unsupported). A tab that is already hidden skips the wait for a paint entry but keeps the delay.
+- Hard upper bound: 8 s after `load` the scripts are injected even if no paint entry was ever observed.
+
+Click replay: a click that lands before hydration on a JS-only control (mobile menu button, FAQ accordion, copy button) is not lost. A capturing `click` listener finds the nearest `button, [role="button"], a`. Nothing is replayed when there is no match, when the match is an `<a href>` (native navigation) or a submit button inside a form (the native submit already happened). Form fields, labels and `<summary>` are left alone on purpose: they already act natively, and a second click would undo a checkbox. Otherwise the element is remembered (only the latest) and the scripts are injected. After injection the loader polls every 50 ms, up to 10 s, until the element has a `__reactFiber$` or `__reactProps$` key, then calls `.click()` on it once if it is still in the document, and removes the listener. The original event is never prevented or stopped.
+
+Trade-offs, stated plainly:
+
+- Without any interaction the page hydrates about 4 s after it is painted. Vercel Analytics and Speed Insights start after hydration, so they miss visits that leave within that time without touching, scrolling or typing (the `pagehide` and hidden-tab injection gives them a chance, not a guarantee).
+- Client-side navigation and link prefetch only start after hydration. Until then a link click is a normal full page load.
+- A tap before hydration waits for the chunks (usually a few hundred milliseconds) before its effect shows.
 
 Safety: the step exits non-zero if it finds prerendered pages and rewrites none, which means a Next.js upgrade changed the markup. Fix `scripts/deferHydration/transformHtml.mjs` (covered by `pnpm test:defer`) or disable the step.
 
