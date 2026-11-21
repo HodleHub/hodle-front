@@ -166,6 +166,8 @@ body {
   }
 }
 
-html:has(:target) .cv-section {
+html:has(:target) .cv-section,
+html:has(:target) article table,
+html:has(:target) article pre {
   content-visibility: visible;
 }
