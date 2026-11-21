@@ -7,7 +7,9 @@
  * interaction, or after the window load event plus the first contentful paint
  * plus `idleFallbackMs`, with a hard upper bound after load. Tab visibility and
  * page-hide events are deliberately not triggers: they can fire without a
- * person behind them and would start the scripts before the first paint. A click that lands on a JS-only control before
+ * person behind them and would start the scripts before the first paint. The
+ * scroll listener is not capturing, so only the page itself scrolling counts:
+ * an inner scroller that settles during layout must not start the scripts. A click that lands on a JS-only control before
  * hydration is replayed once the control has a React fiber. Only buttons are
  * replayed: links navigate natively, a form submit button and native form
  * fields already acted on the first click, and a second click would undo a
@@ -24,7 +26,7 @@ export const hydrationLoader = (scripts, idleFallbackMs) => {
   var FIBER_KEY = /^__react(Fiber|Props)\$/
   var CONTAINER_KEY = /^__reactContainer\$/
   var CLICKABLE = 'button, [role="button"], a'
-  var INTERACTIONS = ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll']
+  var INTERACTIONS = ['pointerdown', 'keydown', 'touchstart', 'wheel']
 
   if (window.__hodleHydrationLoader) return
 
@@ -131,6 +133,7 @@ export const hydrationLoader = (scripts, idleFallbackMs) => {
   INTERACTIONS.forEach(function (name) {
     window.addEventListener(name, inject, { once: true, passive: true, capture: true })
   })
+  window.addEventListener('scroll', inject, { once: true, passive: true })
   window.addEventListener('click', onClick, true)
 
   if (document.readyState === 'complete') return afterLoad()
