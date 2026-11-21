@@ -22,6 +22,7 @@ const typography = [
   '[&_code]:font-[family-name:var(--font-geist-mono)] [&_code]:text-[13px] [&_code]:text-foreground [&_code]:bg-gray-100 [&_code]:rounded [&_code]:px-1.5 [&_code]:py-0.5',
   '[&_pre]:my-8 [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:bg-[#0a0a0a] [&_pre]:p-5 [&_pre]:text-[13px] [&_pre]:leading-[1.7]',
   '[&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-gray-200',
+  '[&_pre]:[content-visibility:auto] [&_pre]:[contain-intrinsic-size:auto_320px]',
 
   '[&_img]:my-8 [&_img]:w-full [&_img]:rounded-xl',
   '[&_hr]:my-10 [&_hr]:border-gray-200',
@@ -29,6 +30,7 @@ const typography = [
   '[&_table]:my-8 [&_table]:block [&_table]:overflow-x-auto [&_table]:w-full [&_table]:border-collapse [&_table]:text-[13.5px]',
   '[&_th]:border-b [&_th]:border-gray-200 [&_th]:py-2.5 [&_th]:pr-4 [&_th]:text-left [&_th]:font-medium [&_th]:text-foreground',
   '[&_td]:border-b [&_td]:border-gray-100 [&_td]:py-2.5 [&_td]:pr-4 [&_td]:align-top',
+  '[&_table]:[content-visibility:auto] [&_table]:[contain-intrinsic-size:auto_320px]',
 
   '[&>*:last-child]:mb-0',
 ].join(' ')
