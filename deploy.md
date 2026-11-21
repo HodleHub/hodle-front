@@ -25,7 +25,7 @@ pnpm run postdeploy:indexnow
 
 Behaviour, in order of precedence:
 
-- The first `pointerdown`, `keydown`, `touchstart`, `wheel` or `scroll` injects the scripts immediately.
+- The first `pointerdown`, `keydown`, `touchstart` or `wheel`, or the page itself scrolling, injects the scripts immediately. A scroll inside an inner scrollable element does not count.
 - Hiding the tab or leaving the page does not inject them: those events can fire without a person behind them.
 - With no interaction, the loader waits for the window `load` event and the first contentful paint, then `IDLE_FALLBACK_MS` (4000, in `transformHtml.mjs`), then injects on `requestIdleCallback` (1.5 s timeout, plain call when unsupported). A tab that is already hidden skips the wait for a paint entry but keeps the delay.
 - Hard upper bound: 8 s after `load` the scripts are injected even if no paint entry was ever observed.

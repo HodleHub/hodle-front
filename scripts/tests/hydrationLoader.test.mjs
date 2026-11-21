@@ -50,8 +50,9 @@ const makeHarness = ({ readyState = 'loading', hidden = false, painted = false }
 
       if (index !== -1) state.timers.splice(index, 1)
     },
-    addEventListener: (name, fn) => {
+    addEventListener: (name, fn, options) => {
       state.listeners[name] = [...(state.listeners[name] || []), fn]
+      state.options = { ...(state.options || {}), [name]: options }
     },
     removeEventListener: (name, fn) => {
       state.listeners[name] = (state.listeners[name] || []).filter((f) => f !== fn)
@@ -153,6 +154,19 @@ test('a hidden tab waits the idle fallback without a paint entry', () => {
   assert.equal(h.state.appended.length, 0)
 
   h.advance(1)
+  assert.equal(h.state.appended.length, 3)
+})
+
+test('the scroll trigger listens to the page only, not to inner scrollers', () => {
+  const h = makeHarness()
+
+  h.start()
+
+  assert.equal(Boolean(h.state.options.scroll.capture), false)
+  assert.equal(h.state.options.pointerdown.capture, true)
+
+  h.emit('scroll')
+
   assert.equal(h.state.appended.length, 3)
 })
 
